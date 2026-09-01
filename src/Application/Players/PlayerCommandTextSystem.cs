@@ -4,6 +4,7 @@
 /// Handles the command-text callback, invoking the registered command handlers.
 /// </summary>
 /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerCommandService -> CD-01; serviceProvider -> CD-21. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerCommandTextSystem(
     IPlayerCommandService playerCommandService,
     IServiceProvider serviceProvider) : ISystem

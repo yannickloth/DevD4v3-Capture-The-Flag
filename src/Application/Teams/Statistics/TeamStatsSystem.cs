@@ -4,6 +4,7 @@
 /// Tracks team statistics and provides stat-related commands.
 /// </summary>
 /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team stats), CD-01 (open.mp/SampSharp platform API: player events, dialog, textdraw), CD-15 (command set: rstats/tstats commands), CD-09 (authorization policy: moderator gating), CD-02 (CTF game-rules specification: scoring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; worldService -> CD-01; teamTextDrawRenderer -> CD-29+CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TeamStatsSystem(
     IDialogService dialogService, 
     IWorldService worldService,

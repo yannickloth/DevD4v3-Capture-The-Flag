@@ -1,7 +1,10 @@
 ﻿namespace Persistence.Tests.Players;
 
+/// <summary>Verifies each repository update operation persists the changed field.</summary>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateX), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
 public class UpdatePlayer
 {
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateName), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdatePlayerName(DatabaseProvider provider)
     {
@@ -22,6 +25,7 @@ public class UpdatePlayer
         actual.Name.Should().Be(newName);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdatePassword), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdatePlayerPassword(DatabaseProvider provider)
     {
@@ -42,6 +46,7 @@ public class UpdatePlayer
         actual.Password.Should().Be(expectedPassword);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateTotalKills), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateTotalKills(DatabaseProvider provider)
     {
@@ -62,6 +67,7 @@ public class UpdatePlayer
         actual.TotalKills.Should().Be(expectedTotalKills);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateTotalDeaths), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateTotalDeaths(DatabaseProvider provider)
     {
@@ -82,6 +88,7 @@ public class UpdatePlayer
         actual.TotalDeaths.Should().Be(expectedTotalDeaths);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateMaxKillingSpree), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateMaxKillingSpree(DatabaseProvider provider)
     {
@@ -102,6 +109,7 @@ public class UpdatePlayer
         actual.MaxKillingSpree.Should().Be(expectedKillingSpree);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateBroughtFlags), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateBroughtFlags(DatabaseProvider provider)
     {
@@ -123,6 +131,7 @@ public class UpdatePlayer
         actual.BroughtFlags.Should().Be(expectedBroughtFlags);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateCapturedFlags), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateCapturedFlags(DatabaseProvider provider)
     {
@@ -144,6 +153,7 @@ public class UpdatePlayer
         actual.CapturedFlags.Should().Be(expectedCapturedFlags);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateDroppedFlags), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateDroppedFlags(DatabaseProvider provider)
     {
@@ -165,6 +175,7 @@ public class UpdatePlayer
         actual.DroppedFlags.Should().Be(expectedDroppedFlags);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateReturnedFlags), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateReturnedFlags(DatabaseProvider provider)
     {
@@ -186,6 +197,7 @@ public class UpdatePlayer
         actual.ReturnedFlags.Should().Be(expectedReturnedFlags);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateHeadShots), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateHeadShots(DatabaseProvider provider)
     {
@@ -207,6 +219,7 @@ public class UpdatePlayer
         actual.HeadShots.Should().Be(expectedHeadShots);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateGunGameWins), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateGunGameWins(DatabaseProvider provider)
     {
@@ -228,6 +241,7 @@ public class UpdatePlayer
         actual.GunGameWins.Should().Be(expectedGunGameWins);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateRole), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateRole(DatabaseProvider provider)
     {
@@ -248,6 +262,7 @@ public class UpdatePlayer
         actual.RoleId.Should().Be(expectedRoleId);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateSkin), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateSkin(DatabaseProvider provider)
     {
@@ -268,6 +283,7 @@ public class UpdatePlayer
         actual.SkinId.Should().Be(expectedSkinId);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateRank), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateRank(DatabaseProvider provider)
     {
@@ -288,6 +304,7 @@ public class UpdatePlayer
         actual.RankId.Should().Be(expectedRankId);
     }
 
+    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: IPlayerRepository.UpdateLastConnection), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void ShouldUpdateLastConnection(DatabaseProvider provider)
     {

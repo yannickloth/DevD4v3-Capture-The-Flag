@@ -4,6 +4,7 @@
 /// Provides the basic (public) command set.
 /// </summary>
 /// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; dialogService -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class BasicCommands(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem

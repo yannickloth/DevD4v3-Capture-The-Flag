@@ -4,6 +4,7 @@
 /// Provides the moderator-role command set.
 /// </summary>
 /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies: worldService -> CD-01. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
 public class ModeratorCommands(IWorldService worldService) : ISystem
 {
     /// <summary>Shows the moderator commands dialog.</summary>

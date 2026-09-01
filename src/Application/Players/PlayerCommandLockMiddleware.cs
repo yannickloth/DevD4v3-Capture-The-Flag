@@ -5,6 +5,7 @@
 /// when the player does not meet the required conditions.
 /// </summary>
 /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; next -> CD-01; mapRotationService -> CD-29+CD-12. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerCommandLockMiddleware(
     IEntityManager entityManager,
     EventDelegate next,

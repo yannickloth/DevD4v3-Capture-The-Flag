@@ -1,5 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Weapons;
 
+/// <summary>Test double for WeaponCatalog (fixture).</summary>
+/// <remarks>Change drivers: CD-29 (code-under-test: WeaponCatalog (fixture)), CD-04 (weapon-catalog configuration)</remarks>
 public class TestWeaponCatalog : WeaponCatalog
 {
     public override WeaponCatalogType Type => WeaponCatalogType.Mixed;

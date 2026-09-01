@@ -4,6 +4,7 @@
 /// Represents the admin private chat tier, routed by the '#' prefix.
 /// </summary>
 /// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies: entityManager -> CD-01. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
 public class PrivateAdminChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>

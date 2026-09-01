@@ -1,9 +1,9 @@
 ﻿namespace Persistence.SQLite;
 
-/// <remarks>Change drivers: CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-19 (SQL dialect/DBMS)</remarks>
+/// <remarks>Change drivers: CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
 public static class PersistenceSQLiteServicesExtensions
 {
-    /// <remarks>Change drivers: CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-19 (SQL dialect/DBMS)</remarks>
+    /// <remarks>Change drivers: CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public static IServiceCollection AddPersistenceSQLiteServices(
         this IServiceCollection services, 
         IConfiguration configuration,

@@ -1,6 +1,7 @@
 ﻿namespace CTF.Application.Players.Accounts.Profile;
 
 /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
+/// <remarks>Injected dependencies: playerRepository -> CD-20. Driven by the IPlayerRepository contract + CD-21 (DI wiring).</remarks>
 public class PlayerSkinSystem(IPlayerRepository playerRepository) : ISystem
 {
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>

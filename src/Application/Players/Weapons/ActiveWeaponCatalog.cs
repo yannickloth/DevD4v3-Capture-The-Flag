@@ -8,6 +8,7 @@
 /// Consumers do not need to know which weapon catalog is active.
 /// This class always exposes the catalog selected by the current server configuration.
 /// </remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): settings -> CD-17; catalogs (FrozenDictionary&lt;WeaponCatalogType, WeaponCatalog&gt;) -> CD-04. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class ActiveWeaponCatalog(
     WeaponCatalogSettings settings, 
     FrozenDictionary<WeaponCatalogType, WeaponCatalog> catalogs)

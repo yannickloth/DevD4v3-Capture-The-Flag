@@ -1,5 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
+/// <summary>Tests for TeamMembers.</summary>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: TeamMembers), CD-02 (CTF game-rules specification)</remarks>
 public class TeamMembersTests
 {
     [Test]

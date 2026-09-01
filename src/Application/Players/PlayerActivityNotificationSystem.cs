@@ -4,6 +4,7 @@
 /// Notifies an external Discord webhook of player connect/disconnect activity.
 /// </summary>
 /// <remarks>Change drivers: CD-24 (Discord webhook contract), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): discordWebhookClient -> CD-24. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerActivityNotificationSystem(
     IDiscordWebhookClient discordWebhookClient) : ISystem
 {

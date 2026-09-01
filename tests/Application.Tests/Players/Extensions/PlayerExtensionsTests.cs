@@ -1,5 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Extensions;
 
+/// <summary>Tests for PlayerExtensions.</summary>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: PlayerExtensions), CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerExtensionsTests
 {
     [Test]

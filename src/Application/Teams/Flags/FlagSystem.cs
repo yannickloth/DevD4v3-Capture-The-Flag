@@ -4,6 +4,7 @@
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag steal/capture/drop/return rules), CD-01 (open.mp/SampSharp platform API: player events, pickups), CD-03 (combat/weapon-rules specification: carrier-kill rewards), CD-15 (command set: returnflag command), CD-09 (authorization policy: moderator gating).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-29+CD-01; flagAutoReturnTimer -> CD-29+CD-02; playerStatsRenderer -> CD-29+CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagSystem(
     IWorldService worldService,
     FrozenDictionary<FlagStatus, IFlagEvent> flagEvents,

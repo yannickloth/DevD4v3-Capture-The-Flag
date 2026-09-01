@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Extensions;
 
-/// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-19 (SQL dialect/DBMS), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-19 (MariaDB SQL dialect), CD-30 (SQLite SQL dialect), CD-21 (DI container/composition)</remarks>
 public static class DatabaseProviderExtensions
 {
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-19 (SQL dialect/DBMS), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-19 (MariaDB SQL dialect), CD-30 (SQLite SQL dialect), CD-21 (DI container/composition)</remarks>
     public static void ChooseDatabaseProvider(
         this IServiceCollection services,
         IConfiguration configuration)

@@ -1,6 +1,7 @@
 ﻿namespace CTF.Application.Players.Combos.Definitions;
 
 /// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-17 (game configuration/.env schema)</remarks>
+/// <remarks>Injected dependencies: comboSettings -> CD-17. Driven by the ComboSettings (config) contract + CD-21 (DI wiring).</remarks>
 public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 {
     private const int Health = 100;

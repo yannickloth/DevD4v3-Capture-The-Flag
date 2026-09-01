@@ -4,6 +4,7 @@
 /// This event occurs when a player has captured the opposing team's flag from their base.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag capture rule), CD-01 (open.mp/SampSharp platform API: pickups, radar, audio, GameText), CD-06 (coin economy: coins-on-flag-event), CD-10 (player-statistics/rank model: captured flags), CD-20 (outbound repository contract: UpdateCapturedFlags), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-29+CD-01; playerStatsRenderer -> CD-29+CD-10; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class OnFlagCaptured(
     IPlayerRepository playerRepository,
     IWorldService worldService,

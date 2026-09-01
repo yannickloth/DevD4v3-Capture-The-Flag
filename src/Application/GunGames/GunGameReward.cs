@@ -1,6 +1,7 @@
 ﻿namespace CTF.Application.GunGames;
 
 /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-06 (coin economy), CD-10 (player-statistics/rank model)</remarks>
+/// <remarks>Injected dependencies: playerStatsRenderer -> CD-29+CD-10. Driven by the PlayerStatsRenderer contract + CD-21 (DI wiring).</remarks>
 public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 {
     private const int WinnerEarnedHealth = 100;

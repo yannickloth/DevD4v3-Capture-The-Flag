@@ -4,6 +4,7 @@
 /// A timer service that automatically returns the flag to its base if it is not picked up by a player within a certain time limit.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag auto-return rule), CD-01 (open.mp/SampSharp platform API: timers, pickups, audio), CD-17 (game configuration/.env schema: FlagAutoReturn__Delay).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): timerService -> CD-01; worldService -> CD-01; teamPickupService -> CD-29+CD-01; flagAutoReturnSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagAutoReturnTimer(
     ITimerService timerService,
     IWorldService worldService,

@@ -32,19 +32,24 @@ The following change drivers were identified from the codebase. Each is an exter
 | **CD-16** | **RCON security policy** — the rule that a connected player attempting an RCON login is kicked. | `RconSecuritySystem`; `config.json` rcon settings |
 | **CD-17** | **Game configuration / `.env` schema** — all server configuration bound from `.env`/environment: `ServerInfo__*`, `CommandCooldowns__*`, `TopPlayers__*`, `ServerOwner__*`, `FlagCarrier__*`, `FlagAutoReturn__*`, `AntiCBug__*`, `Headshot__*`, `ClassSelection__*`, `WeaponCatalog__*`, audio URLs, `DatabaseProvider`. | `.env.example`, `AppSettingsExtensions` |
 | **CD-18** | **Database schema / player data model** — the `players` table columns and seed data that the outbound ports persist. | `schema.sql` (SQLite & MariaDB), `seed_data.sql`, `FakePlayer` |
-| **CD-19** | **SQL dialect / DBMS** — the storage-technology differences between SQLite and MariaDB (driver, parameter syntax, type mapping, `enum` vs int role). | `Persistence.SQLite/*`, `Persistence.MariaDB/*`, `MySqlConnector`, `Microsoft.Data.Sqlite` |
+| **CD-19** | **MariaDB SQL dialect** — the MariaDB/MySQL SQL dialect and driver: `MySqlConnector`, `@parameter` placeholders, `enum` role column, `LAST_INSERT_ID()`. A change in the MariaDB dialect/driver forces only the MariaDB provider to change. | `MySqlConnector` (MariaDB), `Persistence.MariaDB/*` |
+| **CD-30** | **SQLite SQL dialect** — the SQLite SQL dialect and driver: `Microsoft.Data.Sqlite`, positional parameters, int-based role column, `CreateRegexpFunction`. A change in the SQLite dialect/driver forces only the SQLite provider to change. | `Microsoft.Data.Sqlite` (SQLite), `Persistence.SQLite/*` |
 | **CD-20** | **Outbound repository contract** — the persistence ports `IPlayerRepository` and `ITopPlayersRepository` that all providers implement. | `IPlayerRepository`, `ITopPlayersRepository` |
 | **CD-21** | **DI container / composition** — the dependency-injection registrations and the ECS system/middleware wiring. | `Startup`, `ServiceCollectionExtensions` (all subsystems), `Microsoft.Extensions.DependencyInjection` |
 | **CD-22** | **Hosting / deployment spec** — the open.mp deployment layout (`gamemode/` working directory, maps folder, yesql SQL folders), server entry, environment selection. | `GameModePaths`, `Program.cs`, `Dockerfile`, `.env` (Docker section) |
 | **CD-23** | **Serilog logging** — the logging framework configuration (level overrides, sinks, output templates). | `SerilogExtensions`, `Startup` |
 | **CD-24** | **Discord webhook contract** — the external Discord integration: message payload shape and webhook URL. | `DiscordWebhookClient`, `IDiscordWebhookClient`, `.env` `DISCORD_WEBHOOK_URL` |
 | **CD-25** | **BCrypt password-hashing contract** — the password hashing algorithm and hash format stored in the DB. | `PasswordHasherBcrypt`, `BCrypt.Net.BCrypt`, `IPasswordHasher`, `password` column |
+| **CD-26** | **NUnit test-framework contract** — the test framework: `[Test]`, `[TestCase]`, `[TestCaseSource]`, `[SetUp]`, `[OneTimeSetUp]`, test-runner lifecycle, and the `IEnumerable<*>` test-case-source convention. When the NUnit API/attributes or the test data shape changes, test methods must change. | `NUnit`, `NUnit3TestAdapter`, `NUnit.Analyzers` (test projects `tests/**`) |
+| **CD-27** | **FluentAssertions contract** — the assertion fluent-API (`Should().Be()`, `Should().Throw<>()`, `Should().BeEquivalentTo()`). When assertion conventions/semantics change, the assert blocks must change. | `FluentAssertions` (test projects `tests/**`) |
+| **CD-28** | **NSubstitute mock contract** — the mocking/substitute API (`Substitute.For<*>`). When the substitution API changes, fakes built on it must change. | `NSubstitute` (test project `tests/Application.Tests` only) |
+| **CD-29** | **Depended-on contract (seam)** — the public type/interface surface an element depends on, asserts, or must remain substitutable for. Covers both (a) tests/fakes that assert or mock a production type, and (b) **production dependency-injection points** (constructor/primary-constructor parameters, injected fields) that must stay compatible with the injected service's public signature. A dependency-injection parameter is driven by the *contract of the injected type* plus CD-21 (the DI registration that supplies it) — **not** by the injected type's domain drivers. The dependency relation itself is not a driver (per IVP: co-change is evidence, not a driver); the *contract* the seam exposes is. | the production type/interface surface in `src/Application`, `src/Persistence`, and `external/SampSharp`; injected-service contracts |
 
 ---
 
 ## 2. Namespace Driver Assignments
 
-C# file-scoped namespaces (`namespace X.Y;`) cannot carry `///` XML doc comments, so the namespace → driver mapping is recorded here as the single source of truth. Each namespace's driver set is the union of the drivers of the types and members it contains.
+1 yesC# file-scoped namespaces (`namespace X.Y;`) cannot carry `///` XML doc comments, so the namespace → driver mapping is recorded here as the single source of truth. Each namespace's driver set is the union of the drivers of the types and members it contains.
 
 | Namespace | Change drivers |
 |-----------|----------------|
@@ -83,13 +88,33 @@ C# file-scoped namespaces (`namespace X.Y;`) cannot carry `///` XML doc comments
 | `CTF.Application.Teams.Matches` | CD-01, CD-02 |
 | `CTF.Application.Teams.Statistics` | CD-01, CD-02, CD-09, CD-10, CD-15 |
 | `CTF.Host` | CD-01, CD-11, CD-17, CD-21, CD-22, CD-23, CD-24 |
-| `CTF.Host.Extensions` | CD-01, CD-17, CD-19, CD-21, CD-22, CD-23, CD-24 |
+| `CTF.Host.Extensions` | CD-01, CD-17, CD-19, CD-30, CD-21, CD-22, CD-23, CD-24 |
 | `CTF.Host.Services` | CD-01, CD-17, CD-21, CD-23, CD-24, CD-25 |
 | `Persistence.InMemory` | CD-17, CD-18, CD-20, CD-21, CD-25 |
 | `Persistence.MariaDB` | CD-17, CD-18, CD-19, CD-20, CD-21, CD-25 |
-| `Persistence.SQLite` | CD-17, CD-18, CD-19, CD-20, CD-21, CD-25 |
-| `Persistence.SQLite.Extensions` | CD-19 |
+| `Persistence.SQLite` | CD-17, CD-18, CD-30, CD-20, CD-21, CD-25 |
+| `Persistence.SQLite.Extensions` | CD-30 |
 | `SampSharp` | CD-01, CD-22 |
+
+### Test-project namespaces
+
+| Namespace | Change drivers |
+|-----------|----------------|
+| `CTF.Application.Tests` | CD-11, CD-22, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Fakes` | CD-01, CD-11, CD-28, CD-29 |
+| `CTF.Application.Tests.GunGames` | CD-07, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Maps` | CD-11, CD-12, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.Extensions` | CD-01, CD-08, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.Ranks` | CD-10, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.TopPlayers` | CD-10, CD-17, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.Vitalities` | CD-03, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Players.Weapons` | CD-03, CD-04, CD-17, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Teams` | CD-02, CD-10, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests.Teams.Flags` | CD-02, CD-26, CD-27, CD-29 |
+| `Persistence.Tests.Common` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-26, CD-29, CD-30 |
+| `Persistence.Tests.Common.DatabaseProviders` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-29, CD-30 |
+| `Persistence.Tests.Players` | CD-18, CD-20, CD-26, CD-27, CD-29 |
 
 > Note: `SampSharp` here is the `Program.cs` source-generated entry point namespace (not the vendored framework), driven by the host ABI contract (CD-01) and deployment layout (CD-22).
 
@@ -103,6 +128,6 @@ C# file-scoped namespaces (`namespace X.Y;`) cannot carry `///` XML doc comments
 
 - **Counterfactual grounding.** Every driver above survives the counterfactual test: removing the referenced artifact condition eliminates the element's modification requirement. No driver was invented; each traces to a read artifact (README rules, `.env.example`, `schema.sql`, platform API usage, config sections).
 - **No proxy reasoning.** Co-variation (files changed together), team ownership, layer uniformity, and semantic similarity were NOT used as drivers. Drivers are the external authorities themselves.
-- **No ranking.** No "primary"/"secondary"/"main" vocabulary is used; all 25 drivers are equal forces on the elements that respond to them.
+- **No ranking.** No "primary"/"secondary"/"main" vocabulary is used; all drivers are equal forces on the elements that respond to them.
 - **Not eliminated by design.** Encapsulation/abstraction bounds blast radius but never eliminates a driver; e.g. the platform API (CD-01) and the game rules (CD-02) drive elements regardless of how they are factored.
-- **Scope.** Only project C# code (`src/Application`, `src/Host`, `src/Persistence`) is analysed. The vendored `external/SampSharp` framework and the test projects are excluded.
+- **Scope.** Project C# code (`src/Application`, `src/Host`, `src/Persistence`) plus the test projects (`tests/Application.Tests`, `tests/Persistence.Tests`) are analysed. The vendored `external/SampSharp` framework is excluded.

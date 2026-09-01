@@ -1,6 +1,7 @@
 ﻿namespace CTF.Application.Maps.Rotation;
 
 /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-11 (map configuration), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-01; mapObjects -> CD-01; worldService -> CD-01; timerService -> CD-01; mapInfoService -> CD-29+CD-11; mapCollection -> CD-29+CD-11; mapTextDrawRenderer -> CD-29+CD-01; flagStateResetter -> CD-29+CD-02; teamBalancer -> CD-29+CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class MapRotationService(
     IServerService serverService,
     IMapObjectService mapObjects,

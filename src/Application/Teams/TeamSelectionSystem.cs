@@ -4,6 +4,7 @@
 /// Handles team selection for players via the team command and dialog.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing), CD-01 (open.mp/SampSharp platform API: dialog, commands, player team/spawn), CD-15 (command set: team command).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; dialogService -> CD-01; teamTextDrawRenderer -> CD-29+CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TeamSelectionSystem(
     IWorldService worldService,
     IDialogService dialogService,

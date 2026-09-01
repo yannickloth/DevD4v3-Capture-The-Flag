@@ -1,5 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
+/// <summary>Tests for PlayerProgression.</summary>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: PlayerProgression), CD-07 (GunGame mode rules)</remarks>
 public class PlayerProgressionTests
 {
     private readonly MaxWeaponLevel _maxLevel = new(4);

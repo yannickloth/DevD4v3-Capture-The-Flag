@@ -4,6 +4,7 @@
 /// Provides the admin-role command set.
 /// </summary>
 /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; serverService -> CD-01; worldService -> CD-01; dialogService -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class AdminCommands(
     IEntityManager entityManager,
     IServerService serverService,

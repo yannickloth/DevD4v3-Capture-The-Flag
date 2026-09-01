@@ -9,6 +9,7 @@
 /// reload animation of certain weapons, particularly the Desert Eagle, to fire
 /// much faster than the game's normal mechanics would allow.
 /// </remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): unixTimeSeconds -> CD-01; antiCBugSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class AntiCBugSystem(
     UnixTimeSeconds unixTimeSeconds,
     AntiCBugSettings antiCBugSettings) : ISystem

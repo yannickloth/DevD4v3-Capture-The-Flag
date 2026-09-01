@@ -11,6 +11,7 @@ namespace CTF.Application.Players.Pause;
 /// packets are received from the client for a period of time, the player is
 /// considered paused. Once updates resume, the player is considered active again.
 /// </remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): timerService -> CD-01; entityManager -> CD-01; timeProvider -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerPauseSystem(
     ITimerService timerService,
     IEntityManager entityManager,
