@@ -13,6 +13,9 @@ ctf-gamemode-windows/
 dotnet/runtime/
 runtime/
 
+# direnv cache
+.direnv/
+
 # environment variables for development and test
 **/.env
 **/.env.test
