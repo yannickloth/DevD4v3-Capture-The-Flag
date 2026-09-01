@@ -1,13 +1,17 @@
 ﻿namespace CTF.Application.Players.Combos.Definitions;
 
+/// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-17 (game configuration/.env schema)</remarks>
 public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 {
     private const int Health = 100;
     private const int RocketLauncherAmmo = 2;
 
+    /// <remarks>Change drivers: CD-05 (combo definitions)</remarks>
     public string Name => $"{Health} Health and Rocket launcher(RPG)";
+    /// <remarks>Change drivers: CD-06 (coin economy)</remarks>
     public int RequiredCoins => 100;
 
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-17 (game configuration/.env schema)</remarks>
     public Result Give(Player player)
     {
         if (comboSettings.IsRocketLauncherDisabled)

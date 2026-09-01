@@ -1,9 +1,12 @@
 ﻿namespace CTF.Application.Players.Weapons.Catalogs;
 
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
 public class WarWeaponCatalog : WeaponCatalog
 {
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     public override WeaponCatalogType Type => WeaponCatalogType.War;
 
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

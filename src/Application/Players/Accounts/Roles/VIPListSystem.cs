@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Roles;
 
+/// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class VIPListSystem(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem
 {
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("vips")]
     public void Show(Player player)
     {

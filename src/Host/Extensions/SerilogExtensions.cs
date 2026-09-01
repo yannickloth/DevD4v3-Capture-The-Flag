@@ -1,7 +1,9 @@
 ﻿namespace CTF.Host.Extensions;
 
+/// <remarks>Change drivers: CD-23 (Serilog logging), CD-21 (DI container/composition), CD-24 (Discord webhook contract)</remarks>
 public static class SerilogExtensions
 {
+    /// <remarks>Change drivers: CD-23 (Serilog logging), CD-21 (DI container/composition), CD-24 (Discord webhook contract)</remarks>
     public static IServiceCollection AddSerilog(this IServiceCollection services)
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(), "logs/ctf-.txt");

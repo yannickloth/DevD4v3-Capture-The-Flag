@@ -1,7 +1,9 @@
 ﻿namespace CTF.Application.Players.Accounts.Profile;
 
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
 public class PlayerSkinSystem(IPlayerRepository playerRepository) : ISystem
 {
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
     [PlayerCommand("skin")]
     public void SetSkin(Player player, [CommandParameter(Name = "skinId")]int newSkinId)
     {

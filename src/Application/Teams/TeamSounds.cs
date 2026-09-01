@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Teams;
 
+/// <summary>
+/// Represents the sounds played for team flag events.
+/// </summary>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio), CD-17 (game configuration/.env schema: audio URLs).</remarks>
 public class TeamSounds
 {
     private string _flagDropped;
@@ -7,8 +11,14 @@ public class TeamSounds
     private string _flagTaken;
     private string _teamScores;
 
+    /// <summary>Gets the NoTeam sounds.</summary>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema: audio URLs).</remarks>
     public static readonly TeamSounds None;
+    /// <summary>Gets the Alpha team sounds.</summary>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema: audio URLs).</remarks>
     public static readonly TeamSounds Alpha;
+    /// <summary>Gets the Beta team sounds.</summary>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema: audio URLs).</remarks>
     public static readonly TeamSounds Beta;
 
     static TeamSounds()
@@ -40,27 +50,33 @@ public class TeamSounds
     /// <summary>
     /// Plays the sound when the team's flag is taken.
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio).</remarks>
     public void PlayFlagTakenSound()
         => PlayAudioStreamToAll(_flagTaken);
 
     /// <summary>
     /// Plays the sound when the team's flag is dropped.
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio).</remarks>
     public void PlayFlagDroppedSound()
         => PlayAudioStreamToAll(_flagDropped);
 
     /// <summary>
     /// Plays the sound when the team's flag is returned.
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio).</remarks>
     public void PlayFlagReturnedSound()
         => PlayAudioStreamToAll(_flagReturned);
 
     /// <summary>
     /// Plays the sound when the team scores.
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio).</remarks>
     public void PlayTeamScoresSound()
         => PlayAudioStreamToAll(_teamScores);
 
+    /// <summary>Plays the audio stream to all match players.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio).</remarks>
     private static void PlayAudioStreamToAll(string url)
     {
         IEnumerable<Player> players = MatchPlayers.GetAll();

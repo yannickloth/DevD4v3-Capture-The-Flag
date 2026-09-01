@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Maps.Rotation;
 
+/// <remarks>Change drivers: CD-12 (map-rotation rules), CD-11 (map configuration), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
 public class MapRotationSystem(
     IWorldService worldService,
     IDialogService dialogService,
@@ -10,12 +11,14 @@ public class MapRotationSystem(
     private int _connectedPlayers;
 
     [Event]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerSpawn(Player player)
     {
         mapTextDrawRenderer.Show(player);
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerConnect(Player player)
     {
         _connectedPlayers++;
@@ -24,6 +27,7 @@ public class MapRotationSystem(
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
         _connectedPlayers--;
@@ -33,6 +37,7 @@ public class MapRotationSystem(
 
     [PlayerCommand("startrt")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void StartRotationTimer(Player player)
     {
         mapRotationService.StartRotationTimer();
@@ -40,6 +45,7 @@ public class MapRotationSystem(
 
     [PlayerCommand("stoprt")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void StopRotationTimer(Player player)
     {
         mapRotationService.StopRotationTimer();
@@ -47,6 +53,7 @@ public class MapRotationSystem(
 
     [PlayerCommand("settimeleft")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void SetTimeLeft(Player player, int minutes)
     {
         var interval = new Minutes(minutes);
@@ -63,6 +70,7 @@ public class MapRotationSystem(
 
     [PlayerCommand("maps")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public async Task ShowMaps(Player player, string findBy = default)
     {
         var listDialog = new ListDialog(string.Empty, "Select", "Close");
@@ -95,6 +103,7 @@ public class MapRotationSystem(
         }
     }
 
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     private async Task ShowConfirmationDialog(Player player, IMap selectedMap)
     {
         var confirmationDialog = new MessageDialog(

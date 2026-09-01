@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerScoreSystem(
     IEntityManager entityManager,
     IWorldService worldService) : ISystem
 {
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("setscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetScoreToPlayer(
@@ -38,6 +40,7 @@ public class PlayerScoreSystem(
         }
     }
 
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddScoreToPlayer(
@@ -72,6 +75,7 @@ public class PlayerScoreSystem(
         }
     }
 
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addallscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddScoreToAllPlayers(Player currentPlayer, int score)

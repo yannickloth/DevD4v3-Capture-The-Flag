@@ -1,7 +1,13 @@
 ﻿namespace CTF.Application.Players.GeneralCommands;
 
+/// <summary>
+/// Provides the moderator-role command set.
+/// </summary>
+/// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class ModeratorCommands(IWorldService worldService) : ISystem
 {
+    /// <summary>Shows the moderator commands dialog.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("cmdsmoderator")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ShowModeratorCommands(Player player, IDialogService dialogService)
@@ -21,6 +27,8 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <summary>Kicks a target player.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("kick")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void Kick(
@@ -51,6 +59,8 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
         targetPlayer.Kick();
     }
 
+    /// <summary>Respawns a target player at their spawn point.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("setspawn")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void SetSpawn(
@@ -80,6 +90,8 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
         targetPlayer.Spawn();
     }
 
+    /// <summary>Clears the chat for all players.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("clearallchat")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ClearAllChat(Player currentPlayer)
@@ -90,6 +102,8 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
         }
     }
 
+    /// <summary>Issues a warning to a target player, kicking after the third warning.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("warn")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void Warn(
@@ -128,6 +142,8 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
         }
     }
 
+    /// <summary>Adds the warnings component when a player connects.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {

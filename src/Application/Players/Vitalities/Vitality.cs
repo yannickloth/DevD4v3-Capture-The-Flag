@@ -1,10 +1,18 @@
 ﻿namespace CTF.Application.Players.Vitalities;
 
+/// <summary>
+/// Represents a bounded health/armour amount.
+/// </summary>
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification)</remarks>
 public class Vitality
 {
+    /// <summary>Gets the health/armour amount.</summary>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification)</remarks>
     public float Amount { get; private set; }
     private Vitality(float amount) => Amount = amount;
 
+    /// <summary>Creates a vitality amount within the valid range.</summary>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification)</remarks>
     public static Result<Vitality> Create(float amount)
     {
         if (amount < 0 || amount > 100)

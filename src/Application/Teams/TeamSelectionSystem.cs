@@ -1,13 +1,24 @@
 ﻿namespace CTF.Application.Teams;
 
+/// <summary>
+/// Handles team selection for players via the team command and dialog.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing), CD-01 (open.mp/SampSharp platform API: dialog, commands, player team/spawn), CD-15 (command set: team command).</remarks>
 public class TeamSelectionSystem(
     IWorldService worldService,
     IDialogService dialogService,
     TeamTextDrawRenderer teamTextDrawRenderer) : ISystem
 {
+    /// <summary>Represents the handler for a team change.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership).</remarks>
     public delegate void TeamChangeEventHandler(Player player, Team selectedTeam);
+
+    /// <summary>Occurs when a player changes teams.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership).</remarks>
     public event TeamChangeEventHandler TeamChangeEvent;
 
+    /// <summary>Shows the team selection dialog.</summary>
+    /// <remarks>Change drivers: CD-15 (command set: team command), CD-01 (open.mp/SampSharp platform API: dialog), CD-02 (CTF game-rules specification: team balancing).</remarks>
     [PlayerCommand("team")]
     public async Task ShowTeams(Player player)
     {

@@ -1,7 +1,9 @@
 ﻿namespace CTF.Application.Players.Accounts.Roles;
 
+/// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
 public class PlayerRoleChecker : IPermissionChecker
 {
+    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
     public bool HasPermission(Player player, CommandDefinition command)
     {
         string minimumRequiredRoleValue = command.GetTag("role");

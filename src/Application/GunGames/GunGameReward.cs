@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.GunGames;
 
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-06 (coin economy), CD-10 (player-statistics/rank model)</remarks>
 public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 {
     private const int WinnerEarnedHealth = 100;
@@ -18,6 +19,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
         new(WeaponDefinitions.Flamethrower,  Ammo: 1000)
     ];
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-06 (coin economy)</remarks>
     public void Give(Player winner)
     {
         var weaponReward = _weaponRewards[Random.Shared.Next(_weaponRewards.Length)];

@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Profile;
 
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
 public class PlayerPasswordSystem(
     IPlayerRepository playerRepository,
     IDialogService dialogService) : ISystem
 {
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     private readonly InputDialog _passwordDialog = new()
     {
         IsPassword = true,
@@ -13,6 +15,7 @@ public class PlayerPasswordSystem(
         Button2 = "Close"
     };
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("changepass")]
     public async Task ShowPasswordDialog(Player player)
     {
@@ -24,6 +27,7 @@ public class PlayerPasswordSystem(
         await ChangePassword(player, enteredPassword);
     }
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     private async Task ChangePassword(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

@@ -1,11 +1,17 @@
 ﻿namespace CTF.Application.Players.Vitalities;
 
+/// <summary>
+/// Provides the health-related commands.
+/// </summary>
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class HealthSystem(
     IWorldService worldService,
     IEntityManager entityManager,
     UnixTimeSeconds unixTimeSeconds,
     CommandCooldowns commandCooldowns) : ISystem
 {
+    /// <summary>Adds health to a target player.</summary>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addhealth")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void AddHealthToPlayer(
@@ -40,6 +46,8 @@ public class HealthSystem(
         }
     }
 
+    /// <summary>Adds health to all connected players.</summary>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addallhealth")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void AddHealthToAllPlayers(Player currentPlayer, float amount)
@@ -65,6 +73,8 @@ public class HealthSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
+    /// <summary>Restores a player's health, subject to a cooldown.</summary>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-17 (game configuration/.env schema), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("health")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void RestoreHealth(Player currentPlayer)
@@ -86,6 +96,8 @@ public class HealthSystem(
         currentPlayer.Health = 100;
     }
 
+    /// <summary>Adds the wait-time component when a player connects.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();

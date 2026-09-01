@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players;
 
+/// <summary>
+/// Kicks connected players who attempt an in-game RCON login.
+/// </summary>
+/// <remarks>Change drivers: CD-16 (RCON security policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class RconSecuritySystem(IEntityManager entityManager) : ISystem
 {
     /// <summary>
@@ -15,6 +19,7 @@ public class RconSecuritySystem(IEntityManager entityManager) : ISystem
     /// <param name="success">
     /// false if the password was incorrect, or true if it was correct.
     /// </param>
+    /// <remarks>Change drivers: CD-16 (RCON security policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnRconLoginAttempt(string ip, string password, bool success)
     {

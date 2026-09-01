@@ -1,7 +1,13 @@
 ﻿namespace CTF.Application.Players.Chats;
 
+/// <summary>
+/// Provides dependency-injection extension methods for the chat subsystem.
+/// </summary>
+/// <remarks>Change drivers: CD-21 (DI container/composition)</remarks>
 public static class ChatServicesExtensions
 {
+    /// <summary>Registers the chat subsystem services.</summary>
+    /// <remarks>Change drivers: CD-21 (DI container/composition)</remarks>
     public static IServiceCollection AddChatServices(this IServiceCollection services)
     {
         services

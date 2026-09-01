@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players.Headshots;
 
+/// <summary>
+/// Handles headshot detection, reward, and persistence.
+/// </summary>
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API), CD-17 (game configuration/.env schema), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
 public class HeadshotSystem(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -23,6 +27,7 @@ public class HeadshotSystem(
     /// <param name="bodyPart">
     /// The <see href="https://www.open.mp/docs/scripting/resources/bodyparts">body part</see> that was hit.
     /// </param>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API), CD-17 (game configuration/.env schema), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     [Event]
     public void OnPlayerTakeDamage(Player receiver, Player issuer, float amount, Weapon weapon, BodyPart bodyPart)
     {

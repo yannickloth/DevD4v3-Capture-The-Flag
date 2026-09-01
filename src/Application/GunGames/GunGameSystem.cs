@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.GunGames;
 
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class GunGameSystem(
     IEntityManager entityManager,
     IWorldService worldService,
@@ -9,15 +10,18 @@ public class GunGameSystem(
     GunGameSession gunGameSession,
     GunGameReward gunGameReward) : ISystem, IGunGameMode
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public bool IsEnabled { get; private set; }
 
     [Event]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerConnect(Player player)
     {
         player.AddComponent<PlayerProgression>();
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerSpawn(Player player)
     {
         if (!IsEnabled)
@@ -31,6 +35,7 @@ public class GunGameSystem(
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
         if (!IsEnabled || killer is null)
@@ -64,6 +69,7 @@ public class GunGameSystem(
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnLoadingMap()
     {
         if (!IsEnabled)
@@ -76,6 +82,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameon")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public async Task GunGameOn(Player player, int killsRequiredPerLevel)
     {
         if (IsEnabled)
@@ -114,6 +121,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameoff")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void GunGameOff(Player player)
     {
         if (!IsEnabled)
@@ -126,6 +134,7 @@ public class GunGameSystem(
         worldService.SendClientMessage(Color.Orange, GunGameMessages.GunGameModeDisabled);
     }
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     private void StartGunGame()
     {
         IsEnabled = true;
@@ -149,6 +158,7 @@ public class GunGameSystem(
         );
     }
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     private void FinishGunGame()
     {
         IsEnabled = false;
@@ -164,6 +174,7 @@ public class GunGameSystem(
         );
     }
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     private static void RestorePlayerWeapons(Player player)
     {
         player.GetComponent<PlayerProgression>().Reset();

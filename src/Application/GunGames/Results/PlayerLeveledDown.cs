@@ -3,12 +3,15 @@
 /// <summary>
 /// Handles the <see cref="GunGameResult.LeveledDown"/> result.
 /// </summary>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerLeveledDown(
     IWorldService worldService,
     ActiveWeaponProgression weaponProgression) : IGunGameResultHandler
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.LeveledDown;
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Handle(KillContext context)
     {
         var victimProgression = context.Victim.GetComponent<PlayerProgression>();

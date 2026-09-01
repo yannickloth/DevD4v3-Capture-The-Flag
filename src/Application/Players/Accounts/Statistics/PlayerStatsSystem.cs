@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
 public class PlayerStatsSystem(
     IWorldService worldService,
     IDialogService dialogService,
@@ -8,18 +9,21 @@ public class PlayerStatsSystem(
     PlayerKillingSpreeUpdater killingSpreeUpdater,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {
         playerStatsRenderer.CreateTextDraw(player);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerSpawn(Player player)
     {
         playerStatsRenderer.UpdateTextDraw(player);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -31,6 +35,7 @@ public class PlayerStatsSystem(
         playerRepository.UpdateLastConnection(playerInfo);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -53,6 +58,7 @@ public class PlayerStatsSystem(
         playerStatsRenderer.UpdateTextDraw(killer);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
@@ -62,6 +68,7 @@ public class PlayerStatsSystem(
         }
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("re")]
     public void ResetPlayerStats(Player player)
     {
@@ -77,6 +84,7 @@ public class PlayerStatsSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("mystats")]
     public void ShowStats(Player player)
     {
@@ -85,6 +93,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("stats")]
     public void ShowStats(Player currentPlayer, [CommandParameter(Name = "playerId")]Player targetPlayer)
     {
@@ -93,6 +102,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-08 (account & authentication policy)</remarks>
     private static string GetPlayerContent(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

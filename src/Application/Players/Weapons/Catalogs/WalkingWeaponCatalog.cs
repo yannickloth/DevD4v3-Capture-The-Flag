@@ -3,13 +3,16 @@
 /// <summary>
 /// Defines a weapon catalog that restricts player mobility while fighting.
 /// </summary>
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
 /// <remarks>
 /// Players can only walk while using most weapons in this catalog.
 /// </remarks>
 public class WalkingWeaponCatalog : WeaponCatalog
 {
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     public override WeaponCatalogType Type => WeaponCatalogType.Walking;
 
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

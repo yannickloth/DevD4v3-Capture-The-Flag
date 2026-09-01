@@ -1,10 +1,12 @@
 ﻿namespace CTF.Application.Players.Combos;
 
+/// <remarks>Change drivers: CD-05 (combo definitions), CD-17 (game configuration/.env schema), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class RocketLauncherSystem(
     IWorldService worldService,
     ComboSettings comboSettings) : ISystem
 {
     [Event]
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnLoadingMap()
     {
         comboSettings.IsRocketLauncherDisabled = true;
@@ -12,6 +14,7 @@ public class RocketLauncherSystem(
 
     [PlayerCommand("rpgon")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void EnableRocketLauncher(Player player)
     {
         var message = Smart.Format(Messages.EnableRocketLauncher, new
@@ -24,6 +27,7 @@ public class RocketLauncherSystem(
 
     [PlayerCommand("rpgoff")]
     [RequiresMinimumRole(RoleId.Moderator)]
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void DisableRocketLauncher(Player player)
     {
         var message = Smart.Format(Messages.DisableRocketLauncher, new

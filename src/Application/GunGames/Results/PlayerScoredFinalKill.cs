@@ -3,12 +3,15 @@
 /// <summary>
 /// Handles the <see cref="GunGameResult.ScoredFinalKill"/> result.
 /// </summary>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
 public class PlayerScoredFinalKill(
     IWorldService worldService,
     IPlayerRepository playerRepository) : IGunGameResultHandler
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.ScoredFinalKill;
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Handle(KillContext context)
     {
         PlayerInfo killerInfo = context.Killer.GetRequiredInfo();

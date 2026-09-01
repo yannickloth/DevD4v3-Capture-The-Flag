@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Authentication;
 
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class AuthenticationDialog(
     IDialogService dialogService,
     AccountAuthenticator accountAuthenticator)
 {
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     private readonly InputDialog _signupDialog = new()
     {
         IsPassword = true,
@@ -12,6 +14,7 @@ public class AuthenticationDialog(
         Button1 = "Accept"
     };
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     private readonly InputDialog _loginDialog = new()
     {
         IsPassword = true,
@@ -20,6 +23,7 @@ public class AuthenticationDialog(
         Button1 = "Accept"
     };
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task ShowSignup(Player player)
     {
         InputDialogResponse response = await dialogService.ShowAsync(player, _signupDialog);
@@ -38,6 +42,7 @@ public class AuthenticationDialog(
             await ShowSignup(player);
     }
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task ShowLogin(Player player)
     {
         InputDialogResponse response = await dialogService.ShowAsync(player, _loginDialog);

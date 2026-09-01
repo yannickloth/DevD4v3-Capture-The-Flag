@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Authentication;
 
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract), CD-25 (BCrypt password-hashing contract)</remarks>
 public class AccountAuthenticator(
     IPasswordHasher passwordHasher,
     IPlayerRepository playerRepository)
 {
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     public Result Signup(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -22,6 +24,7 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-25 (BCrypt password-hashing contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     public Result Login(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -49,8 +52,10 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     private class FailedAttemptCountComponent : Component
     {
+        /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>
         public int Value { get; set; } = 0;
     }
 }

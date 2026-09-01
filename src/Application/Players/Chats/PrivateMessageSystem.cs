@@ -1,7 +1,13 @@
 ﻿namespace CTF.Application.Players.Chats;
 
+/// <summary>
+/// Provides private-message commands (PM, block, unblock) and manages the per-player PM state.
+/// </summary>
+/// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
 {
+    /// <summary>Sends a private message to a player and relays it to the staff.</summary>
+    /// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("pm")]
     public void SendMessageToPlayer(
         Player sender,
@@ -45,6 +51,8 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
         }
     }
 
+    /// <summary>Blocks private messages for the player.</summary>
+    /// <remarks>Change drivers: CD-13 (chat rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("blockpm")]
     public void Block(Player player)
     {
@@ -54,6 +62,8 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
         player.PlaySound(1139);
     }
 
+    /// <summary>Unblocks private messages for the player.</summary>
+    /// <remarks>Change drivers: CD-13 (chat rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("unblockpm")]
     public void Unblock(Player player)
     {
@@ -63,6 +73,8 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
         player.PlaySound(1139);
     }
 
+    /// <summary>Adds the private-message component when a player connects.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player) 
     {

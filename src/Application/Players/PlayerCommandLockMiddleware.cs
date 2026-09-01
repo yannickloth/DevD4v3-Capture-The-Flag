@@ -4,6 +4,7 @@
 /// Middleware executed before <c>OnPlayerCommandText</c> to prevent command execution
 /// when the player does not meet the required conditions.
 /// </summary>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerCommandLockMiddleware(
     IEntityManager entityManager,
     EventDelegate next,
@@ -17,6 +18,7 @@ public class PlayerCommandLockMiddleware(
     /// <see langword="true"/> if any condition is met to block the command.
     /// Otherwise, it proceeds to the next middleware or action.
     /// </returns>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public object Invoke(EventContext context)
     {
         EntityId playerId = (EntityId)context.Arguments[0];

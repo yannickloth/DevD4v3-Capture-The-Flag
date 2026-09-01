@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Teams;
 
+/// <summary>
+/// Creates and destroys dynamic map icons for team flags.
+/// </summary>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: map icons), CD-11 (map configuration: flag locations/interior).</remarks>
 public class TeamIconService
 {
     private readonly MapInfoService _mapInfoService;
@@ -15,6 +19,8 @@ public class TeamIconService
         CreateFromBasePosition(Team.Beta);
     }
 
+    /// <summary>Creates the map icon from the team's base position.</summary>
+    /// <remarks>Change drivers: CD-11 (map configuration: flag locations).</remarks>
     public void CreateFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -29,6 +35,8 @@ public class TeamIconService
         }
     }
 
+    /// <summary>Creates the map icon at the specified position.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: map icons), CD-11 (map configuration: flag location/interior).</remarks>
     public void CreateFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -56,6 +64,8 @@ public class TeamIconService
         }
     }
 
+    /// <summary>Destroys the map icon for the specified team.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: map icons).</remarks>
     public void Destroy(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -71,6 +81,8 @@ public class TeamIconService
         }
     }
 
+    /// <summary>Destroys all team map icons.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: map icons), CD-11 (map configuration: flag locations).</remarks>
     public void DestroyAll()
     {
         Destroy(Team.Alpha);

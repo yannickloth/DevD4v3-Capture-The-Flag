@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Teams.Flags;
 
+/// <summary>
+/// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag steal/capture/drop/return rules), CD-01 (open.mp/SampSharp platform API: player events, pickups), CD-03 (combat/weapon-rules specification: carrier-kill rewards), CD-15 (command set: returnflag command), CD-09 (authorization policy: moderator gating).</remarks>
 public class FlagSystem(
     IWorldService worldService,
     FrozenDictionary<FlagStatus, IFlagEvent> flagEvents,
@@ -11,6 +15,8 @@ public class FlagSystem(
     private const int CarrierKillEarnedHealth = 10;
     private const int CarrierKillEarnedScore  = 2;
 
+    /// <summary>Handles flag drop when a carrying player disconnects.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect), CD-02 (CTF game-rules specification: carrier-disconnect drop rule).</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -23,6 +29,8 @@ public class FlagSystem(
         }
     }
 
+    /// <summary>Handles flag drop and rewards when a carrying player dies.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerDeath), CD-02 (CTF game-rules specification: carrier-death drop rule), CD-03 (combat/weapon-rules specification: carrier-kill rewards), CD-06 (coin economy: coins-on-kill).</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -43,6 +51,8 @@ public class FlagSystem(
         }
     }
 
+    /// <summary>Drops the flag when a carrying player changes teams.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier team-change drop rule).</remarks>
     [Event]
     public void OnTeamChange(Player player, Team selectedTeam)
     {
@@ -55,6 +65,8 @@ public class FlagSystem(
         flagDropped.Handle(selectedTeam, player);
     }
 
+    /// <summary>Handles flag pickup interactions.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerPickUpPickup), CD-02 (CTF game-rules specification: flag steal/capture/return rules).</remarks>
     [Event]
     public void OnPlayerPickUpPickup(Player player, Pickup pickup)
     {
@@ -82,6 +94,8 @@ public class FlagSystem(
         }
     }
 
+    /// <summary>Returns a flag to its base position via the returnflag command.</summary>
+    /// <remarks>Change drivers: CD-15 (command set: returnflag command), CD-09 (authorization policy: moderator gating), CD-02 (CTF game-rules specification: flag return rule), CD-01 (open.mp/SampSharp platform API: pickups, audio, timers).</remarks>
     [PlayerCommand("returnflag")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ReturnToBasePosition(

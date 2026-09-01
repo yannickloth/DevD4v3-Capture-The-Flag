@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Teams.ClassSelection;
 
+/// <summary>
+/// Handles the class-selection flow for players.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: class-selection and death/respawn), CD-01 (open.mp/SampSharp platform API: player events, class selection), CD-15 (command set: class command), CD-17 (game configuration/.env schema: ClassSelection__*).</remarks>
 public class ClassSelectionSystem(
     IWorldService worldService,
     ClassSelectionTextDrawRenderer classSelectionTextDrawRenderer,
@@ -8,6 +12,8 @@ public class ClassSelectionSystem(
 {
     private const float MinimumHealthToUseClassSelectionCommand = 85f;
 
+    /// <summary>Adds player classes for team skins on game mode init.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: player classes/skin ids), CD-02 (CTF game-rules specification: class selection).</remarks>
     [Event]
     public void OnGameModeInit(IServerService serverService)
     {
@@ -15,6 +21,8 @@ public class ClassSelectionSystem(
         serverService.AddPlayerClass((int)Team.Beta.SkinId, new Vector3(0f, 0f, 0f), 0);
     }
 
+    /// <summary>Handles player connect for the class-selection flow.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerConnect, audio, textdraw), CD-17 (game configuration/.env schema: ClassSelection__IntroAudioUrl).</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {
@@ -28,6 +36,7 @@ public class ClassSelectionSystem(
     /// <summary>
     /// This callback is called when a player changes class at class selection (and when class selection first appears).
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerRequestClass, camera/team), CD-02 (CTF game-rules specification: class-selection flow).</remarks>
     [Event]
     public void OnPlayerRequestClass(Player player, Class @class)
     {
@@ -55,6 +64,7 @@ public class ClassSelectionSystem(
     /// This callback is called when a player attempts to spawn via class selection either 
     /// by pressing SHIFT or clicking the 'Spawn' button.
     /// </summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerRequestSpawn), CD-02 (CTF game-rules specification: class-selection and team membership).</remarks>
     [Event]
     public bool OnPlayerRequestSpawn(Player player)
     {
@@ -75,6 +85,8 @@ public class ClassSelectionSystem(
         return true;
     }
 
+    /// <summary>Handles player disconnect by removing them from their team.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect), CD-08 (account & authentication policy), CD-02 (CTF game-rules specification: team membership).</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -89,6 +101,8 @@ public class ClassSelectionSystem(
         teamTextDrawRenderer.UpdateTeamMembers(playerInfo.Team);
     }
 
+    /// <summary>Redirects the player to class selection via the class command.</summary>
+    /// <remarks>Change drivers: CD-15 (command set: class command), CD-02 (CTF game-rules specification: class-selection and flag-drop rule), CD-03 (combat/weapon-rules specification: health gate).</remarks>
     [PlayerCommand("class")]
     public void RedirectToClassSelection(Player player)
     {

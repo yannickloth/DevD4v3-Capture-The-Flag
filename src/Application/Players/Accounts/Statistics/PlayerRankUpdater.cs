@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
 public class PlayerRankUpdater(
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
@@ -8,6 +9,7 @@ public class PlayerRankUpdater(
     private const int EarnedArmour = 100;
     private const int EarnedCoins  = 100;
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

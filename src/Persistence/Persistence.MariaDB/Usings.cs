@@ -1,4 +1,5 @@
-﻿global using Microsoft.Extensions.Configuration;
+﻿// <remarks>Change drivers: CD-21 (DI container/composition), CD-19 (SQL dialect/DBMS), CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
+global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using MySqlConnector;
 global using YeSql.Net;

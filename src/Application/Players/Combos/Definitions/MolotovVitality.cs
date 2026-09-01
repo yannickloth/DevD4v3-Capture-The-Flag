@@ -1,14 +1,18 @@
 ﻿namespace CTF.Application.Players.Combos.Definitions;
 
+/// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy)</remarks>
 public class MolotovVitality : ICombo
 {
     private const int Health = 100;
     private const int Armour = 100;
     private const int MolotovAmmo = 6;
 
+    /// <remarks>Change drivers: CD-05 (combo definitions)</remarks>
     public string Name => $"{Health} Health, {Armour} Armour and Molotov cocktail";
+    /// <remarks>Change drivers: CD-06 (coin economy)</remarks>
     public int RequiredCoins => 100;
 
+    /// <remarks>Change drivers: CD-05 (combo definitions)</remarks>
     public Result Give(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

@@ -1,9 +1,15 @@
 ﻿namespace CTF.Application.Players.TopPlayers;
 
+/// <summary>
+/// Provides the top-players leaderboard commands.
+/// </summary>
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-17 (game configuration/.env schema), CD-20 (outbound repository contract), CD-15 (command set)</remarks>
 public class TopPlayersSystem(
     IDialogService dialogService,
     ITopPlayersRepository topPlayersRepository) : ISystem
 {
+    /// <summary>Shows the top players ranked by total kills.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("topkills")]
     public void ShowByTotalKills(Player currentPlayer, int maxPlayers = 10)
     {
@@ -41,6 +47,8 @@ public class TopPlayersSystem(
         dialogService.ShowAsync(currentPlayer, tablistDialog);
     }
 
+    /// <summary>Shows the top players ranked by maximum killing spree.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("topspree")]
     public void ShowByMaxKillingSpree(Player currentPlayer, int maxPlayers = 10)
     {

@@ -4,6 +4,7 @@
 /// Middleware executed before <c>OnPlayerRequestSpawn</c> to prevent players
 /// from spawning when the required conditions are not met.
 /// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: class-selection and team balancing), CD-01 (open.mp/SampSharp platform API: ECS middleware), CD-08 (account & authentication policy), CD-12 (map-rotation rules).</remarks>
 public class PlayerSpawnLockMiddleware(
     IEntityManager entityManager,
     EventDelegate next,
@@ -18,6 +19,7 @@ public class PlayerSpawnLockMiddleware(
     /// <see langword="false"/> if spawning from class selection is blocked;
     /// otherwise, proceeds to the next middleware or action.
     /// </returns>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-12 (map-rotation rules), CD-02 (CTF game-rules specification: team balancing).</remarks>
     public object Invoke(EventContext context)
     {
         EntityId playerId = (EntityId)context.Arguments[0];

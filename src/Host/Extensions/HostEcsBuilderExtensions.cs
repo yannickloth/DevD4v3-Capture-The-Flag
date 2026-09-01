@@ -1,7 +1,9 @@
 ﻿namespace CTF.Host.Extensions;
 
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
 public static class HostEcsBuilderExtensions
 {
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     public static IEcsBuilder RegisterPauseEventHandlers(this IEcsBuilder builder) 
     {
         var playerPauseSystem = builder.Services.GetRequiredService<PlayerPauseSystem>();
@@ -10,6 +12,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     public static IEcsBuilder RegisterMapEventHandlers(this IEcsBuilder builder)
     {
         var mapRotationService = builder.Services.GetRequiredService<MapRotationService>();
@@ -22,6 +25,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     public static IEcsBuilder RegisterTeamEventHandlers(this IEcsBuilder builder)
     {
         var teamSelectionSystem = builder.Services.GetRequiredService<TeamSelectionSystem>();
@@ -30,6 +34,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     public static IEcsBuilder RegisterMiddlewares(this IEcsBuilder builder)
     {
         builder

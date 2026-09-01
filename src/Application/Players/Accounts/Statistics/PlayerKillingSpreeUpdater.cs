@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
 public class PlayerKillingSpreeUpdater(
     IWorldService worldService,
     IPlayerRepository playerRepository,
@@ -10,6 +11,7 @@ public class PlayerKillingSpreeUpdater(
     private const int EarnedHealth = 10;
     private const int ConsecutiveKillsBonusHealth = 40;
 
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

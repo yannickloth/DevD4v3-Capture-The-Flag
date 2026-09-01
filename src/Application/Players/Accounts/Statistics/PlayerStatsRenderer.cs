@@ -1,7 +1,9 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-10 (player-statistics/rank model)</remarks>
 public class PlayerStatsRenderer(IWorldService worldService)
 {
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void CreateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -29,6 +31,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-10 (player-statistics/rank model)</remarks>
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -38,6 +41,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Show();
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void ShowTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -45,6 +49,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Show();
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void HideTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -52,15 +57,20 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Hide();
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     private PlayerStatsTextDraw GetTextDrawOrThrow(Player player)
     {
         return player.GetComponent<PlayerStatsTextDraw>()
              ?? throw new InvalidOperationException($"The '{nameof(PlayerStatsTextDraw)}' component is not attached to the player");
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     private class PlayerStatsTextDraw : Component
     {
+        /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
         public PlayerTextDraw Value { get; }
+
+        /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
         public PlayerStatsTextDraw(PlayerTextDraw value)
         {
             ArgumentNullException.ThrowIfNull(value);

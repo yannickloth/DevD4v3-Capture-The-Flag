@@ -1,11 +1,17 @@
 ﻿namespace CTF.Application.Players.GeneralCommands;
 
+/// <summary>
+/// Provides the admin-role command set.
+/// </summary>
+/// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class AdminCommands(
     IEntityManager entityManager,
     IServerService serverService,
     IWorldService worldService,
     IDialogService dialogService) : ISystem
 {
+    /// <summary>Shows the admin commands dialog.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("cmdsadmin")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowAdminCommands(Player player)
@@ -25,6 +31,8 @@ public class AdminCommands(
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <summary>Gives a jetpack to all connected players.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("jetall")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GiveJetpackToPlayers(Player currentPlayer)
@@ -44,6 +52,8 @@ public class AdminCommands(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
+    /// <summary>Teleports the admin to a target player's position.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("goto")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GoToPlayerPosition(
@@ -59,6 +69,8 @@ public class AdminCommands(
         currentPlayer.Position = targetPlayer.Position;
     }
 
+    /// <summary>Brings a target player to the admin's position.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("get")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BringPlayerToMyPosition(
@@ -74,6 +86,8 @@ public class AdminCommands(
         targetPlayer.Position = currentPlayer.Position;
     }
 
+    /// <summary>Bans a target player.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("ban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BanPlayer(
@@ -115,6 +129,8 @@ public class AdminCommands(
         targetPlayer.Ban(reason);
     }
 
+    /// <summary>Unbans a player IP address.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("unban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void UnbanPlayer(Player currentPlayer, string ip)
@@ -124,6 +140,8 @@ public class AdminCommands(
         serverService.SendRconCommand($"unbanip {ip}");
     }
 
+    /// <summary>Shows the list of banned IP addresses.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("bannedips")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowBannedIPs(Player currentPlayer)

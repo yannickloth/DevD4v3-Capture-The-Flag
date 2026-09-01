@@ -1,5 +1,6 @@
 ﻿namespace Persistence.SQLite.Extensions;
 
+/// <remarks>Change drivers: CD-19 (SQL dialect/DBMS)</remarks>
 public static class SqliteConnectionExtensions
 {
     /// <summary>
@@ -7,6 +8,7 @@ public static class SqliteConnectionExtensions
     /// See user-defined functions.
     /// </see>
     /// </summary>
+    /// <remarks>Change drivers: CD-19 (SQL dialect/DBMS)</remarks>
     public static void CreateRegexpFunction(this SqliteConnection connection)
     {
         connection.CreateFunction(

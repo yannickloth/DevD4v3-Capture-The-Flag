@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Maps;
 
+/// <remarks>Change drivers: CD-11 (map configuration), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class MapInitializationSystem(
     IWorldService worldService,
     IServerService serverService,
@@ -12,6 +13,7 @@ public class MapInitializationSystem(
     ServerSettings serverSettings) : ISystem
 {
     [Event]
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnGameModeInit()
     {
         Result<IMap> mapResult = mapCollection.GetByName(serverSettings.MapName);

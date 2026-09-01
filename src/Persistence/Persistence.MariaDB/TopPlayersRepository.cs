@@ -1,10 +1,12 @@
 ﻿namespace Persistence.MariaDB;
 
+/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-19 (SQL dialect/DBMS), CD-17 (game configuration/.env schema)</remarks>
 internal class TopPlayersRepository(
     ISqlCollection sqlCollection,
     MariaDbSettings mariaDbSettings,
     TopPlayersSettings topPlayersSettings) : ITopPlayersRepository
 {
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-19 (SQL dialect/DBMS), CD-17 (game configuration/.env schema)</remarks>
     public IEnumerable<TopPlayersByMaxKillingSpree> GetByMaxKillingSpree(MaxTopPlayers maxPlayers)
     {
         using var connection = new MySqlConnection(mariaDbSettings.ConnectionString);
@@ -26,6 +28,7 @@ internal class TopPlayersRepository(
         }
     }
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-19 (SQL dialect/DBMS), CD-17 (game configuration/.env schema)</remarks>
     public IEnumerable<TopPlayersByTotalKills> GetByTotalKills(MaxTopPlayers maxPlayers)
     {
         using var connection = new MySqlConnection(mariaDbSettings.ConnectionString);

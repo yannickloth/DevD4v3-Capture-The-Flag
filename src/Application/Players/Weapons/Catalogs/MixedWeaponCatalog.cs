@@ -3,13 +3,16 @@
 /// <summary>
 /// Defines a weapon catalog that combines the Walking and Run weapon catalogs.
 /// </summary>
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
 /// <remarks>
 /// This catalog contains all weapons available from both categories.
 /// </remarks>
 public class MixedWeaponCatalog : WeaponCatalog
 {
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     public override WeaponCatalogType Type => WeaponCatalogType.Mixed;
 
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

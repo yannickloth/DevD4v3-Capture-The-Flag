@@ -3,6 +3,7 @@
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag and brought it back to their own base.
 /// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag score rule), CD-01 (open.mp/SampSharp platform API: pickups, audio, GameText, textdraw), CD-06 (coin economy: coins-on-flag-event), CD-10 (player-statistics/rank model: brought flags), CD-20 (outbound repository contract: UpdateBroughtFlags).</remarks>
 public class OnFlagScore(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -16,8 +17,12 @@ public class OnFlagScore(
     private const int TeamEarnedHealth   = 10;
     private const int TeamEarnedScore    = 1;
 
+    /// <summary>Gets the flag status handled by this event.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag state machine).</remarks>
     public FlagStatus FlagStatus => FlagStatus.Brought;
 
+    /// <summary>Handles the flag-score event.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag score rule), CD-06 (coin economy: coins-on-flag-event), CD-10 (player-statistics/rank model: brought flags), CD-20 (outbound repository contract: UpdateBroughtFlags).</remarks>
     public void Handle(Team team, Player player)
     {
         teamPickupService.CreateFlagFromBasePosition(team.RivalTeam);

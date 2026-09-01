@@ -1,9 +1,15 @@
 ﻿namespace CTF.Application.Teams.Flags.Carriers;
 
+/// <summary>
+/// Handles showing and hiding flag carriers on the radar map.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier radar rule), CD-01 (open.mp/SampSharp platform API: radar), CD-15 (command set: showrm/hiderm commands), CD-09 (authorization policy: moderator gating), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap).</remarks>
 public class FlagCarrierRadarSystem(
     FlagCarrierSettings flagCarrierSettings,
     IWorldService worldService) : ISystem
 {
+    /// <summary>Shows all flag carriers on the radar map.</summary>
+    /// <remarks>Change drivers: CD-15 (command set: showrm command), CD-09 (authorization policy: moderator gating), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap), CD-01 (open.mp/SampSharp platform API: radar).</remarks>
     [PlayerCommand("showrm")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ShowOnRadarMap(Player player)
@@ -18,6 +24,8 @@ public class FlagCarrierRadarSystem(
         flagCarrierSettings.ShowOnRadarMap = true;
     }
 
+    /// <summary>Hides all flag carriers from the radar map.</summary>
+    /// <remarks>Change drivers: CD-15 (command set: hiderm command), CD-09 (authorization policy: moderator gating), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap), CD-01 (open.mp/SampSharp platform API: radar).</remarks>
     [PlayerCommand("hiderm")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void HideOnRadarMap(Player player)

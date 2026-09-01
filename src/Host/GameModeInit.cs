@@ -1,9 +1,11 @@
 ﻿namespace CTF.Host;
 
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-17 (game configuration/.env schema)</remarks>
 public class GameModeInit(
     IServerService serverService,
     ServerSettings serverSettings) : ISystem
 {
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-17 (game configuration/.env schema)</remarks>
     [Event]
     public void OnGameModeInit()
     {

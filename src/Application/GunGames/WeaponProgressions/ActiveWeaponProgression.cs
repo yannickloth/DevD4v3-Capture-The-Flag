@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents the active weapon progression for the current GunGame session.
 /// </summary>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
 /// <remarks>
 /// Consumers do not need to know which weapon progression is active.
 /// This class always exposes the progression selected for the current session.
@@ -11,18 +12,22 @@ public class ActiveWeaponProgression(
     GunGameSession gunGameSession,
     FrozenDictionary<WeaponProgressionType, WeaponProgression> progressions)
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     private WeaponProgression Current
         => progressions[gunGameSession.WeaponProgressionType];
 
     /// <inheritdoc cref="WeaponProgression.GetWeapon"/>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public IWeapon GetWeapon(WeaponLevel level)
         => Current.GetWeapon(level);
 
     /// <inheritdoc cref="WeaponProgression.IsFinalLevel"/>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public bool IsFinalLevel(WeaponLevel level)
         => Current.IsFinalLevel(level);
     
     /// <inheritdoc cref="WeaponProgression.MaxLevel"/>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public MaxWeaponLevel MaxLevel 
         => Current.MaxLevel;
 }

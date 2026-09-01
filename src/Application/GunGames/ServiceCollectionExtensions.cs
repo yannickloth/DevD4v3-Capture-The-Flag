@@ -1,7 +1,9 @@
 ﻿namespace CTF.Application.GunGames;
 
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-21 (DI container/composition)</remarks>
 public static class GunGameExtensions
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-21 (DI container/composition)</remarks>
     public static IServiceCollection AddGunGameServices(this IServiceCollection services)
     {
         services
@@ -39,6 +41,7 @@ public static class GunGameExtensions
         return services;
     }
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-21 (DI container/composition)</remarks>
     private static IServiceCollection AddWeaponProgression<T>(this IServiceCollection services)
         where T : WeaponProgression
     {
@@ -46,6 +49,7 @@ public static class GunGameExtensions
         return services;
     }
 
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-21 (DI container/composition)</remarks>
     private static IServiceCollection AddGunGameResultHandler<T>(this IServiceCollection services)
         where T : class, IGunGameResultHandler
     {

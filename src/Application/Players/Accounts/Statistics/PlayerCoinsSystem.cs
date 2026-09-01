@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-06 (coin economy), CD-09 (authorization policy), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerCoinsSystem(
     IEntityManager entityManager,
     IWorldService worldService,
@@ -7,6 +8,7 @@ public class PlayerCoinsSystem(
     UnixTimeSeconds unixTimeSeconds,
     CommandCooldowns commandCooldowns) : ISystem
 {
+    /// <remarks>Change drivers: CD-06 (coin economy), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addcoins")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddCoinsToPlayer(
@@ -41,6 +43,7 @@ public class PlayerCoinsSystem(
         playerStatsRenderer.UpdateTextDraw(targetPlayer);
     }
 
+    /// <remarks>Change drivers: CD-06 (coin economy), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addallcoins")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddCoinsToAllPlayers(Player currentPlayer, int coins)
@@ -66,6 +69,7 @@ public class PlayerCoinsSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
+    /// <remarks>Change drivers: CD-06 (coin economy), CD-09 (authorization policy), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("givemecoins")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void GiveMeCoins(Player currentPlayer) 
@@ -90,12 +94,15 @@ public class PlayerCoinsSystem(
         currentPlayer.SendClientMessage(Color.Yellow, Messages.GiveMeCoins);
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();
 
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema)</remarks>
     private class WaitTimeComponent : Component
     {
+        /// <remarks>Change drivers: CD-17 (game configuration/.env schema)</remarks>
         public long Value { get; set; }
     }
 }

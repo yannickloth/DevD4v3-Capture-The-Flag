@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Combos;
 
+/// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class ComboSystem : ISystem
 {
     private readonly IDialogService _dialogService;
@@ -9,6 +10,7 @@ public class ComboSystem : ISystem
     private readonly IEnumerable<ICombo> _combos;
     private readonly IGunGameMode _gunGameMode;
 
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-01 (open.mp/SampSharp platform API)</remarks>
     public ComboSystem(
         IDialogService dialogService,
         IWorldService worldService,
@@ -39,6 +41,7 @@ public class ComboSystem : ISystem
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
         if (_gunGameMode.IsEnabled)
@@ -49,6 +52,7 @@ public class ComboSystem : ISystem
     }
 
     [PlayerCommand("combos")]
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public async Task ShowCombos(Player player)
     {
         if (_gunGameMode.IsEnabled)
@@ -79,6 +83,7 @@ public class ComboSystem : ISystem
         await GiveComboToPlayer(player, selectedCombo);
     }
 
+    /// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy), CD-01 (open.mp/SampSharp platform API)</remarks>
     private async Task GiveComboToPlayer(Player player, ICombo selectedCombo)
     {
         Result result = selectedCombo.Give(player);

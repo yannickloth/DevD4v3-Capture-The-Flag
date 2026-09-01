@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players;
 
+/// <summary>
+/// Handles the command-text callback, invoking the registered command handlers.
+/// </summary>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
 public class PlayerCommandTextSystem(
     IPlayerCommandService playerCommandService,
     IServiceProvider serviceProvider) : ISystem
@@ -18,6 +22,7 @@ public class PlayerCommandTextSystem(
     /// <c>true</c> if the command was processed, otherwise <c>false</c>; If the command was not found both in 
     /// filterscripts and in gamemode, the player will be received a message: 'SERVER: Unknown command'.
     /// </returns>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     [Event]
     public bool OnPlayerCommandText(Player player, string text)
     {

@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players;
 
+/// <summary>
+/// Provides extension methods over the player entity.
+/// </summary>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-02 (CTF game-rules specification), CD-17 (game configuration/.env schema)</remarks>
 public static class PlayerExtensions
 {
     /// <summary>
@@ -15,6 +19,7 @@ public static class PlayerExtensions
     /// Thrown when the player does not have an attached
     /// <see cref="AccountComponent"/>.
     /// </exception>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>
     public static PlayerInfo GetRequiredInfo(this Player player)
     {
         AccountComponent accountComponent = player.GetComponent<AccountComponent>();
@@ -37,6 +42,7 @@ public static class PlayerExtensions
     /// Thrown when the player does not have an attached
     /// <see cref="AccountComponent"/>.
     /// </exception>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>
     public static bool IsUnauthenticated(this Player player)
     {
         AccountComponent accountComponent = player.GetComponent<AccountComponent>();
@@ -54,6 +60,7 @@ public static class PlayerExtensions
     /// <returns>
     /// The team from which the player was removed, or <see cref="Team.None"/> if the player had no team.
     /// </returns>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification)</remarks>
     public static Team RemoveFromCurrentTeam(this Player player)
     {
         if (player.Team == (int)TeamId.NoTeam)
@@ -78,6 +85,7 @@ public static class PlayerExtensions
     /// <see langword="true"/> if the player is the server owner;
     /// otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema)</remarks>
     public static bool IsServerOwner(this Player player)
     {
         var envReader = new EnvReader();

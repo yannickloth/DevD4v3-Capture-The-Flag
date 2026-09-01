@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players.GeneralCommands;
 
+/// <summary>
+/// Provides the basic (public) command set.
+/// </summary>
+/// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class BasicCommands(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem
@@ -7,6 +11,8 @@ public class BasicCommands(
     private const float MinimumHealthToUseKillCommand = 15f;
     private const float MinimumHealthToUseSpectatorCommand = 85f;
 
+    /// <summary>Shows the first page of public commands.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("cmds")]
     public async Task ShowFirstCommandsPage(Player player)
     {
@@ -50,6 +56,8 @@ public class BasicCommands(
             await ShowFirstCommandsPage(player);
     }
 
+    /// <summary>Shows the help dialog.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("help")]
     public void ShowHelp(Player player)
     {
@@ -68,6 +76,8 @@ public class BasicCommands(
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <summary>Shows the credits dialog.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("credits")]
     public void ShowCredits(Player player)
     {
@@ -86,6 +96,8 @@ public class BasicCommands(
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <summary>Eliminates the player's character for respawn purposes, subject to a minimum-health rule.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("kill")]
     public void Kill(Player player)
     {
@@ -106,6 +118,8 @@ public class BasicCommands(
         player.Health = 0;
     }
 
+    /// <summary>Reports a target player to the moderators/admins.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("report")]
     public void ReportPlayer(
         Player currentPlayer,
@@ -144,6 +158,8 @@ public class BasicCommands(
         currentPlayer.PlaySound(1058);
     }
 
+    /// <summary>Enables spectator mode on a target player, subject to a minimum-health rule.</summary>
+    /// <remarks>Change drivers: CD-15 (command set), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("spec")]
     public void EnableSpectatorMode(
         Player currentPlayer,

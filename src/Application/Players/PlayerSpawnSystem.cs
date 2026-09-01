@@ -1,9 +1,15 @@
 ﻿namespace CTF.Application.Players;
 
+/// <summary>
+/// Positions and configures the player at spawn using the current map's spawn locations.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerSpawnSystem(
     MapInfoService mapInfoService,
     MapRotationService mapRotationService) : ISystem
 {
+    /// <summary>Applies the spawn position and player configuration on spawn.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerSpawn(Player player)
     {

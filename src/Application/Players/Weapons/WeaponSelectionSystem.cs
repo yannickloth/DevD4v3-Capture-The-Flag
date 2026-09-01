@@ -1,17 +1,20 @@
 ﻿namespace CTF.Application.Players.Weapons;
 
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-04 (weapon-catalog configuration), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class WeaponSelectionSystem(
     IDialogService dialogService,
     IGunGameMode gunGameMode,
     ActiveWeaponCatalog weaponCatalog) : ISystem
 {
     [Event]
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerConnect(Player player)
     {
         player.AddComponent<WeaponSelectionComponent>();
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task OnPlayerRequestSpawn(Player player)
     {
         if (gunGameMode.IsEnabled)
@@ -27,6 +30,7 @@ public class WeaponSelectionSystem(
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void OnPlayerSpawn(Player player)
     {
         if (gunGameMode.IsEnabled)
@@ -44,6 +48,7 @@ public class WeaponSelectionSystem(
     }
 
     [Event]
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
         if (KeyUtils.HasPressed(newKeys, oldKeys, Keys.Walk | Keys.CtrlBack))
@@ -61,12 +66,14 @@ public class WeaponSelectionSystem(
     }
 
     [PlayerCommand("p")]
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public void GiveParachute(Player player)
     {
         player.GiveWeapon(Weapon.Parachute, 1);
     }
 
     [PlayerCommand("weapons")]
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public async Task ShowWeapons(Player player)
     {
         if (gunGameMode.IsEnabled)
@@ -118,6 +125,7 @@ public class WeaponSelectionSystem(
     }
 
     [PlayerCommand("weaponpack"), Alias("pack")]
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
     public async Task ShowWeaponPackage(Player player)
     {
         if (gunGameMode.IsEnabled)

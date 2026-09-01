@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Profile;
 
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
 public class PlayerNameSystem(
     IPlayerRepository playerRepository,
     IWorldService worldService) : ISystem
 {
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
     [PlayerCommand("changename")]
     public void ChangeName(Player player, string newName)
     {

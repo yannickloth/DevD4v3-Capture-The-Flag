@@ -3,11 +3,14 @@
 /// <summary>
 /// Handles the <see cref="GunGameResult.ReachedFinalLevel"/> result.
 /// </summary>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerReachedFinalLevel(
     IWorldService worldService,
     ActiveWeaponProgression weaponProgression) : IGunGameResultHandler
 {
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.ReachedFinalLevel;
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Handle(KillContext context)
     {
         var killerProgression = context.Killer.GetComponent<PlayerProgression>();

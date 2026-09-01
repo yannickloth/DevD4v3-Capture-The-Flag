@@ -1,10 +1,12 @@
 ﻿namespace CTF.Application.Players.Accounts.Roles;
 
+/// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class AdminListSystem(
     IDialogService dialogService,
     IEntityManager entityManager,
     ServerOwnerSettings serverOwnerSettings) : ISystem
 {
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("admins")]
     public void Show(Player player)
     {
@@ -52,6 +54,7 @@ public class AdminListSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
+    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
     private bool IsServerOwner(PlayerInfo playerInfo)
         => playerInfo.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
 }

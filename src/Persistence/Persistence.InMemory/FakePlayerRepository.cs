@@ -1,9 +1,11 @@
 ﻿namespace Persistence.InMemory;
 
+/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract), CD-21 (DI container/composition)</remarks>
 internal class FakePlayerRepository(
     Dictionary<int, FakePlayer> players,
     IPasswordHasher passwordHasher) : IPlayerRepository
 {
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract)</remarks>
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);
@@ -29,9 +31,11 @@ internal class FakePlayerRepository(
         player.SetValue(value: fakePlayer.Id, propertyName: nameof(PlayerInfo.AccountId));
     }
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public bool Exists(string name)
         => players.Any(player => player.Value.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public PlayerInfo GetOrDefault(string name)
     {
         FakePlayer fakePlayer = players
@@ -69,48 +73,63 @@ internal class FakePlayerRepository(
         return playerInfo;
     }
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateBroughtFlags(PlayerInfo player) 
         => players[player.AccountId].BroughtFlags = player.BroughtFlags;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateCapturedFlags(PlayerInfo player)
         => players[player.AccountId].CapturedFlags = player.CapturedFlags;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateDroppedFlags(PlayerInfo player)
         => players[player.AccountId].DroppedFlags = player.DroppedFlags;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateReturnedFlags(PlayerInfo player)
         => players[player.AccountId].ReturnedFlags = player.ReturnedFlags;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateHeadShots(PlayerInfo player)
         => players[player.AccountId].HeadShots = player.HeadShots;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateGunGameWins(PlayerInfo player)
         => players[player.AccountId].GunGameWins = player.GunGameWins;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateLastConnection(PlayerInfo player)
         => players[player.AccountId].LastConnection = player.LastConnection;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => players[player.AccountId].MaxKillingSpree = player.MaxKillingSpree;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateName(PlayerInfo player)
         => players[player.AccountId].Name = player.Name;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract)</remarks>
     public void UpdatePassword(PlayerInfo player)
        => players[player.AccountId].PasswordHash = passwordHasher.HashPassword(player.Password);
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateRank(PlayerInfo player)
         => players[player.AccountId].RankId = player.RankId;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateRole(PlayerInfo player)
         => players[player.AccountId].RoleId = player.RoleId;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateSkin(PlayerInfo player)
         => players[player.AccountId].SkinId = player.SkinId;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateTotalDeaths(PlayerInfo player)
         => players[player.AccountId].TotalDeaths = player.TotalDeaths;
 
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdateTotalKills(PlayerInfo player)
         => players[player.AccountId].TotalKills = player.TotalKills;
 }

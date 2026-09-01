@@ -4,13 +4,16 @@
 /// Represents the weapon catalog configuration currently used by the server.
 /// The active catalog can be changed at runtime.
 /// </summary>
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
 public class WeaponCatalogSettings
 {
     /// <summary>
     /// Gets or sets the catalog currently used by the server.
     /// </summary>
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
     public WeaponCatalogType Type { get; private set; }
 
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
     public WeaponCatalogSettings(WeaponCatalogType type = WeaponCatalogType.Walking)
     {
         EnsureValidCatalog(type);
@@ -23,12 +26,14 @@ public class WeaponCatalogSettings
     /// <param name="type">
     /// The weapon catalog to activate.
     /// </param>
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
     public void Change(WeaponCatalogType type)
     {
         EnsureValidCatalog(type);
         Type = type;
     }
 
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
     private static void EnsureValidCatalog(WeaponCatalogType type)
     {
         if (!Enum.IsDefined(type))

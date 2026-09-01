@@ -3,6 +3,7 @@
 /// <summary>
 /// A timer service that automatically returns the flag to its base if it is not picked up by a player within a certain time limit.
 /// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag auto-return rule), CD-01 (open.mp/SampSharp platform API: timers, pickups, audio), CD-17 (game configuration/.env schema: FlagAutoReturn__Delay).</remarks>
 public class FlagAutoReturnTimer(
     ITimerService timerService,
     IWorldService worldService,
@@ -12,6 +13,8 @@ public class FlagAutoReturnTimer(
     private TimerReference _alphaTeamTimer;
     private TimerReference _betaTeamTimer;
 
+    /// <summary>Starts the auto-return timer for the specified team.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag auto-return rule), CD-01 (open.mp/SampSharp platform API: timers), CD-17 (game configuration/.env schema: FlagAutoReturn__Delay).</remarks>
     public void Start(Team team)
     {
         void OnComplete(IServiceProvider serviceProvider)
@@ -42,6 +45,8 @@ public class FlagAutoReturnTimer(
         }
     }
 
+    /// <summary>Stops the auto-return timer for the specified team.</summary>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: timers).</remarks>
     public void Stop(Team team) 
     { 
         if (team.Id == TeamId.Alpha && _alphaTeamTimer is not null) 

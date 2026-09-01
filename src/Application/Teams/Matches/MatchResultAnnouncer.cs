@@ -1,7 +1,13 @@
 ﻿namespace CTF.Application.Teams.Matches;
 
+/// <summary>
+/// Announces the result of a match to all players.
+/// </summary>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: match end conditions), CD-01 (open.mp/SampSharp platform API: client messages, GameText).</remarks>
 public class MatchResultAnnouncer(IWorldService worldService)
 {
+    /// <summary>Announces the match result.</summary>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: match end conditions), CD-01 (open.mp/SampSharp platform API: client messages, GameText).</remarks>
     public void Announce()
     {
         MatchResult result = MatchResult.Create(Team.Alpha, Team.Beta);

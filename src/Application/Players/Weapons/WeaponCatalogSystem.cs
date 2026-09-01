@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Players.Weapons;
 
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class WeaponCatalogSystem(
     IEntityManager entityManager,
     IDialogService dialogService,
@@ -9,6 +10,7 @@ public class WeaponCatalogSystem(
 {
     [PlayerCommand("weaponcatalog")]
     [RequiresMinimumRole(RoleId.Admin)]
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-03 (combat/weapon-rules specification), CD-07 (GunGame mode rules), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task ShowCatalogs(Player player)
     {
         if (gunGameMode.IsEnabled)

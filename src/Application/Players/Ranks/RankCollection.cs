@@ -1,5 +1,9 @@
 ﻿namespace CTF.Application.Players.Ranks;
 
+/// <summary>
+/// Provides access to the collection of rank tiers and their required kills.
+/// </summary>
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
 public class RankCollection
 {
     private static readonly Rank[] s_ranks = 
@@ -22,9 +26,17 @@ public class RankCollection
     ];
 
     private RankCollection() { }
+
+    /// <summary>Gets the number of rank tiers.</summary>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public static int Count => s_ranks.Length;
+
+    /// <summary>Gets all rank tiers.</summary>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public static IReadOnlyList<IRank> GetAll() => s_ranks;
 
+    /// <summary>Gets the rank tier by its identifier.</summary>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public static Result<IRank> GetById(RankId id)
     {
         if ((int)id < 0 || (int)id >= Count)
@@ -34,6 +46,8 @@ public class RankCollection
         return Result<IRank>.Success(rank);
     }
 
+    /// <summary>Gets the rank tier corresponding to the given total kills.</summary>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public static Result<IRank> GetByRequiredKills(int value)
     {
         if (value < 0)
@@ -53,6 +67,8 @@ public class RankCollection
         return Result<IRank>.Success(maxRank);
     }
 
+    /// <summary>Gets the next rank tier after the given rank.</summary>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public static Result<IRank> GetNextRank(RankId previous)
     {
         if ((int)previous < 0 || (int)previous >= Count)

@@ -1,9 +1,11 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-20 (outbound repository contract)</remarks>
 public class PlayerKillsSystem(
     IPlayerRepository playerRepository,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-20 (outbound repository contract)</remarks>
     [PlayerCommand("settotalkills")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetTotalKillsToPlayer(

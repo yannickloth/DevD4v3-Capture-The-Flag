@@ -1,5 +1,6 @@
 ﻿namespace CTF.Application.Maps;
 
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
 public class MapTextDrawRenderer
 {
     private readonly IWorldService _worldService;
@@ -8,12 +9,14 @@ public class MapTextDrawRenderer
     private TextDraw _timeLeft;
     private TextDraw _loadTime;
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public MapTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
         Initialize();
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Show(Player player)
     {
         _mapName.Show(player);
@@ -22,6 +25,7 @@ public class MapTextDrawRenderer
         _loadTime.Show();
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Hide(Player player) 
     {
         _mapName.Hide(player);
@@ -30,21 +34,25 @@ public class MapTextDrawRenderer
         _loadTime.Hide(player);
     }
 
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void UpdateMapName(CurrentMap currentMap)
     {
         _mapName.Text = currentMap.GetMapNameAsText();
     }
 
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void UpdateTimeLeft(TimeLeft timeLeft)
     {
         _timeLeft.Text = timeLeft.TextDraw;
     }
 
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void UpdateLoadTime(LoadTime loadTime)
     {
         _loadTime.Text = loadTime.GameText;
     }
 
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     private void Initialize()
     {
         _mapName = _worldService.CreateTextDraw(new Vector2(140.000000f, 399.000000f), string.Empty);
