@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.SetPassword.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-08 (account & authentication policy) → CD-29</remarks>
+/// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
 public class PasswordTests
 {
     [Test]

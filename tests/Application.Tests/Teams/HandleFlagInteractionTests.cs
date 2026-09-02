@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
 /// <summary>Tests for Team.HandleFlagInteraction.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-02 (CTF game-rules specification) → CD-29</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
 public class HandleFlagInteractionTests
 {
     [SetUp]

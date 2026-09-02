@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Weapons;
 
 /// <summary>Tests for WeaponPack.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: WeaponPack); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-03 (combat/weapon-rules specification) → CD-29</remarks>
+/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
 public class WeaponPackTests
 {
     [Test]

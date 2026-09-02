@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Vitalities;
 
 /// <summary>Tests for health/armour extensions.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-03 (combat/weapon-rules specification) → CD-29</remarks>
+/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
 public class HealthArmourExtensionsTests
 {
     [TestCase(50, 20, 70)]

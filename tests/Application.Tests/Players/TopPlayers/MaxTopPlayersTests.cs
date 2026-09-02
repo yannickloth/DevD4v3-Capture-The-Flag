@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.TopPlayers;
 
 /// <summary>Tests for MaxTopPlayers.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: MaxTopPlayers); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-17 (game configuration/.env schema) → CD-29; CD-10 (player-statistics/rank model) → CD-29</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: MaxTopPlayers); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-17 (game configuration/.env schema) → CD-10</remarks>
 public class MaxTopPlayersTests
 {
     [TestCase(5)]

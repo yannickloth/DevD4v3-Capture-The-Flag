@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for TimeLeft.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: TimeLeft); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-12 (map-rotation rules) → CD-29</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
 public class TimeLeftTests
 {
     private readonly TimeLeft _timeLeft;

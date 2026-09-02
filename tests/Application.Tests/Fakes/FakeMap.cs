@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Fakes;
 
 /// <summary>Test double for the IMap interface.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: the IMap interface); CD-11 (map configuration) → CD-29</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration: the IMap interface)</remarks>
 public class FakeMap(
     int id = 0,
     string name = "RC_Battlefield") : IMap

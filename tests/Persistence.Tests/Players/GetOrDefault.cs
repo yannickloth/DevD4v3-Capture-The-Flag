@@ -1,10 +1,10 @@
 ﻿namespace Persistence.Tests.Players;
 
 /// <summary>Verifies the repository GetOrDefault operation returns the persisted player or null.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29; CD-18 (database schema/player data model) → CD-29</remarks>
+/// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20; CD-18 (database schema/player data model) → CD-20</remarks>
 public class GetPlayerOrDefault
 {
-    /// <remarks>Change drivers: CD-29 (root; code-under-test: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29; CD-18 (database schema/player data model) → CD-29</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20; CD-18 (database schema/player data model) → CD-20</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetOrDefault_WhenPlayerExists_ShouldReturnPlayerInfo(DatabaseProvider provider)
     {
@@ -25,7 +25,7 @@ public class GetPlayerOrDefault
         actual.SkinId.Should().Be(146);
     }
 
-    /// <remarks>Change drivers: CD-29 (root; code-under-test: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetOrDefault_WhenPlayerDoesNotExist_ShouldReturnNull(DatabaseProvider provider)
     {

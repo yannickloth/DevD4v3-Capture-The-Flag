@@ -1,7 +1,7 @@
 ﻿namespace Persistence.Tests.Common.DatabaseProviders;
 
 /// <summary>Wires the SQLite persistence stack for the repository tests.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-29; CD-20 (outbound repository contract) → CD-29; CD-18 (database schema/player data model) → CD-29; CD-21 (DI container/composition) → CD-29; CD-25 (BCrypt password-hashing contract) → CD-29</remarks>
+/// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
 public class SqliteRepositoryManager : IRepositoryManager
 {
     private readonly ISqlCollection _seedSqlCollection;

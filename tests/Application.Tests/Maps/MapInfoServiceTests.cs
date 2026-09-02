@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for MapInfoService.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: MapInfoService); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-11 (map configuration) → CD-29</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
 public class MapInfoServiceTests
 {
     private static readonly MapCollection s_maps = new(TestPaths.Maps);

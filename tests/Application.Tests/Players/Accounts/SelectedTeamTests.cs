@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.SetTeam.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-02 (CTF game-rules specification) → CD-29</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
 public class SelectedTeamTests
 {
     [TestCase(-1)]

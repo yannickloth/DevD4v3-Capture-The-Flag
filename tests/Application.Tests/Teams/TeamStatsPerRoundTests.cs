@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
 /// <summary>Tests for TeamStatsPerRound.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-02 (CTF game-rules specification) → CD-29; CD-10 (player-statistics/rank model) → CD-29</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
 public class TeamStatsPerRoundTests
 {
     [Test]

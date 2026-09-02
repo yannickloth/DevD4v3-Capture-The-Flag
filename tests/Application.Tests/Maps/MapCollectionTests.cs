@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for MapCollection.</summary>
-/// <remarks>Change drivers: CD-29 (root; code-under-test: MapCollection); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-11 (map configuration) → CD-29</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
 public class MapCollectionTests
 {
     static readonly int[] InvalidMapCases = [-1, 1000];
