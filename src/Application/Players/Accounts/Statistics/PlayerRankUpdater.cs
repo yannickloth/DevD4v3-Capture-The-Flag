@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerRankUpdater(
     IPlayerRepository playerRepository,
@@ -10,7 +10,7 @@ public class PlayerRankUpdater(
     private const int EarnedArmour = 100;
     private const int EarnedCoins  = 100;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
