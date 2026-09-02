@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.SetName.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: PlayerInfo.SetName), CD-08 (account & authentication policy)</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-08 (account & authentication policy) → CD-29</remarks>
 public class PlayerNameTests
 {
     [Test]

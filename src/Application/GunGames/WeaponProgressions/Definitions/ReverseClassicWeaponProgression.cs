@@ -5,13 +5,13 @@
 /// Players begin with the most difficult weapons and finish with the easiest,
 /// before reaching the final knife level.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
 public class ReverseClassicWeaponProgression : WeaponProgression
 {
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     public override WeaponProgressionType Type => WeaponProgressionType.ReverseClassic;
 
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

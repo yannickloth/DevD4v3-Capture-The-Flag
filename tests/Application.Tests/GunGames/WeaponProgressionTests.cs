@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for WeaponProgression.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: WeaponProgression), CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-07 (GunGame mode rules) → CD-29</remarks>
 public class WeaponProgressionTests
 {
     private TestWeaponProgression _progression;

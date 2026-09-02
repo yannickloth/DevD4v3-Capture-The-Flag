@@ -24,7 +24,7 @@ public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
     /// Players are sorted by score in descending order and then
     /// alternately assigned to the specified teams.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team balancing)</remarks>
     public void Balance(
         Team firstTeam,
         Team secondTeam, 

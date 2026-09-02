@@ -22,7 +22,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the flag pickup at the team's base position.</summary>
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration: flag locations)</remarks>
     public void CreateFlagFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -62,7 +62,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys the flag pickup for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: pickups)</remarks>
     public void DestroyFlag(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -112,7 +112,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys the exterior marker for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: pickups)</remarks>
     public void DestroyExteriorMarker(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -129,7 +129,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys all pickups for flags and exterior markers.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: pickups)</remarks>
     public void DestroyAllPickups()
     {
         DestroyExteriorMarker(Team.Alpha);

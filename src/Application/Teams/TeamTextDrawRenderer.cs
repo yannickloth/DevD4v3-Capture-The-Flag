@@ -23,7 +23,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Shows the team textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: textdraws)</remarks>
     public void Show(Player player)
     {
         _redFlag.Show(player);
@@ -37,7 +37,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Hides the team textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: textdraws)</remarks>
     public void Hide(Player player)
     {
         _redFlag.Hide(player);

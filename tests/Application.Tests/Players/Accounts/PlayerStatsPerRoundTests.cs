@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerStatsPerRound.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: PlayerStatsPerRound), CD-10 (player-statistics/rank model), CD-06 (coin economy)</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-10 (player-statistics/rank model) → CD-29; CD-06 (coin economy) → CD-29</remarks>
 public class PlayerStatsPerRoundTests
 {
     [TestCase(10)]

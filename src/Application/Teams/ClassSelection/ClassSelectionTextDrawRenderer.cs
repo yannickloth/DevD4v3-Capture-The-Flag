@@ -3,7 +3,7 @@
 /// <summary>
 /// Renders the class-selection screen textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws).</remarks>
+/// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: textdraws)</remarks>
 public class ClassSelectionTextDrawRenderer
 {
     private readonly IWorldService _worldService;
@@ -19,7 +19,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Shows the class-selection textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws).</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: textdraws)</remarks>
     public void Show(Player player)
     {
         _gameModeDescription.Show(player);
@@ -29,7 +29,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Hides the class-selection textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws).</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: textdraws)</remarks>
     public void Hide(Player player)
     {
         _gameModeDescription.Hide(player);

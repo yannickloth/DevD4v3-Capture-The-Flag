@@ -3,7 +3,7 @@
 /// <summary>
 /// Prevents players from abusing the GTA: San Andreas crouch bug (C-Bug).
 /// </summary>
-/// <remarks>Change drivers: CD-14 (anti-cheat policy), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-17 (game configuration/.env schema) → CD-14; CD-01 (open.mp/SampSharp platform API) → CD-14</remarks>
 /// <remarks>
 /// C-Bug is a bug in GTA: San Andreas that allows players to manipulate the
 /// reload animation of certain weapons, particularly the Desert Eagle, to fire
@@ -15,7 +15,7 @@ public class AntiCBugSystem(
     AntiCBugSettings antiCBugSettings) : ISystem
 {
     /// <summary>Adds the last-fired-time component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {
@@ -23,7 +23,7 @@ public class AntiCBugSystem(
     }
 
     /// <summary>Detects the C-Bug on key state changes.</summary>
-    /// <remarks>Change drivers: CD-14 (anti-cheat policy), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-17 (game configuration/.env schema) → CD-14; CD-01 (open.mp/SampSharp platform API) → CD-14</remarks>
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {

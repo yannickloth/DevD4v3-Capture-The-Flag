@@ -7,7 +7,7 @@ internal static class FakePlayerSeedData
     /// Password Text: 123456
     /// This password is for test purposes only.
     /// </summary>
-    /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (root; root; BCrypt password-hashing contract)</remarks>
     private const string Password = "$2a$10$60QnEiafBCLfVBMfQkExVeolyBxVHWcSQKTvkxVJj9FUozRpRP/GW";
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
     public static Dictionary<int, FakePlayer> Create()

@@ -7,13 +7,13 @@
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balance)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team balance)</remarks>
     public static readonly Team Alpha;
     /// <summary>Gets the Beta team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balance)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team balance)</remarks>
     public static readonly Team Beta;
     /// <summary>Gets the NoTeam placeholder team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: no-team state)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: no-team state)</remarks>
     public static readonly Team None;
     private Team() { }
     static Team() 
@@ -80,13 +80,13 @@ public class Team
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: team id) ‖ CD-02 (root; CTF game-rules specification: team identity)</remarks>
     public TeamId Id { get; private set; }
     /// <summary>Gets the team skin identifier.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: skin id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: skin id)</remarks>
     public SkinTeamId SkinId { get; private set; }
     /// <summary>Gets the team name.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team identity)</remarks>
     public string Name { get; private set; }
     /// <summary>Gets the team color name.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color identity)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team color identity)</remarks>
     public string ColorName { get; private set; }
 
     /// <summary>
@@ -110,13 +110,13 @@ public class Team
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag ownership); CD-11 (map configuration: flag identity) → CD-02</remarks>
     public Flag Flag { get; private set; }
     /// <summary>Gets the rival team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team pairing)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team pairing)</remarks>
     public Team RivalTeam { get; private set; }
     /// <summary>Gets the team members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team membership)</remarks>
     public TeamMembers Members { get; } = [];
     /// <summary>Gets the per-round statistics for the team.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; root; player-statistics/rank model: team stats)</remarks>
     public TeamStatsPerRound StatsPerRound { get; } = new();
 
     /// <summary>Gets the team member count as text.</summary>
@@ -126,13 +126,13 @@ public class Team
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw) → CD-10; CD-10 (root; player-statistics/rank model: team score)</remarks>
     public virtual string GetScoreAsText() => $"{Name}: {StatsPerRound.Score}";
     /// <summary>Checks whether the team has more members than its rival.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team balancing)</remarks>
     public virtual bool IsFull() => Members.Count > RivalTeam.Members.Count;
     /// <summary>Checks whether the team has a higher score than its rival.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match end conditions)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: match end conditions)</remarks>
     public virtual bool IsWinner() => StatsPerRound.Score > RivalTeam.StatsPerRound.Score;
     /// <summary>Resets the team's round state.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: round/flag reset rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: round/flag reset rule)</remarks>
     public virtual void Reset()
     {
         StatsPerRound.Reset();
@@ -141,7 +141,7 @@ public class Team
     }
 
     /// <summary>Gets the team availability message.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing availability)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: team balancing availability)</remarks>
     public virtual string GetAvailabilityMessage()
         => IsFull() ? 
         $"~y~{Name}~n~~r~ not available" : 

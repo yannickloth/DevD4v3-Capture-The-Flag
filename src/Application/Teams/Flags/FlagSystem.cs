@@ -53,7 +53,7 @@ public class FlagSystem(
     }
 
     /// <summary>Drops the flag when a carrying player changes teams.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier team-change drop rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: carrier team-change drop rule)</remarks>
     [Event]
     public void OnTeamChange(Player player, Team selectedTeam)
     {

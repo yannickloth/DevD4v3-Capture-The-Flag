@@ -1,21 +1,21 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+/// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
 public class MapCollection
 {
     private Map[] _maps;
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public MapCollection(string mapsPath)
     {
         LoadFromDirectory(mapsPath);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public int Count => _maps.Length;
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public IReadOnlyList<IMap> GetAll() => _maps;
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public IEnumerable<IMap> GetAll(string findBy)
     {
         foreach (Map map in _maps)
@@ -25,7 +25,7 @@ public class MapCollection
         }
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public Result<IMap> GetById(int id)
     {
         if (id < 0 || id >= Count)
@@ -35,7 +35,7 @@ public class MapCollection
         return Result<IMap>.Success(map);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     public Result<IMap> GetByName(string mapName)
     {
         Map map = _maps
@@ -45,23 +45,23 @@ public class MapCollection
             Result<IMap>.Success(map);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration); CD-12 (map-rotation rules) → CD-11</remarks>
     public IMap GetNext(IMap current)
     {
         int nextMapId = (current.Id + 1) % Count;
         return GetById(nextMapId).Value;
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     private class Map : IMap
     {
-        /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+        /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
         public int Id { get; init; }
-        /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+        /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
         public string Name { get; init; }
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
     private void LoadFromDirectory(string mapsPath)
     {
         var random = new Random();

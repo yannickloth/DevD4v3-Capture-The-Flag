@@ -1,10 +1,10 @@
 ﻿namespace Persistence.Tests.Players;
 
 /// <summary>Verifies the top-players repository queries (by total kills and by max killing spree).</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: ITopPlayersRepository.GetByTotalKills/GetByMaxKillingSpree), CD-20 (outbound repository contract), CD-18 (database schema/player data model).</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: ITopPlayersRepository.GetByTotalKills/GetByMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29; CD-18 (database schema/player data model) → CD-29</remarks>
 public class GetTopPlayers
 {
-    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: ITopPlayersRepository.GetByTotalKills), CD-20 (outbound repository contract).</remarks>
+    /// <remarks>Change drivers: CD-29 (root; code-under-test: ITopPlayersRepository.GetByTotalKills); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetByTotalKills_WhenSeedDataIsAvailable_ShouldReturnPlayersOrderedByTotalKills(DatabaseProvider provider)
     {
@@ -32,7 +32,7 @@ public class GetTopPlayers
         actual.Should().BeEquivalentTo(expectedPlayers);
     }
 
-    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: ITopPlayersRepository.GetByTotalKills), CD-20 (outbound repository contract).</remarks>
+    /// <remarks>Change drivers: CD-29 (root; code-under-test: ITopPlayersRepository.GetByTotalKills); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetByTotalKills_WhenSeedDataIsNotAvailable_ShouldReturnEmptyCollection(DatabaseProvider provider)
     {
@@ -51,7 +51,7 @@ public class GetTopPlayers
         actual.Should().BeEmpty();
     }
 
-    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: ITopPlayersRepository.GetByMaxKillingSpree), CD-20 (outbound repository contract).</remarks>
+    /// <remarks>Change drivers: CD-29 (root; code-under-test: ITopPlayersRepository.GetByMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetByMaxKillingSpree_WhenSeedDataIsAvailable_ShouldReturnPlayersOrderedByMaxKillingSpree(DatabaseProvider provider)
     {
@@ -79,7 +79,7 @@ public class GetTopPlayers
         actual.Should().BeEquivalentTo(expectedPlayers);
     }
 
-    /// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: ITopPlayersRepository.GetByMaxKillingSpree), CD-20 (outbound repository contract).</remarks>
+    /// <remarks>Change drivers: CD-29 (root; code-under-test: ITopPlayersRepository.GetByMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-20 (outbound repository contract) → CD-29</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetByMaxKillingSpree_WhenSeedDataIsNotAvailable_ShouldReturnEmptyCollection(DatabaseProvider provider)
     {

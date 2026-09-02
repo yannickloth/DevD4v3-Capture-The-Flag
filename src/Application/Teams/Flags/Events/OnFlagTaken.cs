@@ -12,7 +12,7 @@ public class OnFlagTaken(
     FlagCarrierSettings flagCarrierSettings) : IFlagEvent
 {
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Taken;
 
     /// <summary>Handles the flag-taken event.</summary>

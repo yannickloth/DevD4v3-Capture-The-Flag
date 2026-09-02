@@ -2,20 +2,20 @@
 
 namespace CTF.Host.Services;
 
-/// <remarks>Change drivers: CD-24 (Discord webhook contract), CD-17 (game configuration/.env schema), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-17 (game configuration/.env schema) → CD-24; CD-21 (DI container/composition) → CD-24</remarks>
 public class DiscordWebhookClient : IDiscordWebhookClient
 {
-    /// <remarks>Change drivers: CD-21 (DI container/composition), CD-23 (Serilog logging)</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-23 (Serilog logging) → CD-21</remarks>
     private readonly ILogger<DiscordWebhookClient> _logger;
-    /// <remarks>Change drivers: CD-21 (DI container/composition), CD-24 (Discord webhook contract)</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-21 (DI container/composition) → CD-24</remarks>
     private readonly HttpClient _httpClient;
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-24 (Discord webhook contract)</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-17 (game configuration/.env schema) → CD-24</remarks>
     private readonly string _discordWebhookUrl;
 
-    /// <remarks>Change drivers: CD-24 (Discord webhook contract), CD-17 (game configuration/.env schema)</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-17 (game configuration/.env schema) → CD-24</remarks>
     private record DiscordWebhookPayload(string Content);
 
-    /// <remarks>Change drivers: CD-24 (Discord webhook contract), CD-17 (game configuration/.env schema), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-17 (game configuration/.env schema) → CD-24; CD-21 (DI container/composition) → CD-24</remarks>
     public DiscordWebhookClient(
         HttpClient httpClient,
         ILogger<DiscordWebhookClient> logger)
@@ -32,7 +32,7 @@ public class DiscordWebhookClient : IDiscordWebhookClient
         _httpClient = httpClient;
     }
 
-    /// <remarks>Change drivers: CD-24 (Discord webhook contract), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-21 (DI container/composition) → CD-24</remarks>
     public async Task<bool> SendAsync(DiscordMessage message)
     {
         if (string.IsNullOrWhiteSpace(_discordWebhookUrl))

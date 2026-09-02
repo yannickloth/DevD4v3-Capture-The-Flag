@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams.Flags;
 
 /// <summary>Tests for Flag.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: Flag), CD-02 (CTF game-rules specification)</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: Flag); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29; CD-02 (CTF game-rules specification) → CD-29</remarks>
 public class FlagTests
 {
     [Test]

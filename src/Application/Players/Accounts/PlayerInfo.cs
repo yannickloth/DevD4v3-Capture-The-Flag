@@ -84,7 +84,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public RankId RankId { get; private set; } = RankId.Noob;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     public Team Team { get; private set; } = Team.None;
 
     /// <remarks>Change drivers: CD-18 (database schema/player data model) ‖ CD-20 (outbound repository contract); both → CD-08 (account)</remarks>
@@ -93,73 +93,73 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public bool HasSurpassedMaxKillingSpree() => StatsPerRound.KillingSpree > MaxKillingSpree;
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public bool HasSkin() => SkinId != NoSkin;
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool HasRole(RoleId id) => RoleId == id;
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool HasLowerRoleThan(RoleId id) => RoleId < id;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public bool HasRank(RankId id) => RankId == id;
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsVIP() => HasRole(RoleId.VIP);
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsModerator() => HasRole(RoleId.Moderator);
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsAdmin() => HasRole(RoleId.Admin);
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsNotVIP() => !IsVIP();
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsNotModerator() => !IsModerator();
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public bool IsNotAdmin() => !IsAdmin();
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void SetLastConnection() => LastConnection = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void SetMaxKillingSpree(int value) => MaxKillingSpree = value;
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public void RemoveSkin() => SkinId = NoSkin;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddTotalKills() => TotalKills++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddTotalDeaths() => TotalDeaths++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddBroughtFlags() => BroughtFlags++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddCapturedFlags() => CapturedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddDroppedFlags() => DroppedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddReturnedFlags() => ReturnedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void AddHeadShots() => HeadShots++;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10</remarks>
     public void AddGunGameWins() => GunGameWins++;
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
     public Result SetName(string value)
     {
         ArgumentNullException.ThrowIfNull(value);
@@ -176,7 +176,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
     public Result SetPassword(string value)
     {
         ArgumentNullException.ThrowIfNull(value);
@@ -190,7 +190,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public Result SetTotalKills(int value)
     {
         if (value < 0)
@@ -200,7 +200,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public Result SetTotalDeaths(int value)
     {
         if (value < 0)
@@ -210,7 +210,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public Result SetRole(RoleId id)
     {
         if (id < 0 || (int)id >= RoleCollection.Count)
@@ -220,7 +220,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public Result SetRank(RankId id)
     {
         if (id < 0 || (int)id >= RankCollection.Count)
@@ -230,7 +230,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public Result SetSkin(int id)
     {
         if (id < 0 || id > 311)
@@ -240,7 +240,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public Result SetTeam(TeamId id)
     {
         Result<Team> result = id switch
@@ -263,7 +263,7 @@ public partial class PlayerInfo
     /// <summary>
     /// Checks if the player has captured the opposing team's flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public bool IsCarryingEnemyFlag()
     {
         if (Team == Team.None) 
@@ -278,7 +278,7 @@ public partial class PlayerInfo
         return false;
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public bool CanMoveUpToNextRank()
     {
         IRank currentRank = RankCollection.GetById(RankId).Value;
@@ -289,7 +289,7 @@ public partial class PlayerInfo
         return TotalKills >= nextRank.RequiredKills;
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public string GetStatsAsText()
     {
         Result<IRank> rankResult = RankCollection.GetById(RankId);

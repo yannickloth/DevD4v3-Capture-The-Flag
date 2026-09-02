@@ -12,7 +12,7 @@ public class OnFlagDropped(
     FlagAutoReturnTimer flagAutoReturnTimer) : IFlagEvent
 {
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Dropped;
 
     /// <summary>Handles the flag-dropped event.</summary>

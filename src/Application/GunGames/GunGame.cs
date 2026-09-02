@@ -3,7 +3,7 @@
 /// <summary>
 /// Processes a player kill according to the GunGame rules.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
 /// <remarks>
 /// This class encapsulates the core GunGame progression logic, such as
 /// leveling up, leveling down, reaching the final level, and scoring
@@ -29,7 +29,7 @@ public readonly struct GunGame(
     /// <returns>
     /// The result produced after applying the GunGame rules.
     /// </returns>
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
     public GunGameResult ProcessKill(
         PlayerProgression killer,
         PlayerProgression victim,

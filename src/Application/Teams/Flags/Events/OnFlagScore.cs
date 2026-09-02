@@ -19,7 +19,7 @@ public class OnFlagScore(
     private const int TeamEarnedScore    = 1;
 
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Brought;
 
     /// <summary>Handles the flag-score event.</summary>

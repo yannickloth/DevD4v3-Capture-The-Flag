@@ -5,13 +5,13 @@
 /// where players advance through increasingly challenging
 /// weapons until reaching the final knife level.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
 public class ClassicWeaponProgression : WeaponProgression
 {
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     public override WeaponProgressionType Type => WeaponProgressionType.Classic;
 
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         // Ordered from the first weapon level to the final weapon level.

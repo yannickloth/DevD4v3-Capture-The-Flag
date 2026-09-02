@@ -95,15 +95,15 @@ public class PlayerCoinsSystem(
         currentPlayer.SendClientMessage(Color.Yellow, Messages.GiveMeCoins);
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();
 
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    /// <remarks>Change drivers: CD-17 (root; root; game configuration/.env schema)</remarks>
     private class WaitTimeComponent : Component
     {
-        /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+        /// <remarks>Change drivers: CD-17 (root; root; game configuration/.env schema)</remarks>
         public long Value { get; set; }
     }
 }

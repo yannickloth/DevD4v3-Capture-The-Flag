@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a chat message in the messaging system.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (chat rules)</remarks>
+/// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
 public interface IChatMessage
 {
     /// <summary>
     /// Gets the unique identifier of the chat message.
     /// </summary>
-    /// <remarks>Change drivers: CD-13 (chat rules)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
     char Id { get; }
 
     /// <summary>
@@ -20,6 +20,6 @@ public interface IChatMessage
     /// <returns>
     /// <c>true</c> if the message was successfully sent; otherwise, <c>false</c>.
     /// </returns>
-    /// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
     bool SendToAllPlayers(PlayerInfo sender, string message);
 }

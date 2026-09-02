@@ -21,7 +21,7 @@ public class Flag
     /// <summary>
     /// Gets the display name of the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag display name)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag display name)</remarks>
     public required string Name { get; init; } = string.Empty;
 
     /// <summary>
@@ -33,7 +33,7 @@ public class Flag
     /// <summary>
     /// Gets the current status of the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus Status { get; private set; } = FlagStatus.BasePosition;
 
     /// <summary>
@@ -42,13 +42,13 @@ public class Flag
     /// <remarks>
     /// Returns <c>null</c> when the flag has no carrier.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: one-flag-per-player carrier rule)</remarks>
     public Player Carrier { get; private set; }
 
     /// <summary>
     /// Checks if the flag has been captured by a player.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag carrier state)</remarks>
     public bool HasCarrier => Carrier is not null;
 
     /// <summary>
@@ -66,7 +66,7 @@ public class Flag
     /// <param name="player">
     /// The player who captured the flag.
     /// </param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: capture-from-base rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: capture-from-base rule)</remarks>
     public void Capture(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -81,7 +81,7 @@ public class Flag
     /// <param name="player">
     /// The player who picked up the flag.
     /// </param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: take-from-non-base rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: take-from-non-base rule)</remarks>
     public void Take(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -93,7 +93,7 @@ public class Flag
     /// <summary>
     /// Drops the flag and removes its current carrier.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier death/disconnect drop rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag carrier death/disconnect drop rule)</remarks>
     public void Drop()
     {
         RemoveCarrier();
@@ -103,7 +103,7 @@ public class Flag
     /// <summary>
     /// Returns the flag to its base state and removes its current carrier.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag auto-return and return rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag auto-return and return rule)</remarks>
     public void ReturnToBase()
     {
         RemoveCarrier();
@@ -113,7 +113,7 @@ public class Flag
     /// <summary>
     /// Resets the flag to its initial state.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: round/flag reset rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: round/flag reset rule)</remarks>
     public void Reset()
     {
         RemoveCarrier();
@@ -142,7 +142,7 @@ public class Flag
     /// <summary>
     /// Removes the flag that the player is holding.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: attached-object removal)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: attached-object removal)</remarks>
     private void RemoveCarrier()
     {
         if (Carrier is not null)

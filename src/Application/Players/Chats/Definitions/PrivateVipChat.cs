@@ -3,16 +3,16 @@
 /// <summary>
 /// Represents the VIP private chat tier, routed by the '$' prefix.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
 /// <remarks>Injected dependencies: entityManager -> CD-01. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
 public class PrivateVipChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
-    /// <remarks>Change drivers: CD-13 (chat rules)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
     public char Id => '$';
 
     /// <summary>Sends the message to all players of the required VIP role.</summary>
-    /// <remarks>Change drivers: CD-13 (chat rules), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
         if (sender.HasLowerRoleThan(RoleId.VIP))

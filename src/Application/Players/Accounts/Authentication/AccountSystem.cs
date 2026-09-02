@@ -24,7 +24,7 @@ public class AccountSystem(
         await authenticationDialog.ShowLogin(player);
     }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; root; account & authentication policy)</remarks>
     private static PlayerInfo CreatePlayerInfo(string name)
     {
         var playerInfo = new PlayerInfo();

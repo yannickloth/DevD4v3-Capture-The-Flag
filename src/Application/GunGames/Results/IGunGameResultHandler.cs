@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides the context associated with a kill processed by <see cref="GunGame"/>.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
 /// <param name="Victim">
 /// The player who was killed.
 /// </param>
@@ -22,13 +22,13 @@ public readonly record struct KillContext(
 /// <summary>
 /// Defines how a specific <see cref="GunGame"/> result should be handled.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
 public interface IGunGameResultHandler
 {
     /// <summary>
     /// Gets the GunGame result associated with this handler.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
     GunGameResult Result { get; }
 
     /// <summary>
@@ -37,6 +37,6 @@ public interface IGunGameResultHandler
     /// <param name="context">
     /// The context of the processed kill.
     /// </param>
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
     void Handle(KillContext context);
 }

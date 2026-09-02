@@ -16,7 +16,7 @@ public class OnFlagCaptured(
     private const int EarnedScore = 2;
 
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Captured;
 
     /// <summary>Handles the flag-captured event.</summary>

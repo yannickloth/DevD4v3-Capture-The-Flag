@@ -16,7 +16,7 @@ public class OnFlagReturned(
     private const int EarnedScore = 2;
 
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Returned;
 
     /// <summary>Handles the flag-returned event.</summary>

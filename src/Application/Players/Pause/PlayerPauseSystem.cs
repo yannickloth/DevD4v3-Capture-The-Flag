@@ -5,7 +5,7 @@ namespace CTF.Application.Players.Pause;
 /// <summary>
 /// Detects when players enter or leave the paused state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
 /// <remarks>
 /// The paused state is detected by monitoring <c>OnPlayerUpdate</c>. If no update
 /// packets are received from the client for a period of time, the player is
@@ -25,15 +25,15 @@ public class PlayerPauseSystem(
     private readonly List<PlayerDataComponent> _playerDataComponents = new(capacity: 32);
 
     /// <summary>Handles the player pause state change.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
     public delegate void PauseEventHandler(Player player, bool pauseState);
 
     /// <summary>Raised when a player enters or leaves the paused state.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
     public event PauseEventHandler PauseEvent;
 
     /// <summary>Registers the player for pause detection on connect.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {
@@ -47,7 +47,7 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Unregisters the player from pause detection on disconnect.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerDisconnect(PlayerDataComponent playerDataComponent, DisconnectReason _) 
     {
@@ -62,7 +62,7 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Updates the last-update timestamp for the player.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerUpdate(PlayerDataComponent playerDataComponent, TimePoint _) 
     {

@@ -7,10 +7,10 @@
 public enum TeamId
 {
     /// <summary>The Alpha team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: team id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: team id)</remarks>
     Alpha,
     /// <summary>The Beta team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: team id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: team id)</remarks>
     Beta,
     /// <summary>The NoTeam state.</summary>
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: no-team id) ‖ CD-02 (root; CTF game-rules specification: no-team state)</remarks>

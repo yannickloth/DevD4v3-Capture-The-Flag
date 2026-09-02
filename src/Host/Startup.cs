@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host;
 
-/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-23 (Serilog logging), CD-24 (Discord webhook contract)</remarks>
+/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01; CD-17 (game configuration/.env schema) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
 public class Startup : IEcsStartup
 {
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
     public void Initialize(IStartupContext context)
     {
         context.UseEntities()
@@ -15,7 +15,7 @@ public class Startup : IEcsStartup
             });
     }
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-23 (Serilog logging), CD-24 (Discord webhook contract)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01; CD-17 (game configuration/.env schema) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
     public void ConfigureServices(IServiceCollection services, IConfiguration _)
     {
         new EnvLoader()
@@ -57,7 +57,7 @@ public class Startup : IEcsStartup
             .AddSystemsInAssembly(typeof(Startup).Assembly);
     }
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
     public void Configure(IEcsBuilder builder)
     {
         // TODO: Enable desired ECS system features

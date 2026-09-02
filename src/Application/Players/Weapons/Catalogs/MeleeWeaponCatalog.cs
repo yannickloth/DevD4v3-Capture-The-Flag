@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.Players.Weapons.Catalogs;
 
-/// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
+/// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
 public class MeleeWeaponCatalog : WeaponCatalog
 {
-    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
     public override WeaponCatalogType Type => WeaponCatalogType.Melee;
 
-    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Fakes;
 
 /// <summary>Test double for the platform Player surface.</summary>
-/// <remarks>Change drivers: CD-28 (NSubstitute mock contract), CD-29 (code-under-test: the platform Player surface), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-29 (root; code-under-test: the platform Player surface); CD-28 (NSubstitute mock contract) → CD-29; CD-01 (open.mp/SampSharp platform API) → CD-29</remarks>
 public class FakePlayer : Player
 {
     private float _health = 100;
