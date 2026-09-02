@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.CanMoveUpToNextRank.</summary>
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-29 (code-under-test: PlayerInfo.CanMoveUpToNextRank), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-29 (code-under-test: PlayerInfo.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
 public class CanMoveUpToNextRankTests
 {
     [Test]

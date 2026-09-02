@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides the admin-role command set.
 /// </summary>
-/// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; serverService -> CD-01; worldService -> CD-01; dialogService -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class AdminCommands(
     IEntityManager entityManager,
@@ -12,7 +12,7 @@ public class AdminCommands(
     IDialogService dialogService) : ISystem
 {
     /// <summary>Shows the admin commands dialog.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("cmdsadmin")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowAdminCommands(Player player)
@@ -33,7 +33,7 @@ public class AdminCommands(
     }
 
     /// <summary>Gives a jetpack to all connected players.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("jetall")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GiveJetpackToPlayers(Player currentPlayer)
@@ -54,7 +54,7 @@ public class AdminCommands(
     }
 
     /// <summary>Teleports the admin to a target player's position.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("goto")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GoToPlayerPosition(
@@ -71,7 +71,7 @@ public class AdminCommands(
     }
 
     /// <summary>Brings a target player to the admin's position.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("get")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BringPlayerToMyPosition(
@@ -88,7 +88,7 @@ public class AdminCommands(
     }
 
     /// <summary>Bans a target player.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("ban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BanPlayer(
@@ -131,7 +131,7 @@ public class AdminCommands(
     }
 
     /// <summary>Unbans a player IP address.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("unban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void UnbanPlayer(Player currentPlayer, string ip)
@@ -142,7 +142,7 @@ public class AdminCommands(
     }
 
     /// <summary>Shows the list of banned IP addresses.</summary>
-    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("bannedips")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowBannedIPs(Player currentPlayer)

@@ -4,7 +4,7 @@
 /// Represents a collection of weapons where only one weapon
 /// can occupy a slot at a time.
 /// </summary>
-/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>
 /// GTA San Andreas allows only one weapon per slot. Adding a weapon
 /// replaces any existing weapon occupying the same slot.
@@ -20,7 +20,7 @@ public class WeaponPack : IEnumerable<IWeapon>
     /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification)</remarks>
     public bool IsEmpty() => _weapons.Count == 0;
 
-    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Add(IWeapon weapon)
     {
         ArgumentNullException.ThrowIfNull(weapon);

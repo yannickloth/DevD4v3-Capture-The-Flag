@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the active weapon catalog used by the server.
 /// </summary>
-/// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration); CD-17 (game configuration/.env schema)</remarks>
 /// <remarks>
 /// Consumers do not need to know which weapon catalog is active.
 /// This class always exposes the catalog selected by the current server configuration.
@@ -13,7 +13,7 @@ public class ActiveWeaponCatalog(
     WeaponCatalogSettings settings, 
     FrozenDictionary<WeaponCatalogType, WeaponCatalog> catalogs)
 {
-    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-17 (game configuration/.env schema)</remarks>
+    /// <remarks>Change drivers: CD-04 (weapon-catalog configuration); CD-17 (game configuration/.env schema)</remarks>
     private WeaponCatalog Current 
         => catalogs[settings.Type];
 

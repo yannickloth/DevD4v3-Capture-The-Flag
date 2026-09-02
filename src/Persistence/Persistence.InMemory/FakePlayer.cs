@@ -1,13 +1,13 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-18 (database schema/player data model), CD-20 (outbound repository contract)</remarks>
+/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-18 (database schema/player data model); CD-20 (outbound repository contract)</remarks>
 public class FakePlayer
 {
     /// <remarks>Change drivers: CD-18 (database schema/player data model)</remarks>
     private const int NoSkin = -1;
-    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model); CD-21 (DI container/composition)</remarks>
     public FakePlayer() => Id = PlayerIdValueGenerator.Instance.Next();
-    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-18 (database schema/player data model); CD-21 (DI container/composition)</remarks>
     public FakePlayer(string name, string passwordHash)
     {
         Id = PlayerIdValueGenerator.Instance.Next();
@@ -19,7 +19,7 @@ public class FakePlayer
     public int Id { get; }
     /// <remarks>Change drivers: CD-18 (database schema/player data model)</remarks>
     public string Name { get; set; }
-    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-18 (database schema/player data model)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-18 (database schema/player data model)</remarks>
     public string PasswordHash { get; set; }
     /// <remarks>Change drivers: CD-18 (database schema/player data model)</remarks>
     public int TotalKills { get; set; }

@@ -1,4 +1,4 @@
-﻿// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
+﻿// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-21 (DI container/composition)</remarks>
 global using Microsoft.Extensions.DependencyInjection;
 global using GameMode.Common;
 global using CTF.Application.Players.Accounts;

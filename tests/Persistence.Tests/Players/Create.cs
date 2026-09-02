@@ -1,11 +1,11 @@
 ﻿namespace Persistence.Tests.Players;
 
 /// <summary>Verifies the repository Create operation sets the account id and persists all fields.</summary>
-/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-29 (code-under-test: IPlayerRepository.Create), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
+/// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-29 (code-under-test: IPlayerRepository.Create); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
 public class CreatePlayer
 {
     /// <summary>Creates a player and asserts every field is persisted and the id is generated.</summary>
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-29 (code-under-test: IPlayerRepository.Create), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-29 (code-under-test: IPlayerRepository.Create); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void Create_WhenCalled_ShouldCreatePlayerAndSetAccountId(DatabaseProvider provider)
     {

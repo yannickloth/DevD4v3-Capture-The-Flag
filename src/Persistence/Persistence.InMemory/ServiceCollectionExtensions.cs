@@ -1,9 +1,9 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-21 (DI container/composition)</remarks>
 public static class PersistenceInMemoryServicesExtensions
 {
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-21 (DI container/composition)</remarks>
     public static IServiceCollection AddPersistenceInMemoryServices(
         this IServiceCollection services)
     {

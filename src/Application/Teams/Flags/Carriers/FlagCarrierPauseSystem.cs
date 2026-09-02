@@ -6,7 +6,7 @@
 /// <remarks>
 /// It checks if the carrier is paused and updates the timer. If the timer runs out, the flag is returned to the base.
 /// </remarks>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier-pause flag return rule), CD-17 (game configuration/.env schema: FlagCarrier__PauseTime), CD-01 (open.mp/SampSharp platform API: OnPlayerPauseStateChange, timers, pickups, audio)</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier-pause flag return rule); CD-17 (game configuration/.env schema: FlagCarrier__PauseTime); CD-01 (open.mp/SampSharp platform API: OnPlayerPauseStateChange, timers, pickups, audio)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; timerService -> CD-01; teamPickupService -> CD-29+CD-01; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagCarrierPauseSystem(
     IWorldService worldService,
@@ -15,7 +15,7 @@ public class FlagCarrierPauseSystem(
     FlagCarrierSettings flagCarrierSettings) : ISystem
 {
     /// <summary>Stops the pause timer when a carrier disconnects.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect, timers).</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect, timers)</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -27,7 +27,7 @@ public class FlagCarrierPauseSystem(
     }
 
     /// <summary>Handles the pause state change for flag carriers.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier-pause flag return rule), CD-17 (game configuration/.env schema: FlagCarrier__PauseTime), CD-01 (open.mp/SampSharp platform API: OnPlayerPauseStateChange, timers)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier-pause flag return rule); CD-17 (game configuration/.env schema: FlagCarrier__PauseTime); CD-01 (open.mp/SampSharp platform API: OnPlayerPauseStateChange, timers)</remarks>
     [Event]
     public void OnPlayerPauseStateChange(Player player, bool pauseState)
     {

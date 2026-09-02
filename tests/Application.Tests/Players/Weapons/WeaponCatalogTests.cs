@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Weapons;
 
 /// <summary>Tests for WeaponCatalog.</summary>
-/// <remarks>Change drivers: CD-04 (weapon-catalog configuration), CD-29 (code-under-test: WeaponCatalog), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
+/// <remarks>Change drivers: CD-04 (weapon-catalog configuration); CD-29 (code-under-test: WeaponCatalog); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
 public class WeaponCatalogTests
 {
     [Test]

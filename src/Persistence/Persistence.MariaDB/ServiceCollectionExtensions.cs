@@ -1,9 +1,9 @@
 ﻿namespace Persistence.MariaDB;
 
-/// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-19 (MariaDB SQL dialect), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-18 (database schema/player data model); CD-19 (MariaDB SQL dialect) → CD-18; CD-21 (DI container/composition)</remarks>
 public static class PersistenceMariaDBServicesExtensions
 {
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-19 (MariaDB SQL dialect), CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-18 (database schema/player data model); CD-19 (MariaDB SQL dialect) → CD-18; CD-21 (DI container/composition)</remarks>
     public static IServiceCollection AddPersistenceMariaDBServices(
         this IServiceCollection services, 
         IConfiguration configuration,

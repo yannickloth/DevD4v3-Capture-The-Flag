@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Fakes;
 
 /// <summary>Test double for the platform Player surface (auth-aware).</summary>
-/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-29 (code-under-test: the platform Player surface (auth-aware), CD-28 (NSubstitute mock contract)</remarks>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API); CD-29 (code-under-test: the platform Player surface (auth-aware); CD-28 (NSubstitute mock contract) → CD-29</remarks>
 public class FakePlayer3 : Player
 {
     public FakePlayer3() : base(Substitute.For<IOmpEntityProvider>(), default)

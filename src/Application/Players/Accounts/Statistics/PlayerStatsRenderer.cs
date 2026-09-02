@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-01. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
 public class PlayerStatsRenderer(IWorldService worldService)
 {
@@ -32,7 +32,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-01 (open.mp/SampSharp platform API)</remarks>
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);

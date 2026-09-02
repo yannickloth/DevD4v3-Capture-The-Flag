@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.Players.Accounts.Profile;
 
-/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy); CD-20 (outbound repository contract) → CD-08; CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; dialogService -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerPasswordSystem(
     IPlayerRepository playerRepository,
     IDialogService dialogService) : ISystem
 {
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-01 (open.mp/SampSharp platform API)</remarks>
     private readonly InputDialog _passwordDialog = new()
     {
         IsPassword = true,
@@ -16,7 +16,7 @@ public class PlayerPasswordSystem(
         Button2 = "Close"
     };
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("changepass")]
     public async Task ShowPasswordDialog(Player player)
     {
@@ -28,7 +28,7 @@ public class PlayerPasswordSystem(
         await ChangePassword(player, enteredPassword);
     }
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
     private async Task ChangePassword(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

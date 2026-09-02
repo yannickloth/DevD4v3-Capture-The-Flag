@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Maps.Rotation;
 
-/// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-01; mapObjects -> CD-01; worldService -> CD-01; timerService -> CD-01; mapInfoService -> CD-29+CD-11; mapCollection -> CD-29+CD-11; mapTextDrawRenderer -> CD-29+CD-01; flagStateResetter -> CD-29+CD-02; teamBalancer -> CD-29+CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class MapRotationService(
     IServerService serverService,
@@ -22,7 +22,7 @@ public class MapRotationService(
     public TimeLeft TimeLeft => _timeLeft;
     /// <remarks>Change drivers: CD-12 (map-rotation rules)</remarks>
     public bool IsMapLoading => _isMapLoading;
-    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules)</remarks>
     public IMap NextMap => _forcedNextMap ?? mapCollection.GetNext(mapInfoService.CurrentMap);
 
     /// <remarks>Change drivers: CD-12 (map-rotation rules)</remarks>
@@ -34,7 +34,7 @@ public class MapRotationService(
     /// <remarks>Change drivers: CD-12 (map-rotation rules)</remarks>
     public event LoadedMapEventHandler LoadedMapEvent;
 
-    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules)</remarks>
     public void ForceNextMap(IMap map)
     {
         ArgumentNullException.ThrowIfNull(map);
@@ -58,7 +58,7 @@ public class MapRotationService(
         _timerReference = default;
     }
 
-    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
     private void OnTimer(IServiceProvider serviceProvider)
     {
         if (_timeLeft.IsCompleted())
@@ -72,7 +72,7 @@ public class MapRotationService(
         mapTextDrawRenderer.UpdateTimeLeft(_timeLeft);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
     private void OnLoadingMap()
     {
         _isMapLoading = true;
@@ -92,7 +92,7 @@ public class MapRotationService(
         serverService.SetMapName(nextMap.Name);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
     private void OnLoadedMap()
     {
         _isMapLoading = false;

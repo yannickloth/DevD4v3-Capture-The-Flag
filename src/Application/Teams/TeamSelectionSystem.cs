@@ -3,7 +3,7 @@
 /// <summary>
 /// Handles team selection for players via the team command and dialog.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing), CD-15 (command set: team command), CD-01 (open.mp/SampSharp platform API: dialog, commands, player team/spawn)</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing); CD-15 (command set: team command); CD-01 (open.mp/SampSharp platform API: dialog, commands, player team/spawn)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; dialogService -> CD-01; teamTextDrawRenderer -> CD-29+CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TeamSelectionSystem(
     IWorldService worldService,
@@ -11,15 +11,15 @@ public class TeamSelectionSystem(
     TeamTextDrawRenderer teamTextDrawRenderer) : ISystem
 {
     /// <summary>Represents the handler for a team change.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership)</remarks>
     public delegate void TeamChangeEventHandler(Player player, Team selectedTeam);
 
     /// <summary>Occurs when a player changes teams.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership)</remarks>
     public event TeamChangeEventHandler TeamChangeEvent;
 
     /// <summary>Shows the team selection dialog.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing), CD-15 (command set: team command), CD-01 (open.mp/SampSharp platform API: dialog)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing); CD-15 (command set: team command); CD-01 (open.mp/SampSharp platform API: dialog)</remarks>
     [PlayerCommand("team")]
     public async Task ShowTeams(Player player)
     {

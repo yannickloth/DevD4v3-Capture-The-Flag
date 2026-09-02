@@ -5,7 +5,7 @@ namespace CTF.Application.Players.Pause;
 /// <summary>
 /// Detects when players enter or leave the paused state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>
 /// The paused state is detected by monitoring <c>OnPlayerUpdate</c>. If no update
 /// packets are received from the client for a period of time, the player is
@@ -25,11 +25,11 @@ public class PlayerPauseSystem(
     private readonly List<PlayerDataComponent> _playerDataComponents = new(capacity: 32);
 
     /// <summary>Handles the player pause state change.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
     public delegate void PauseEventHandler(Player player, bool pauseState);
 
     /// <summary>Raised when a player enters or leaves the paused state.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
     public event PauseEventHandler PauseEvent;
 
     /// <summary>Registers the player for pause detection on connect.</summary>

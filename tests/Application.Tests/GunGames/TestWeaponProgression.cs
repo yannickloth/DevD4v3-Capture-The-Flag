@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Test double for WeaponProgression (fixture).</summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-29 (code-under-test: WeaponProgression (fixture)</remarks>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules); CD-29 (code-under-test: WeaponProgression (fixture)</remarks>
 public class TestWeaponProgression : WeaponProgression
 {
     public override WeaponProgressionType Type => WeaponProgressionType.Classic;
