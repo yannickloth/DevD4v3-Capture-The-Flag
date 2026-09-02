@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.Players.Accounts.Authentication;
 
-/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; accountAuthenticator -> CD-29+CD-08. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class AuthenticationDialog(
     IDialogService dialogService,
     AccountAuthenticator accountAuthenticator)
 {
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
     private readonly InputDialog _signupDialog = new()
     {
         IsPassword = true,
@@ -15,7 +15,7 @@ public class AuthenticationDialog(
         Button1 = "Accept"
     };
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
     private readonly InputDialog _loginDialog = new()
     {
         IsPassword = true,
@@ -24,7 +24,7 @@ public class AuthenticationDialog(
         Button1 = "Accept"
     };
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
     public async Task ShowSignup(Player player)
     {
         InputDialogResponse response = await dialogService.ShowAsync(player, _signupDialog);
@@ -43,7 +43,7 @@ public class AuthenticationDialog(
             await ShowSignup(player);
     }
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
     public async Task ShowLogin(Player player)
     {
         InputDialogResponse response = await dialogService.ShowAsync(player, _loginDialog);
