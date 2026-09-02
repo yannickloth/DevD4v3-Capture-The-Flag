@@ -3,11 +3,11 @@
 /// <summary>
 /// Registers flag services with the DI container.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (DI container/composition).</remarks>
+/// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
 public static class FlagServicesExtensions
 {
     /// <summary>Registers the flag event handlers and supporting services.</summary>
-    /// <remarks>Change drivers: CD-21 (DI container/composition).</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
     public static IServiceCollection AddFlagServices(this IServiceCollection services)
     {
         services
@@ -31,7 +31,7 @@ public static class FlagServicesExtensions
     }
 
     /// <summary>Registers a flag event implementation as a singleton.</summary>
-    /// <remarks>Change drivers: CD-21 (DI container/composition).</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
     private static IServiceCollection AddFlagEvent<T>(this IServiceCollection services)
         where T : class, IFlagEvent
     {

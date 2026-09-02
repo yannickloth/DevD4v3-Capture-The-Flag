@@ -1,15 +1,15 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract), CD-17 (game configuration/.env schema)</remarks>
+/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
 internal static class FakePlayerSeedData
 {
     /// <summary>
     /// Password Text: 123456
     /// This password is for test purposes only.
     /// </summary>
-    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
     private const string Password = "$2a$10$60QnEiafBCLfVBMfQkExVeolyBxVHWcSQKTvkxVJj9FUozRpRP/GW";
-    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
     public static Dictionary<int, FakePlayer> Create()
     {
         FakePlayer[] players =
