@@ -1,12 +1,12 @@
 # Capture-The-Flag — "Before" Cohesion, Coupling & Scatter Analysis
 
-> Complement to `metrics.md`. Measures the committed "before" modularisation at every granularity against the 30-driver change-driver model (`CD-01..CD-30`). Terminology and formulas follow the IVP paper series (`cohesion-2-nature`, `cohesion-4-causal`):
+> Complement to `metrics.md`. Measures the committed "before" modularisation at every granularity against the 29-driver change-driver model (`CD-01..CD-30`, CD-29 retired). Terminology and formulas follow the IVP paper series (`cohesion-2-nature`, `cohesion-4-causal`):
 > - **causal cohesion** `H_causal(M) = (purity(M), completeness(M))`
 > - `purity(M) = 1 / |𝒜(M)|` where `𝒜(M)` = the set of *distinct change-driver sets* among M's elements (type-level or member-level, per the granularity).
 > - `completeness(M) = min over A ∈ 𝒜(M) of |M ∩ [A]| / |[A]|`, where `[A]` = all elements system-wide with driver-set A.
 > - **HHI contamination extent** = `1 − Σᵢ sᵢ²` where `sᵢ` is the share of each driver-set within the module (supplements purity; = 0 when pure, → 1 as contamination spreads evenly).
 
-Scope: 285 annotated types, 57 namespaces, 30 change drivers (type-level). Class-level cohesion is computed over ~1010 members (member-level; see caveat 2 — the member count is approximate).
+Scope: 285 annotated types, 57 namespaces, 29 change drivers (type-level). Class-level cohesion is computed over ~1010 members (member-level; see caveat 2 — the member count is approximate). (Numbers are the pre-CD-29-retirement baseline; see the correction note under §B.2.)
 
 Note: Composite types (like class, record, struct, interface) are modules exactly like namespaces.
 ---
@@ -137,13 +137,14 @@ Top pairs of namespaces sharing the most change drivers (Jaccard on driver sets)
 
 ### B.2 — Per-driver causal reach (which namespaces each driver touches)
 
+> **Correction note:** this reach table was computed before the retirement of CD-29 (code-under-test). Test namespaces have since been re-rooted on the domain drivers of their code under test, so the reach of the affected domain drivers (CD-02/07/10/11/12/…, now extending into `tests/`) is understated here. The counts above are the pre-correction baseline.
+
 | driver | namespaces touched |
 |---|---|
 | CD-01 platform | 33 |
 | CD-17 config | 27 |
 | CD-21 DI | 16 |
 | CD-20 repo contract | 15 |
-| CD-29 code-under-test | 15 |
 | CD-02 game-rules | 13 |
 | CD-10 stats | 13 |
 | CD-26 NUnit | 13 |
@@ -174,7 +175,7 @@ Using the `constraints.md` axes, a co-location is **essential** when a platform/
 
 `κ(γ)` = modules (namespaces) touched per driver activation. Full table in `metrics.md` §1.
 
-- Highest `κ`: CD-01 platform (33), CD-17 config (27), CD-21 DI (16), CD-20 repo (15), CD-29 code-under-test (15).
+- Highest `κ`: CD-01 platform (33), CD-17 config (27), CD-21 DI (16), CD-20 repo (15).
 - These are decreed horizontal axes. The IVP objective (minimise change-propagation) can only compress the **spurious** portion of the mid-band (CD-02 game-rules 13, CD-10 stats 13, CD-09 authorization 10, CD-15 command-set 10).
 
 > **Unmeasurable without an artifact:** activation-frequency weighting `λ(γ)`. No release-cadence / beta-frequency artifact exists in the repo (`.env`, config, docs, git history are the only sources, and none record driver activation rates). Weighted cost `Σ λ(γ)·κ(γ)` is therefore **not computed**; it is flagged for a future pass once a `λ` source is declared. This is not fabricated.

@@ -49,8 +49,7 @@ These are the drivers that exist independently — nothing upstream forces them.
 | CD-25 (BCrypt hashing) | the credential it hashes (CD-08) | hashing exists to protect the password field |
 | CD-21 (DI container/composition) | the objects it wires (their domains) | DI exists to compose; no services → no wiring |
 | CD-24 (Discord webhook) | the notification intent (CD-08 / CD-02) | webhook exists to announce account/game events |
-| CD-26/27/28 (NUnit/FA/NSubstitute) | the code under test (CD-29) | a test framework exists to exercise production code |
-| CD-29 (depended-on contract) | the seam's domain | a contract exists to abstract a domain service |
+| CD-26/27/28 (NUnit/FA/NSubstitute) | the domain driver(s) of the code under test (CD-02/07/20/…) | a test framework exists to exercise production code, which exists only because its domain does |
 
 ## 3. Sibling relations (unordered — do not chain)
 

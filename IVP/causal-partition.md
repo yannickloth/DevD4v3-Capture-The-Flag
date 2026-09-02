@@ -57,16 +57,16 @@
 
 ## 2. Namespace causal table (tests)
 
-| Namespace | Causal root | Subordinated |
+| Namespace | Causal root (domain of the code under test) | Subordinated |
 |---|---|---|
-| `CTF.Application.Tests` | CD-29 (code-under-test) | CD-26/CD-27 → CD-29; CD-11/CD-22 asserted |
-| `CTF.Application.Tests.Fakes` | CD-29 (mocked seams) | CD-28 → CD-29; CD-01/CD-11 asserted |
-| `CTF.Application.Tests.GunGames` | CD-29 (GunGame seams) | CD-07 asserted; CD-26/CD-27 → CD-29 |
-| `CTF.Application.Tests.Maps` | CD-29 (map seams) | CD-11/CD-12 asserted; tooling → CD-29 |
-| `CTF.Application.Tests.Players.*` | CD-29 (per-area seams) | production drivers asserted (CD-02/03/04/06/08/09/10/17); tooling → CD-29 |
-| `CTF.Application.Tests.Teams*` | CD-29 (team seams) | CD-02/CD-10 asserted; tooling → CD-29 |
+| `CTF.Application.Tests` (root) | the asserted domain driver(s) of each test (CD-07 GunGame, CD-11/12 maps, CD-10 stats, …) | CD-26/CD-27 → <asserted root>; production drivers asserted |
+| `CTF.Application.Tests.Fakes` | the mocked contract's domain driver (CD-01 platform Player surface, CD-11 map) | CD-28 → <asserted root> |
+| `CTF.Application.Tests.GunGames` | CD-07 (GunGame rules under test) | CD-26/CD-27 → CD-07 |
+| `CTF.Application.Tests.Maps` | CD-11/CD-12 (map/rotation behaviour under test) | tooling → <root> |
+| `CTF.Application.Tests.Players.*` | the asserted domain driver per area (CD-02/03/04/06/08/09/10/17) | tooling → <root> |
+| `CTF.Application.Tests.Teams*` | CD-02/CD-10 (team behaviour under test) | tooling → <root> |
 | `Persistence.Tests.Common` | CD-20 (repo seams) ‖ CD-19 ‖ CD-30 | CD-18/CD-21/CD-25 subordinated; CD-26 tooling |
-| `Persistence.Tests.Players` | CD-29 (repo behaviour) | CD-18/CD-20 asserted; tooling → CD-29 |
+| `Persistence.Tests.Players` | CD-20 (repository behaviour under test) | CD-18 → CD-20; tooling → CD-20 |
 
 ## 3. Assembly causal table
 
@@ -77,13 +77,13 @@
 | `Persistence.InMemory` | CD-20 (repo contract) | CD-18 ‖ CD-25 → CD-20; CD-21 wiring |
 | `Persistence.MariaDB` | CD-20 ‖ CD-19 (dialect) | CD-18/CD-25 → CD-20; CD-17/CD-21 subordinated |
 | `Persistence.SQLite` | CD-20 ‖ CD-30 (dialect) | CD-18/CD-25 → CD-20; CD-17/CD-21 subordinated |
-| `CTF.Application.Tests` | CD-29 (code-under-test seams) | CD-26/CD-27/CD-28 tooling; asserted production drivers |
-| `Persistence.Tests` | CD-29 ‖ CD-20 (repo behaviour) | tooling + dialects subordinated |
+| `CTF.Application.Tests` | the asserted domain driver(s) of the code under test | CD-26/CD-27/CD-28 tooling → <asserted root> |
+| `Persistence.Tests` | CD-20 (repository behaviour under test) | tooling + dialects subordinated → CD-20 |
 
 ## 4. Reading
 
 - The **application hexagon** (`CTF.Application`) roots the *domain drivers*; platform (CD-01), persistence ports (CD-20), and policies (CD-13/14/15/16) are realized within it.
 - The **host** roots the *platform/composition* axis — the one assembly where CD-01 is genuinely a root.
 - The **persistence providers** root the *storage* axis: the repo contract plus their dialect (CD-19 vs CD-30 as sibling variants).
-- **Test assemblies** root CD-29: they exist to assert the production seams; the tooling (CD-26/27/28) and the asserted production drivers are subordinated to that purpose.
+- **Test assemblies** root the *asserted domain drivers* of the code under test: they exist to assert that production code realizes its domain; the tooling (CD-26/27/28) is subordinated to that domain (testing exists only because the domain exists).
 - Nesting translation for the later packaging step: each namespace whose roots are a *subset* of another's root set nests inside it (`Γ_exist(parent) ⊆ Γ_exist(child)`); namespaces with disjoint roots stay siblings. E.g. `Accounts.Persistence` would nest under `Accounts` (its CD-20 root exists because the account root exists); `Maps` and `Players` stay siblings.

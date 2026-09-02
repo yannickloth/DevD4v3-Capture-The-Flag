@@ -43,7 +43,8 @@ The following change drivers were identified from the codebase. Each is an exter
 | **CD-26** | **NUnit test-framework contract** — the test framework: `[Test]`, `[TestCase]`, `[TestCaseSource]`, `[SetUp]`, `[OneTimeSetUp]`, test-runner lifecycle, and the `IEnumerable<*>` test-case-source convention. When the NUnit API/attributes or the test data shape changes, test methods must change. | `NUnit`, `NUnit3TestAdapter`, `NUnit.Analyzers` (test projects `tests/**`) |
 | **CD-27** | **FluentAssertions contract** — the assertion fluent-API (`Should().Be()`, `Should().Throw<>()`, `Should().BeEquivalentTo()`). When assertion conventions/semantics change, the assert blocks must change. | `FluentAssertions` (test projects `tests/**`) |
 | **CD-28** | **NSubstitute mock contract** — the mocking/substitute API (`Substitute.For<*>`). When the substitution API changes, fakes built on it must change. | `NSubstitute` (test project `tests/Application.Tests` only) |
-| **CD-29** | **Depended-on contract (seam)** — the public type/interface surface an element depends on, asserts, or must remain substitutable for. Covers both (a) tests/fakes that assert or mock a production type, and (b) **production dependency-injection points** (constructor/primary-constructor parameters, injected fields) that must stay compatible with the injected service's public signature. A dependency-injection parameter is driven by the *contract of the injected type* plus CD-21 (the DI registration that supplies it) — **not** by the injected type's domain drivers. The dependency relation itself is not a driver (per IVP: co-change is evidence, not a driver); the *contract* the seam exposes is. | the production type/interface surface in `src/Application`, `src/Persistence`, and `external/SampSharp`; injected-service contracts |
+
+> **CD-29 removed.** A former driver "Depended-on contract (seam)" was retired as a **methodology error**: it treated being *depended upon* (a structural property of the dependency graph) as if it were a change driver. Per the IVP definition, a change driver is a domain condition anchored in a domain artifact with a causal pathway (Definition of Change Driver, Criterion 1 & 2) — it is never a generic "relation to another element". A test's real change drivers are the **domain drivers of the code under test**; a dependency-injection point is driven by the **injected type's own domain drivers** (plus CD-21 wiring), not by a seam abstraction. CD-29 was retired and not renumbered; CD-30 (SQLite dialect) follows CD-28. See `causal-order.md` §2.
 
 ---
 
@@ -100,21 +101,21 @@ The following change drivers were identified from the codebase. Each is an exter
 
 | Namespace | Change drivers |
 |-----------|----------------|
-| `CTF.Application.Tests` | CD-11, CD-22, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Fakes` | CD-01, CD-11, CD-28, CD-29 |
-| `CTF.Application.Tests.GunGames` | CD-07, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Maps` | CD-11, CD-12, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.Extensions` | CD-01, CD-08, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.Ranks` | CD-10, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.TopPlayers` | CD-10, CD-17, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.Vitalities` | CD-03, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Players.Weapons` | CD-03, CD-04, CD-17, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Teams` | CD-02, CD-10, CD-26, CD-27, CD-29 |
-| `CTF.Application.Tests.Teams.Flags` | CD-02, CD-26, CD-27, CD-29 |
-| `Persistence.Tests.Common` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-26, CD-29, CD-30 |
-| `Persistence.Tests.Common.DatabaseProviders` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-29, CD-30 |
-| `Persistence.Tests.Players` | CD-18, CD-20, CD-26, CD-27, CD-29 |
+| `CTF.Application.Tests` | CD-11, CD-22, CD-26, CD-27 |
+| `CTF.Application.Tests.Fakes` | CD-01, CD-11, CD-28 |
+| `CTF.Application.Tests.GunGames` | CD-07, CD-26, CD-27 |
+| `CTF.Application.Tests.Maps` | CD-11, CD-12, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Extensions` | CD-01, CD-08, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Ranks` | CD-10, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.TopPlayers` | CD-10, CD-17, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Vitalities` | CD-03, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Weapons` | CD-03, CD-04, CD-17, CD-26, CD-27 |
+| `CTF.Application.Tests.Teams` | CD-02, CD-10, CD-26, CD-27 |
+| `CTF.Application.Tests.Teams.Flags` | CD-02, CD-26, CD-27 |
+| `Persistence.Tests.Common` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-26, CD-30 |
+| `Persistence.Tests.Common.DatabaseProviders` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-30 |
+| `Persistence.Tests.Players` | CD-18, CD-20, CD-26, CD-27 |
 
 > Note: `SampSharp` here is the `Program.cs` source-generated entry point namespace (not the vendored framework), driven by the host ABI contract (CD-01) and deployment layout (CD-22).
 

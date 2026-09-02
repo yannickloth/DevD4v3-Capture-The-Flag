@@ -30,7 +30,7 @@ void main(String[] args) throws IOException {
       {"CD-22","hosting/deployment spec"},{"CD-23","Serilog logging"},{"CD-24","Discord webhook contract"},
       {"CD-25","BCrypt password-hashing contract"},{"CD-26","NUnit test-framework contract"},
       {"CD-27","FluentAssertions contract"},{"CD-28","NSubstitute mock contract"},
-      {"CD-29","code-under-test contract"},{"CD-30","SQLite SQL dialect"}
+      {"CD-30","SQLite SQL dialect"}
     };
     Map<String,String> label = new LinkedHashMap<>(); for (var l : L) label.put(l[0], l[1]);
 

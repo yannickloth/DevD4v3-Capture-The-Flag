@@ -47,14 +47,14 @@ void main(String[] args) throws IOException {
       {"CD-22","hosting/deployment spec"},{"CD-23","Serilog logging"},{"CD-24","Discord webhook contract"},
       {"CD-25","BCrypt password-hashing contract"},{"CD-26","NUnit test-framework contract"},
       {"CD-27","FluentAssertions contract"},{"CD-28","NSubstitute mock contract"},
-      {"CD-29","code-under-test contract"},{"CD-30","SQLite SQL dialect"}
+      {"CD-30","SQLite SQL dialect"}
     };
     for (var l : L) label.put(l[0], l[1]);
 
     StringBuilder sb = new StringBuilder();
     sb.append("# Capture-The-Flag — Change-Driver & Causal-Cohesion Metrics\n\n");
     Set<String> nsSet = new HashSet<>(); for (Elem e : elems) nsSet.add(e.ns());
-    sb.append("> Regenerated from the fixed driver model (CD-19 = MariaDB SQL dialect, CD-30 = SQLite SQL dialect, tests included). ").append(elems.size()).append(" types across ").append(nsSet.size()).append(" namespaces, 30 change drivers.\n\n");
+    sb.append("> Regenerated from the fixed driver model (CD-19 = MariaDB SQL dialect, CD-30 = SQLite SQL dialect, tests included). ").append(elems.size()).append(" types across ").append(nsSet.size()).append(" namespaces, 29 change drivers.\n\n");
 
     // 1. driver activation table
     Map<String,Set<String>> elemByDriver = new TreeMap<>();

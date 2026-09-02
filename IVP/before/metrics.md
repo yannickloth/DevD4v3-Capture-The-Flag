@@ -1,6 +1,8 @@
 # Capture-The-Flag — Change-Driver & Causal-Cohesion Metrics
 
-> Regenerated from the fixed driver model (CD-19 = MariaDB SQL dialect, CD-30 = SQLite SQL dialect, tests included). 285 types across 57 namespaces, 30 change drivers.
+> Regenerated from the fixed driver model (CD-19 = MariaDB SQL dialect, CD-30 = SQLite SQL dialect, tests included). 285 types across 57 namespaces, 30 change drivers (pre-CD-29-retirement baseline).
+>
+> **Correction note (CD-29 retired):** the former driver CD-29 (code-under-test) has been removed as a methodology error, and test elements re-rooted on the domain drivers of their code under test. The activation/global statistics below are the **pre-correction baseline**: they were computed before CD-29's removal, so the reach of the domain drivers (CD-02/07/10/11/12/…) into `tests/` is understated here. The driver catalogue is now 29 drivers (CD-30 follows CD-28; no renumbering).
 
 ## 1. Driver activation
 
@@ -34,7 +36,6 @@
 | CD-26 (NUnit test-framework contract) | 45 | 13 | 3.46 |
 | CD-27 (FluentAssertions contract) | 44 | 12 | 3.67 |
 | CD-28 (NSubstitute mock contract) | 4 | 1 | 4.00 |
-| CD-29 (code-under-test contract) | 57 | 15 | 3.80 |
 | CD-30 (SQLite SQL dialect) | 13 | 5 | 2.60 |
 
 ## 2. Global statistics
@@ -247,7 +248,7 @@ Grouping by *topic* (statistics, flags, weapons, chat, maps) produced namespaces
 
 Two regimes again, read off the activation table (§1):
 
-- **Decreed cross-cutting drivers** (irreducible per `constraints.md`): CD-01 platform (33 ns), CD-17 config (27), CD-21 DI (16), CD-20 repo contract (15), CD-29 code-under-test (15, the test-assembly mirror of the production surface), CD-26 NUnit (13). These are horizontal axes; their breadth is platform/composition/persistence/test-tooling structure, not removable scatter.
+- **Decreed cross-cutting drivers** (irreducible per `constraints.md`): CD-01 platform (33 ns), CD-17 config (27), CD-21 DI (16), CD-20 repo contract (15), CD-26 NUnit (13). These are horizontal axes; their breadth is platform/composition/persistence/test-tooling structure, not removable scatter.
 - **Change-coupling drivers with genuine scatter** (the IVP regrouping candidates): CD-15 command set (1.60 ratio — nearly one command per namespace), CD-17 (1.85), CD-21 (1.88), CD-01 (3.30), CD-02 game-rules (3.62), CD-10 stats (2.92). Lowest scatter ratio = most thinly spread.
 
 ### 6.5 Causal cohesion (§4)
