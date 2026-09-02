@@ -4,7 +4,7 @@
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-01 (open.mp/SampSharp platform API: player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-29+CD-01; flagAutoReturnTimer -> CD-29+CD-02; playerStatsRenderer -> CD-29+CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-01; flagAutoReturnTimer -> CD-02; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagSystem(
     IWorldService worldService,
     FrozenDictionary<FlagStatus, IFlagEvent> flagEvents,
@@ -53,7 +53,7 @@ public class FlagSystem(
     }
 
     /// <summary>Drops the flag when a carrying player changes teams.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: carrier team-change drop rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier team-change drop rule)</remarks>
     [Event]
     public void OnTeamChange(Player player, Team selectedTeam)
     {

@@ -4,7 +4,7 @@
 /// This event occurs when a player has captured the opposing team's flag and brought it back to their own base.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rule); CD-01 (open.mp/SampSharp platform API: pickups, audio, GameText, textdraw) → CD-02; CD-06 (coin economy: coins-on-flag-event) → CD-02; CD-10 (player-statistics/rank model: brought flags) → CD-02; CD-20 (outbound repository contract: UpdateBroughtFlags) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-29+CD-01; teamTextDrawRenderer -> CD-29+CD-01; playerStatsRenderer -> CD-29+CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-01; teamTextDrawRenderer -> CD-01; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class OnFlagScore(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -19,7 +19,7 @@ public class OnFlagScore(
     private const int TeamEarnedScore    = 1;
 
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Brought;
 
     /// <summary>Handles the flag-score event.</summary>

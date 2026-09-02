@@ -7,7 +7,7 @@
 /// It checks if the carrier is paused and updates the timer. If the timer runs out, the flag is returned to the base.
 /// </remarks>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-01 (open.mp/SampSharp platform API: OnPlayerPauseStateChange, timers, pickups, audio) → CD-02; CD-17 (game configuration/.env schema: FlagCarrier__PauseTime) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; timerService -> CD-01; teamPickupService -> CD-29+CD-01; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; timerService -> CD-01; teamPickupService -> CD-01; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagCarrierPauseSystem(
     IWorldService worldService,
     ITimerService timerService,

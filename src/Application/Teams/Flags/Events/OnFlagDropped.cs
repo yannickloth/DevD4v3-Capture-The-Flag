@@ -4,7 +4,7 @@
 /// This event occurs when a player has dropped the opposing team's flag.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag drop rule); CD-01 (open.mp/SampSharp platform API: pickups, radar, audio, GameText) → CD-02; CD-10 (player-statistics/rank model: dropped flags) → CD-02; CD-20 (outbound repository contract: UpdateDroppedFlags) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-29+CD-01; flagAutoReturnTimer -> CD-29+CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-01; flagAutoReturnTimer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class OnFlagDropped(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -12,7 +12,7 @@ public class OnFlagDropped(
     FlagAutoReturnTimer flagAutoReturnTimer) : IFlagEvent
 {
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.Dropped;
 
     /// <summary>Handles the flag-dropped event.</summary>

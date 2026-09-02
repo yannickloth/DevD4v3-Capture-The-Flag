@@ -4,7 +4,7 @@
 /// Handles the class-selection flow for players.
 /// </summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection and death/respawn); CD-01 (open.mp/SampSharp platform API: player events, class selection) → CD-02; CD-15 (command set: class command) → CD-02; CD-17 (game configuration/.env schema: ClassSelection__*) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; classSelectionTextDrawRenderer -> CD-29+CD-01; teamTextDrawRenderer -> CD-29+CD-01; classSelectionSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; classSelectionTextDrawRenderer -> CD-01; teamTextDrawRenderer -> CD-01; classSelectionSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class ClassSelectionSystem(
     IWorldService worldService,
     ClassSelectionTextDrawRenderer classSelectionTextDrawRenderer,
