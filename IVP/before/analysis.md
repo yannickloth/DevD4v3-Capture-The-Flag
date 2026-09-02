@@ -34,20 +34,83 @@ Lowest-purity classes (most contaminated; purity = 1 / #distinct member driver-s
 
 ### A.2 — Namespace-level (types are the module's elements)
 
-- **mean purity 0.461, min purity 0.100** across 57 namespaces.
-- purity distribution is bimodal: a single-set (pure, purity 1.0) tail and a contaminated bulk. 43 of 57 namespaces are composite (purity < 1).
+The namespace is the analysis's **primary module granularity** — it is where the "57 modules" figure lives. Full per-namespace table, sorted ascending by purity (most contaminated first). `purity = 1 / |distinct driver-sets|`; `completeness = min over sets A of |M ∩ [A]| / |[A]|`.
 
-### A.3 — Assembly-level (project = module, types as elements)
+| namespace | classes | tokens | sets | purity | completeness |
+|---|---|---|---|---|---|
+| CTF.Application.Players | 10 | 10 | 10 | 0.100 | 0.111 |
+| CTF.Application.Players.Accounts.Statistics | 10 | 10 | 10 | 0.100 | 0.111 |
+| CTF.Application.Teams | 12 | 7 | 8 | 0.125 | 0.222 |
+| CTF.Application.Teams.Flags | 8 | 9 | 8 | 0.125 | 0.111 |
+| CTF.Application.Maps | 14 | 6 | 6 | 0.167 | 1.000 |
+| CTF.Application.Players.Accounts.Roles | 9 | 5 | 6 | 0.167 | 0.500 |
+| CTF.Application.Players.Weapons | 6 | 8 | 6 | 0.167 | 0.500 |
+| Persistence.InMemory | 6 | 5 | 6 | 0.167 | 1.000 |
+| Persistence.Tests.Common | 6 | 8 | 6 | 0.167 | 1.000 |
+| CTF.Application.GunGames | 11 | 8 | 5 | 0.200 | 0.167 |
+| CTF.Application.Players.Chats | 5 | 4 | 5 | 0.200 | 0.111 |
+| CTF.Application.Players.Combos | 5 | 7 | 5 | 0.200 | 0.167 |
+| CTF.Application.Players.GeneralCommands | 6 | 4 | 5 | 0.200 | 0.111 |
+| CTF.Application.Teams.ClassSelection | 6 | 8 | 5 | 0.200 | 0.111 |
+| CTF.Application.Teams.Flags.Events | 6 | 8 | 5 | 0.200 | 0.111 |
+| CTF.Application.Tests.Players.Accounts | 9 | 8 | 5 | 0.200 | 0.286 |
+| CTF.Host.Extensions | 5 | 8 | 5 | 0.200 | 0.333 |
+| Persistence.MariaDB | 5 | 6 | 5 | 0.200 | 0.167 |
+| Persistence.SQLite | 5 | 6 | 5 | 0.200 | 0.167 |
+| CTF.Application.Players.Accounts.Authentication | 5 | 6 | 4 | 0.250 | 1.000 |
+| CTF.Application.Players.TopPlayers | 6 | 6 | 4 | 0.250 | 0.286 |
+| CTF.Application.Players.Vitalities | 6 | 5 | 4 | 0.250 | 0.222 |
+| CTF.Application.Tests.Players.Weapons | 5 | 6 | 4 | 0.250 | 0.333 |
+| CTF.Application.GunGames.Results | 5 | 7 | 3 | 0.333 | 0.053 |
+| CTF.Application.Players.AntiCBug | 4 | 4 | 3 | 0.333 | 1.000 |
+| CTF.Application.Teams.Flags.Carriers | 3 | 7 | 3 | 0.333 | 0.333 |
+| CTF.Application.Teams.Matches | 3 | 3 | 3 | 0.333 | 0.111 |
+| CTF.Application.Teams.Statistics | 3 | 7 | 3 | 0.333 | 0.143 |
+| CTF.Host | 3 | 6 | 3 | 0.333 | 1.000 |
+| CTF.Host.Services | 3 | 5 | 3 | 0.333 | 0.333 |
+| Persistence.Tests.Common.DatabaseProviders | 3 | 7 | 3 | 0.333 | 1.000 |
+| CTF.Application.GunGames.WeaponProgressions | 5 | 3 | 2 | 0.500 | 0.211 |
+| CTF.Application.Maps.Rotation | 2 | 7 | 2 | 0.500 | 0.500 |
+| CTF.Application.Players.Accounts | 2 | 5 | 2 | 0.500 | 1.000 |
+| CTF.Application.Players.Accounts.Profile | 3 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.Players.Chats.Definitions | 4 | 4 | 2 | 0.500 | 0.750 |
+| CTF.Application.Players.Combos.Definitions | 6 | 4 | 2 | 0.500 | 0.833 |
+| CTF.Application.Players.Headshots | 2 | 6 | 2 | 0.500 | 1.000 |
+| CTF.Application.Players.Pause | 3 | 3 | 2 | 0.500 | 0.222 |
+| CTF.Application.Players.Weapons.Catalogs | 10 | 2 | 2 | 0.500 | 1.000 |
+| CTF.Application.Teams.Flags.AutoReturn | 2 | 5 | 2 | 0.500 | 0.333 |
+| CTF.Application.Tests.Fakes | 5 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.Tests.GunGames | 7 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.Tests.Maps | 6 | 5 | 2 | 0.500 | 1.000 |
+| CTF.Application.Tests.Teams | 5 | 5 | 2 | 0.500 | 0.571 |
+| CTF.Application | 1 | 1 | 1 | 1.000 | 0.167 |
+| CTF.Application.GunGames.WeaponProgressions.Definitions | 8 | 1 | 1 | 1.000 | 0.421 |
+| CTF.Application.Players.Ranks | 4 | 1 | 1 | 1.000 | 0.571 |
+| CTF.Application.Tests | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Extensions | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Ranks | 3 | 4 | 1 | 1.000 | 0.500 |
+| CTF.Application.Tests.Players.TopPlayers | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Vitalities | 2 | 4 | 1 | 1.000 | 0.667 |
+| CTF.Application.Tests.Teams.Flags | 1 | 4 | 1 | 1.000 | 0.143 |
+| Persistence.SQLite.Extensions | 2 | 1 | 1 | 1.000 | 1.000 |
+| Persistence.Tests.Players | 5 | 5 | 1 | 1.000 | 1.000 |
+| SampSharp | 1 | 2 | 1 | 1.000 | 1.000 |
 
-| assembly | distinct type-driver-sets | purity |
-|---|---|---|
-| src/Application | 86 | 0.012 |
-| src/Host | 11 | 0.091 |
-| src/Persistence | 15 | 0.067 |
-| tests/Application.Tests | 20 | 0.050 |
-| tests/Persistence.Tests | 10 | 0.100 |
+**Reading.** Mean purity 0.461, min purity 0.100, across 57 namespaces. 43 of 57 are composite (purity < 1). The impurity concentrates at the top: `Players` and `Accounts.Statistics` (10 classes → 10 distinct sets, purity 0.100, completeness 0.111) are maximally contaminated; `Teams` and `Teams.Flags` (8 sets) follow. The low-completeness namespaces (`Teams.Flags` 0.111, `GunGames.Results` 0.053) hold only a *fraction* of each of their driver sets system-wide → their driver sets are also scattered elsewhere (the scatter defect). The pure tail (purity 1.0) is dominated by single-driver domains (`Ranks`, `WeaponProgressions`) and test namespaces whose driver sets are singletons.
 
-**Reading.** At assembly granularity purity collapses toward 0 (0.012 for the Application core) because a whole assembly legitimately hosts many domains. This is *not* a defect at assembly granularity — it is the expected result of an assembly bundling many driver-equivalence classes. Cohesion is granularity-relative; the assembly number is a floor, not a target. The meaningful granularities are class and namespace.
+### A.3 — Assembly-level (project/assembly = module, types as elements)
+
+| assembly | classes | distinct type-driver-sets | purity |
+|---|---|---|---|
+| src/Application | 195 | 94 | 0.011 |
+| src/Host | 12 | 11 | 0.091 |
+| Persistence.InMemory | 6 | 6 | 0.167 |
+| Persistence.MariaDB | 5 | 5 | 0.200 |
+| Persistence.SQLite | 7 | 6 | 0.167 |
+| tests/Application.Tests | 46 | 19 | 0.053 |
+| tests/Persistence.Tests | 14 | 10 | 0.100 |
+
+**Reading.** At assembly granularity purity collapses toward 0 (0.011 for the Application core, which hosts 94 distinct driver-sets) because a whole assembly legitimately bundles many driver-equivalence classes. This is *not* a defect at assembly granularity — it is the expected result of an assembly being a deployment unit, not a change-coupling unit. Cohesion is granularity-relative; the assembly number is a floor, not a target. The meaningful granularities are class, and especially namespace.
 
 ---
 
