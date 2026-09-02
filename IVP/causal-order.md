@@ -58,6 +58,13 @@ These are the drivers that exist independently — nothing upstream forces them.
 - **CD-18 (schema) ‖ CD-20 (repo contract), both → CD-08 (account)** — the schema and the repo interface are co-subordinated to the same entity.
 - **CD-08 (account) ‖ CD-02 (game rules)** — the account system and the game rulebook are independent roots (accounts exist without the game; the game exists without accounts).
 - **CD-08 ‖ CD-09 ‖ CD-10** — account identity, role authority, and statistics are *distinct* authorities; whether roles/stats are subordinated to account or siblings is the flagged ambiguity (§5).
+- **The game-domain roots are siblings: CD-07 (GunGame) ‖ CD-03 (combat/weapon) ‖ CD-02 (game rules) ‖ CD-06 (coin economy) ‖ CD-10 (stats) ‖ CD-04 (weapon catalog) ‖ CD-05 (combo) ‖ CD-11 (map) ‖ CD-12 (rotation) ‖ CD-13 (chat) ‖ CD-14 (anti-cheat) ‖ CD-15 (command set).** None *causes* another to exist: GunGame reuses the weapon rules but does not create them; a flag score grants coins but does not create the coin economy. Each is an independent domain authority. When two or more co-occur on one element, they are siblings `‖`, never a chain — unless one is the *mechanism* through which the other is realized (see the platform case below).
+
+## 3b. The two cross-cutting "mechanism" drivers (context-dependent)
+
+- **CD-01 (platform)** — root at the Host bootstrap only; on a domain element it is the *mechanism* through which the domain is realized, so it is subordinated: `CD-01 → <domain root>` (or `CD-01 → {A ‖ B}` when several sibling roots co-occur). Example: on a `FlagSystem`/`PlayerLeveledDown` the platform calls (textdraws, GiveWeapon, messages) realize the game rules → `CD-01 → CD-02` / `CD-01 → {CD-07 ‖ CD-03}`.
+- **CD-17 (config)** — root (the `.env` schema exists independently); it is not subordinated to any domain, it *parameterizes* domains. On a settings class it stands alone as the root.
+- **CD-21 (DI)** — subordinated to composition; renders as `CD-21 → <composed domains>`. On a pure wiring element (a `ServiceCollectionExtensions`) it is the root (the wiring *is* the element's purpose).
 
 ## 4. Canonical chains (root → subordinated, siblings pooled)
 

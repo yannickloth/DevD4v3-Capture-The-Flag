@@ -3,7 +3,7 @@
 /// <summary>
 /// Stores the runtime state required for player pause detection.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class PlayerDataComponent : Component
 {
     private readonly Player _player;
@@ -17,7 +17,7 @@ public class PlayerDataComponent : Component
     /// <summary>
     /// Gets or sets whether the player is currently paused.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public bool IsPaused { get; set; }
 
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-07 (GunGame mode rules); CD-06 (coin economy); CD-20 (outbound repository contract)</remarks>
+/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerKillingSpreeUpdater(
     IWorldService worldService,
@@ -12,7 +12,7 @@ public class PlayerKillingSpreeUpdater(
     private const int EarnedHealth = 10;
     private const int ConsecutiveKillsBonusHealth = 40;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-07 (GunGame mode rules); CD-06 (coin economy); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-06 (coin economy), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

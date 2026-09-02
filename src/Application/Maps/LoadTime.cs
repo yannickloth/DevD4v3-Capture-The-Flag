@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the total wait time for the new map to load.
 /// </summary>
-/// <remarks>Change drivers: CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class LoadTime
 {
     private readonly Action _onLoadingMap;
@@ -15,7 +15,7 @@ public class LoadTime
     /// <summary>
     /// Displays the load time in the game.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (map-rotation rules); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     public string GameText { get; private set; } = string.Empty;
 
     /// <summary>

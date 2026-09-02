@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Ranks;
 
 /// <summary>Tests for RankCollection.</summary>
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-29 (code-under-test: RankCollection); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: RankCollection), CD-10 (player-statistics/rank model)</remarks>
 public class RankCollectionTests
 {
     static readonly int[] InvalidRankCases = [-1, 1000, RankCollection.Count];

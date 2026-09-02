@@ -1,13 +1,13 @@
 ﻿namespace Persistence.SQLite;
 
-/// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-17 (game configuration/.env schema)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): sqlCollection -> CD-18; sqliteSettings -> CD-17; topPlayersSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 internal class TopPlayersRepository(
     ISqlCollection sqlCollection,
     SQLiteSettings sqliteSettings,
     TopPlayersSettings topPlayersSettings) : ITopPlayersRepository
 {
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-17 (game configuration/.env schema)</remarks>
     public IEnumerable<TopPlayersByMaxKillingSpree> GetByMaxKillingSpree(MaxTopPlayers maxPlayers)
     {
         using var connection = new SqliteConnection(sqliteSettings.ConnectionString);
@@ -29,7 +29,7 @@ internal class TopPlayersRepository(
         }
     }
 
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-17 (game configuration/.env schema)</remarks>
     public IEnumerable<TopPlayersByTotalKills> GetByTotalKills(MaxTopPlayers maxPlayers)
     {
         using var connection = new SqliteConnection(sqliteSettings.ConnectionString);

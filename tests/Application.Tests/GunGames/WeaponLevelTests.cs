@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for WeaponLevel.</summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules); CD-29 (code-under-test: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-29; CD-27 (FluentAssertions contract) → CD-29</remarks>
+/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: WeaponLevel), CD-07 (GunGame mode rules)</remarks>
 public class WeaponLevelTests
 {
     private readonly MaxWeaponLevel _maxLevel = new(4);

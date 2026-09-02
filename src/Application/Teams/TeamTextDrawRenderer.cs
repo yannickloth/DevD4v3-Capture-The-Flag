@@ -3,7 +3,7 @@
 /// <summary>
 /// Renders team-related information as textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team score/members); CD-11 (map configuration: flag model); CD-01 (open.mp/SampSharp platform API: textdraws)</remarks>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws), CD-02 (CTF game-rules specification: team score/members), CD-11 (map configuration: flag model).</remarks>
 public class TeamTextDrawRenderer
 {
     private readonly IWorldService _worldService;
@@ -23,7 +23,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Shows the team textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws).</remarks>
     public void Show(Player player)
     {
         _redFlag.Show(player);
@@ -37,7 +37,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Hides the team textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraws).</remarks>
     public void Hide(Player player)
     {
         _redFlag.Hide(player);
@@ -51,7 +51,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Updates the team score textdraw.</summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team score); CD-01 (open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw), CD-10 (player-statistics/rank model: team score).</remarks>
     public void UpdateTeamScore(Team team)
     {
         if (team.Id == TeamId.Alpha)
@@ -65,7 +65,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Updates the team members textdraw.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership); CD-01 (open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw), CD-02 (CTF game-rules specification: team membership).</remarks>
     public void UpdateTeamMembers(Team team)
     {
         if (team.Id == TeamId.Alpha)

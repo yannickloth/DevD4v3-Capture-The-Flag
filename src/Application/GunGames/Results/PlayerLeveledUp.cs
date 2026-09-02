@@ -3,7 +3,7 @@
 /// <summary>
 /// Handles the <see cref="GunGameResult.LeveledUp"/> result.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (GunGame mode rules); CD-03 (combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; weaponProgression -> CD-29+CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerLeveledUp(
     IWorldService worldService,
@@ -12,7 +12,7 @@ public class PlayerLeveledUp(
     /// <remarks>Change drivers: CD-07 (GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.LeveledUp;
 
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules); CD-03 (combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void Handle(KillContext context)
     {
         var killerProgression = context.Killer.GetComponent<PlayerProgression>();

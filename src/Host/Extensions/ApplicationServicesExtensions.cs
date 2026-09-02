@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Extensions;
 
-/// <remarks>Change drivers: CD-22 (hosting/deployment spec); CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-21 (DI container/composition), CD-22 (hosting/deployment spec)</remarks>
 public static class ApplicationServicesExtensions
 {
-    /// <remarks>Change drivers: CD-22 (hosting/deployment spec); CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-21 (DI container/composition), CD-22 (hosting/deployment spec)</remarks>
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services

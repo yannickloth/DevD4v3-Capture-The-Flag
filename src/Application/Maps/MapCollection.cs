@@ -45,7 +45,7 @@ public class MapCollection
             Result<IMap>.Success(map);
     }
 
-    /// <remarks>Change drivers: CD-11 (map configuration); CD-12 (map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
     public IMap GetNext(IMap current)
     {
         int nextMapId = (current.Id + 1) % Count;

@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts;
 
-/// <remarks>Change drivers: CD-08 (account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public partial class PlayerInfo
 {
     private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
@@ -9,7 +9,7 @@ public partial class PlayerInfo
     [GeneratedRegex(PlayerNamePattern)]
     private static partial Regex PlayerNameRegex();
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
     public PlayerInfo() { }
 
     /// <summary>
@@ -18,82 +18,82 @@ public partial class PlayerInfo
     /// <remarks>
     /// It is a permanent identifier that is generated when the player's account is created in the database.
     /// </remarks>
-    /// <remarks>Change drivers: CD-18 (database schema/player data model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-20 (outbound repository contract)</remarks>
     public int AccountId { get; private set; } = NoAccount;
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     public string Name { get; private set; } = "DefaultUser";
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     public string Password { get; private set; } = "DefaultPassword";
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public PlayerStatsPerRound StatsPerRound { get; } = new();
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int TotalKills { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int TotalDeaths { get; private set; }
 
     /// <summary>
     /// Indicates the maximum killing spree.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int MaxKillingSpree { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has captured the opposing team's flag and brought it back to their own base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int BroughtFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has captured the opposing team's flag from their base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int CapturedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has dropped the opposing team's flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int DroppedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has returned the flag to their team's base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int ReturnedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of shots that the player has made at the heads of other players.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public int HeadShots { get; private set; }
 
     /// <summary>
     /// Indicates the number of times the player has won a GunGame match.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-07 (GunGame mode rules); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
     public int GunGameWins { get; private set; }
 
-    /// <remarks>Change drivers: CD-09 (authorization policy); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-20 (outbound repository contract)</remarks>
     public RoleId RoleId { get; private set; } = RoleId.Basic;
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
     public int SkinId { get; private set; } = NoSkin;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public RankId RankId { get; private set; } = RankId.Noob;
 
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
     public Team Team { get; private set; } = Team.None;
 
-    /// <remarks>Change drivers: CD-18 (database schema/player data model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-20 (outbound repository contract)</remarks>
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
     /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
@@ -159,7 +159,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (player-statistics/rank model)</remarks>
     public void AddHeadShots() => HeadShots++;
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-07 (GunGame mode rules)</remarks>
     public void AddGunGameWins() => GunGameWins++;
 
     /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>

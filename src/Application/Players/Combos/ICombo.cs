@@ -4,7 +4,7 @@
 /// Represents a combination of different advantages, such as health, armour, and weapons, 
 /// that a player can use to gain an advantage in the game.
 /// </summary>
-/// <remarks>Change drivers: CD-05 (combo definitions); CD-06 (coin economy)</remarks>
+/// <remarks>Change drivers: CD-05 (combo definitions), CD-06 (coin economy)</remarks>
 public interface ICombo
 {
     /// <summary>

@@ -1,4 +1,4 @@
-﻿// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18; CD-21 (DI container/composition)</remarks>
+﻿// <remarks>Change drivers: CD-21 (DI container/composition), CD-30 (SQLite SQL dialect), CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
 global using SampSharp.Entities;
 global using System.Text.RegularExpressions;
 global using Microsoft.Extensions.Configuration;

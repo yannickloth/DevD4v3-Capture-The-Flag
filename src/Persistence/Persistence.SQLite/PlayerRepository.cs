@@ -1,13 +1,13 @@
 ﻿namespace Persistence.SQLite;
 
-/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18; CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract), CD-21 (DI container/composition)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; sqlCollection -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 internal class PlayerRepository(
     IPasswordHasher passwordHasher,
     ISqlCollection sqlCollection,
     SQLiteSettings settings) : IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract)</remarks>
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);
@@ -39,7 +39,7 @@ internal class PlayerRepository(
         player.SetValue(value: id, propertyName: nameof(PlayerInfo.AccountId));
     }
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public bool Exists(string name)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -51,7 +51,7 @@ internal class PlayerRepository(
         return reader.HasRows;
     }
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public PlayerInfo GetOrDefault(string name)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -93,39 +93,39 @@ internal class PlayerRepository(
         return playerInfo;
     }
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateBroughtFlags(PlayerInfo player)
         => Update(player.AccountId, "brought_flags", player.BroughtFlags);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateCapturedFlags(PlayerInfo player)
         => Update(player.AccountId, "captured_flags", player.CapturedFlags);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateDroppedFlags(PlayerInfo player)
         => Update(player.AccountId, "dropped_flags", player.DroppedFlags);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateReturnedFlags(PlayerInfo player)
         => Update(player.AccountId, "returned_flags", player.ReturnedFlags);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateHeadShots(PlayerInfo player)
         => Update(player.AccountId, "head_shots", player.HeadShots);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateGunGameWins(PlayerInfo player)
         => Update(player.AccountId, "gungame_wins", player.GunGameWins);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateLastConnection(PlayerInfo player)
         => Update(player.AccountId, "last_connection", player.LastConnection);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => Update(player.AccountId, "max_killing_spree", player.MaxKillingSpree);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateName(PlayerInfo player)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -139,34 +139,34 @@ internal class PlayerRepository(
         command.ExecuteNonQuery();
     }
 
-    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract)</remarks>
     public void UpdatePassword(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);
         Update(player.AccountId, "password", passwordHash);
     }
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateRank(PlayerInfo player)
         => Update(player.AccountId, "rank_id", player.RankId);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateRole(PlayerInfo player)
         => Update(player.AccountId, "role_id", player.RoleId);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateSkin(PlayerInfo player)
         => Update(player.AccountId, "skin_id", player.SkinId);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateTotalDeaths(PlayerInfo player)
         => Update(player.AccountId, "total_deaths", player.TotalDeaths);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdateTotalKills(PlayerInfo player) 
         => Update(player.AccountId, "total_kills", player.TotalKills);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     private void Update(int id, string columnName, object value) 
     {
         using var connection = new SqliteConnection(settings.ConnectionString);

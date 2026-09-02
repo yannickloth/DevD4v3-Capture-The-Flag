@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-08 (account & authentication policy); CD-02 (CTF game-rules specification); CD-17 (game configuration/.env schema)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-02 (CTF game-rules specification), CD-17 (game configuration/.env schema)</remarks>
 public static class PlayerExtensions
 {
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.GunGames;
 
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-07 (GunGame mode rules); CD-06 (coin economy)</remarks>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-06 (coin economy), CD-10 (player-statistics/rank model)</remarks>
 /// <remarks>Injected dependencies: playerStatsRenderer -> CD-29+CD-10. Driven by the PlayerStatsRenderer contract + CD-21 (DI wiring).</remarks>
 public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 {
@@ -20,7 +20,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
         new(WeaponDefinitions.Flamethrower,  Ammo: 1000)
     ];
 
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules); CD-06 (coin economy)</remarks>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-06 (coin economy)</remarks>
     public void Give(Player winner)
     {
         var weaponReward = _weaponRewards[Random.Shared.Next(_weaponRewards.Length)];

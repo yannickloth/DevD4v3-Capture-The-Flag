@@ -29,7 +29,7 @@ public class RankSystem : ISystem
     }
 
     /// <summary>Shows the ranks dialog to the player.</summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model); CD-15 (command set); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("ranks")]
     public void ShowRanks(Player player, IDialogService dialogService)
     {

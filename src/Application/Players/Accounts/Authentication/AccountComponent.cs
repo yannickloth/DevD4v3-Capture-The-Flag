@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Authentication;
 
-/// <remarks>Change drivers: CD-08 (account & authentication policy); CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class AccountComponent : Component
 {
     /// <remarks>Change drivers: CD-08 (account & authentication policy)</remarks>

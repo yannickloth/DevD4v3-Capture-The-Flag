@@ -1,6 +1,6 @@
 ﻿namespace CTF.Host;
 
-/// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-24 (Discord webhook contract); CD-01 (open.mp/SampSharp platform API); CD-21 (DI container/composition); CD-23 (Serilog logging)</remarks>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-23 (Serilog logging), CD-24 (Discord webhook contract)</remarks>
 public class Startup : IEcsStartup
 {
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API)</remarks>
@@ -15,7 +15,7 @@ public class Startup : IEcsStartup
             });
     }
 
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-24 (Discord webhook contract); CD-01 (open.mp/SampSharp platform API); CD-21 (DI container/composition); CD-23 (Serilog logging)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-17 (game configuration/.env schema), CD-23 (Serilog logging), CD-24 (Discord webhook contract)</remarks>
     public void ConfigureServices(IServiceCollection services, IConfiguration _)
     {
         new EnvLoader()
@@ -57,7 +57,7 @@ public class Startup : IEcsStartup
             .AddSystemsInAssembly(typeof(Startup).Assembly);
     }
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API); CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition)</remarks>
     public void Configure(IEcsBuilder builder)
     {
         // TODO: Enable desired ECS system features

@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Extensions;
 
-/// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-21 (DI container/composition)</remarks>
 public static class AppSettingsExtensions
 {
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema); CD-21 (DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-21 (DI container/composition)</remarks>
     public static IServiceCollection AddSettings(
         this IServiceCollection services, 
         IConfiguration configuration)

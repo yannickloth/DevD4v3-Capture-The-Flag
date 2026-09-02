@@ -3,12 +3,12 @@
 /// <summary>
 /// Shows the team scoreboard dialog to players.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model: team/player stats); CD-02 (CTF game-rules specification: team membership); CD-15 (command set: scoreboard command); CD-01 (open.mp/SampSharp platform API: dialog, key state)</remarks>
+/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: dialog, key state), CD-10 (player-statistics/rank model: team/player stats), CD-15 (command set: scoreboard command), CD-02 (CTF game-rules specification: team membership).</remarks>
 /// <remarks>Injected dependencies: dialogService -> CD-01. Driven by the IDialogService (platform) contract + CD-21 (DI wiring).</remarks>
 public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
 {
     /// <summary>Shows the scoreboard when the player presses the No key.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerKeyStateChange)</remarks>
+    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: OnPlayerKeyStateChange).</remarks>
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
@@ -19,7 +19,7 @@ public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
     }
 
     /// <summary>Shows the team scoreboard dialog.</summary>
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team/player stats); CD-15 (command set: scoreboard command); CD-01 (open.mp/SampSharp platform API: dialog)</remarks>
+    /// <remarks>Change drivers: CD-15 (command set: scoreboard command), CD-01 (open.mp/SampSharp platform API: dialog), CD-10 (player-statistics/rank model: team/player stats).</remarks>
     [PlayerCommand("scoreboard")]
     public void ShowPlayers(Player player)
     {

@@ -3,7 +3,7 @@
 /// <summary>
 /// Routes player chat messages to the matching private chat tier based on its prefix identifier.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (chat rules); CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-13 (chat rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies: chats (FrozenDictionary&lt;char, IChatMessage&gt;) -> CD-13. Driven by the chat-handler registry contract + CD-21 (DI wiring).</remarks>
 public class ChatSystem(FrozenDictionary<char, IChatMessage> chats) : ISystem
 {
@@ -12,7 +12,7 @@ public class ChatSystem(FrozenDictionary<char, IChatMessage> chats) : ISystem
     /// </summary>
     /// <param name="player">The player who sent the message.</param>
     /// <param name="text">	The content of the message that the player sent.</param>
-    /// <remarks>Change drivers: CD-13 (chat rules); CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-13 (chat rules), CD-01 (open.mp/SampSharp platform API)</remarks>
     /// <remarks>
     /// See <see href="https://www.open.mp/docs/scripting/callbacks/OnPlayerText"/>
     /// </remarks>
