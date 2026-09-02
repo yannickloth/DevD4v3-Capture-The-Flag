@@ -7,7 +7,7 @@
 public class PrivateTeamChat : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
-    /// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
     public char Id => '!';
 
     /// <summary>Sends the message to all players of the sender's team.</summary>

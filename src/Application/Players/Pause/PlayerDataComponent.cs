@@ -11,7 +11,7 @@ public class PlayerDataComponent : Component
     /// <summary>
     /// Gets the player's current state.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public PlayerState State => _player.State;
 
     /// <summary>
@@ -24,11 +24,11 @@ public class PlayerDataComponent : Component
     /// Gets or sets the timestamp of the last received
     /// <c>OnPlayerUpdate</c> callback.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public long LastUpdateTick { get; set; }
 
     /// <summary>Creates the component for the given player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public PlayerDataComponent(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);

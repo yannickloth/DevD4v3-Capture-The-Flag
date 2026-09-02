@@ -18,27 +18,27 @@ public class ActiveWeaponCatalog(
         => catalogs[settings.Type];
 
     /// <inheritdoc cref="WeaponCatalog.Count"/>
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     public int Count 
         => Current.Count;
 
     /// <inheritdoc cref="WeaponCatalog.GetAll"/>
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     public IReadOnlyList<IWeapon> GetAll()
         => Current.GetAll();
 
     /// <inheritdoc cref="WeaponCatalog.Contains"/>
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     public bool Contains(IWeapon weapon)
         => Current.Contains(weapon);
 
     /// <inheritdoc cref="WeaponCatalog.GetById"/>
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     public Result<IWeapon> GetById(Weapon id)
         => Current.GetById(id);
 
     /// <inheritdoc cref="WeaponCatalog.GetByName"/>
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     public Result<IWeapon> GetByName(string weaponName)
         => Current.GetByName(weaponName);
 }

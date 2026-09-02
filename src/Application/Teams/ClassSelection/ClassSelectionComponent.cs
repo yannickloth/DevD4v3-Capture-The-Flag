@@ -7,6 +7,6 @@
 public class ClassSelectionComponent : Component
 {
     /// <summary>Gets or sets whether the player is in class selection.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: class-selection flow)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public bool IsInClassSelection { get; set; } = true;
 }

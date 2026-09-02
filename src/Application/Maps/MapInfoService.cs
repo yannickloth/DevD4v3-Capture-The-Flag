@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a service to load information from a map.
 /// </summary>
-/// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
 public class MapInfoService
 {
     private CurrentMap _currentMap;
     private readonly string _mapsPath;
 
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public MapInfoService(IMap initialMap, string mapsPath)
     {
         _mapsPath = mapsPath;
@@ -19,7 +19,7 @@ public class MapInfoService
     /// <summary>
     /// Gets the current information from a map.
     /// </summary>
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public CurrentMap CurrentMap => _currentMap;
 
     /// <summary>
@@ -27,7 +27,7 @@ public class MapInfoService
     /// </summary>
     /// <param name="map">The map to load.</param>
     /// <exception cref="ArgumentNullException"></exception>
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public void Load(IMap map)
     {
         ArgumentNullException.ThrowIfNull(map);
@@ -66,7 +66,7 @@ public class MapInfoService
             worldTime);
     }
 
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     private static SpawnLocation[] GetSpawnLocations(ISectionData section)
     {
         var locations = new SpawnLocation[section.Count];
@@ -86,7 +86,7 @@ public class MapInfoService
         return locations;
     }
 
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     private static Vector3 GetFlagLocation(ISectionData section) 
     {
         string data = section[0];

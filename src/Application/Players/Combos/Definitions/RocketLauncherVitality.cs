@@ -7,9 +7,9 @@ public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
     private const int Health = 100;
     private const int RocketLauncherAmmo = 2;
 
-    /// <remarks>Change drivers: CD-05 (root; root; combo definitions)</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
     public string Name => $"{Health} Health and Rocket launcher(RPG)";
-    /// <remarks>Change drivers: CD-06 (root; root; coin economy)</remarks>
+    /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
     public int RequiredCoins => 100;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-17 (game configuration/.env schema) → CD-05</remarks>

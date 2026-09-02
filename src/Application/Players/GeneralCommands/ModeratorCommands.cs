@@ -144,7 +144,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Adds the warnings component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {

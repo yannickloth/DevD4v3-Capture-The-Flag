@@ -20,7 +20,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon from the team's base position.</summary>
-    /// <remarks>Change drivers: CD-11 (root; root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
     public void CreateFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -65,7 +65,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys the map icon for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: map icons)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons)</remarks>
     public void Destroy(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);

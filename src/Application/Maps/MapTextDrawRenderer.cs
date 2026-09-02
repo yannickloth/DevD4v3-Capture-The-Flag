@@ -9,14 +9,14 @@ public class MapTextDrawRenderer
     private TextDraw _timeLeft;
     private TextDraw _loadTime;
 
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public MapTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
         Initialize();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public void Show(Player player)
     {
         _mapName.Show(player);
@@ -25,7 +25,7 @@ public class MapTextDrawRenderer
         _loadTime.Show();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public void Hide(Player player) 
     {
         _mapName.Hide(player);
@@ -52,7 +52,7 @@ public class MapTextDrawRenderer
         _loadTime.Text = loadTime.GameText;
     }
 
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     private void Initialize()
     {
         _mapName = _worldService.CreateTextDraw(new Vector2(140.000000f, 399.000000f), string.Empty);

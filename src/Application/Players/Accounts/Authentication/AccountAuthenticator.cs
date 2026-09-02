@@ -56,7 +56,7 @@ public class AccountAuthenticator(
     /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
     private class FailedAttemptCountComponent : Component
     {
-        /// <remarks>Change drivers: CD-08 (root; root; account & authentication policy)</remarks>
+        /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
         public int Value { get; set; } = 0;
     }
 }

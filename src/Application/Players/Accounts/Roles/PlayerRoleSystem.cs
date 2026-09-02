@@ -124,7 +124,7 @@ public class PlayerRoleSystem(
     /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
     private class FailedAttemptCountComponent : Component
     {
-        /// <remarks>Change drivers: CD-09 (root; root; authorization policy)</remarks>
+        /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
         public int Value { get; set; } = 0;
     }
 }

@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a chat message in the messaging system.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
+/// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
 public interface IChatMessage
 {
     /// <summary>
     /// Gets the unique identifier of the chat message.
     /// </summary>
-    /// <remarks>Change drivers: CD-13 (root; root; chat rules)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
     char Id { get; }
 
     /// <summary>

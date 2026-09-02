@@ -7,12 +7,12 @@
 public enum FlagModel
 {
     /// <summary>No flag model.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: model id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: model id)</remarks>
     None = 0,
     /// <summary>The red flag model.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: model id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: model id)</remarks>
     Red = 19306,
     /// <summary>The blue flag model.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: model id)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: model id)</remarks>
     Blue = 19307
 }

@@ -84,7 +84,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public RankId RankId { get; private set; } = RankId.Noob;
 
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public Team Team { get; private set; } = Team.None;
 
     /// <remarks>Change drivers: CD-18 (database schema/player data model) ‖ CD-20 (outbound repository contract); both → CD-08 (account)</remarks>

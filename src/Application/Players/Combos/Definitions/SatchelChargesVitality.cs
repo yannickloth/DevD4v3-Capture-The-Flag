@@ -7,12 +7,12 @@ public class SatchelChargesVitality : ICombo
     private const int Armour = 100;
     private const int SatchelAmmo = 6;
 
-    /// <remarks>Change drivers: CD-05 (root; root; combo definitions)</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
     public string Name => $"{Health} Health, {Armour} Armour and Satchel charges";
-    /// <remarks>Change drivers: CD-06 (root; root; coin economy)</remarks>
+    /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
     public int RequiredCoins => 100;
 
-    /// <remarks>Change drivers: CD-05 (root; root; combo definitions)</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
     public Result Give(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

@@ -3,13 +3,13 @@
 /// <summary>
 /// Provides the ranks command that displays the rank tiers.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; root; player-statistics/rank model)</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
 public class RankSystem : ISystem
 {
     private readonly TablistDialog _tablistDialog;
 
     /// <summary>Builds the rank tiers dialog.</summary>
-    /// <remarks>Change drivers: CD-10 (root; root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public RankSystem()
     {
         var columnHeaders = new[]

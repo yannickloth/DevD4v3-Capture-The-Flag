@@ -7,27 +7,27 @@
 public static class ClassSelectionExtensions
 {
     /// <summary>Checks whether the player is in class selection.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: class-selection flow)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public static bool IsInClassSelection(this Player player)
         => player.GetComponent<ClassSelectionComponent>().IsInClassSelection;
 
     /// <summary>Checks whether the player is not in class selection.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: class-selection flow)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public static bool IsNotInClassSelection(this Player player)
         => !player.IsInClassSelection();
 
     /// <summary>Checks whether the player has a forced class selection after death.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: death/respawn class selection)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: death/respawn class selection)</remarks>
     public static bool HasForcedClassSelectionAfterDeath(this Player player)
         => !player.IsInClassSelection();
 
     /// <summary>Enables class selection for the player.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: class-selection flow)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public static void EnableClassSelection(this Player player)
         => player.GetComponent<ClassSelectionComponent>().IsInClassSelection = true;
 
     /// <summary>Disables class selection for the player.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: class-selection flow)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public static void DisableClassSelection(this Player player)
         => player.GetComponent<ClassSelectionComponent>().IsInClassSelection = false;
 

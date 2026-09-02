@@ -7,7 +7,7 @@
 public class OnFlagAtBasePosition : IFlagEvent
 {
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: flag state machine)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
     public FlagStatus FlagStatus => FlagStatus.BasePosition;
 
     /// <summary>Handles the own-flag-at-base event.</summary>

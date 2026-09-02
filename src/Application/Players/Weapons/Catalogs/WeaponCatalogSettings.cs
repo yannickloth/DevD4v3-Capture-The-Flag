@@ -33,7 +33,7 @@ public class WeaponCatalogSettings
         Type = type;
     }
 
-    /// <remarks>Change drivers: CD-04 (root; root; weapon-catalog configuration)</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     private static void EnsureValidCatalog(WeaponCatalogType type)
     {
         if (!Enum.IsDefined(type))

@@ -8,7 +8,7 @@
 public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
 {
     /// <summary>Shows the scoreboard when the player presses the No key.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API: OnPlayerKeyStateChange)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: OnPlayerKeyStateChange)</remarks>
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {

@@ -9,7 +9,7 @@ public static class MatchPlayers
     /// <summary>
     /// Gets all players participating in the current match.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; root; CTF game-rules specification: match participants)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match participants)</remarks>
     public static IEnumerable<Player> GetAll()
     {
         foreach (Player player in Team.Alpha.Members) 

@@ -6,15 +6,15 @@
 /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
 public class TimeLeft
 {
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     private const int MaxRoundTime = 3600;
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     private const int DefaultRoundTime = 900;
 
     /// <summary>
     /// Represents the interval in seconds.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     private int _interval = DefaultRoundTime;
 
     /// <summary>
@@ -25,16 +25,16 @@ public class TimeLeft
     // If this property is modified from the outside, it may cause buffer overflow.
     public string TextDraw { get; } = "00:00";
 
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public TimeLeft() => UpdateTextDraw();
 
     /// <summary>
     /// Checks if the countdown has ended.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public bool IsCompleted() => _interval == 0;
 
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Result SetInterval(Minutes minutes)
     {
         if (minutes.Value < 0 || minutes.Value > (MaxRoundTime / 60))
@@ -48,7 +48,7 @@ public class TimeLeft
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Result SetInterval(Seconds seconds)
     {
         if (seconds.Value < 0 || seconds.Value > MaxRoundTime)
@@ -65,7 +65,7 @@ public class TimeLeft
     /// <summary>
     /// Reduces the time remaining until it reaches zero.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public void Decrease()
     {
         if (_interval == 0)
@@ -75,7 +75,7 @@ public class TimeLeft
         UpdateTextDraw();
     }
 
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public void Reset()
     {
         _interval = DefaultRoundTime;
@@ -111,20 +111,20 @@ public class TimeLeft
     }
 }
 
-/// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
 public readonly ref struct Minutes
 {
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public int Value { get; }
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Minutes(int value) => Value = value;
 }
 
-/// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
 public readonly ref struct Seconds
 {
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public int Value { get; }
-    /// <remarks>Change drivers: CD-12 (root; root; map-rotation rules)</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Seconds(int value) => Value = value;
 }

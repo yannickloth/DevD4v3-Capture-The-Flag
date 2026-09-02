@@ -33,7 +33,7 @@ public class PlayerPauseSystem(
     public event PauseEventHandler PauseEvent;
 
     /// <summary>Registers the player for pause detection on connect.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {
@@ -47,7 +47,7 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Unregisters the player from pause detection on disconnect.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerDisconnect(PlayerDataComponent playerDataComponent, DisconnectReason _) 
     {
@@ -62,7 +62,7 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Updates the last-update timestamp for the player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerUpdate(PlayerDataComponent playerDataComponent, TimePoint _) 
     {

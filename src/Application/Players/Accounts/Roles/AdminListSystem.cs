@@ -55,7 +55,7 @@ public class AdminListSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
-    /// <remarks>Change drivers: CD-09 (root; root; authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     private bool IsServerOwner(PlayerInfo playerInfo)
         => playerInfo.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
 }

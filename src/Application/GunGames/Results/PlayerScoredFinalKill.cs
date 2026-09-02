@@ -9,7 +9,7 @@ public class PlayerScoredFinalKill(
     IWorldService worldService,
     IPlayerRepository playerRepository) : IGunGameResultHandler
 {
-    /// <remarks>Change drivers: CD-07 (root; root; GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.ScoredFinalKill;
 
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-10 (player-statistics/rank model) → CD-07; CD-20 (outbound repository contract) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
