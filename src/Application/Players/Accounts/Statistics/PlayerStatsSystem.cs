@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; dialogService -> CD-01; playerRepository -> CD-20; playerRankUpdater -> CD-29+CD-10; killingSpreeUpdater -> CD-29+CD-10; playerStatsRenderer -> CD-29+CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerStatsSystem(
     IWorldService worldService,
@@ -24,7 +24,7 @@ public class PlayerStatsSystem(
         playerStatsRenderer.UpdateTextDraw(player);
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -36,7 +36,7 @@ public class PlayerStatsSystem(
         playerRepository.UpdateLastConnection(playerInfo);
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -103,7 +103,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
-    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model)</remarks>
     private static string GetPlayerContent(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

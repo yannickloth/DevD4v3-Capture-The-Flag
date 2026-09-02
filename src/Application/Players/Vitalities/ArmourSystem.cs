@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides the armour-related commands.
 /// </summary>
-/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-15 (command set), CD-03 (combat/weapon-rules specification), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; entityManager -> CD-01; unixTimeSeconds -> CD-01; commandCooldowns -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class ArmourSystem(
     IWorldService worldService,
@@ -12,7 +12,7 @@ public class ArmourSystem(
     CommandCooldowns commandCooldowns) : ISystem
 {
     /// <summary>Adds armour to a target player.</summary>
-    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addarmour")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void AddArmourToPlayer(
@@ -48,7 +48,7 @@ public class ArmourSystem(
     }
 
     /// <summary>Adds armour to all connected players.</summary>
-    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("addallarmour")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void AddArmourToAllPlayers(Player currentPlayer, float amount)
@@ -75,7 +75,7 @@ public class ArmourSystem(
     }
 
     /// <summary>Restores a player's armour, subject to a cooldown.</summary>
-    /// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-15 (command set), CD-17 (game configuration/.env schema), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-03 (combat/weapon-rules specification), CD-17 (game configuration/.env schema), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("armour")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void RestoreArmour(Player currentPlayer)

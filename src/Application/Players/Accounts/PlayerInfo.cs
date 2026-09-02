@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts;
 
-/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-09 (authorization policy), CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
 public partial class PlayerInfo
 {
     private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
@@ -9,7 +9,7 @@ public partial class PlayerInfo
     [GeneratedRegex(PlayerNamePattern)]
     private static partial Regex PlayerNameRegex();
 
-    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-10 (player-statistics/rank model), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-09 (authorization policy), CD-10 (player-statistics/rank model), CD-01 (open.mp/SampSharp platform API)</remarks>
     public PlayerInfo() { }
 
     /// <summary>
@@ -81,7 +81,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-09 (authorization policy), CD-20 (outbound repository contract)</remarks>
     public RoleId RoleId { get; private set; } = RoleId.Basic;
 
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     public int SkinId { get; private set; } = NoSkin;
 
     /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>

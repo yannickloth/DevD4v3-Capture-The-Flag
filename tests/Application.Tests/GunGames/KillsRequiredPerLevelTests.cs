@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for KillsRequiredPerLevel.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: KillsRequiredPerLevel), CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-29 (code-under-test: KillsRequiredPerLevel), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class KillsRequiredPerLevelTests
 {
     [Test]

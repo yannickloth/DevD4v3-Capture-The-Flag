@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a team in the CTF gamemode, holding its identity, members, stats, and flag.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team identity and balance), CD-01 (open.mp/SampSharp platform API: player team/color/skin), CD-11 (map configuration: flag identity).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team identity and balance), CD-11 (map configuration: flag identity), CD-01 (open.mp/SampSharp platform API: player team/color/skin)</remarks>
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>
@@ -77,7 +77,7 @@ public class Team
     }
 
     /// <summary>Gets the team identifier.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: team id), CD-02 (CTF game-rules specification: team identity).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team identity), CD-01 (open.mp/SampSharp platform API: team id)</remarks>
     public TeamId Id { get; private set; }
     /// <summary>Gets the team skin identifier.</summary>
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: skin id).</remarks>
@@ -97,17 +97,17 @@ public class Team
     /// open.mp GameText text colors documentation
     /// </see>.
     /// </remarks>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: GameText text color), CD-02 (CTF game-rules specification: team color identity).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team color identity), CD-01 (open.mp/SampSharp platform API: GameText text color)</remarks>
     public string GameTextColor { get; private set; }
 
     /// <summary>Gets the team color in hexadecimal.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: color value), CD-02 (CTF game-rules specification: team color identity).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team color identity), CD-01 (open.mp/SampSharp platform API: color value)</remarks>
     public Color ColorHex { get; private set; }
     /// <summary>Gets the sounds associated with the team.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio), CD-17 (game configuration/.env schema: audio URLs).</remarks>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema: audio URLs), CD-01 (open.mp/SampSharp platform API: audio)</remarks>
     public TeamSounds Sounds { get; private set; }
     /// <summary>Gets the team's flag.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag ownership), CD-11 (map configuration: flag identity).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag ownership), CD-11 (map configuration: flag identity)</remarks>
     public Flag Flag { get; private set; }
     /// <summary>Gets the rival team.</summary>
     /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team pairing).</remarks>
@@ -120,10 +120,10 @@ public class Team
     public TeamStatsPerRound StatsPerRound { get; } = new();
 
     /// <summary>Gets the team member count as text.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw), CD-02 (CTF game-rules specification: team membership).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership), CD-01 (open.mp/SampSharp platform API: textdraw)</remarks>
     public virtual string GetMembersAsText() => $"{Members.Count}";
     /// <summary>Gets the team score as text.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw), CD-10 (player-statistics/rank model: team score).</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team score), CD-01 (open.mp/SampSharp platform API: textdraw)</remarks>
     public virtual string GetScoreAsText() => $"{Name}: {StatsPerRound.Score}";
     /// <summary>Checks whether the team has more members than its rival.</summary>
     /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team balancing).</remarks>
@@ -156,7 +156,7 @@ public class Team
     /// <returns>
     /// The status resulting from the interaction.
     /// </returns>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag steal/capture/return rules), CD-01 (open.mp/SampSharp platform API: player team/entity).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag steal/capture/return rules), CD-01 (open.mp/SampSharp platform API: player team/entity)</remarks>
     public virtual FlagStatus HandleFlagInteraction(Player flagPicker)
     {
         ArgumentNullException.ThrowIfNull(flagPicker);

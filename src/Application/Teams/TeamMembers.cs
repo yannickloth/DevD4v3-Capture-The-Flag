@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the collection of players that belong to a team.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership), CD-01 (open.mp/SampSharp platform API: player entity).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: team membership), CD-01 (open.mp/SampSharp platform API: player entity)</remarks>
 public class TeamMembers : IEnumerable<Player>
 {
     private readonly Dictionary<int, Player> _players = [];

@@ -3,7 +3,7 @@
 /// <remarks>Change drivers: CD-22 (hosting/deployment spec)</remarks>
 public static class GameModePaths
 {
-    /// <remarks>Change drivers: CD-22 (hosting/deployment spec), CD-11 (map configuration)</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration), CD-22 (hosting/deployment spec)</remarks>
     public static string Maps =>
         Path.Combine(
             Root,

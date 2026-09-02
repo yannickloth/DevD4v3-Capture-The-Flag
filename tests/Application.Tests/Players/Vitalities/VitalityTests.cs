@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Vitalities;
 
 /// <summary>Tests for Vitality.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: Vitality), CD-03 (combat/weapon-rules specification)</remarks>
+/// <remarks>Change drivers: CD-03 (combat/weapon-rules specification), CD-29 (code-under-test: Vitality), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class VitalityTests
 {
     [TestCase(0)]

@@ -1,12 +1,12 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-21 (DI container/composition)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): players (Dictionary&lt;int, FakePlayer&gt;) -> CD-18; passwordHasher -> CD-25. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 internal class FakePlayerRepository(
     Dictionary<int, FakePlayer> players,
     IPasswordHasher passwordHasher) : IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);
@@ -110,7 +110,7 @@ internal class FakePlayerRepository(
     public void UpdateName(PlayerInfo player)
         => players[player.AccountId].Name = player.Name;
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model)</remarks>
     public void UpdatePassword(PlayerInfo player)
        => players[player.AccountId].PasswordHash = passwordHasher.HashPassword(player.Password);
 

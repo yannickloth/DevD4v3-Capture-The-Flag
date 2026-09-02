@@ -1,9 +1,9 @@
 ﻿namespace Persistence.SQLite;
 
-/// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-17 (game configuration/.env schema)</remarks>
+/// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
 internal static class SQLiteSchemaExecutor
 {
-    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-17 (game configuration/.env schema)</remarks>
+    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public static void Execute(string connectionString, string schemaFile)
     {
         if (!File.Exists(schemaFile))

@@ -1,7 +1,7 @@
 ﻿namespace Persistence.Tests.Common.DatabaseProviders;
 
 /// <summary>Wires the SQLite persistence stack for the repository tests.</summary>
-/// <remarks>Change drivers: CD-29 (code-under-test: the SQLite repository seam); CD-30 (SQLite SQL dialect); CD-20 (outbound repository contract); CD-18 (database schema/player data model); CD-21 (DI container/composition); CD-25 (BCrypt password-hashing contract).</remarks>
+/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-21 (DI container/composition), CD-29 (code-under-test: the SQLite repository seam)</remarks>
 public class SqliteRepositoryManager : IRepositoryManager
 {
     private readonly ISqlCollection _seedSqlCollection;
@@ -11,7 +11,7 @@ public class SqliteRepositoryManager : IRepositoryManager
     public IPlayerRepository PlayerRepository { get; }
     /// <remarks>Change drivers: CD-20 (outbound repository contract).</remarks>
     public ITopPlayersRepository TopPlayersRepository { get; }
-    /// <remarks>Change drivers: CD-30 (SQLite SQL dialect), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-21 (DI container/composition), CD-25 (BCrypt password-hashing contract).</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-21 (DI container/composition)</remarks>
     public SqliteRepositoryManager()
     {
         var services = new ServiceCollection();
@@ -45,12 +45,12 @@ public class SqliteRepositoryManager : IRepositoryManager
         GC.SuppressFinalize(this);
     }
 
-    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect).</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void InitializeSeedData() => ExecuteCommand("InitializeSeedData");
-    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect).</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void RemoveSeedData() => ExecuteCommand("RemoveSeedData");
 
-    /// <remarks>Change drivers: CD-30 (SQLite SQL dialect), CD-18 (database schema/player data model).</remarks>
+    /// <remarks>Change drivers: CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     private void ExecuteCommand(string tagName)
     {
         var settings = _serviceProvider.GetRequiredService<SQLiteSettings>();

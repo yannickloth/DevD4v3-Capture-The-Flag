@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-11 (map configuration), CD-12 (map-rotation rules)</remarks>
+/// <remarks>Change drivers: CD-11 (map configuration), CD-12 (map-rotation rules), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class MapTextDrawRenderer
 {
     private readonly IWorldService _worldService;

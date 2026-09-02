@@ -7,7 +7,7 @@
 public class TeamStatsPerRound
 {
     /// <summary>Gets the team's score.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: scoring), CD-10 (player-statistics/rank model: team score).</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team score), CD-02 (CTF game-rules specification: scoring)</remarks>
     public int Score { get; private set; }
 
     /// <summary>Gets the team's kills.</summary>
@@ -19,7 +19,7 @@ public class TeamStatsPerRound
     public int Deaths { get; private set; }
 
     /// <summary>Adds a score to the team.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: scoring), CD-10 (player-statistics/rank model: team score).</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: team score), CD-02 (CTF game-rules specification: scoring)</remarks>
     public void AddScore()  => Score++;
 
     /// <summary>Adds a kill to the team.</summary>

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents an event related to the flag in the game.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag events), CD-21 (DI container/composition: event wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag events), CD-21 (DI container/composition: event wiring)</remarks>
 public interface IFlagEvent
 {
     /// <summary>

@@ -3,19 +3,19 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag state model and capture/score rules), CD-01 (open.mp/SampSharp platform API: attached-object rendering), CD-11 (map configuration: flag model/icon identity).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag state model and capture/score rules), CD-11 (map configuration: flag model/icon identity), CD-01 (open.mp/SampSharp platform API: attached-object rendering)</remarks>
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-11 (map configuration: flag model identity), CD-01 (open.mp/SampSharp platform API: pickup/textdraw model ids).</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration: flag model identity), CD-01 (open.mp/SampSharp platform API: pickup/textdraw model ids)</remarks>
     public required FlagModel Model { get; init; }
 
     /// <summary>
     /// Gets the map icon associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-11 (map configuration: flag icon identity), CD-01 (open.mp/SampSharp platform API: map-icon ids).</remarks>
+    /// <remarks>Change drivers: CD-11 (map configuration: flag icon identity), CD-01 (open.mp/SampSharp platform API: map-icon ids)</remarks>
     public required FlagIcon Icon { get; init; }
 
     /// <summary>
@@ -27,7 +27,7 @@ public class Flag
     /// <summary>
     /// Gets the primary color associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team color), CD-01 (open.mp/SampSharp platform API: attached-object material color).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: team color), CD-01 (open.mp/SampSharp platform API: attached-object material color)</remarks>
     public required Color ColorHex { get; init; }
 
     /// <summary>
@@ -57,7 +57,7 @@ public class Flag
     /// <remarks>
     /// If the flag is not captured, returns <c>None</c>.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier display), CD-10 (player-statistics/rank model: carrier stats).</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model: carrier stats), CD-02 (CTF game-rules specification: carrier display)</remarks>
     public string CarrierName => HasCarrier ? Carrier.Name : "None";
 
     /// <summary>
@@ -123,7 +123,7 @@ public class Flag
     /// <summary>
     /// Sets the player who holds the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: attached-object rendering), CD-02 (CTF game-rules specification: carrier attachment).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: carrier attachment), CD-01 (open.mp/SampSharp platform API: attached-object rendering)</remarks>
     private void SetCarrier(Player player)
     {
         Carrier = player;

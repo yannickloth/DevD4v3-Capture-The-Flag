@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the sounds played for team flag events.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: audio), CD-17 (game configuration/.env schema: audio URLs).</remarks>
+/// <remarks>Change drivers: CD-17 (game configuration/.env schema: audio URLs), CD-01 (open.mp/SampSharp platform API: audio)</remarks>
 public class TeamSounds
 {
     private string _flagDropped;

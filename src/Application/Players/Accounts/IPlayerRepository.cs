@@ -1,59 +1,59 @@
 ﻿namespace CTF.Application.Players.Accounts;
 
-/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+/// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
 public interface IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     PlayerInfo GetOrDefault(string name);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     bool Exists(string name);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     void Create(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-20 (outbound repository contract)</remarks>
     void UpdateName(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-08 (account & authentication policy), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-08 (account & authentication policy), CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract)</remarks>
     void UpdatePassword(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateTotalKills(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateTotalDeaths(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateMaxKillingSpree(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateBroughtFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateCapturedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateDroppedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateReturnedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateHeadShots(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model), CD-07 (GunGame mode rules)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-07 (GunGame mode rules), CD-20 (outbound repository contract)</remarks>
     void UpdateGunGameWins(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-09 (authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-20 (outbound repository contract)</remarks>
     void UpdateRole(PlayerInfo player);
 
     /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-01 (open.mp/SampSharp platform API)</remarks>
     void UpdateSkin(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateRank(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-20 (outbound repository contract)</remarks>
     void UpdateLastConnection(PlayerInfo player);
 }

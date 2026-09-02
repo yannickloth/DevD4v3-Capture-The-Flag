@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides access to all players participating in the current match.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: match participants), CD-01 (open.mp/SampSharp platform API: player entity).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: match participants), CD-01 (open.mp/SampSharp platform API: player entity)</remarks>
 public static class MatchPlayers
 {
     /// <summary>

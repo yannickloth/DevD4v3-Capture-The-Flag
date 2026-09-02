@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for CurrentMap.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: CurrentMap), CD-11 (map configuration)</remarks>
+/// <remarks>Change drivers: CD-11 (map configuration), CD-29 (code-under-test: CurrentMap), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class CurrentMapTests
 {
     [Test]

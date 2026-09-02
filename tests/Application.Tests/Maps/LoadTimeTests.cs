@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for LoadTime.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: LoadTime), CD-12 (map-rotation rules)</remarks>
+/// <remarks>Change drivers: CD-12 (map-rotation rules), CD-29 (code-under-test: LoadTime), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class LoadTimeTests
 {
     static readonly int[] ExpectedIntervalCases = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];

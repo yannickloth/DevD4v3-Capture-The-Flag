@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for GunGame.ProcessKill.</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: GunGame.ProcessKill), CD-07 (GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-29 (code-under-test: GunGame.ProcessKill), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class ProcessKillTests
 {
     private GunGame _gunGame;

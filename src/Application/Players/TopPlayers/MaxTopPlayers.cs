@@ -17,7 +17,7 @@ public class MaxTopPlayers
     /// Creates a new instance of <see cref="MaxTopPlayers"/> if the provided value is within the valid range.
     /// </summary>
     /// <param name="value">The desired maximum number of players.</param>
-    /// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-10 (player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (player-statistics/rank model), CD-17 (game configuration/.env schema)</remarks>
     public static Result<MaxTopPlayers> Create(int value)
     {
         if (value < 5 || value > 15)

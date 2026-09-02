@@ -3,11 +3,11 @@
 /// <summary>
 /// Provides the VIP-role command set.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
 public class VipCommands : ISystem
 {
     /// <summary>Shows the VIP commands dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("cmdsvip")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void ShowVipCommands(Player player, IDialogService dialogService)
@@ -28,7 +28,7 @@ public class VipCommands : ISystem
     }
 
     /// <summary>Gives the player a chainsaw.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("saw")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Saw(Player player)
@@ -37,7 +37,7 @@ public class VipCommands : ISystem
     }
 
     /// <summary>Gives the player a spray can.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("spray")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Spray(Player player) 
@@ -46,7 +46,7 @@ public class VipCommands : ISystem
     }
 
     /// <summary>Gives the player tear gas.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-09 (authorization policy), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-09 (authorization policy), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("teargas")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Teargas(Player player)

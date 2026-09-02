@@ -3,7 +3,7 @@
 /// <summary>
 /// This event occurs when a player has taken the flag from a position other than the base.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag take rule), CD-01 (open.mp/SampSharp platform API: pickups, radar, audio, GameText), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap).</remarks>
+/// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag take rule), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap), CD-01 (open.mp/SampSharp platform API: pickups, radar, audio, GameText)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; teamPickupService -> CD-29+CD-01; flagAutoReturnTimer -> CD-29+CD-02; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class OnFlagTaken(
     IWorldService worldService,
@@ -16,7 +16,7 @@ public class OnFlagTaken(
     public FlagStatus FlagStatus => FlagStatus.Taken;
 
     /// <summary>Handles the flag-taken event.</summary>
-    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag take and auto-return rules), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap), CD-01 (open.mp/SampSharp platform API: radar).</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification: flag take and auto-return rules), CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap), CD-01 (open.mp/SampSharp platform API: radar)</remarks>
     public void Handle(Team team, Player player)
     {
         teamPickupService.DestroyFlag(team);

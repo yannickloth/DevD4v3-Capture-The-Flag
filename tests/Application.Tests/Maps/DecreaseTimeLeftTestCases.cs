@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for TimeLeft (case source).</summary>
-/// <remarks>Change drivers: CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract), CD-29 (code-under-test: TimeLeft (case source)), CD-12 (map-rotation rules)</remarks>
+/// <remarks>Change drivers: CD-12 (map-rotation rules), CD-29 (code-under-test: TimeLeft (case source), CD-26 (NUnit test-framework contract), CD-27 (FluentAssertions contract)</remarks>
 public class DecreaseTimeLeftTestCases : IEnumerable<string>
 {
     public IEnumerator<string> GetEnumerator()

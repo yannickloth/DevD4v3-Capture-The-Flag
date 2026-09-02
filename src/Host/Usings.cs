@@ -1,4 +1,4 @@
-﻿// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-23 (Serilog logging), CD-17 (game configuration/.env schema), CD-19 (MariaDB SQL dialect), CD-30 (SQLite SQL dialect), CD-20 (outbound repository contract)</remarks>
+﻿// <remarks>Change drivers: CD-17 (game configuration/.env schema), CD-20 (outbound repository contract), CD-19 (MariaDB SQL dialect), CD-30 (SQLite SQL dialect), CD-01 (open.mp/SampSharp platform API), CD-21 (DI container/composition), CD-23 (Serilog logging)</remarks>
 global using SampSharp.Entities;
 global using SampSharp.Entities.SAMP;
 global using SampSharp.Entities.SAMP.Commands;

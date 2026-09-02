@@ -1,13 +1,13 @@
 ﻿namespace Persistence.SQLite;
 
-/// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract), CD-21 (DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-21 (DI container/composition)</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; sqlCollection -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 internal class PlayerRepository(
     IPasswordHasher passwordHasher,
     ISqlCollection sqlCollection,
     SQLiteSettings settings) : IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);
@@ -139,7 +139,7 @@ internal class PlayerRepository(
         command.ExecuteNonQuery();
     }
 
-    /// <remarks>Change drivers: CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect), CD-25 (BCrypt password-hashing contract)</remarks>
+    /// <remarks>Change drivers: CD-25 (BCrypt password-hashing contract), CD-20 (outbound repository contract), CD-18 (database schema/player data model), CD-30 (SQLite SQL dialect)</remarks>
     public void UpdatePassword(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Password);

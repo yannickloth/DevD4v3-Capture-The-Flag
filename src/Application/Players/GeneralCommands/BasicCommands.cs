@@ -98,7 +98,7 @@ public class BasicCommands(
     }
 
     /// <summary>Eliminates the player's character for respawn purposes, subject to a minimum-health rule.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("kill")]
     public void Kill(Player player)
     {
@@ -160,7 +160,7 @@ public class BasicCommands(
     }
 
     /// <summary>Enables spectator mode on a target player, subject to a minimum-health rule.</summary>
-    /// <remarks>Change drivers: CD-15 (command set), CD-02 (CTF game-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (CTF game-rules specification), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     [PlayerCommand("spec")]
     public void EnableSpectatorMode(
         Player currentPlayer,

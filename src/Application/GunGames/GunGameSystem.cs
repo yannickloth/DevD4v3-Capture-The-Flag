@@ -83,7 +83,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameon")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-15 (command set), CD-03 (combat/weapon-rules specification), CD-01 (open.mp/SampSharp platform API)</remarks>
     public async Task GunGameOn(Player player, int killsRequiredPerLevel)
     {
         if (IsEnabled)
@@ -122,7 +122,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameoff")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-01 (open.mp/SampSharp platform API), CD-15 (command set)</remarks>
+    /// <remarks>Change drivers: CD-07 (GunGame mode rules), CD-15 (command set), CD-01 (open.mp/SampSharp platform API)</remarks>
     public void GunGameOff(Player player)
     {
         if (!IsEnabled)
