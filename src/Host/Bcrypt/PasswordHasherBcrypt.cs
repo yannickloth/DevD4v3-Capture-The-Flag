@@ -1,6 +1,6 @@
 ﻿namespace CTF.Host.Bcrypt;
 
-/// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract); CD-21 (DI container/composition) → CD-25</remarks>
+/// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
 public class PasswordHasherBcrypt : IPasswordHasher
 {
     /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>

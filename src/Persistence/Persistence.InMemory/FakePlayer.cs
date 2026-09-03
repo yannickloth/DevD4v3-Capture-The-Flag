@@ -5,9 +5,9 @@ public class FakePlayer
 {
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
     private const int NoSkin = -1;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-21 (DI container/composition) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
     public FakePlayer() => Id = PlayerIdValueGenerator.Instance.Next();
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18; CD-21 (DI container/composition) → CD-18</remarks>
+    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
     public FakePlayer(string name, string passwordHash)
     {
         Id = PlayerIdValueGenerator.Instance.Next();
