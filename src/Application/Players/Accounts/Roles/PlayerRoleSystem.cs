@@ -64,7 +64,7 @@ public class PlayerRoleSystem(
         currentPlayer.SendClientMessage(Color.Yellow, message);
     }
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
     [PlayerCommand("givemeadmin")]
     public async Task GiveMeAdmin(Player currentPlayer)
     {

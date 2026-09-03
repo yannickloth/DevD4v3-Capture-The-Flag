@@ -6,7 +6,7 @@ public class PlayerNameSystem(
     IPlayerRepository playerRepository,
     IWorldService worldService) : ISystem
 {
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-15 (command set) → CD-08; CD-01 (open.mp/SampSharp platform API) → CD-08; CD-20 (outbound repository contract) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08; CD-20 (outbound repository contract) → CD-08</remarks>
     [PlayerCommand("changename")]
     public void ChangeName(Player player, string newName)
     {

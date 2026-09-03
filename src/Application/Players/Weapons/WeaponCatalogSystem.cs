@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Weapons;
 
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-03 (combat/weapon-rules specification) → CD-04; CD-07 (GunGame mode rules) → CD-04; CD-15 (command set) → CD-04; CD-09 (authorization policy) → CD-04; CD-01 (open.mp/SampSharp platform API) → CD-04</remarks>
+/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-03 (combat/weapon-rules specification) → CD-04; CD-07 (GunGame mode rules) → CD-04; CD-15 (command set) → CD-04; CD-01 (open.mp/SampSharp platform API) → CD-04</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; dialogService -> CD-01; gunGameMode -> CD-07; weaponCatalog -> CD-04; weaponCatalogSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class WeaponCatalogSystem(
     IEntityManager entityManager,
@@ -11,7 +11,7 @@ public class WeaponCatalogSystem(
 {
     [PlayerCommand("weaponcatalog")]
     [RequiresMinimumRole(RoleId.Admin)]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-03 (combat/weapon-rules specification) → CD-04; CD-07 (GunGame mode rules) → CD-04; CD-15 (command set) → CD-04; CD-09 (authorization policy) → CD-04; CD-01 (open.mp/SampSharp platform API) → CD-04</remarks>
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-03 (combat/weapon-rules specification) → CD-04; CD-07 (GunGame mode rules) → CD-04; CD-15 (command set) → CD-04; CD-01 (open.mp/SampSharp platform API) → CD-04</remarks>
     public async Task ShowCatalogs(Player player)
     {
         if (gunGameMode.IsEnabled)

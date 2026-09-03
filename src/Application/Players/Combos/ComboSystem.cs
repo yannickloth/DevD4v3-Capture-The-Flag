@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Combos;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>
+/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>
 public class ComboSystem : ISystem
 {
     private readonly IDialogService _dialogService;

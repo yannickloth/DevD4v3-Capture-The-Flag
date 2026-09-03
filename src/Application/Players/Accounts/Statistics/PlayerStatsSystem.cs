@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-08 (account & authentication policy) → CD-10</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-08 (account & authentication policy) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; dialogService -> CD-01; playerRepository -> CD-20; playerRankUpdater -> CD-10; killingSpreeUpdater -> CD-10; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerStatsSystem(
     IWorldService worldService,
