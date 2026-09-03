@@ -74,13 +74,18 @@ public class TeamTextDrawRenderer
     {
         if (team.Id == TeamId.Alpha)
         {
-            _alphaScore.Text = team.GetScoreAsText();
+            _alphaScore.Text = GetScoreAsText(team);
         }
         else if (team.Id == TeamId.Beta)
         {
-            _betaScore.Text = team.GetScoreAsText();
+            _betaScore.Text = GetScoreAsText(team);
         }
     }
+
+    /// <summary>Formats the team's score for display in a textdraw.</summary>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team score); CD-02 (CTF game-rules specification: team identity) → CD-10; CD-01 (open.mp/SampSharp platform API: textdraw) → CD-10</remarks>
+    public static string GetScoreAsText(Team team)
+        => team == Team.None ? string.Empty : $"{team.Name}: {team.StatsPerRound.Score}";
 
     /// <summary>Updates the team members textdraw.</summary>
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-02 (CTF game-rules specification: team membership) → CD-01</remarks>

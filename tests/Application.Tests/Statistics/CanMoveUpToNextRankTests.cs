@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Statistics;
 
-/// <summary>Tests for PlayerRankEvaluator.CanMoveUpToNextRank.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerRankEvaluator.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <summary>Tests for RankCollection.CanMoveUpToNextRank.</summary>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class CanMoveUpToNextRankTests
 {
     [Test]
@@ -14,7 +14,7 @@ public class CanMoveUpToNextRankTests
         player.SetTotalKills(701);
 
         // Act
-        bool actual = player.CanMoveUpToNextRank();
+        bool actual = RankCollection.CanMoveUpToNextRank(player);
 
         // Assert
         actual.Should().BeFalse();
@@ -56,7 +56,7 @@ public class CanMoveUpToNextRankTests
         player.SetTotalKills(kills);
 
         // Act
-        bool actual = player.CanMoveUpToNextRank();
+        bool actual = RankCollection.CanMoveUpToNextRank(player);
 
         // Assert
         actual.Should().BeTrue();
@@ -98,7 +98,7 @@ public class CanMoveUpToNextRankTests
         player.SetTotalKills(kills);
 
         // Act
-        bool actual = player.CanMoveUpToNextRank();
+        bool actual = RankCollection.CanMoveUpToNextRank(player);
 
         // Assert
         actual.Should().BeFalse();

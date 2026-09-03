@@ -52,6 +52,25 @@ public class Flag
     public bool HasCarrier => Carrier is not null;
 
     /// <summary>
+    /// Determines whether the specified player is carrying this flag.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <returns>
+    /// <see langword="true"/> if the player is carrying this flag;
+    /// otherwise, <see langword="false"/>.
+    /// </returns>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state)</remarks>
+    public bool IsCarriedBy(Player player)
+    {
+        if (!HasCarrier)
+            return false;
+
+        return Carrier.Name.Equals(
+            player.Name,
+            StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <summary>
     /// Gets the name of the player who captured the flag.
     /// </summary>
     /// <remarks>

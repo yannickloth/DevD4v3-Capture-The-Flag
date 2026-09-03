@@ -27,7 +27,7 @@ public class FlagSystem(
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (playerInfo.IsCarryingEnemyFlag())
+        if (playerInfo.Team.RivalTeam.Flag.IsCarriedBy(player))
         {
             Team currentTeam = playerInfo.Team;
             IFlagEvent flagDropped = flagEvents[FlagStatus.Dropped];
@@ -41,7 +41,7 @@ public class FlagSystem(
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
         PlayerInfo victimInfo = victim.GetRequiredInfo();
-        if (victimInfo.IsCarryingEnemyFlag())
+        if (victimInfo.Team.RivalTeam.Flag.IsCarriedBy(victim))
         {
             Team currentTeam = victimInfo.Team;
             IFlagEvent flagDropped = flagEvents[FlagStatus.Dropped];
@@ -64,7 +64,7 @@ public class FlagSystem(
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
 
-        if (!playerInfo.IsCarryingEnemyFlag())
+        if (!playerInfo.Team.RivalTeam.Flag.IsCarriedBy(player))
             return;
 
         IFlagEvent flagDropped = flagEvents[FlagStatus.Dropped];

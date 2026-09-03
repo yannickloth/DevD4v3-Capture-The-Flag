@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Teams.Statistics;
 
-/// <summary>Tests for TeamScoreFormatter.GetScoreAsText.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamScoreFormatter.GetScoreAsText); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <summary>Tests for TeamTextDrawRenderer.GetScoreAsText.</summary>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamTextDrawRenderer.GetScoreAsText); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class TeamScoreFormatterTests
 {
     [SetUp]
@@ -20,7 +20,7 @@ public class TeamScoreFormatterTests
         var expectedString = "Alpha: 1";
 
         // Act
-        string actual = alphaTeam.GetScoreAsText();
+        string actual = TeamTextDrawRenderer.GetScoreAsText(alphaTeam);
 
         // Assert
         actual.Should().Be(expectedString);

@@ -1,7 +1,6 @@
 ﻿namespace CTF.Application.Tests.GameRules;
 
-/// <summary>Tests for FlagCarrierExtensions.IsCarryingEnemyFlag.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: FlagCarrierExtensions.IsCarryingEnemyFlag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+/// <summary>Tests for Flag.IsCarriedBy.</summary>/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
 public class IsCarryingEnemyFlagTests
 {
     [SetUp]
@@ -12,7 +11,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenPlayerIsNotAssignedToAnyTeam_ShouldReturnFalse()
+    public void IsCarriedBy_WhenPlayerIsNotAssignedToAnyTeam_ShouldReturnFalse()
     {
         // Arrange
         var fakePlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.NoTeam);
@@ -21,7 +20,7 @@ public class IsCarryingEnemyFlagTests
         player.SetName(fakePlayer.Name);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(fakePlayer);
 
         // Assert
         actual.Should().BeFalse();
@@ -30,7 +29,7 @@ public class IsCarryingEnemyFlagTests
     [TestCase("Bob")]
     [TestCase("BOB")]
     [TestCase("bob")]
-    public void IsCarryingEnemyFlag_WhenPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnTrue(string playerName)
+    public void IsCarriedBy_WhenPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnTrue(string playerName)
     {
         // Arrange
         Team betaTeam = Team.Beta;
@@ -41,7 +40,7 @@ public class IsCarryingEnemyFlagTests
         betaTeam.Flag.Capture(alphaTeamPlayer);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
@@ -50,7 +49,7 @@ public class IsCarryingEnemyFlagTests
     [TestCase("Bob")]
     [TestCase("BOB")]
     [TestCase("bob")]
-    public void IsCarryingEnemyFlag_WhenPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnTrue(string playerName)
+    public void IsCarriedBy_WhenPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnTrue(string playerName)
     {
         // Arrange
         Team alphaTeam = Team.Alpha;
@@ -61,14 +60,14 @@ public class IsCarryingEnemyFlagTests
         alphaTeam.Flag.Capture(betaTeamPlayer);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenAnotherPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnFalse()
+    public void IsCarriedBy_WhenAnotherPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnFalse()
     {
         // Arrange
         Team betaTeam = Team.Beta;
@@ -80,14 +79,14 @@ public class IsCarryingEnemyFlagTests
         betaTeam.Flag.Capture(alphaTeamPlayer2);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer1);
 
         // Assert
         actual.Should().BeFalse();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenAnotherPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnFalse()
+    public void IsCarriedBy_WhenAnotherPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnFalse()
     {
         // Arrange
         Team alphaTeam = Team.Alpha;
@@ -99,14 +98,14 @@ public class IsCarryingEnemyFlagTests
         alphaTeam.Flag.Capture(betaTeamPlayer2);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer1);
 
         // Assert
         actual.Should().BeFalse();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenPlayerFromTheAlphaTeamTakesADroppedBetaFlag_ShouldReturnTrue()
+    public void IsCarriedBy_WhenPlayerFromTheAlphaTeamTakesADroppedBetaFlag_ShouldReturnTrue()
     {
         // Arrange
         Team betaTeam = Team.Beta;
@@ -122,14 +121,14 @@ public class IsCarryingEnemyFlagTests
         betaTeam.Flag.Take(alphaTeamPlayer);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenPlayerFromTheBetaTeamTakesADroppedAlphaFlag_ShouldReturnTrue()
+    public void IsCarriedBy_WhenPlayerFromTheBetaTeamTakesADroppedAlphaFlag_ShouldReturnTrue()
     {
         // Arrange
         Team alphaTeam = Team.Alpha;
@@ -145,14 +144,14 @@ public class IsCarryingEnemyFlagTests
         alphaTeam.Flag.Take(betaTeamPlayer);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenTheAlphaFlagHasNoCarrier_ShouldReturnFalse()
+    public void IsCarriedBy_WhenTheAlphaFlagHasNoCarrier_ShouldReturnFalse()
     {
         // Arrange
         var betaTeamPlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.Beta);
@@ -161,14 +160,14 @@ public class IsCarryingEnemyFlagTests
         player.SetName(betaTeamPlayer.Name);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeFalse();
     }
 
     [Test]
-    public void IsCarryingEnemyFlag_WhenTheBetaFlagHasNoCarrier_ShouldReturnFalse()
+    public void IsCarriedBy_WhenTheBetaFlagHasNoCarrier_ShouldReturnFalse()
     {
         // Arrange
         var alphaTeamPlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.Alpha);
@@ -177,7 +176,7 @@ public class IsCarryingEnemyFlagTests
         player.SetName(alphaTeamPlayer.Name);
 
         // Act
-        bool actual = player.IsCarryingEnemyFlag();
+        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeFalse();

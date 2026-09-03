@@ -183,7 +183,7 @@ public class BasicCommands(
             return;
         }
 
-        if (currentPlayer.GetRequiredInfo().IsCarryingEnemyFlag())
+        if (currentPlayer.GetRequiredInfo().Team.RivalTeam.Flag.IsCarriedBy(currentPlayer))
         {
             currentPlayer.SendClientMessage(Color.Red, Messages.HasCapturedFlag);
             return;

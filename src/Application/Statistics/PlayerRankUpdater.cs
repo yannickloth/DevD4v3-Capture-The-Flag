@@ -19,7 +19,7 @@ public class PlayerRankUpdater(
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (!playerInfo.CanMoveUpToNextRank())
+        if (!RankCollection.CanMoveUpToNextRank(playerInfo))
             return;
 
         Rank nextRank = RankCollection.GetNextRank(playerInfo.RankId).Value;

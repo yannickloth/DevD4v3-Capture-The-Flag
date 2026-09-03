@@ -32,7 +32,7 @@ public class FlagCarrierPauseSystem(
     public void OnPlayerPauseStateChange(Player player, bool pauseState)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (pauseState && playerInfo.IsCarryingEnemyFlag())
+        if (pauseState && playerInfo.Team.RivalTeam.Flag.IsCarriedBy(player))
         {
             var interval = TimeSpan.FromSeconds(flagCarrierSettings.PauseTime);
             var timerReference = timerService.Start(OnComplete, interval);
@@ -57,7 +57,7 @@ public class FlagCarrierPauseSystem(
             timerService.Stop(pauseTimerReference.Value);
             pauseTimerReference.Destroy();
 
-            if (!playerInfo.IsCarryingEnemyFlag())
+            if (!playerInfo.Team.RivalTeam.Flag.IsCarriedBy(player))
                 return;
 
             Team rivalTeam = playerInfo.Team.RivalTeam;

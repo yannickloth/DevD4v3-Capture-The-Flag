@@ -48,7 +48,7 @@ public class HeadshotSystem(
             issuerInfo.StatsPerRound.AddCoins(5);
             playerRepository.UpdateHeadShots(issuerInfo);
             receiver.Health = 0;
-            if (!receiverInfo.IsCarryingEnemyFlag())
+            if (!receiverInfo.Team.RivalTeam.Flag.IsCarriedBy(receiver))
             {
                 issuer.PlayAudioStream(headshotSettings.AudioUrl);
                 receiver.PlayAudioStream(headshotSettings.AudioUrl);

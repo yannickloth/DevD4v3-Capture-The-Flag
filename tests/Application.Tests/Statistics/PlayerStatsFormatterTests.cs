@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Statistics;
 
-/// <summary>Tests for PlayerStatsFormatter.GetStatsAsText.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsFormatter.GetStatsAsText); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <summary>Tests for PlayerStatsRenderer.GetStatsAsText.</summary>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsRenderer.GetStatsAsText); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class PlayerStatsFormatterTests
 {
     [Test]
@@ -15,7 +15,7 @@ public class PlayerStatsFormatterTests
             $"~w~COINS: ~y~0/100 ~w~LEVEL: ~y~1/{maxRank} ~w~RANK: ~y~Noob";
 
         // Act
-        string actual = player.GetStatsAsText();
+        string actual = PlayerStatsRenderer.GetStatsAsText(player);
 
         // Assert
         actual.Should().Be(expectedString);

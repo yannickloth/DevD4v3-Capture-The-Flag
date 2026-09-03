@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Statistics;
 
-/// <summary>Tests for PlayerKillingSpreeEvaluator.HasSurpassedMaxKillingSpree.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerKillingSpreeEvaluator.HasSurpassedMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <summary>Tests for PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree.</summary>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class PlayerKillingSpreeEvaluatorTests
 {
     [Test]
@@ -15,7 +15,7 @@ public class PlayerKillingSpreeEvaluatorTests
         player.SetMaxKillingSpree(2);
 
         // Act
-        bool actual = player.HasSurpassedMaxKillingSpree();
+        bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);
 
         // Assert
         actual.Should().BeTrue();
@@ -31,7 +31,7 @@ public class PlayerKillingSpreeEvaluatorTests
         player.SetMaxKillingSpree(3);
 
         // Act
-        bool actual = player.HasSurpassedMaxKillingSpree();
+        bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);
 
         // Assert
         actual.Should().BeFalse();

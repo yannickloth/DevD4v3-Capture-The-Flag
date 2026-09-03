@@ -38,8 +38,29 @@ public class PlayerStatsRenderer(IWorldService worldService)
         ArgumentNullException.ThrowIfNull(player);
         PlayerStatsTextDraw playerStatsTextDraw = GetTextDrawOrThrow(player);
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerStatsTextDraw.Value.Text = playerInfo.GetStatsAsText();
+        playerStatsTextDraw.Value.Text = GetStatsAsText(playerInfo);
         playerStatsTextDraw.Value.Show();
+    }
+
+    /// <summary>Formats the player's statistics as a textdraw-compatible string.</summary>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    public static string GetStatsAsText(PlayerInfo playerInfo)
+    {
+        Result<Rank> rankResult = RankCollection.GetById(playerInfo.RankId);
+        var stats = new
+        {
+            playerInfo.StatsPerRound.Kills,
+            playerInfo.StatsPerRound.Deaths,
+            playerInfo.StatsPerRound.KillingSpree,
+            playerInfo.StatsPerRound.Coins,
+            MaxRank = RankCollection.Count,
+            Level = (int)playerInfo.RankId + 1,
+            RankName = rankResult.Value.Name
+        };
+        const string message =
+            "~w~KILLS: ~y~{Kills} ~w~DEATHS: ~y~{Deaths} ~w~SPREE: ~y~{KillingSpree} " +
+            "~w~COINS: ~y~{Coins}/100 ~w~LEVEL: ~y~{Level}/{MaxRank} ~w~RANK: ~y~{RankName}";
+        return Smart.Format(message, stats);
     }
 
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>

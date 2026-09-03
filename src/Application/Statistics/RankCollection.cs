@@ -69,6 +69,18 @@ public class RankCollection
         return Result<Rank>.Success(maxRank);
     }
 
+    /// <summary>Determines whether the specified player can advance to the next rank tier.</summary>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    public static bool CanMoveUpToNextRank(PlayerInfo playerInfo)
+    {
+        Rank currentRank = GetById(playerInfo.RankId).Value;
+        if (currentRank.IsMax())
+            return false;
+
+        Rank nextRank = GetNextRank(playerInfo.RankId).Value;
+        return playerInfo.TotalKills >= nextRank.RequiredKills;
+    }
+
     /// <summary>Gets the next rank tier after the given rank.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public static Result<Rank> GetNextRank(RankId previous)
