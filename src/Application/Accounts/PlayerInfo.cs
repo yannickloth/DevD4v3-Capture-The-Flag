@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Accounts;
+﻿namespace CTF.Application.Accounts;
 
 /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
 public partial class PlayerInfo
