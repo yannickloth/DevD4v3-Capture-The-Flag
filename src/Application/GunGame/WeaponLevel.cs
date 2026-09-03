@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.WeaponProgressions;
+﻿namespace CTF.Application.GunGameRules;
 
 /// <summary>
 /// Represents a player's current weapon level within a weapon progression.

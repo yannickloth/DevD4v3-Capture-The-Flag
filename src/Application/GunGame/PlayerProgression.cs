@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGameRules;
 
 /// <summary>
 /// Represents a player's progression in the GunGame mode.

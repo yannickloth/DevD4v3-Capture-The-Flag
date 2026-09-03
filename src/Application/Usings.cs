@@ -45,7 +45,6 @@ global using CTF.Application.Teams.Matches;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Rotation;
 
+global using CTF.Application.GunGameRules;
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Results;
-global using CTF.Application.GunGames.WeaponProgressions;
-global using CTF.Application.GunGames.WeaponProgressions.Definitions;

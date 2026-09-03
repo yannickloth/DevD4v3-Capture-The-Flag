@@ -25,6 +25,6 @@ global using CTF.Application.Teams.Matches;
 global using CTF.Application.Teams.Statistics;
 global using CTF.Application.Teams.Flags;
 global using CTF.Application.Maps;
+global using CTF.Application.GunGameRules;
 global using CTF.Application.GunGames;
-global using CTF.Application.GunGames.WeaponProgressions;
 global using CTF.Application.Tests.Fakes;

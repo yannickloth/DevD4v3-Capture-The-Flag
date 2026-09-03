@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.WeaponProgressions.Definitions;
+﻿namespace CTF.Application.GunGameRules;
 
 /// <summary>
 /// Defines a GunGame weapon progression using only shotguns.

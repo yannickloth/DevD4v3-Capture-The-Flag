@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGameRules;
 
 /// <summary>
 /// Represents the current availability of GunGame mode.
