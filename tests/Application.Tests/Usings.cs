@@ -8,7 +8,7 @@ global using SampSharp.Entities.SAMP;
 
 global using GameMode.Common;
 global using CTF.Application.Players;
-global using CTF.Application.Players.Statistics;
+global using CTF.Application.Statistics;
 global using CTF.Application.Players.Weapons;
 global using CTF.Application.Players.Weapons.Catalogs;
 global using CTF.Application.Players.Accounts;
@@ -16,7 +16,7 @@ global using CTF.Application.Players.Accounts.Statistics;
 global using CTF.Application.Players.Accounts.Authentication;
 global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Players.Vitalities;
-global using CTF.Application.Players.Combat;
+global using CTF.Application.Combat;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.Matches;

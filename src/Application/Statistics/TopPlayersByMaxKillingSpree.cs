@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Statistics;
+﻿namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Represents a top player entry ranked by maximum killing spree.

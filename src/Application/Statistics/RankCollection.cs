@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Statistics;
+﻿namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Provides access to the collection of rank tiers and their required kills.
