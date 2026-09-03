@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.ClassSelection;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Provides extension methods for the class-selection player state.

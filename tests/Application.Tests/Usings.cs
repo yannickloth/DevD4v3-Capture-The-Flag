@@ -20,7 +20,6 @@ global using CTF.Application.Authorization;
 global using CTF.Application.Combat;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Teams;
-global using CTF.Application.Teams.Matches;
 global using CTF.Application.Teams.Statistics;
 global using CTF.Application.Teams.Flags;
 global using CTF.Application.Maps;
