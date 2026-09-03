@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams;
+﻿namespace CTF.Application.Platform;
 
 /// <summary>
 /// Renders team-related information as textdraws.
