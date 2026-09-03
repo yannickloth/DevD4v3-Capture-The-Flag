@@ -15,7 +15,7 @@ public class AntiCBugSystem(
     AntiCBugSettings antiCBugSettings) : ISystem
 {
     /// <summary>Adds the last-fired-time component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-14</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {

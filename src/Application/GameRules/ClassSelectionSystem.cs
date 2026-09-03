@@ -23,7 +23,7 @@ public class ClassSelectionSystem(
     }
 
     /// <summary>Handles player connect for the class-selection flow.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: OnPlayerConnect, audio, textdraw); CD-17 (game configuration/.env schema: ClassSelection__IntroAudioUrl) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-17 (game configuration/.env schema: ClassSelection__IntroAudioUrl) → CD-02; CD-01 (open.mp/SampSharp platform API: OnPlayerConnect, audio, textdraw) → CD-02</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
     {

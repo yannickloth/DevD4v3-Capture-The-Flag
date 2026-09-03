@@ -98,7 +98,7 @@ public class ArmourSystem(
     }
 
     /// <summary>Adds the wait-time component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-03</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();

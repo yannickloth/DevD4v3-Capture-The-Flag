@@ -95,7 +95,7 @@ public class PlayerCoinsSystem(
         currentPlayer.SendClientMessage(Color.Yellow, Messages.GiveMeCoins);
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-06 (root; coin economy); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-06</remarks>
     [Event]
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();
