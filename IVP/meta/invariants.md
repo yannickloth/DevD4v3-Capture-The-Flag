@@ -44,11 +44,11 @@
 
 | Quantity | Before value | Meaning |
 |---|---|---|
-| Elements `E` (annotated types) | 285 | code elements supplied to the partition |
-| Distinct driver-sets `\|E/Γ\|` | 148 | Γ-equivalence classes = IVP normative partition (one module per set) |
+| Elements `E` (annotated types) | 293 | code elements supplied to the partition |
+| Distinct driver-sets `\|E/Γ\|` | 137 | Γ-equivalence classes = IVP normative partition (one module per set) |
 | Namespaces (actual modules) | 57 | the partition the code actually has |
-| Scattered sets (span > 1 namespace) | 26 | a driver-set living in several modules = the scatter/IVP defect |
+| Scattered sets (span > 1 namespace) | 28 | a driver-set living in several modules = the scatter/IVP defect |
 | Composite namespaces (multi-set) | 43 / 57 | contamination |
-| Mean namespace purity | 0.461 | inverse contamination |
+| Mean namespace purity | 0.482 | inverse contamination |
 
-**IVP-compliance invariant (target):** `#namespaces == #distinct-Γ-sets` (148). The gap `148 − 57` is the total E/Γ-non-conformance to eliminate while holding the Γ-sets (**I13**) and driver-activation table constant.
+**IVP-compliance invariant (target):** `#namespaces == #distinct-Γ-sets` (137). The gap `137 − 57` is the total E/Γ-non-conformance to eliminate while holding the Γ-sets (**I13**) and driver-activation table constant.

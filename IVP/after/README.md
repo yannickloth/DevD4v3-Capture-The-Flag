@@ -16,10 +16,10 @@ Measure the refactored tree with the **same** canonical tool used for the before
 
 ## Expected effects of IVP repackaging (what to look for)
 
-| Metric | Before (re-baselined) | Expected after |
+| Metric | Before | Expected after |
 |---|---|---|
-| distinct driver-sets (E/Γ) | 138 | ↓ toward the #namespaces (one module per driver-set is the normative partition) |
-| scattered sets (span >1 namespace) | 26 | ↓ toward 0 (a driver-set living in several modules is the IVP defect) |
+| distinct driver-sets (E/Γ) | 137 | ↓ toward the #namespaces (one module per driver-set is the normative partition) |
+| scattered sets (span >1 namespace) | 28 | ↓ toward 0 (a driver-set living in several modules is the IVP defect) |
 | composite namespaces (multi-set mixes) | 43/57 | ↓ (namespaces align to single driver-sets or documented siblings) |
 | driver activation (elements per driver) | as recorded | **unchanged** (annotation layer identical — only layout moves) |
 | purity per namespace | 0.100–1.000 | ↑ (fewer co-located sets per namespace) |
@@ -33,4 +33,4 @@ Measure the refactored tree with the **same** canonical tool used for the before
 ## Reference baseline
 
 - **Baseline = `IvpMeasure` output on the pinned `ivp-before` tag.** The tag is created after the in-flight change-driver fixes land; the before docs are then recomputed from the same tool (single source of truth for both states).
-- Heads-up: the values recorded in `IVP/before/*.md` (285 types / 148 sets) were measured on a partial snapshot with greedy-scan artifacts. The canonical recompute on the final annotation layer gives **289 types / 138 sets** — while the driver-activation table, global stats, 43/14 composite split and 26 scattered sets reproduce the recorded metrics **exactly**.
+- Heads-up: the original recorded values (285 types / 148 sets) were measured on a partial snapshot with greedy-scan artifacts and are superseded. The canonical recomputation on the corrected annotation layer (CD-29 retired, tests re-rooted, exhaustive review) gives **293 types / 137 sets / 28 scattered / 43 of 57 composite** — see the Recomputation note in `IVP/before/metrics.md`.

@@ -106,5 +106,54 @@ void main(String[] args) throws IOException {
     System.out.println("## prod-test-split");
     long prod = elems.stream().filter(e -> !e.ns().startsWith("CTF.Application.Tests") && !e.ns().startsWith("Persistence.Tests")).count();
     System.out.println("production=" + prod + " test=" + (elems.size()-prod));
+
+    System.out.println("## ns-cohesion");
+    Map<String,List<Elem>> byNs = new TreeMap<>();
+    for (Elem e : elems) byNs.computeIfAbsent(e.ns(), k->new ArrayList<>()).add(e);
+    for (var en : byNs.entrySet()) {
+        List<Elem> l = en.getValue();
+        Set<String> sets = new TreeSet<>(); for (Elem e : l) sets.add(String.join("+", e.drivers()));
+        double purity = 1.0/sets.size();
+        double completeness = 1.0;
+        for (String A : sets) {
+            int in = (int) l.stream().filter(e -> String.join("+", e.drivers()).equals(A)).count();
+            completeness = Math.min(completeness, (double)in/setCard.getOrDefault(A,1));
+        }
+        System.out.printf("| %s | %d | %d | %d | %.3f | %.3f |%n", en.getKey(), l.size(), nsDrv.get(en.getKey()).size(), sets.size(), purity, completeness);
+    }
+
+    System.out.println("## assembly-cohesion");
+    java.util.function.Function<String,String> asm = n ->
+        n.startsWith("CTF.Application.Tests") ? "tests/Application.Tests" :
+        n.startsWith("CTF.Application") ? "src/Application" :
+        n.startsWith("CTF.Host") || n.equals("SampSharp") ? "src/Host" :
+        n.startsWith("Persistence.Tests") ? "tests/Persistence.Tests" :
+        n.startsWith("Persistence.InMemory") ? "Persistence.InMemory" :
+        n.startsWith("Persistence.MariaDB") ? "Persistence.MariaDB" :
+        "Persistence.SQLite";
+    Map<String,Set<String>> asmSets = new TreeMap<>();
+    for (Elem e : elems) asmSets.computeIfAbsent(asm.apply(e.ns()), k->new TreeSet<>()).add(String.join("+", e.drivers()));
+    for (var en : asmSets.entrySet()) {
+        int cls = (int) elems.stream().filter(e -> asm.apply(e.ns()).equals(en.getKey())).count();
+        System.out.printf("| %s | %d | %d | %.3f |%n", en.getKey(), cls, en.getValue().size(), 1.0/en.getValue().size());
+    }
+
+    System.out.println("## ns-jaccard");
+    List<String[]> jpairs = new ArrayList<>();
+    List<String> nsList = new ArrayList<>(nsDrv.keySet());
+    for (int i=0;i<nsList.size();i++) for (int j=i+1;j<nsList.size();j++) {
+        Set<String> A = nsDrv.get(nsList.get(i)), B = nsDrv.get(nsList.get(j));
+        Set<String> shared = new TreeSet<>(A); shared.retainAll(B);
+        if (shared.size() < 4) continue;
+        Set<String> union = new TreeSet<>(A); union.addAll(B);
+        jpairs.add(new String[]{nsList.get(i), nsList.get(j), String.valueOf(shared.size()), String.format("%.3f", shared.size()/(double)union.size())});
+    }
+    jpairs.sort((a,b) -> Integer.compare(Integer.parseInt(b[2]), Integer.parseInt(a[2])));
+    for (int i=0;i<Math.min(12, jpairs.size());i++)
+        System.out.printf("| %s | %s | %s | %s |%n", jpairs.get(i)[0], jpairs.get(i)[1], jpairs.get(i)[2], jpairs.get(i)[3]);
+
+    System.out.println("## per-driver-reach");
+    for (String d : label.keySet())
+        System.out.println(d + ": " + String.join(", ", nsByDriver.getOrDefault(d, new TreeSet<>())));
 }
 static String median(List<Integer> l){ int n=l.size(); if(n==0)return"0"; return n%2==1 ? ""+l.get(n/2) : ""+(l.get(n/2-1)+l.get(n/2))/2.0; }
