@@ -1,4 +1,4 @@
-namespace CTF.Application.Players.Ranks;
+namespace CTF.Application.Players.Statistics;
 
 /// <summary>
 /// Represents a rank tier in the player rank model.

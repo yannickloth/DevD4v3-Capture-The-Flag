@@ -25,7 +25,7 @@ global using CTF.Application.Players.Accounts.Statistics;
 global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Players.Weapons;
 global using CTF.Application.Players.Weapons.Catalogs;
-global using CTF.Application.Players.Ranks;
+global using CTF.Application.Players.Statistics;
 global using CTF.Application.Players.Combos;
 global using CTF.Application.Players.Combos.Definitions;
 global using CTF.Application.Players.Chats;

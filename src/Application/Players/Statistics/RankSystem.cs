@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Ranks;
+﻿namespace CTF.Application.Players.Statistics;
 
 /// <summary>
 /// Provides the ranks command that displays the rank tiers.
