@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-01 (root; open.mp/SampSharp platform API: skin); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class PlayerInfoTests
 {
     static readonly int[] InvalidRankCases = [-1, -2, RankCollection.Count];

@@ -18,6 +18,7 @@ public class TestWeaponProgression : WeaponProgression
     }
 }
 
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression (fixture))</remarks>
 public class NonKnifeFinalWeaponProgression : WeaponProgression
 {
     public override WeaponProgressionType Type => WeaponProgressionType.Classic;
