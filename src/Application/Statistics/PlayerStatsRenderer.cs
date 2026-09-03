@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Accounts.Statistics;
+﻿namespace CTF.Application.Statistics;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-01. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
