@@ -7,7 +7,7 @@ public class RocketLauncherSystem(
     ComboSettings comboSettings) : ISystem
 {
     [Event]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-12 (map-rotation rules: map-load reset) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>
     public void OnLoadingMap()
     {
         comboSettings.IsRocketLauncherDisabled = true;
