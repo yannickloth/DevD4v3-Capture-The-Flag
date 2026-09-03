@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Sends death messages to reflect player connect, disconnect, and death events.

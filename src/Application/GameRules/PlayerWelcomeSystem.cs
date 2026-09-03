@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Sends the welcome messages to a player upon connection.

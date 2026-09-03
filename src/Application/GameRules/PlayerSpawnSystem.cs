@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Positions and configures the player at spawn using the current map's spawn locations.

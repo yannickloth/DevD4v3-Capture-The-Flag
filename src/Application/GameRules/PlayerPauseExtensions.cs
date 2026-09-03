@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Pause;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Provides extension methods for working with the player's paused state.
