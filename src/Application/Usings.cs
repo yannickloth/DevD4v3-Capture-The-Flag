@@ -34,7 +34,7 @@ global using CTF.Application.Statistics;
 global using CTF.Application.Players.Combos;
 global using CTF.Application.Players.Combos.Definitions;
 global using CTF.Application.Players.Chats;
-global using CTF.Application.Players.Chats.Definitions;
+global using CTF.Application.Chat;
 global using CTF.Application.Combat;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.ClassSelection;

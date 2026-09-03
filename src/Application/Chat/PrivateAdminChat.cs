@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Chats.Definitions;
+﻿namespace CTF.Application.Chat;
 
 /// <summary>
 /// Represents the admin private chat tier, routed by the '#' prefix.

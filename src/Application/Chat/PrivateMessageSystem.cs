@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Chats;
+﻿namespace CTF.Application.Chat;
 
 /// <summary>
 /// Provides private-message commands (PM, block, unblock) and manages the per-player PM state.
