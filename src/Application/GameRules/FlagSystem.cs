@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.

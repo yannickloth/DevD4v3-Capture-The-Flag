@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags.Carriers;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Handles showing and hiding flag carriers on the radar map.

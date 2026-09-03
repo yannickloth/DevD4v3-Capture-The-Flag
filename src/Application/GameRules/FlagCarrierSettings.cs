@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags.Carriers;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Represents the settings for the flag carrier.

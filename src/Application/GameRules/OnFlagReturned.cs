@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags.Events;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// This event occurs when a player has returned the flag to their team's base.

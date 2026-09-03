@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags.Events;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// This event occurs when a player has taken the flag from a position other than the base.

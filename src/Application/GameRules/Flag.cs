@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
