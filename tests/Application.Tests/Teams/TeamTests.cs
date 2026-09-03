@@ -27,21 +27,6 @@ public class TeamTests
     }
 
     [Test]
-    public void GetScoreAsText_WhenScoreIsObtained_ShouldReturnValidStringFormat()
-    {
-        // Arrange
-        Team alphaTeam = Team.Alpha;
-        alphaTeam.StatsPerRound.AddScore();
-        var expectedString = "Alpha: 1";
-
-        // Act
-        string actual = alphaTeam.GetScoreAsText();
-
-        // Assert
-        actual.Should().Be(expectedString);
-    }
-
-    [Test]
     public void IsFull_WhenTeamIsFull_ShouldReturnTrue()
     {
         // Arrange

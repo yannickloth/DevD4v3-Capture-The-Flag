@@ -100,9 +100,6 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public bool HasSurpassedMaxKillingSpree() => StatsPerRound.KillingSpree > MaxKillingSpree;
-
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
     public bool HasSkin() => SkinId != NoSkin;
 
@@ -265,54 +262,5 @@ public partial class PlayerInfo
         }
 
         return Result.Failure(Messages.InvalidTeam);
-    }
-
-    /// <summary>
-    /// Checks if the player has captured the opposing team's flag.
-    /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
-    public bool IsCarryingEnemyFlag()
-    {
-        if (Team == Team.None) 
-            return false;
-
-        Flag rivalTeamFlag = Team.RivalTeam.Flag;
-        if (rivalTeamFlag.HasCarrier)
-        {
-            Player carrier = rivalTeamFlag.Carrier;
-            return carrier.Name.Equals(Name, StringComparison.OrdinalIgnoreCase);
-        }
-        return false;
-    }
-
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public bool CanMoveUpToNextRank()
-    {
-        Rank currentRank = RankCollection.GetById(RankId).Value;
-        if (currentRank.IsMax())
-            return false;
-
-        Rank nextRank = RankCollection.GetNextRank(RankId).Value;
-        return TotalKills >= nextRank.RequiredKills;
-    }
-
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public string GetStatsAsText()
-    {
-        Result<Rank> rankResult = RankCollection.GetById(RankId);
-        var stats = new
-        {
-            StatsPerRound.Kills,
-            StatsPerRound.Deaths,
-            StatsPerRound.KillingSpree,
-            StatsPerRound.Coins,
-            MaxRank = RankCollection.Count,
-            Level = (int)RankId + 1,
-            RankName = rankResult.Value.Name
-        };
-        const string message = 
-            "~w~KILLS: ~y~{Kills} ~w~DEATHS: ~y~{Deaths} ~w~SPREE: ~y~{KillingSpree} " +
-            "~w~COINS: ~y~{Coins}/100 ~w~LEVEL: ~y~{Level}/{MaxRank} ~w~RANK: ~y~{RankName}";
-        return Smart.Format(message, stats);
     }
 }

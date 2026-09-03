@@ -125,9 +125,6 @@ public class Team
     /// <summary>Gets the team member count as text.</summary>
     /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw) → CD-02; CD-02 (root; CTF game-rules specification: team membership)</remarks>
     public virtual string GetMembersAsText() => $"{Members.Count}";
-    /// <summary>Gets the team score as text.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: textdraw) → CD-10; CD-10 (root; player-statistics/rank model: team score)</remarks>
-    public virtual string GetScoreAsText() => $"{Name}: {StatsPerRound.Score}";
     /// <summary>Checks whether the team has more members than its rival.</summary>
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
     public virtual bool IsFull() => Members.Count > RivalTeam.Members.Count;
@@ -198,7 +195,6 @@ public class Team
         public override string GetAvailabilityMessage() => string.Empty;
         public override FlagStatus HandleFlagInteraction(Player flagPicker) => FlagStatus.BasePosition;
         public override string GetMembersAsText() => string.Empty;
-        public override string GetScoreAsText() => string.Empty;
         public override bool IsFull() => false;
         public override bool IsWinner() => false;
         public override void Reset()

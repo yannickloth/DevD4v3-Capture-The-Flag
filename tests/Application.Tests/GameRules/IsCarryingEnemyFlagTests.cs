@@ -1,7 +1,7 @@
-﻿namespace CTF.Application.Tests.Players.Accounts;
+﻿namespace CTF.Application.Tests.GameRules;
 
-/// <summary>Tests for PlayerInfo.IsCarryingEnemyFlag.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.IsCarryingEnemyFlag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+/// <summary>Tests for FlagCarrierExtensions.IsCarryingEnemyFlag.</summary>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: FlagCarrierExtensions.IsCarryingEnemyFlag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
 public class IsCarryingEnemyFlagTests
 {
     [SetUp]
