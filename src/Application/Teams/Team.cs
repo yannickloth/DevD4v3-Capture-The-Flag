@@ -188,6 +188,7 @@ public class Team
         return FlagStatus.Taken;
     }
 
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity, the None team)</remarks>
     private class NoTeam : Team
     {
         public NoTeam() { }

@@ -4,7 +4,7 @@
 /// Middleware executed before <c>OnPlayerCommandText</c> to prevent command execution
 /// when the player does not meet the required conditions.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-08 (account & authentication policy) → CD-01; CD-02 (CTF game-rules specification) → CD-01</remarks>
+/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-08 (account & authentication policy) → CD-01; CD-02 (CTF game-rules specification) → CD-01; CD-12 (map-rotation rules: command lock during map load) → CD-01</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; next -> CD-01; mapRotationService -> CD-12. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerCommandLockMiddleware(
     IEntityManager entityManager,
@@ -19,7 +19,7 @@ public class PlayerCommandLockMiddleware(
     /// <see langword="true"/> if any condition is met to block the command.
     /// Otherwise, it proceeds to the next middleware or action.
     /// </returns>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-08 (account & authentication policy) → CD-01; CD-02 (CTF game-rules specification) → CD-01</remarks>
+/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-08 (account & authentication policy) → CD-01; CD-02 (CTF game-rules specification) → CD-01; CD-12 (map-rotation rules: command lock during map load) → CD-01</remarks>
     public object Invoke(EventContext context)
     {
         EntityId playerId = (EntityId)context.Arguments[0];

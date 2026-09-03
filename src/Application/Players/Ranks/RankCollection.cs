@@ -81,6 +81,7 @@ public class RankCollection
         return Result<IRank>.Success(rank);
     }
 
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     private class Rank : IRank
     {
         public static readonly Rank None = new();

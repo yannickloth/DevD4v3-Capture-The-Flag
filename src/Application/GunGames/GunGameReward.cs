@@ -11,6 +11,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
     private const int TeamEarnedArmour   = 50;
     private const int TeamEarnedCoins    = 15;
     private const int TeamEarnedScore    = 3;
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon reward)</remarks>
     private readonly record struct WeaponReward(IWeapon Weapon, int Ammo);
     private readonly WeaponReward[] _weaponRewards = 
     [

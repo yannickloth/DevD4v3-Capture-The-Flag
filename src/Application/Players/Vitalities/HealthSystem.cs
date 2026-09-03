@@ -103,6 +103,7 @@ public class HealthSystem(
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();
 
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health-restore cooldown); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
     private class WaitTimeComponent : Component
     {
         public long Value { get; set; }

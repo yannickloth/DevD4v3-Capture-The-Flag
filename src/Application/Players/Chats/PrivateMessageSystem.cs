@@ -82,6 +82,7 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
         player.AddComponent<PrivateMessageComponent>();
     }
 
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
     private class PrivateMessageComponent : Component
     {
         public bool IsBlocked { get; set; }

@@ -3,7 +3,7 @@
 /// <summary>
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-01 (open.mp/SampSharp platform API: player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-01 (open.mp/SampSharp platform API: player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-01; flagAutoReturnTimer -> CD-02; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagSystem(
     IWorldService worldService,
@@ -31,7 +31,7 @@ public class FlagSystem(
     }
 
     /// <summary>Handles flag drop and rewards when a carrying player dies.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-death drop rule); CD-01 (open.mp/SampSharp platform API: OnPlayerDeath) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-06 (coin economy: coins-on-kill) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-death drop rule); CD-01 (open.mp/SampSharp platform API: OnPlayerDeath) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-06 (coin economy: coins-on-kill) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {

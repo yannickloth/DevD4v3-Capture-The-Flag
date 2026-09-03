@@ -3,7 +3,7 @@
 /// <summary>
 /// See <see href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=flag">flag models</see>.
 /// </summary>
-/// <remarks>Change drivers: CD-11 (root; map configuration: flag model identity); CD-01 (open.mp/SampSharp platform API: model ids) → CD-11</remarks>
+/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: model ids)</remarks>
 public enum FlagModel
 {
     /// <summary>No flag model.</summary>

@@ -176,6 +176,7 @@ public class AdminCommands(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
+    /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
     private class BannedPlayer
     {
         public string Address { get; set; } = string.Empty;

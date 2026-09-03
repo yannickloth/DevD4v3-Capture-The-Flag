@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-10 (player-statistics/rank model) → CD-01</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-01. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
 public class PlayerStatsRenderer(IWorldService worldService)
 {
@@ -32,7 +32,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-10 (player-statistics/rank model) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -65,13 +65,13 @@ public class PlayerStatsRenderer(IWorldService worldService)
              ?? throw new InvalidOperationException($"The '{nameof(PlayerStatsTextDraw)}' component is not attached to the player");
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
     private class PlayerStatsTextDraw : Component
     {
-        /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
         public PlayerTextDraw Value { get; }
 
-        /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
         public PlayerStatsTextDraw(PlayerTextDraw value)
         {
             ArgumentNullException.ThrowIfNull(value);

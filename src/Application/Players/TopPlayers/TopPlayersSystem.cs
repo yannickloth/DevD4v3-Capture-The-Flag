@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides the top-players leaderboard commands.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-17 (game configuration/.env schema) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-15 (command set) → CD-10</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-17 (game configuration/.env schema) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-15 (command set) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; topPlayersRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TopPlayersSystem(
     IDialogService dialogService,

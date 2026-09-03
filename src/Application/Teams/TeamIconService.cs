@@ -82,7 +82,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys all team map icons.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: map icons), CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons)</remarks>
     public void DestroyAll()
     {
         Destroy(Team.Alpha);

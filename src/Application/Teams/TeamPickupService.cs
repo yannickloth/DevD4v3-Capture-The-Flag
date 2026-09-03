@@ -79,7 +79,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys all flag pickups.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: pickups), CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups); CD-11 (map configuration: flag locations) → CD-01</remarks>
     public void DestroyFlags()
     {
         DestroyFlag(Team.Alpha);
@@ -87,7 +87,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the exterior marker for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: pickups), CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups); CD-11 (map configuration: flag locations) → CD-01</remarks>
     public void CreateExteriorMarker(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);

@@ -36,7 +36,7 @@ public class PlayerStatsSystem(
         playerRepository.UpdateLastConnection(playerInfo);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10, CD-20 (outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
