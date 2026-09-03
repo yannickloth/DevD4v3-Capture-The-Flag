@@ -40,8 +40,8 @@ public class OnFlagReturned(
         worldService.GameText($"~n~~n~~n~{team.GameTextColor}{team.ColorName} flag returned!", TimeSpan.FromSeconds(5), GameTextStyle.Style3);
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.StatsPerRound.AddCoins(EarnedCoins);
-        playerInfo.AddReturnedFlags();
+        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
+        playerInfo.Stats.AddReturnedFlags();
         player.AddScore(EarnedScore);
         playerRepository.UpdateReturnedFlags(playerInfo);
         playerStatsRenderer.UpdateTextDraw(player);

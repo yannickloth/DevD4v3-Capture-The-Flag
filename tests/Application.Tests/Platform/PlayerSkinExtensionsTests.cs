@@ -9,7 +9,7 @@ public class PlayerSkinExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetSkin(311);
+        player.Appearance.SetSkin(311);
 
         // Act
         bool actual = player.HasSkin();
@@ -23,7 +23,7 @@ public class PlayerSkinExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.RemoveSkin();
+        player.Appearance.RemoveSkin();
 
         // Act
         bool actual = player.HasSkin();

@@ -44,11 +44,11 @@ public class HeadshotSystem(
         {
             PlayerInfo issuerInfo = issuer.GetRequiredInfo();
             PlayerInfo receiverInfo = receiver.GetRequiredInfo();
-            issuerInfo.AddHeadShots();
-            issuerInfo.StatsPerRound.AddCoins(5);
+            issuerInfo.Stats.AddHeadShots();
+            issuerInfo.Stats.PerRound.AddCoins(5);
             playerRepository.UpdateHeadShots(issuerInfo);
             receiver.Health = 0;
-            if (!receiverInfo.Team.RivalTeam.Flag.IsCarriedBy(receiver))
+            if (!receiverInfo.Appearance.Team.RivalTeam.Flag.IsCarriedBy(receiver))
             {
                 issuer.PlayAudioStream(headshotSettings.AudioUrl);
                 receiver.PlayAudioStream(headshotSettings.AudioUrl);

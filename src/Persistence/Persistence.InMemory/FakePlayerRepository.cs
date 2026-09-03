@@ -9,27 +9,27 @@ internal class FakePlayerRepository(
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public void Create(PlayerInfo player)
     {
-        var passwordHash = passwordHasher.HashPassword(player.Password);
-        var fakePlayer = new FakePlayer(player.Name, passwordHash)
+        var passwordHash = passwordHasher.HashPassword(player.Account.Password);
+        var fakePlayer = new FakePlayer(player.Account.Name, passwordHash)
         {
-            TotalKills       = player.TotalKills,
-            TotalDeaths      = player.TotalDeaths,
-            MaxKillingSpree  = player.MaxKillingSpree,
-            BroughtFlags     = player.BroughtFlags,
-            CapturedFlags    = player.CapturedFlags,
-            DroppedFlags     = player.DroppedFlags,
-            ReturnedFlags    = player.ReturnedFlags,
-            HeadShots        = player.HeadShots,
-            GunGameWins      = player.GunGameWins,
-            SkinId           = player.SkinId,
-            RoleId           = player.RoleId,
-            RankId           = player.RankId,
-            CreatedAt        = player.CreatedAt,
-            LastConnection   = player.LastConnection
+            TotalKills       = player.Stats.TotalKills,
+            TotalDeaths      = player.Stats.TotalDeaths,
+            MaxKillingSpree  = player.Stats.MaxKillingSpree,
+            BroughtFlags     = player.Stats.BroughtFlags,
+            CapturedFlags    = player.Stats.CapturedFlags,
+            DroppedFlags     = player.Stats.DroppedFlags,
+            ReturnedFlags    = player.Stats.ReturnedFlags,
+            HeadShots        = player.Stats.HeadShots,
+            GunGameWins      = player.Stats.GunGameWins,
+            SkinId           = player.Appearance.SkinId,
+            RoleId           = player.Role.Id,
+            RankId           = player.Stats.RankId,
+            CreatedAt        = player.Account.CreatedAt,
+            LastConnection   = player.Stats.LastConnection
         };
         players.Add(fakePlayer.Id, fakePlayer);
         // The Account ID is immutable and lacks a public setter; Reflection is used to modify it.
-        player.SetValue(value: fakePlayer.Id, propertyName: nameof(PlayerInfo.AccountId));
+        player.Account.SetValue(value: fakePlayer.Id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
@@ -50,87 +50,87 @@ internal class FakePlayerRepository(
         var playerInfo = new PlayerInfo();
         // The public setter is used only for plaintext passwords.
         // For that reason, we use Reflection to set the already encrypted password.
-        playerInfo.SetValue(value: fakePlayer.PasswordHash, propertyName: nameof(PlayerInfo.Password));
+        playerInfo.Account.SetValue(value: fakePlayer.PasswordHash, propertyName: nameof(PlayerAccount.Password));
 
-        playerInfo.SetName(fakePlayer.Name);
-        playerInfo.SetTotalKills(fakePlayer.TotalKills);
-        playerInfo.SetTotalDeaths(fakePlayer.TotalDeaths);
-        playerInfo.SetMaxKillingSpree(fakePlayer.MaxKillingSpree);
-        playerInfo.SetRole(fakePlayer.RoleId);
-        playerInfo.SetRank(fakePlayer.RankId);
-        playerInfo.SetSkin(fakePlayer.SkinId);
+        playerInfo.Account.SetName(fakePlayer.Name);
+        playerInfo.Stats.SetTotalKills(fakePlayer.TotalKills);
+        playerInfo.Stats.SetTotalDeaths(fakePlayer.TotalDeaths);
+        playerInfo.Stats.SetMaxKillingSpree(fakePlayer.MaxKillingSpree);
+        playerInfo.Role.Set(fakePlayer.RoleId);
+        playerInfo.Stats.SetRank(fakePlayer.RankId);
+        playerInfo.Appearance.SetSkin(fakePlayer.SkinId);
 
         // Reflection is used here because these properties are immutable.
         // What we did here is what ORMs like EF Core do, so it's nothing new.
-        playerInfo.SetValue(value: fakePlayer.Id,             propertyName: nameof(PlayerInfo.AccountId));
-        playerInfo.SetValue(value: fakePlayer.BroughtFlags,   propertyName: nameof(PlayerInfo.BroughtFlags));
-        playerInfo.SetValue(value: fakePlayer.CapturedFlags,  propertyName: nameof(PlayerInfo.CapturedFlags));
-        playerInfo.SetValue(value: fakePlayer.DroppedFlags,   propertyName: nameof(PlayerInfo.DroppedFlags));
-        playerInfo.SetValue(value: fakePlayer.ReturnedFlags,  propertyName: nameof(PlayerInfo.ReturnedFlags));
-        playerInfo.SetValue(value: fakePlayer.HeadShots,      propertyName: nameof(PlayerInfo.HeadShots));
-        playerInfo.SetValue(value: fakePlayer.GunGameWins,    propertyName: nameof(PlayerInfo.GunGameWins));
-        playerInfo.SetValue(value: fakePlayer.CreatedAt,      propertyName: nameof(PlayerInfo.CreatedAt));
-        playerInfo.SetValue(value: fakePlayer.LastConnection, propertyName: nameof(PlayerInfo.LastConnection));
+        playerInfo.Account.SetValue(value: fakePlayer.Id,             propertyName: nameof(PlayerAccount.AccountId));
+        playerInfo.Stats.SetValue(value: fakePlayer.BroughtFlags,     propertyName: nameof(PlayerStatistics.BroughtFlags));
+        playerInfo.Stats.SetValue(value: fakePlayer.CapturedFlags,    propertyName: nameof(PlayerStatistics.CapturedFlags));
+        playerInfo.Stats.SetValue(value: fakePlayer.DroppedFlags,     propertyName: nameof(PlayerStatistics.DroppedFlags));
+        playerInfo.Stats.SetValue(value: fakePlayer.ReturnedFlags,    propertyName: nameof(PlayerStatistics.ReturnedFlags));
+        playerInfo.Stats.SetValue(value: fakePlayer.HeadShots,        propertyName: nameof(PlayerStatistics.HeadShots));
+        playerInfo.Stats.SetValue(value: fakePlayer.GunGameWins,      propertyName: nameof(PlayerStatistics.GunGameWins));
+        playerInfo.Account.SetValue(value: fakePlayer.CreatedAt,      propertyName: nameof(PlayerAccount.CreatedAt));
+        playerInfo.Stats.SetValue(value: fakePlayer.LastConnection,   propertyName: nameof(PlayerStatistics.LastConnection));
         return playerInfo;
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateBroughtFlags(PlayerInfo player) 
-        => players[player.AccountId].BroughtFlags = player.BroughtFlags;
+        => players[player.Account.AccountId].BroughtFlags = player.Stats.BroughtFlags;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateCapturedFlags(PlayerInfo player)
-        => players[player.AccountId].CapturedFlags = player.CapturedFlags;
+        => players[player.Account.AccountId].CapturedFlags = player.Stats.CapturedFlags;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateDroppedFlags(PlayerInfo player)
-        => players[player.AccountId].DroppedFlags = player.DroppedFlags;
+        => players[player.Account.AccountId].DroppedFlags = player.Stats.DroppedFlags;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateReturnedFlags(PlayerInfo player)
-        => players[player.AccountId].ReturnedFlags = player.ReturnedFlags;
+        => players[player.Account.AccountId].ReturnedFlags = player.Stats.ReturnedFlags;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateHeadShots(PlayerInfo player)
-        => players[player.AccountId].HeadShots = player.HeadShots;
+        => players[player.Account.AccountId].HeadShots = player.Stats.HeadShots;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateGunGameWins(PlayerInfo player)
-        => players[player.AccountId].GunGameWins = player.GunGameWins;
+        => players[player.Account.AccountId].GunGameWins = player.Stats.GunGameWins;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateLastConnection(PlayerInfo player)
-        => players[player.AccountId].LastConnection = player.LastConnection;
+        => players[player.Account.AccountId].LastConnection = player.Stats.LastConnection;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateMaxKillingSpree(PlayerInfo player)
-        => players[player.AccountId].MaxKillingSpree = player.MaxKillingSpree;
+        => players[player.Account.AccountId].MaxKillingSpree = player.Stats.MaxKillingSpree;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateName(PlayerInfo player)
-        => players[player.AccountId].Name = player.Name;
+        => players[player.Account.AccountId].Name = player.Account.Name;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public void UpdatePassword(PlayerInfo player)
-       => players[player.AccountId].PasswordHash = passwordHasher.HashPassword(player.Password);
+       => players[player.Account.AccountId].PasswordHash = passwordHasher.HashPassword(player.Account.Password);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateRank(PlayerInfo player)
-        => players[player.AccountId].RankId = player.RankId;
+        => players[player.Account.AccountId].RankId = player.Stats.RankId;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateRole(PlayerInfo player)
-        => players[player.AccountId].RoleId = player.RoleId;
+        => players[player.Account.AccountId].RoleId = player.Role.Id;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateSkin(PlayerInfo player)
-        => players[player.AccountId].SkinId = player.SkinId;
+        => players[player.Account.AccountId].SkinId = player.Appearance.SkinId;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateTotalDeaths(PlayerInfo player)
-        => players[player.AccountId].TotalDeaths = player.TotalDeaths;
+        => players[player.Account.AccountId].TotalDeaths = player.Stats.TotalDeaths;
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
     public void UpdateTotalKills(PlayerInfo player)
-        => players[player.AccountId].TotalKills = player.TotalKills;
+        => players[player.Account.AccountId].TotalKills = player.Stats.TotalKills;
 }

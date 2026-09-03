@@ -32,7 +32,7 @@ public class PlayerStatsSystem(
             return;
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.SetLastConnection();
+        playerInfo.Stats.SetLastConnection();
         playerRepository.UpdateLastConnection(playerInfo);
     }
 
@@ -41,17 +41,17 @@ public class PlayerStatsSystem(
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
         PlayerInfo victimInfo = victim.GetRequiredInfo();
-        victimInfo.StatsPerRound.AddDeaths();
-        victimInfo.StatsPerRound.ResetKillingSpree();
-        victimInfo.AddTotalDeaths();
+        victimInfo.Stats.PerRound.AddDeaths();
+        victimInfo.Stats.PerRound.ResetKillingSpree();
+        victimInfo.Stats.AddTotalDeaths();
         playerRepository.UpdateTotalDeaths(victimInfo);
 
         if (killer.IsInvalidPlayer())
             return;
 
         PlayerInfo killerInfo = killer.GetRequiredInfo();
-        killerInfo.StatsPerRound.AddKills();
-        killerInfo.AddTotalKills();
+        killerInfo.Stats.PerRound.AddKills();
+        killerInfo.Stats.AddTotalKills();
         killer.AddScore();
         playerRepository.UpdateTotalKills(killerInfo);
         killingSpreeUpdater.Update(killer);
@@ -74,8 +74,8 @@ public class PlayerStatsSystem(
     public void ResetPlayerStats(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.StatsPerRound.ResetKills();
-        playerInfo.StatsPerRound.ResetDeaths();
+        playerInfo.Stats.PerRound.ResetKills();
+        playerInfo.Stats.PerRound.ResetDeaths();
         player.SetScore(0);
         playerStatsRenderer.UpdateTextDraw(player);
         var message = Smart.Format(Messages.ResetPlayerStats, new
@@ -109,27 +109,27 @@ public class PlayerStatsSystem(
         PlayerInfo playerInfo = player.GetRequiredInfo();
         string createdAt = player.IsUnauthenticated() ? 
             "None" : 
-            playerInfo.CreatedAt.ToIsoDateString();
+            playerInfo.Account.CreatedAt.ToIsoDateString();
 
         var content =
         $"""
-        Current Team: {playerInfo.Team.Name}
+        Current Team: {playerInfo.Appearance.Team.Name}
         Score for Round: {player.Score}
-        Kills for Round: {playerInfo.StatsPerRound.Kills}
-        Deaths for Round: {playerInfo.StatsPerRound.Deaths}
-        Killing Spree for Round: {playerInfo.StatsPerRound.KillingSpree}
-        Coins: {playerInfo.StatsPerRound.Coins}/100
-        Max Killing Spree: {playerInfo.MaxKillingSpree}
-        Total Kills: {playerInfo.TotalKills}
-        Total Deaths: {playerInfo.TotalDeaths}
-        Brought Flags: {playerInfo.BroughtFlags}
-        Captured Flags: {playerInfo.CapturedFlags}
-        Dropped Flags: {playerInfo.DroppedFlags}
-        Returned Flags: {playerInfo.ReturnedFlags}
-        HeadShots: {playerInfo.HeadShots}
-        GunGame Wins: {playerInfo.GunGameWins}
-        Role: {playerInfo.RoleId}
-        Rank: {playerInfo.RankId}
+        Kills for Round: {playerInfo.Stats.PerRound.Kills}
+        Deaths for Round: {playerInfo.Stats.PerRound.Deaths}
+        Killing Spree for Round: {playerInfo.Stats.PerRound.KillingSpree}
+        Coins: {playerInfo.Stats.PerRound.Coins}/100
+        Max Killing Spree: {playerInfo.Stats.MaxKillingSpree}
+        Total Kills: {playerInfo.Stats.TotalKills}
+        Total Deaths: {playerInfo.Stats.TotalDeaths}
+        Brought Flags: {playerInfo.Stats.BroughtFlags}
+        Captured Flags: {playerInfo.Stats.CapturedFlags}
+        Dropped Flags: {playerInfo.Stats.DroppedFlags}
+        Returned Flags: {playerInfo.Stats.ReturnedFlags}
+        HeadShots: {playerInfo.Stats.HeadShots}
+        GunGame Wins: {playerInfo.Stats.GunGameWins}
+        Role: {playerInfo.Role.Id}
+        Rank: {playerInfo.Stats.RankId}
         Registration Date: {createdAt}
         """;
         return content;

@@ -9,8 +9,8 @@ public class PlayerSkinSystem(IPlayerRepository playerRepository) : ISystem
     public void SetSkin(Player player, [CommandParameter(Name = "skinId")]int newSkinId)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        int oldSkinId = playerInfo.SkinId;
-        Result result = playerInfo.SetSkin(newSkinId);
+        int oldSkinId = playerInfo.Appearance.SkinId;
+        Result result = playerInfo.Appearance.SetSkin(newSkinId);
         if (result.IsFailed)
         {
             player.SendClientMessage(Color.Red, result.Message);
@@ -26,7 +26,7 @@ public class PlayerSkinSystem(IPlayerRepository playerRepository) : ISystem
         player.Skin = newSkinId;
         player.GameText($"Skin ID {newSkinId}", TimeSpan.FromSeconds(3), GameTextStyle.Style4);
         playerRepository.UpdateSkin(playerInfo);
-        var message = Smart.Format(Messages.SavedSkin, new { playerInfo.SkinId });
+        var message = Smart.Format(Messages.SavedSkin, new { playerInfo.Appearance.SkinId });
         player.SendClientMessage(Color.Yellow, message);
     }
 }

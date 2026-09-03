@@ -84,7 +84,7 @@ public class ComboSystem : ISystem
 
         string selectedItemName = response.Item.Columns[0];
         ICombo selectedCombo = _combos.First(combo => combo.Name == selectedItemName);
-        PlayerStatsPerRound playerStats = player.GetRequiredInfo().StatsPerRound;
+        PlayerStatsPerRound playerStats = player.GetRequiredInfo().Stats.PerRound;
         if (playerStats.HasInsufficientCoins(selectedCombo.RequiredCoins))
         {
             player.SendClientMessage(Color.Red, Messages.InsufficientCoins);

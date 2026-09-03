@@ -73,12 +73,12 @@ public class RankCollection
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public static bool CanMoveUpToNextRank(PlayerInfo playerInfo)
     {
-        Rank currentRank = GetById(playerInfo.RankId).Value;
+        Rank currentRank = GetById(playerInfo.Stats.RankId).Value;
         if (currentRank.IsMax())
             return false;
 
-        Rank nextRank = GetNextRank(playerInfo.RankId).Value;
-        return playerInfo.TotalKills >= nextRank.RequiredKills;
+        Rank nextRank = GetNextRank(playerInfo.Stats.RankId).Value;
+        return playerInfo.Stats.TotalKills >= nextRank.RequiredKills;
     }
 
     /// <summary>Gets the next rank tier after the given rank.</summary>

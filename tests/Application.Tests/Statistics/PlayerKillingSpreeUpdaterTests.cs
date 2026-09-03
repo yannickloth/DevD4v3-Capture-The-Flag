@@ -9,10 +9,10 @@ public class PlayerKillingSpreeUpdaterTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.StatsPerRound.AddKillingSpree();
-        player.StatsPerRound.AddKillingSpree();
-        player.StatsPerRound.AddKillingSpree();
-        player.SetMaxKillingSpree(2);
+        player.Stats.PerRound.AddKillingSpree();
+        player.Stats.PerRound.AddKillingSpree();
+        player.Stats.PerRound.AddKillingSpree();
+        player.Stats.SetMaxKillingSpree(2);
 
         // Act
         bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);
@@ -26,9 +26,9 @@ public class PlayerKillingSpreeUpdaterTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.StatsPerRound.AddKillingSpree();
-        player.StatsPerRound.AddKillingSpree();
-        player.SetMaxKillingSpree(3);
+        player.Stats.PerRound.AddKillingSpree();
+        player.Stats.PerRound.AddKillingSpree();
+        player.Stats.SetMaxKillingSpree(3);
 
         // Act
         bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);

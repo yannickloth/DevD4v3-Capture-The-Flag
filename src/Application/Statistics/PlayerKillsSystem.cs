@@ -21,7 +21,7 @@ public class PlayerKillsSystem(
         }
 
         PlayerInfo targetPlayerInfo = targetPlayer.GetRequiredInfo();
-        Result result = targetPlayerInfo.SetTotalKills(kills);
+        Result result = targetPlayerInfo.Stats.SetTotalKills(kills);
         if (result.IsFailed)
         {
             currentPlayer.SendClientMessage(Color.Red, result.Message);
@@ -29,9 +29,9 @@ public class PlayerKillsSystem(
         }
 
         Rank rank = RankCollection.GetByRequiredKills(kills).Value;
-        if (rank.Id != targetPlayerInfo.RankId)
+        if (rank.Id != targetPlayerInfo.Stats.RankId)
         {
-            targetPlayerInfo.SetRank(rank.Id);
+            targetPlayerInfo.Stats.SetRank(rank.Id);
             playerRepository.UpdateRank(targetPlayerInfo);
             playerStatsRenderer.UpdateTextDraw(targetPlayer);
         }

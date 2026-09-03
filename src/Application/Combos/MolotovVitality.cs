@@ -24,7 +24,7 @@ public class MolotovVitality : ICombo
         player.Health = Health;
         player.Armour = Armour;
         player.GiveWeapon(Weapon.Moltov, MolotovAmmo);
-        playerInfo.StatsPerRound.ResetCoins();
+        playerInfo.Stats.PerRound.ResetCoins();
         return Result.Success();
     }
 }

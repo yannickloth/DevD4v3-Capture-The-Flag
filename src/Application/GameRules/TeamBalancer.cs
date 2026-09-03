@@ -43,8 +43,8 @@ public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
             PlayerInfo playerInfo = player.GetRequiredInfo();
             if (player.IsPaused())
             {
-                playerInfo.StatsPerRound.ResetStats();
-                playerInfo.SetTeam(TeamId.NoTeam);
+                playerInfo.Stats.PerRound.ResetStats();
+                playerInfo.Appearance.SetTeam(TeamId.NoTeam);
                 player.Team = (int)TeamId.NoTeam;
                 player.Color = Team.None.ColorHex;
                 player.SetScore(0);
@@ -55,14 +55,14 @@ public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
             if (int.IsEvenInteger(index))
             {
                 firstTeam.Members.Add(player);
-                playerInfo.SetTeam(firstTeam.Id);
+                playerInfo.Appearance.SetTeam(firstTeam.Id);
                 var message = Smart.Format(Messages.AssignedToTeam, new { firstTeam.Name });
                 player.SendClientMessage(firstTeam.ColorHex, message);
             }
             else
             {
                 secondTeam.Members.Add(player);
-                playerInfo.SetTeam(secondTeam.Id);
+                playerInfo.Appearance.SetTeam(secondTeam.Id);
                 var message = Smart.Format(Messages.AssignedToTeam, new { secondTeam.Name });
                 player.SendClientMessage(secondTeam.ColorHex, message);
             }

@@ -14,14 +14,14 @@ public class PrivateTeamChat : IChatMessage
     /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
-        if (sender.Team == Team.None)
+        if (sender.Appearance.Team == Team.None)
             return false;
 
-        Team currentTeam = sender.Team;
+        Team currentTeam = sender.Appearance.Team;
         TeamMembers players = currentTeam.Members;
         foreach (Player player in players) 
         {
-            player.SendClientMessage(currentTeam.ColorHex, $"[Team Chat] {sender.Name}: {message}");
+            player.SendClientMessage(currentTeam.ColorHex, $"[Team Chat] {sender.Account.Name}: {message}");
         }
         return true;
     }

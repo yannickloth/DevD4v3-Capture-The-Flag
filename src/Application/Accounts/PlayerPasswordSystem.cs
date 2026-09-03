@@ -32,7 +32,7 @@ public class PlayerPasswordSystem(
     private async Task ChangePassword(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        Result result = playerInfo.SetPassword(enteredPassword);
+        Result result = playerInfo.Account.SetPassword(enteredPassword);
         if (result.IsFailed)
         {
             player.SendClientMessage(Color.Red, result.Message);

@@ -13,7 +13,7 @@ public class VIPListSystem(
         List<PlayerInfo> vips = entityManager
             .GetComponents<Player>()
             .Select(player => player.GetRequiredInfo())
-            .Where(info => info.RoleId >= RoleId.VIP)
+            .Where(info => info.Role.Id >= RoleId.VIP)
             .ToList();
 
         if (vips.Count == 0)
@@ -27,7 +27,7 @@ public class VIPListSystem(
 
         foreach (PlayerInfo vip in vips)
         {
-            content.AppendLine($"{vipColor}[VIP] {Color.White}{vip.Name}");
+            content.AppendLine($"{vipColor}[VIP] {Color.White}{vip.Account.Name}");
         }
 
         var dialog = new MessageDialog(

@@ -24,13 +24,13 @@ public class TeamStatsSystem(
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
         PlayerInfo victimInfo = victim.GetRequiredInfo();
-        victimInfo.Team.StatsPerRound.AddDeaths();
+        victimInfo.Appearance.Team.StatsPerRound.AddDeaths();
 
         if (killer.IsInvalidPlayer())
             return;
 
         PlayerInfo killerInfo = killer.GetRequiredInfo();
-        killerInfo.Team.StatsPerRound.AddKills();
+        killerInfo.Appearance.Team.StatsPerRound.AddKills();
     }
 
     /// <summary>Resets team stats via the rstats command.</summary>

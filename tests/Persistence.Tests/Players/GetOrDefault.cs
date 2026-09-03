@@ -18,11 +18,11 @@ public class GetPlayerOrDefault
         PlayerInfo actual = playerRepository.GetOrDefault(playerName);
 
         // Asserts
-        actual.AccountId.Should().Be(2);
-        actual.Name.Should().Be("Moderator_Player");
-        actual.RoleId.Should().Be(RoleId.Moderator);
-        actual.RankId.Should().Be(RankId.Noob);
-        actual.SkinId.Should().Be(146);
+        actual.Account.AccountId.Should().Be(2);
+        actual.Account.Name.Should().Be("Moderator_Player");
+        actual.Role.Id.Should().Be(RoleId.Moderator);
+        actual.Stats.RankId.Should().Be(RankId.Noob);
+        actual.Appearance.SkinId.Should().Be(146);
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20</remarks>

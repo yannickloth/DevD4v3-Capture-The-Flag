@@ -10,8 +10,8 @@ public class CanMoveUpToNextRankTests
         // Arrange
         var player = new PlayerInfo();
         RankId maxRank = RankId.Legendary;
-        player.SetRank(maxRank);
-        player.SetTotalKills(701);
+        player.Stats.SetRank(maxRank);
+        player.Stats.SetTotalKills(701);
 
         // Act
         bool actual = RankCollection.CanMoveUpToNextRank(player);
@@ -52,8 +52,8 @@ public class CanMoveUpToNextRankTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRank(currentRank);
-        player.SetTotalKills(kills);
+        player.Stats.SetRank(currentRank);
+        player.Stats.SetTotalKills(kills);
 
         // Act
         bool actual = RankCollection.CanMoveUpToNextRank(player);
@@ -94,8 +94,8 @@ public class CanMoveUpToNextRankTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRank(currentRank);
-        player.SetTotalKills(kills);
+        player.Stats.SetRank(currentRank);
+        player.Stats.SetTotalKills(kills);
 
         // Act
         bool actual = RankCollection.CanMoveUpToNextRank(player);

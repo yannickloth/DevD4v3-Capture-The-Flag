@@ -17,8 +17,8 @@ public class PlayerNameSystem(
         }
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        string oldName = playerInfo.Name;
-        Result result = playerInfo.SetName(newName);
+        string oldName = playerInfo.Account.Name;
+        Result result = playerInfo.Account.SetName(newName);
         if (result.IsFailed)
         {
             player.SendClientMessage(Color.Red, result.Message);

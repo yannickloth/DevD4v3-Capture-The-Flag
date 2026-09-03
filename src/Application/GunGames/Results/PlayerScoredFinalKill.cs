@@ -16,7 +16,7 @@ public class PlayerScoredFinalKill(
     public void Handle(KillContext context)
     {
         PlayerInfo killerInfo = context.Killer.GetRequiredInfo();
-        killerInfo.AddGunGameWins();
+        killerInfo.Stats.AddGunGameWins();
         playerRepository.UpdateGunGameWins(killerInfo);
 
         var message = Smart.Format(GunGameMessages.PlayerScoredFinalKill, new

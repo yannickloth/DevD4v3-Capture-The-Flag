@@ -24,7 +24,7 @@ public class GrenadesVitality : ICombo
         player.Health = Health;
         player.Armour = Armour;
         player.GiveWeapon(Weapon.Grenade, GrenadeAmmo);
-        playerInfo.StatsPerRound.ResetCoins();
+        playerInfo.Stats.PerRound.ResetCoins();
         return Result.Success();
     }
 }

@@ -12,7 +12,7 @@ public class PlayerNameTests
         string name = default;
 
         // Act
-        Action act = () => player.SetName(name);
+        Action act = () => player.Account.SetName(name);
 
         // Assert
         act.Should().Throw<ArgumentNullException>();
@@ -28,12 +28,12 @@ public class PlayerNameTests
         var expectedMessage = Messages.NameCannotBeEmpty;
 
         // Act
-        Result result = player.SetName(name);
+        Result result = player.Account.SetName(name);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Name.Should().NotBe(name);
+        player.Account.Name.Should().NotBe(name);
     }
 
     [TestCase("a")]
@@ -46,12 +46,12 @@ public class PlayerNameTests
         var expectedMessage = Messages.PlayerNameLength;
 
         // Act
-        Result result = player.SetName(name);
+        Result result = player.Account.SetName(name);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Name.Should().NotBe(name);
+        player.Account.Name.Should().NotBe(name);
     }
 
     [TestCase("--##+*&?$¡¿!%{}")]
@@ -66,12 +66,12 @@ public class PlayerNameTests
         var expectedMessage = Messages.InvalidNickName;
 
         // Act
-        Result result = player.SetName(name);
+        Result result = player.Account.SetName(name);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Name.Should().NotBe(name);
+        player.Account.Name.Should().NotBe(name);
     }
 
     [TestCase("$@_.==[]()")]
@@ -86,10 +86,10 @@ public class PlayerNameTests
         var player = new PlayerInfo();
 
         // Act
-        Result result = player.SetName(name);
+        Result result = player.Account.SetName(name);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.Name.Should().Be(name);
+        player.Account.Name.Should().Be(name);
     }
 }

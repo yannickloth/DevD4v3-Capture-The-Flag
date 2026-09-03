@@ -22,8 +22,8 @@ public class PlayerRankUpdater(
         if (!RankCollection.CanMoveUpToNextRank(playerInfo))
             return;
 
-        Rank nextRank = RankCollection.GetNextRank(playerInfo.RankId).Value;
-        playerInfo.SetRank(nextRank.Id);
+        Rank nextRank = RankCollection.GetNextRank(playerInfo.Stats.RankId).Value;
+        playerInfo.Stats.SetRank(nextRank.Id);
         playerRepository.UpdateRank(playerInfo);
         player.SendClientMessage(Color.Yellow, Smart.Format(Messages.NextRank, nextRank));
 
@@ -32,7 +32,7 @@ public class PlayerRankUpdater(
             var message = Smart.Format(Messages.PromotedToRole, new { RoleName = RoleId.VIP });
             player.GameText(message, TimeSpan.FromSeconds(4), GameTextStyle.Style3);
             player.SendClientMessage(Color.Orange, message);
-            playerInfo.SetRole(RoleId.VIP);
+            playerInfo.Role.Set(RoleId.VIP);
             playerRepository.UpdateRole(playerInfo);
         }
 
@@ -41,7 +41,7 @@ public class PlayerRankUpdater(
 
         player.Armour = EarnedArmour;
         player.Health = EarnedHealth;
-        playerInfo.StatsPerRound.AddCoins(EarnedCoins);
+        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
 
         var rankUpAwardSummary = Smart.Format(Messages.RankUpAwardSummary, new
         {

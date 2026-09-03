@@ -9,5 +9,5 @@ public static class PlayerRankExtensions
     /// <summary>Determines whether the player has the specified rank tier.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public static bool HasRank(this PlayerInfo playerInfo, RankId id)
-        => playerInfo.RankId == id;
+        => playerInfo.Stats.RankId == id;
 }

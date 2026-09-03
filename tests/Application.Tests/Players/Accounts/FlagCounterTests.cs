@@ -12,11 +12,11 @@ public class FlagCounterTests
         int expected = 2;
 
         // Act
-        player.AddBroughtFlags();
-        player.AddBroughtFlags();
+        player.Stats.AddBroughtFlags();
+        player.Stats.AddBroughtFlags();
 
         // Assert
-        player.BroughtFlags.Should().Be(expected);
+        player.Stats.BroughtFlags.Should().Be(expected);
     }
 
     [Test]
@@ -27,11 +27,11 @@ public class FlagCounterTests
         int expected = 2;
 
         // Act
-        player.AddCapturedFlags();
-        player.AddCapturedFlags();
+        player.Stats.AddCapturedFlags();
+        player.Stats.AddCapturedFlags();
 
         // Assert
-        player.CapturedFlags.Should().Be(expected);
+        player.Stats.CapturedFlags.Should().Be(expected);
     }
 
     [Test]
@@ -42,11 +42,11 @@ public class FlagCounterTests
         int expected = 2;
 
         // Act
-        player.AddDroppedFlags();
-        player.AddDroppedFlags();
+        player.Stats.AddDroppedFlags();
+        player.Stats.AddDroppedFlags();
 
         // Assert
-        player.DroppedFlags.Should().Be(expected);
+        player.Stats.DroppedFlags.Should().Be(expected);
     }
 
     [Test]
@@ -57,10 +57,10 @@ public class FlagCounterTests
         int expected = 2;
 
         // Act
-        player.AddReturnedFlags();
-        player.AddReturnedFlags();
+        player.Stats.AddReturnedFlags();
+        player.Stats.AddReturnedFlags();
 
         // Assert
-        player.ReturnedFlags.Should().Be(expected);
+        player.Stats.ReturnedFlags.Should().Be(expected);
     }
 }

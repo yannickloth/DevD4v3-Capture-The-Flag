@@ -24,7 +24,7 @@ public class TeamSelectionSystem(
     public async Task ShowTeams(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (playerInfo.Team == Team.None)
+        if (playerInfo.Appearance.Team == Team.None)
         {
             player.SendClientMessage(Color.Red, Messages.NoTeam);
             return;
@@ -70,7 +70,7 @@ public class TeamSelectionSystem(
         Team alphaTeam = Team.Alpha;
         Team betaTeam = Team.Beta;
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (playerInfo.Team == selectedTeam)
+        if (playerInfo.Appearance.Team == selectedTeam)
         {
             player.SendClientMessage(Color.Red, Messages.PlayerIsAlreadyInTeam);
             return;
@@ -101,7 +101,7 @@ public class TeamSelectionSystem(
             TeamName = selectedTeam.Name
         });
         worldService.SendClientMessage(selectedTeam.ColorHex, message);
-        playerInfo.SetTeam(selectedTeam.Id);
+        playerInfo.Appearance.SetTeam(selectedTeam.Id);
         player.Team = (int)selectedTeam.Id;
         player.Spawn();
     }

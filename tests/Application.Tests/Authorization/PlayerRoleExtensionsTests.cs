@@ -10,7 +10,7 @@ public class PlayerRoleExtensionsTests
         // Arrange
         var player = new PlayerInfo();
         RoleId roleId = RoleId.Admin;
-        player.SetRole(roleId);
+        player.Role.Set(roleId);
 
         // Act
         bool actual = player.HasRole(roleId);
@@ -24,7 +24,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Admin);
+        player.Role.Set(RoleId.Admin);
 
         // Act
         bool actual = player.HasRole(RoleId.Basic);
@@ -40,7 +40,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(roleId);
+        player.Role.Set(roleId);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.Admin);
@@ -54,7 +54,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Admin);
+        player.Role.Set(RoleId.Admin);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.Admin);
@@ -69,7 +69,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(roleId);
+        player.Role.Set(roleId);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.Moderator);
@@ -84,7 +84,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(roleId);
+        player.Role.Set(roleId);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.Moderator);
@@ -98,7 +98,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Basic);
+        player.Role.Set(RoleId.Basic);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.VIP);
@@ -114,7 +114,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(roleId);
+        player.Role.Set(roleId);
 
         // Act
         bool actual = player.HasLowerRoleThan(RoleId.VIP);
@@ -128,7 +128,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.VIP);
+        player.Role.Set(RoleId.VIP);
 
         // Act
         bool actual = player.IsVIP();
@@ -142,7 +142,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Basic);
+        player.Role.Set(RoleId.Basic);
 
         // Act
         bool actual = player.IsVIP();
@@ -156,7 +156,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Moderator);
+        player.Role.Set(RoleId.Moderator);
 
         // Act
         bool actual = player.IsModerator();
@@ -170,7 +170,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Basic);
+        player.Role.Set(RoleId.Basic);
 
         // Act
         bool actual = player.IsModerator();
@@ -184,7 +184,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Admin);
+        player.Role.Set(RoleId.Admin);
 
         // Act
         bool actual = player.IsAdmin();
@@ -198,7 +198,7 @@ public class PlayerRoleExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRole(RoleId.Basic);
+        player.Role.Set(RoleId.Basic);
 
         // Act
         bool actual = player.IsAdmin();

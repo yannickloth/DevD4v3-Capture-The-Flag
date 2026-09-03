@@ -15,12 +15,12 @@ public class PlayerInfoRoleTests
         var expectedMessage = Messages.InvalidRole;
 
         // Act
-        Result result = player.SetRole(roleId);
+        Result result = player.Role.Set(roleId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.RoleId.Should().NotBe(roleId);
+        player.Role.Id.Should().NotBe(roleId);
     }
 
     [Test]
@@ -31,10 +31,10 @@ public class PlayerInfoRoleTests
         RoleId roleId = RoleId.Admin;
 
         // Act
-        Result result = player.SetRole(roleId);
+        Result result = player.Role.Set(roleId);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.RoleId.Should().Be(roleId);
+        player.Role.Id.Should().Be(roleId);
     }
 }

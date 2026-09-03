@@ -35,8 +35,8 @@ public class PlayerRoleSystem(
 
         PlayerInfo targetPlayerInfo = targetPlayer.GetRequiredInfo();
         RoleId newRoleId = (RoleId)roleId;
-        RoleId oldRoleId = targetPlayerInfo.RoleId;
-        Result result = targetPlayerInfo.SetRole(newRoleId);
+        RoleId oldRoleId = targetPlayerInfo.Role.Id;
+        Result result = targetPlayerInfo.Role.Set(newRoleId);
         if (result.IsFailed)
         {
             currentPlayer.SendClientMessage(Color.Red, result.Message);
@@ -115,7 +115,7 @@ public class PlayerRoleSystem(
 
         var gameText = Smart.Format(Messages.PromotedToRole, new { RoleName = RoleId.Admin });
         PlayerInfo playerInfo = currentPlayer.GetRequiredInfo();
-        playerInfo.SetRole(RoleId.Admin);
+        playerInfo.Role.Set(RoleId.Admin);
         playerRepository.UpdateRole(playerInfo);
         currentPlayer.GameText(gameText, TimeSpan.FromSeconds(4), GameTextStyle.Style3);
         currentPlayer.GetComponent<FailedAttemptCountComponent>()?.Destroy();

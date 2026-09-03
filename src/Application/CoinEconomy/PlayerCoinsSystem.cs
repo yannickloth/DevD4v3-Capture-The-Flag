@@ -18,7 +18,7 @@ public class PlayerCoinsSystem(
         int coins)
     {
         PlayerInfo targetPlayerInfo = targetPlayer.GetRequiredInfo();
-        Result result = targetPlayerInfo.StatsPerRound.AddCoins(coins);
+            Result result = targetPlayerInfo.Stats.PerRound.AddCoins(coins);
         if (result.IsFailed)
         {
             currentPlayer.SendClientMessage(Color.Red, result.Message);
@@ -53,7 +53,7 @@ public class PlayerCoinsSystem(
         foreach (Player targetPlayer in players)
         {
             PlayerInfo targetPlayerInfo = targetPlayer.GetRequiredInfo();
-            Result result = targetPlayerInfo.StatsPerRound.AddCoins(coins);
+        Result result = targetPlayerInfo.Stats.PerRound.AddCoins(coins);
             if (result.IsFailed)
             {
                 currentPlayer.SendClientMessage(Color.Red, result.Message);
@@ -90,7 +90,7 @@ public class PlayerCoinsSystem(
         int seconds = ConvertMinutesToSeconds(commandCooldowns.Coins);
         waitTimeComponent.Value = unixTimeSeconds.Value + seconds;
         PlayerInfo currentPlayerInfo = currentPlayer.GetRequiredInfo();
-        currentPlayerInfo.StatsPerRound.AddCoins(100);
+        currentPlayerInfo.Stats.PerRound.AddCoins(100);
         playerStatsRenderer.UpdateTextDraw(currentPlayer);
         currentPlayer.SendClientMessage(Color.Yellow, Messages.GiveMeCoins);
     }

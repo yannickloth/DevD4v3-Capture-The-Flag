@@ -9,12 +9,12 @@ public static class PlayerRoleExtensions
     /// <summary>Determines whether the player has the specified role.</summary>
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public static bool HasRole(this PlayerInfo playerInfo, RoleId id)
-        => playerInfo.RoleId == id;
+        => playerInfo.Role.Id == id;
 
     /// <summary>Determines whether the player's role is lower than the specified role.</summary>
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
     public static bool HasLowerRoleThan(this PlayerInfo playerInfo, RoleId id)
-        => playerInfo.RoleId < id;
+        => playerInfo.Role.Id < id;
 
     /// <summary>Determines whether the player has VIP role.</summary>
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>

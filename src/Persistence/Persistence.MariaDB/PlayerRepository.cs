@@ -10,32 +10,32 @@ internal class PlayerRepository(
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public void Create(PlayerInfo player)
     {
-        var passwordHash = passwordHasher.HashPassword(player.Password);
+        var passwordHash = passwordHasher.HashPassword(player.Account.Password);
         using var connection = new MySqlConnection(settings.ConnectionString);
         connection.Open();
 
         MySqlCommand command = connection.CreateCommand();
         command.CommandText = sqlCollection["CreatePlayer"];
-        command.Parameters.AddWithValue("@name",              player.Name);
+        command.Parameters.AddWithValue("@name",              player.Account.Name);
         command.Parameters.AddWithValue("@password",          passwordHash);
-        command.Parameters.AddWithValue("@total_kills",       player.TotalKills);
-        command.Parameters.AddWithValue("@total_deaths",      player.TotalDeaths);
-        command.Parameters.AddWithValue("@max_killing_spree", player.MaxKillingSpree);
-        command.Parameters.AddWithValue("@brought_flags",     player.BroughtFlags);
-        command.Parameters.AddWithValue("@captured_flags",    player.CapturedFlags);
-        command.Parameters.AddWithValue("@dropped_flags",     player.DroppedFlags);
-        command.Parameters.AddWithValue("@returned_flags",    player.ReturnedFlags);
-        command.Parameters.AddWithValue("@head_shots",        player.HeadShots);
-        command.Parameters.AddWithValue("@gungame_wins",      player.GunGameWins);
-        command.Parameters.AddWithValue("@role_id",           player.RoleId.ToString());
-        command.Parameters.AddWithValue("@skin_id",           player.SkinId);
-        command.Parameters.AddWithValue("@rank_id",           player.RankId);
-        command.Parameters.AddWithValue("@created_at",        player.CreatedAt);
-        command.Parameters.AddWithValue("@last_connection",   player.LastConnection);
+        command.Parameters.AddWithValue("@total_kills",       player.Stats.TotalKills);
+        command.Parameters.AddWithValue("@total_deaths",      player.Stats.TotalDeaths);
+        command.Parameters.AddWithValue("@max_killing_spree", player.Stats.MaxKillingSpree);
+        command.Parameters.AddWithValue("@brought_flags",     player.Stats.BroughtFlags);
+        command.Parameters.AddWithValue("@captured_flags",    player.Stats.CapturedFlags);
+        command.Parameters.AddWithValue("@dropped_flags",     player.Stats.DroppedFlags);
+        command.Parameters.AddWithValue("@returned_flags",    player.Stats.ReturnedFlags);
+        command.Parameters.AddWithValue("@head_shots",        player.Stats.HeadShots);
+        command.Parameters.AddWithValue("@gungame_wins",      player.Stats.GunGameWins);
+        command.Parameters.AddWithValue("@role_id",           player.Role.Id.ToString());
+        command.Parameters.AddWithValue("@skin_id",           player.Appearance.SkinId);
+        command.Parameters.AddWithValue("@rank_id",           player.Stats.RankId);
+        command.Parameters.AddWithValue("@created_at",        player.Account.CreatedAt);
+        command.Parameters.AddWithValue("@last_connection",   player.Stats.LastConnection);
         int id = (int)(ulong)command.ExecuteScalar();
 
         // The Account ID is immutable and lacks a public setter; Reflection is used to modify it.
-        player.SetValue(value: id, propertyName: nameof(PlayerInfo.AccountId));
+        player.Account.SetValue(value: id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
@@ -68,93 +68,93 @@ internal class PlayerRepository(
         var playerInfo = new PlayerInfo();
         // The public setter is used only for plaintext passwords.
         // For that reason, we use Reflection to set the already encrypted password.
-        playerInfo.SetValue(value: reader.GetString("password"), propertyName: nameof(PlayerInfo.Password));
+        playerInfo.Account.SetValue(value: reader.GetString("password"), propertyName: nameof(PlayerAccount.Password));
 
-        playerInfo.SetName(reader.GetString("name"));
-        playerInfo.SetTotalKills(reader.GetInt32("total_kills"));
-        playerInfo.SetTotalDeaths(reader.GetInt32("total_deaths"));
-        playerInfo.SetMaxKillingSpree(reader.GetInt32("max_killing_spree"));
+        playerInfo.Account.SetName(reader.GetString("name"));
+        playerInfo.Stats.SetTotalKills(reader.GetInt32("total_kills"));
+        playerInfo.Stats.SetTotalDeaths(reader.GetInt32("total_deaths"));
+        playerInfo.Stats.SetMaxKillingSpree(reader.GetInt32("max_killing_spree"));
         var roleId = Enum.Parse<RoleId>(reader.GetString("role_id"));
-        playerInfo.SetRole(roleId);
-        playerInfo.SetRank((RankId)reader.GetInt32("rank_id"));
-        playerInfo.SetSkin(reader.GetInt32("skin_id"));
+        playerInfo.Role.Set(roleId);
+        playerInfo.Stats.SetRank((RankId)reader.GetInt32("rank_id"));
+        playerInfo.Appearance.SetSkin(reader.GetInt32("skin_id"));
  
         // Reflection is used here because these properties are immutable.
         // What we did here is what ORMs like EF Core do, so it's nothing new.
-        playerInfo.SetValue(value: reader.GetInt32("id"),                 propertyName: nameof(PlayerInfo.AccountId));
-        playerInfo.SetValue(value: reader.GetInt32("brought_flags"),      propertyName: nameof(PlayerInfo.BroughtFlags));
-        playerInfo.SetValue(value: reader.GetInt32("captured_flags"),     propertyName: nameof(PlayerInfo.CapturedFlags));
-        playerInfo.SetValue(value: reader.GetInt32("dropped_flags"),      propertyName: nameof(PlayerInfo.DroppedFlags));
-        playerInfo.SetValue(value: reader.GetInt32("returned_flags"),     propertyName: nameof(PlayerInfo.ReturnedFlags));
-        playerInfo.SetValue(value: reader.GetInt32("head_shots"),         propertyName: nameof(PlayerInfo.HeadShots));
-        playerInfo.SetValue(value: reader.GetInt32("gungame_wins"),       propertyName: nameof(PlayerInfo.GunGameWins));
-        playerInfo.SetValue(value: reader.GetDateTime("created_at"),      propertyName: nameof(PlayerInfo.CreatedAt));
-        playerInfo.SetValue(value: reader.GetDateTime("last_connection"), propertyName: nameof(PlayerInfo.LastConnection));
+        playerInfo.Account.SetValue(value: reader.GetInt32("id"),                 propertyName: nameof(PlayerAccount.AccountId));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("brought_flags"),        propertyName: nameof(PlayerStatistics.BroughtFlags));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("captured_flags"),       propertyName: nameof(PlayerStatistics.CapturedFlags));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("dropped_flags"),        propertyName: nameof(PlayerStatistics.DroppedFlags));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("returned_flags"),       propertyName: nameof(PlayerStatistics.ReturnedFlags));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("head_shots"),           propertyName: nameof(PlayerStatistics.HeadShots));
+        playerInfo.Stats.SetValue(value: reader.GetInt32("gungame_wins"),         propertyName: nameof(PlayerStatistics.GunGameWins));
+        playerInfo.Account.SetValue(value: reader.GetDateTime("created_at"),      propertyName: nameof(PlayerAccount.CreatedAt));
+        playerInfo.Stats.SetValue(value: reader.GetDateTime("last_connection"),   propertyName: nameof(PlayerStatistics.LastConnection));
         return playerInfo;
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateBroughtFlags(PlayerInfo player)
-        => Update(player.AccountId, "brought_flags", player.BroughtFlags);
+        => Update(player.Account.AccountId, "brought_flags", player.Stats.BroughtFlags);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateCapturedFlags(PlayerInfo player)
-        => Update(player.AccountId, "captured_flags", player.CapturedFlags);
+        => Update(player.Account.AccountId, "captured_flags", player.Stats.CapturedFlags);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateDroppedFlags(PlayerInfo player)
-        => Update(player.AccountId, "dropped_flags", player.DroppedFlags);
+        => Update(player.Account.AccountId, "dropped_flags", player.Stats.DroppedFlags);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateReturnedFlags(PlayerInfo player)
-        => Update(player.AccountId, "returned_flags", player.ReturnedFlags);
+        => Update(player.Account.AccountId, "returned_flags", player.Stats.ReturnedFlags);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateHeadShots(PlayerInfo player)
-        => Update(player.AccountId, "head_shots", player.HeadShots);
+        => Update(player.Account.AccountId, "head_shots", player.Stats.HeadShots);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateGunGameWins(PlayerInfo player)
-        => Update(player.AccountId, "gungame_wins", player.GunGameWins);
+        => Update(player.Account.AccountId, "gungame_wins", player.Stats.GunGameWins);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateLastConnection(PlayerInfo player)
-        => Update(player.AccountId, "last_connection", player.LastConnection);
+        => Update(player.Account.AccountId, "last_connection", player.Stats.LastConnection);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateMaxKillingSpree(PlayerInfo player)
-        => Update(player.AccountId, "max_killing_spree", player.MaxKillingSpree);
+        => Update(player.Account.AccountId, "max_killing_spree", player.Stats.MaxKillingSpree);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateName(PlayerInfo player)
-        => Update(player.AccountId, "name", player.Name);
+        => Update(player.Account.AccountId, "name", player.Account.Name);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public void UpdatePassword(PlayerInfo player)
     {
-        var passwordHash = passwordHasher.HashPassword(player.Password);
-        Update(player.AccountId, "password", passwordHash);
+        var passwordHash = passwordHasher.HashPassword(player.Account.Password);
+        Update(player.Account.AccountId, "password", passwordHash);
     }
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateRank(PlayerInfo player)
-        => Update(player.AccountId, "rank_id", player.RankId);
+        => Update(player.Account.AccountId, "rank_id", player.Stats.RankId);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateRole(PlayerInfo player)
-        => Update(player.AccountId, "role_id", player.RoleId.ToString());
+        => Update(player.Account.AccountId, "role_id", player.Role.Id.ToString());
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateSkin(PlayerInfo player)
-        => Update(player.AccountId, "skin_id", player.SkinId);
+        => Update(player.Account.AccountId, "skin_id", player.Appearance.SkinId);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateTotalDeaths(PlayerInfo player)
-        => Update(player.AccountId, "total_deaths", player.TotalDeaths);
+        => Update(player.Account.AccountId, "total_deaths", player.Stats.TotalDeaths);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     public void UpdateTotalKills(PlayerInfo player)
-        => Update(player.AccountId, "total_kills", player.TotalKills);
+        => Update(player.Account.AccountId, "total_kills", player.Stats.TotalKills);
 
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
     private void Update(int id, string columnName, object value)

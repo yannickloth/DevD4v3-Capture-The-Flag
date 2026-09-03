@@ -28,7 +28,7 @@ public class AccountSystem(
     private static PlayerInfo CreatePlayerInfo(string name)
     {
         var playerInfo = new PlayerInfo();
-        playerInfo.SetName(name);
+        playerInfo.Account.SetName(name);
         return playerInfo;
     }
 }

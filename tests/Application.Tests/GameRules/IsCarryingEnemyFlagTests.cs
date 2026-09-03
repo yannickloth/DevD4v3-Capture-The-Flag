@@ -16,11 +16,11 @@ public class IsCarryingEnemyFlagTests
         // Arrange
         var fakePlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.NoTeam);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.NoTeam);
-        player.SetName(fakePlayer.Name);
+        player.Appearance.SetTeam(TeamId.NoTeam);
+        player.Account.SetName(fakePlayer.Name);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(fakePlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(fakePlayer);
 
         // Assert
         actual.Should().BeFalse();
@@ -35,12 +35,12 @@ public class IsCarryingEnemyFlagTests
         Team betaTeam = Team.Beta;
         var alphaTeamPlayer = new FakePlayer(id: 1, playerName, team: TeamId.Alpha);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Alpha);
-        player.SetName("Bob");
+        player.Appearance.SetTeam(TeamId.Alpha);
+        player.Account.SetName("Bob");
         betaTeam.Flag.Capture(alphaTeamPlayer);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
@@ -55,12 +55,12 @@ public class IsCarryingEnemyFlagTests
         Team alphaTeam = Team.Alpha;
         var betaTeamPlayer = new FakePlayer(id: 1, playerName, team: TeamId.Beta);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Beta);
-        player.SetName("Bob");
+        player.Appearance.SetTeam(TeamId.Beta);
+        player.Account.SetName("Bob");
         alphaTeam.Flag.Capture(betaTeamPlayer);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
@@ -74,12 +74,12 @@ public class IsCarryingEnemyFlagTests
         var alphaTeamPlayer1 = new FakePlayer(id: 1, name: "Bob", team: TeamId.Alpha);
         var alphaTeamPlayer2 = new FakePlayer(id: 2, name: "Alice", team: TeamId.Alpha);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Alpha);
-        player.SetName(alphaTeamPlayer1.Name);
+        player.Appearance.SetTeam(TeamId.Alpha);
+        player.Account.SetName(alphaTeamPlayer1.Name);
         betaTeam.Flag.Capture(alphaTeamPlayer2);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer1);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer1);
 
         // Assert
         actual.Should().BeFalse();
@@ -93,12 +93,12 @@ public class IsCarryingEnemyFlagTests
         var betaTeamPlayer1 = new FakePlayer(id: 1, name: "Bob", team: TeamId.Beta);
         var betaTeamPlayer2 = new FakePlayer(id: 2, name: "Alice", team: TeamId.Beta);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Beta);
-        player.SetName(betaTeamPlayer1.Name);
+        player.Appearance.SetTeam(TeamId.Beta);
+        player.Account.SetName(betaTeamPlayer1.Name);
         alphaTeam.Flag.Capture(betaTeamPlayer2);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer1);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer1);
 
         // Assert
         actual.Should().BeFalse();
@@ -115,13 +115,13 @@ public class IsCarryingEnemyFlagTests
             team: TeamId.Alpha);
 
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Alpha);
-        player.SetName("Bob");
+        player.Appearance.SetTeam(TeamId.Alpha);
+        player.Account.SetName("Bob");
         betaTeam.Flag.Drop();
         betaTeam.Flag.Take(alphaTeamPlayer);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
@@ -138,13 +138,13 @@ public class IsCarryingEnemyFlagTests
             team: TeamId.Beta);
 
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Beta);
-        player.SetName("Bob");
+        player.Appearance.SetTeam(TeamId.Beta);
+        player.Account.SetName("Bob");
         alphaTeam.Flag.Drop();
         alphaTeam.Flag.Take(betaTeamPlayer);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeTrue();
@@ -156,11 +156,11 @@ public class IsCarryingEnemyFlagTests
         // Arrange
         var betaTeamPlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.Beta);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Beta);
-        player.SetName(betaTeamPlayer.Name);
+        player.Appearance.SetTeam(TeamId.Beta);
+        player.Account.SetName(betaTeamPlayer.Name);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(betaTeamPlayer);
 
         // Assert
         actual.Should().BeFalse();
@@ -172,11 +172,11 @@ public class IsCarryingEnemyFlagTests
         // Arrange
         var alphaTeamPlayer = new FakePlayer(id: 1, name: "Bob", team: TeamId.Alpha);
         var player = new PlayerInfo();
-        player.SetTeam(TeamId.Alpha);
-        player.SetName(alphaTeamPlayer.Name);
+        player.Appearance.SetTeam(TeamId.Alpha);
+        player.Account.SetName(alphaTeamPlayer.Name);
 
         // Act
-        bool actual = player.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
+        bool actual = player.Appearance.Team.RivalTeam.Flag.IsCarriedBy(alphaTeamPlayer);
 
         // Assert
         actual.Should().BeFalse();

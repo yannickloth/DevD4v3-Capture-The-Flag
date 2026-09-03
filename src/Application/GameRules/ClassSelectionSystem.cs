@@ -73,7 +73,7 @@ public class ClassSelectionSystem(
         Team selectedTeam = player.Team == (int)TeamId.Alpha ? Team.Alpha : Team.Beta;
         player.DisableClassSelection();
         player.HideGameText(style: 3);
-        player.GetRequiredInfo().SetTeam(selectedTeam.Id);
+        player.GetRequiredInfo().Appearance.SetTeam(selectedTeam.Id);
         player.StopAudioStream();
         selectedTeam.Members.Add(player);
         classSelectionTextDrawRenderer.Hide(player);
@@ -96,11 +96,11 @@ public class ClassSelectionSystem(
             return;
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (playerInfo.Team == Team.None)
+        if (playerInfo.Appearance.Team == Team.None)
             return;
 
-        playerInfo.Team.Members.Remove(player);
-        teamTextDrawRenderer.UpdateTeamMembers(playerInfo.Team);
+        playerInfo.Appearance.Team.Members.Remove(player);
+        teamTextDrawRenderer.UpdateTeamMembers(playerInfo.Appearance.Team);
     }
 
     /// <summary>Redirects the player to class selection via the class command.</summary>
@@ -109,7 +109,7 @@ public class ClassSelectionSystem(
     public void RedirectToClassSelection(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        if (playerInfo.Team.RivalTeam.Flag.IsCarriedBy(player))
+        if (playerInfo.Appearance.Team.RivalTeam.Flag.IsCarriedBy(player))
         {
             player.SendClientMessage(Color.Red, Messages.HasCapturedFlag);
             return;

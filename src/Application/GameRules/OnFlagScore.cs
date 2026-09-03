@@ -50,8 +50,8 @@ public class OnFlagScore(
         worldService.GameText($"~n~~n~~n~{team.GameTextColor}{team.ColorName} team scores!", TimeSpan.FromSeconds(5), GameTextStyle.Style3);
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.StatsPerRound.AddCoins(CarrierEarnedCoins);
-        playerInfo.AddBroughtFlags();
+        playerInfo.Stats.PerRound.AddCoins(CarrierEarnedCoins);
+        playerInfo.Stats.AddBroughtFlags();
         player.AddScore(CarrierEarnedScore);
         player.HideOnRadarMap();
         playerRepository.UpdateBroughtFlags(playerInfo);
@@ -65,7 +65,7 @@ public class OnFlagScore(
         foreach (Player player in teamMembers)
         {
             PlayerInfo playerInfo = player.GetRequiredInfo();
-            playerInfo.StatsPerRound.AddCoins(TeamEarnedCoins);
+            playerInfo.Stats.PerRound.AddCoins(TeamEarnedCoins);
             player.AddHealth(TeamEarnedHealth);
             player.AddScore(TeamEarnedScore);
             playerStatsRenderer.UpdateTextDraw(player);

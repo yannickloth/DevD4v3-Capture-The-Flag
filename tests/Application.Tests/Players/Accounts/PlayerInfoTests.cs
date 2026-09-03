@@ -16,12 +16,12 @@ public class PlayerInfoTests
         var expectedMessage = Messages.InvalidRank;
 
         // Act
-        Result result = player.SetRank(rankId);
+        Result result = player.Stats.SetRank(rankId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.RankId.Should().NotBe(rankId);
+        player.Stats.RankId.Should().NotBe(rankId);
     }
 
     [Test]
@@ -32,11 +32,11 @@ public class PlayerInfoTests
         RankId rankId = RankId.Maniac;
 
         // Act
-        Result result = player.SetRank(rankId);
+        Result result = player.Stats.SetRank(rankId);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.RankId.Should().Be(rankId);
+        player.Stats.RankId.Should().Be(rankId);
     }
 
     [TestCaseSource(nameof(InvalidSkinCases))]
@@ -47,7 +47,7 @@ public class PlayerInfoTests
         var expectedMessage = Messages.InvalidSkin;
 
         // Act
-        Result result = player.SetSkin(skinId);
+        Result result = player.Appearance.SetSkin(skinId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
@@ -64,11 +64,11 @@ public class PlayerInfoTests
         int skinId = 311;
 
         // Act
-        Result result = player.SetSkin(skinId);
+        Result result = player.Appearance.SetSkin(skinId);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.SkinId.Should().Be(skinId);
+        player.Appearance.SkinId.Should().Be(skinId);
     }
 
     [Test]
@@ -80,12 +80,12 @@ public class PlayerInfoTests
         var expectedMessage = Messages.ValueCannotBeNegative;
 
         // Act
-        Result result = player.SetTotalKills(kills);
+        Result result = player.Stats.SetTotalKills(kills);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.TotalKills.Should().NotBe(kills);
+        player.Stats.TotalKills.Should().NotBe(kills);
     }
 
     [Test]
@@ -96,11 +96,11 @@ public class PlayerInfoTests
         int kills = 10;
 
         // Act
-        Result result = player.SetTotalKills(kills);
+        Result result = player.Stats.SetTotalKills(kills);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.TotalKills.Should().Be(kills);
+        player.Stats.TotalKills.Should().Be(kills);
     }
 
     [Test]
@@ -111,11 +111,11 @@ public class PlayerInfoTests
         int expectedKills = 2;
 
         // Act
-        player.AddTotalKills();
-        player.AddTotalKills();
+        player.Stats.AddTotalKills();
+        player.Stats.AddTotalKills();
 
         // Assert
-        player.TotalKills.Should().Be(expectedKills);
+        player.Stats.TotalKills.Should().Be(expectedKills);
     }
 
     [Test]
@@ -127,12 +127,12 @@ public class PlayerInfoTests
         var expectedMessage = Messages.ValueCannotBeNegative;
 
         // Act
-        Result result = player.SetTotalDeaths(deaths);
+        Result result = player.Stats.SetTotalDeaths(deaths);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.TotalDeaths.Should().NotBe(deaths);
+        player.Stats.TotalDeaths.Should().NotBe(deaths);
     }
 
     [Test]
@@ -143,11 +143,11 @@ public class PlayerInfoTests
         int deaths = 10;
 
         // Act
-        Result result = player.SetTotalDeaths(deaths);
+        Result result = player.Stats.SetTotalDeaths(deaths);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.TotalDeaths.Should().Be(deaths);
+        player.Stats.TotalDeaths.Should().Be(deaths);
     }
 
     [Test]
@@ -158,11 +158,11 @@ public class PlayerInfoTests
         int expectedDeaths = 2;
 
         // Act
-        player.AddTotalDeaths();
-        player.AddTotalDeaths();
+        player.Stats.AddTotalDeaths();
+        player.Stats.AddTotalDeaths();
 
         // Assert
-        player.TotalDeaths.Should().Be(expectedDeaths);
+        player.Stats.TotalDeaths.Should().Be(expectedDeaths);
     }
 
     [Test]
@@ -173,11 +173,11 @@ public class PlayerInfoTests
         int expectedHeadShots = 2;
 
         // Act
-        player.AddHeadShots();
-        player.AddHeadShots();
+        player.Stats.AddHeadShots();
+        player.Stats.AddHeadShots();
 
         // Assert
-        player.HeadShots.Should().Be(expectedHeadShots);
+        player.Stats.HeadShots.Should().Be(expectedHeadShots);
     }
 
     [Test]
@@ -188,10 +188,10 @@ public class PlayerInfoTests
         int expectedGunGameWins = 2;
 
         // Act
-        player.AddGunGameWins();
-        player.AddGunGameWins();
+        player.Stats.AddGunGameWins();
+        player.Stats.AddGunGameWins();
 
         // Assert
-        player.GunGameWins.Should().Be(expectedGunGameWins);
+        player.Stats.GunGameWins.Should().Be(expectedGunGameWins);
     }
 }

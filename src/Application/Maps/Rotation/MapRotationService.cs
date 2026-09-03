@@ -113,10 +113,10 @@ public class MapRotationService(
         worldService.SendClientMessage(Color.Orange, message);
         static void PreparePlayerForRound(Player player, PlayerInfo playerInfo)
         {
-            playerInfo.StatsPerRound.ResetStats();
+            playerInfo.Stats.PerRound.ResetStats();
             player.ToggleControllable(true);
             player.Health = 100;
-            player.Color = playerInfo.Team.ColorHex;
+            player.Color = playerInfo.Appearance.Team.ColorHex;
             player.SetScore(0);
             player.ToggleSpectating(false);
         }

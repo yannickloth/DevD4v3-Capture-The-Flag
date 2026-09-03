@@ -10,7 +10,7 @@ public class PlayerRankExtensionsTests
         // Arrange
         var player = new PlayerInfo();
         RankId rankId = RankId.Noob;
-        player.SetRank(rankId);
+        player.Stats.SetRank(rankId);
 
         // Act
         bool actual = player.HasRank(rankId);
@@ -24,7 +24,7 @@ public class PlayerRankExtensionsTests
     {
         // Arrange
         var player = new PlayerInfo();
-        player.SetRank(RankId.Noob);
+        player.Stats.SetRank(RankId.Noob);
 
         // Act
         bool actual = player.HasRank(RankId.Junior);

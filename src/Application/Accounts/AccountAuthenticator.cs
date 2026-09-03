@@ -10,7 +10,7 @@ public class AccountAuthenticator(
     public Result Signup(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        Result passwordResult = playerInfo.SetPassword(enteredPassword);
+        Result passwordResult = playerInfo.Account.SetPassword(enteredPassword);
         if (passwordResult.IsFailed)
         {
             player.SendClientMessage(Color.Red, passwordResult.Message);
@@ -20,7 +20,7 @@ public class AccountAuthenticator(
         player.GetComponent<AccountComponent>().Authenticate();
         var message = Smart.Format(Messages.CreatePlayerAccount, new { Password = enteredPassword });
         player.SendClientMessage(Color.Red, message);
-        playerInfo.SetName(player.Name);
+        playerInfo.Account.SetName(player.Name);
         playerRepository.Create(playerInfo);
         return Result.Success();
     }
@@ -29,7 +29,7 @@ public class AccountAuthenticator(
     public Result Login(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        bool isWrongPassword = !passwordHasher.Verify(enteredPassword, passwordHash: playerInfo.Password);
+        bool isWrongPassword = !passwordHasher.Verify(enteredPassword, passwordHash: playerInfo.Account.Password);
         if (isWrongPassword)
         {
             const int MaxFailedAttempts = 4;

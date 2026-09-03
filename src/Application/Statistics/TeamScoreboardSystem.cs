@@ -55,8 +55,8 @@ public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
             [
                 $"{alphaTeam.ColorHex}{teamMember.Name}",
                 $"{alphaTeam.ColorHex}{teamMember.Score}",
-                $"{alphaTeam.ColorHex}{teamMemberInfo.StatsPerRound.Kills}",
-                $"{alphaTeam.ColorHex}{teamMemberInfo.StatsPerRound.Deaths}"
+                $"{alphaTeam.ColorHex}{teamMemberInfo.Stats.PerRound.Kills}",
+                $"{alphaTeam.ColorHex}{teamMemberInfo.Stats.PerRound.Deaths}"
             ];
             tablistDialog.Add(columns);
         }
@@ -72,8 +72,8 @@ public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
             [
                 $"{betaTeam.ColorHex}{teamMember.Name}",
                 $"{betaTeam.ColorHex}{teamMember.Score}",
-                $"{betaTeam.ColorHex}{teamMemberInfo.StatsPerRound.Kills}",
-                $"{betaTeam.ColorHex}{teamMemberInfo.StatsPerRound.Deaths}"
+                $"{betaTeam.ColorHex}{teamMemberInfo.Stats.PerRound.Kills}",
+                $"{betaTeam.ColorHex}{teamMemberInfo.Stats.PerRound.Deaths}"
             ];
             tablistDialog.Add(columns);
         }

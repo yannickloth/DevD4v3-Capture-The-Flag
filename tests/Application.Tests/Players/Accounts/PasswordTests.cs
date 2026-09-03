@@ -12,7 +12,7 @@ public class PasswordTests
         string password = default;
 
         // Act
-        Action act = () => player.SetPassword(password);
+        Action act = () => player.Account.SetPassword(password);
 
         // Assert
         act.Should().Throw<ArgumentNullException>();
@@ -28,12 +28,12 @@ public class PasswordTests
         var expectedMessage = Messages.PasswordCannotBeEmpty;
 
         // Act
-        Result result = player.SetPassword(password);
+        Result result = player.Account.SetPassword(password);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Password.Should().NotBe(password);
+        player.Account.Password.Should().NotBe(password);
     }
 
     [TestCase("aaaa")]
@@ -45,12 +45,12 @@ public class PasswordTests
         var expectedMessage = Messages.PasswordLength;
 
         // Act
-        Result result = player.SetPassword(password);
+        Result result = player.Account.SetPassword(password);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Password.Should().NotBe(password);
+        player.Account.Password.Should().NotBe(password);
     }
 
     [TestCase("12345")]
@@ -61,10 +61,10 @@ public class PasswordTests
         var player = new PlayerInfo();
 
         // Act
-        Result result = player.SetPassword(password);
+        Result result = player.Account.SetPassword(password);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.Password.Should().Be(password);
+        player.Account.Password.Should().Be(password);
     }
 }

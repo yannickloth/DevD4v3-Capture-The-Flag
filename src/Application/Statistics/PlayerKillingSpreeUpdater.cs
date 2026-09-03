@@ -22,21 +22,21 @@ public class PlayerKillingSpreeUpdater(
     /// <summary>Determines whether the player has surpassed their previously recorded maximum killing spree.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public static bool HasSurpassedMaxKillingSpree(PlayerInfo playerInfo)
-        => playerInfo.StatsPerRound.KillingSpree > playerInfo.MaxKillingSpree;
+        => playerInfo.Stats.PerRound.KillingSpree > playerInfo.Stats.MaxKillingSpree;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.StatsPerRound.AddKillingSpree();
-        int currentKillingSpree = playerInfo.StatsPerRound.KillingSpree;
+        playerInfo.Stats.PerRound.AddKillingSpree();
+        int currentKillingSpree = playerInfo.Stats.PerRound.KillingSpree;
 
         if (currentKillingSpree < MinimumKillingSpree)
             return;
 
         if (HasSurpassedMaxKillingSpree(playerInfo))
         {
-            playerInfo.SetMaxKillingSpree(currentKillingSpree);
+            playerInfo.Stats.SetMaxKillingSpree(currentKillingSpree);
             playerRepository.UpdateMaxKillingSpree(playerInfo);
         }
 
@@ -44,7 +44,7 @@ public class PlayerKillingSpreeUpdater(
             return;
 
         player.GameText($"KILL X{currentKillingSpree}", TimeSpan.FromSeconds(3), GameTextStyle.Style3);
-        playerInfo.StatsPerRound.AddCoins(EarnedCoins);
+        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
         player.AddHealth(EarnedHealth);
 
         if (currentKillingSpree % 3 == 0)

@@ -58,7 +58,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
         if (weaponReward.Weapon.Id == Weapon.SatchelCharge)
             winner.GiveWeapon(Weapon.Detonator, 1);
 
-        winnerInfo.StatsPerRound.AddCoins(WinnerEarnedCoins);
+        winnerInfo.Stats.PerRound.AddCoins(WinnerEarnedCoins);
         playerStatsRenderer.UpdateTextDraw(winner);
 
         winner.SendClientMessage(Color.Yellow, GunGameMessages.WinnerRewardGranted);
@@ -66,20 +66,20 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 
         var teamRewardGranted = Smart.Format(GunGameMessages.TeamRewardGranted, new
         {
-            Team = winnerInfo.Team.Name,
+            Team = winnerInfo.Appearance.Team.Name,
             Killer = winner.Name
         });
 
         var teamRewardSummary = Smart.Format(GunGameMessages.TeamRewardSummary, new
         {
-            Team   = winnerInfo.Team.Name,
+            Team   = winnerInfo.Appearance.Team.Name,
             Health = TeamEarnedHealth,
             Armour = TeamEarnedArmour,
             Coins  = TeamEarnedCoins,
             Score  = TeamEarnedScore
         });
 
-        foreach (Player teammate in winnerInfo.Team.Members)
+        foreach (Player teammate in winnerInfo.Appearance.Team.Members)
         {
             if (teammate == winner)
                 continue;
@@ -88,7 +88,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
             teammate.AddHealth(TeamEarnedHealth);
             teammate.AddArmour(TeamEarnedArmour);
             teammate.AddScore(TeamEarnedScore);
-            teammateInfo.StatsPerRound.AddCoins(TeamEarnedCoins);
+            teammateInfo.Stats.PerRound.AddCoins(TeamEarnedCoins);
             playerStatsRenderer.UpdateTextDraw(teammate);
 
             teammate.SendClientMessage(Color.LightGreen, teamRewardGranted);

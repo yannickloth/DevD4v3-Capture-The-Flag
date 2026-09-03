@@ -19,12 +19,12 @@ public class SelectedTeamTests
         var expectedMessage = Messages.InvalidTeam;
 
         // Act
-        Result result = player.SetTeam(teamId);
+        Result result = player.Appearance.SetTeam(teamId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
         result.Message.Should().Be(expectedMessage);
-        player.Team.Id.Should().Be(TeamId.NoTeam);
+        player.Appearance.Team.Id.Should().Be(TeamId.NoTeam);
     }
 
     [TestCase(TeamId.Alpha)]
@@ -36,10 +36,10 @@ public class SelectedTeamTests
         var player = new PlayerInfo();
 
         // Act
-        Result result = player.SetTeam(teamId);
+        Result result = player.Appearance.SetTeam(teamId);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
-        player.Team.Id.Should().Be(teamId);
+        player.Appearance.Team.Id.Should().Be(teamId);
     }
 }

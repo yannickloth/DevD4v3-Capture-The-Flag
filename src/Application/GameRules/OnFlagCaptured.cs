@@ -39,8 +39,8 @@ public class OnFlagCaptured(
         worldService.GameText($"~n~~n~~n~{team.GameTextColor}{team.ColorName} flag captured!", TimeSpan.FromSeconds(5), GameTextStyle.Style3);
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.StatsPerRound.AddCoins(EarnedCoins);
-        playerInfo.AddCapturedFlags();
+        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
+        playerInfo.Stats.AddCapturedFlags();
         player.AddScore(EarnedScore);
         if (flagCarrierSettings.ShowOnRadarMap)
         {

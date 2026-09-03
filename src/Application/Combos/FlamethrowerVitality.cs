@@ -25,7 +25,7 @@ public class FlamethrowerVitality : ICombo
         player.Health = Health;
         player.Armour = Armour;
         player.GiveWeapon(Weapon.FlameThrower, FlamethrowerAmmo);
-        playerInfo.StatsPerRound.ResetCoins();
+        playerInfo.Stats.PerRound.ResetCoins();
         return Result.Success();
     }
 }

@@ -28,7 +28,7 @@ public class PrivateModeratorChat(IEntityManager entityManager) : IChatMessage
             if (playerInfo.HasLowerRoleThan(RoleId.Moderator))
                 continue;
 
-            player.SendClientMessage(Color.Yellow, $"[Moderator Chat] {sender.Name}: {message}");
+            player.SendClientMessage(Color.Yellow, $"[Moderator Chat] {sender.Account.Name}: {message}");
         }
         return true;
     }

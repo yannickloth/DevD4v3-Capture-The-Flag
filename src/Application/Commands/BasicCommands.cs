@@ -108,7 +108,7 @@ public class BasicCommands(
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
 
-        if (playerInfo.Team == Team.None)
+        if (playerInfo.Appearance.Team == Team.None)
         {
             player.SendClientMessage(Color.Red, Messages.NoTeam);
             return;
@@ -139,7 +139,7 @@ public class BasicCommands(
 
         IEnumerable<Player> admins = entityManager
             .GetComponents<Player>()
-            .Where(player => player.GetRequiredInfo().RoleId >= RoleId.Moderator);
+            .Where(player => player.GetRequiredInfo().Role.Id >= RoleId.Moderator);
 
         if (!admins.Any())
         {
@@ -183,7 +183,7 @@ public class BasicCommands(
             return;
         }
 
-        if (currentPlayer.GetRequiredInfo().Team.RivalTeam.Flag.IsCarriedBy(currentPlayer))
+        if (currentPlayer.GetRequiredInfo().Appearance.Team.RivalTeam.Flag.IsCarriedBy(currentPlayer))
         {
             currentPlayer.SendClientMessage(Color.Red, Messages.HasCapturedFlag);
             return;

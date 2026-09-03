@@ -16,16 +16,16 @@ public class PlayerSpawnSystem(
     {
         CurrentMap currentMap = mapInfoService.CurrentMap;
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        SpawnLocation spawnLocation = currentMap.GetRandomSpawnLocation(playerInfo.Team.Id);
+        SpawnLocation spawnLocation = currentMap.GetRandomSpawnLocation(playerInfo.Appearance.Team.Id);
         player.Position = spawnLocation.Position;
         player.Angle = spawnLocation.Angle;
         player.Interior = currentMap.Interior;
-        player.Color = playerInfo.Team.ColorHex;
-        player.Team = (int)playerInfo.Team.Id;
-        player.Skin = (int)playerInfo.Team.SkinId;
+        player.Color = playerInfo.Appearance.Team.ColorHex;
+        player.Team = (int)playerInfo.Appearance.Team.Id;
+        player.Skin = (int)playerInfo.Appearance.Team.SkinId;
         if (playerInfo.HasSkin())
         {
-            player.Skin = playerInfo.SkinId;
+            player.Skin = playerInfo.Appearance.SkinId;
         }
         if (mapRotationService.IsMapLoading)
         {

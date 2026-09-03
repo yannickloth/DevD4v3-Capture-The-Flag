@@ -14,9 +14,9 @@ public class AdminListSystem(
         List<PlayerInfo> admins = entityManager
             .GetComponents<Player>()
             .Select(player => player.GetRequiredInfo())
-            .Where(info => info.RoleId >= RoleId.Moderator)
+            .Where(info => info.Role.Id >= RoleId.Moderator)
             .OrderByDescending(IsServerOwner)
-            .ThenByDescending(info => info.RoleId)
+            .ThenByDescending(info => info.Role.Id)
             .ToList();
 
         if (admins.Count == 0)
@@ -32,18 +32,18 @@ public class AdminListSystem(
         {
             if (IsServerOwner(admin))
             {
-                content.AppendLine($"{ownerColor}[Server Owner] {Color.White}{admin.Name}");
+                content.AppendLine($"{ownerColor}[Server Owner] {Color.White}{admin.Account.Name}");
                 continue;
             }
 
-            Color color = admin.RoleId switch
+            Color color = admin.Role.Id switch
             {
                 >= RoleId.Admin => Color.Red,
                 >= RoleId.Moderator => Color.LightGreen,
                 _ => Color.White
             };
 
-            content.AppendLine($"{color}[{admin.RoleId}] {Color.White}{admin.Name}");
+            content.AppendLine($"{color}[{admin.Role.Id}] {Color.White}{admin.Account.Name}");
         }
 
         var dialog = new MessageDialog(
@@ -57,5 +57,5 @@ public class AdminListSystem(
 
     /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09</remarks>
     private bool IsServerOwner(PlayerInfo playerInfo)
-        => playerInfo.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
+        => playerInfo.Account.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
 }

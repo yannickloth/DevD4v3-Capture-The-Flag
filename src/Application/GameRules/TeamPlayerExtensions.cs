@@ -22,9 +22,9 @@ public static class TeamPlayerExtensions
             return Team.None;
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        Team currentTeam = playerInfo.Team;
+        Team currentTeam = playerInfo.Appearance.Team;
         currentTeam.Members.Remove(player);
-        playerInfo.SetTeam(TeamId.NoTeam);
+        playerInfo.Appearance.SetTeam(TeamId.NoTeam);
         player.Team = (int)TeamId.NoTeam;
         player.Color = Team.None.ColorHex;
         return currentTeam;

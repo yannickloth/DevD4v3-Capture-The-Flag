@@ -46,15 +46,15 @@ public class PlayerStatsRenderer(IWorldService worldService)
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public static string GetStatsAsText(PlayerInfo playerInfo)
     {
-        Result<Rank> rankResult = RankCollection.GetById(playerInfo.RankId);
+        Result<Rank> rankResult = RankCollection.GetById(playerInfo.Stats.RankId);
         var stats = new
         {
-            playerInfo.StatsPerRound.Kills,
-            playerInfo.StatsPerRound.Deaths,
-            playerInfo.StatsPerRound.KillingSpree,
-            playerInfo.StatsPerRound.Coins,
+            playerInfo.Stats.PerRound.Kills,
+            playerInfo.Stats.PerRound.Deaths,
+            playerInfo.Stats.PerRound.KillingSpree,
+            playerInfo.Stats.PerRound.Coins,
             MaxRank = RankCollection.Count,
-            Level = (int)playerInfo.RankId + 1,
+            Level = (int)playerInfo.Stats.RankId + 1,
             RankName = rankResult.Value.Name
         };
         const string message =
