@@ -12,10 +12,19 @@ public class OnFlagScore(
     TeamTextDrawRenderer teamTextDrawRenderer,
     PlayerStatsRenderer playerStatsRenderer) : IFlagEvent
 {
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rewards)</remarks>
     private const int CarrierEarnedCoins = 8;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rewards)</remarks>
     private const int CarrierEarnedScore = 4;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rewards)</remarks>
     private const int TeamEarnedCoins    = 5;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rewards)</remarks>
     private const int TeamEarnedHealth   = 10;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score rewards)</remarks>
     private const int TeamEarnedScore    = 1;
 
     /// <summary>Gets the flag status handled by this event.</summary>
@@ -49,6 +58,7 @@ public class OnFlagScore(
         GiveRewards(team);
     }
 
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag score team rewards); CD-06 (coin economy) → CD-02; CD-10 (player-statistics/rank model) → CD-02; CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
     private void GiveRewards(Team team)
     {
         TeamMembers teamMembers = team.Members;

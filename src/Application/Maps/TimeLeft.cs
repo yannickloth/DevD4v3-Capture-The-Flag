@@ -17,12 +17,12 @@ public class TimeLeft
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     private int _interval = DefaultRoundTime;
 
+    // This property can never be mutable.
+    // If this property is modified from the outside, it may cause buffer overflow.
     /// <summary>
     /// Represents the time left in a text draw.
     /// </summary>
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
-    // This property can never be mutable.
-    // If this property is modified from the outside, it may cause buffer overflow.
     public string TextDraw { get; } = "00:00";
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>

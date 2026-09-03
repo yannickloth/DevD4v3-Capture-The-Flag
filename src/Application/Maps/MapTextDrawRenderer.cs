@@ -3,10 +3,19 @@
 /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12; CD-11 (map configuration) → CD-12</remarks>
 public class MapTextDrawRenderer
 {
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
     private readonly IWorldService _worldService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-11 (map configuration: map name) → CD-01</remarks>
     private TextDraw _mapName;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw sprite)</remarks>
     private TextDraw _timer;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-12 (map-rotation rules: time left) → CD-01</remarks>
     private TextDraw _timeLeft;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-12 (map-rotation rules: load time) → CD-01</remarks>
     private TextDraw _loadTime;
 
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>

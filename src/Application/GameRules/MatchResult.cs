@@ -14,6 +14,7 @@ public class MatchResult
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match end conditions)</remarks>
     public bool IsTie => Winner == Team.None;
 
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match end conditions)</remarks>
     private MatchResult(Team winner)
         => Winner = winner;
 

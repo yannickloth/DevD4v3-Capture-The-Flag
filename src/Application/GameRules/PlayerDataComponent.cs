@@ -6,6 +6,7 @@
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
 public class PlayerDataComponent : Component
 {
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: player reference)</remarks>
     private readonly Player _player;
 
     /// <summary>

@@ -6,7 +6,9 @@
 /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
 public class CurrentMap : IMap
 {
+    /// <remarks>Change drivers: CD-11 (root; map configuration: random spawn selection)</remarks>
     private readonly Random _random = new();
+
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public const int DefaultInterior  = 0;
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>

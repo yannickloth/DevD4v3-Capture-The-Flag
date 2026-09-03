@@ -6,16 +6,34 @@
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws); CD-02 (CTF game-rules specification: team score/members) → CD-01; CD-11 (map configuration: flag model) → CD-01</remarks>
 public class TeamTextDrawRenderer
 {
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
     private readonly IWorldService _worldService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-11 (map configuration: flag model) → CD-01</remarks>
     private TextDraw _redFlag;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-11 (map configuration: flag model) → CD-01</remarks>
     private TextDraw _blueFlag;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-10 (player-statistics/rank model: team score) → CD-01</remarks>
     private TextDraw _alphaScore;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-10 (player-statistics/rank model: team score) → CD-01</remarks>
     private TextDraw _betaScore;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw sprite)</remarks>
     private TextDraw _redRic;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw sprite)</remarks>
     private TextDraw _blueRic;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-02 (CTF game-rules specification: team membership) → CD-01</remarks>
     private TextDraw _alphaTeamMembers;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw); CD-02 (CTF game-rules specification: team membership) → CD-01</remarks>
     private TextDraw _betaTeamMembers;
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws); CD-02 (CTF game-rules specification: team score/members) → CD-01; CD-11 (map configuration: flag model) → CD-01</remarks>
     public TeamTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
@@ -78,6 +96,7 @@ public class TeamTextDrawRenderer
         }
     }
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw creation); CD-11 (map configuration: flag model ids) → CD-01; CD-02 (CTF game-rules specification: team colors/sprites) → CD-01</remarks>
     private void Initialize()
     {
         _redFlag = _worldService.CreateTextDraw(new Vector2(-6.000000f, 302.000000f), string.Empty);

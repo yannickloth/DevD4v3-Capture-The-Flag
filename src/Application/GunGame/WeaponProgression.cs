@@ -6,6 +6,7 @@
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
 public abstract class WeaponProgression
 {
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: weapon progression)</remarks>
     private readonly List<IWeapon> _weapons = [];
 
     /// <summary>

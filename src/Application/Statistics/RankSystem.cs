@@ -6,6 +6,7 @@
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
 public class RankSystem : ISystem
 {
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: ranks dialog); CD-01 (open.mp/SampSharp platform API: dialog) → CD-10</remarks>
     private readonly TablistDialog _tablistDialog;
 
     /// <summary>Builds the rank tiers dialog.</summary>

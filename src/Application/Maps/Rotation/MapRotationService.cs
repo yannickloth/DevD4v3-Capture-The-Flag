@@ -13,10 +13,19 @@ public class MapRotationService(
     FlagStateResetter flagStateResetter,
     TeamBalancer teamBalancer)
 {
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: round-load countdown)</remarks>
     private LoadTime _loadTime;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API: timer reference) → CD-12</remarks>
     private TimerReference _timerReference;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loading state)</remarks>
     private bool _isMapLoading;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12</remarks>
     private IMap _forcedNextMap;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: time left countdown)</remarks>
     private readonly TimeLeft _timeLeft = new();
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public TimeLeft TimeLeft => _timeLeft;

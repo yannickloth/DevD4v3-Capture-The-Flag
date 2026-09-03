@@ -6,9 +6,15 @@
 /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
 public class LoadTime
 {
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loading-map callback)</remarks>
     private readonly Action _onLoadingMap;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loaded-map callback)</remarks>
     private readonly Action _onLoadedMap;
+
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: remaining load time)</remarks>
     private int _interval = MaxLoadTime;
+
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public const int MaxLoadTime = 10;
 

@@ -6,11 +6,19 @@
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons); CD-11 (map configuration: flag locations/interior) → CD-01</remarks>
 public class TeamIconService
 {
+    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations); CD-01 (open.mp/SampSharp platform API: map icon dependencies) → CD-11</remarks>
     private readonly MapInfoService _mapInfoService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected streamer service)</remarks>
     private readonly IStreamerService _streamerService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icon); CD-11 (map configuration: flag location/interior) → CD-01</remarks>
     private DynamicMapIcon _redMapIcon;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icon); CD-11 (map configuration: flag location/interior) → CD-01</remarks>
     private DynamicMapIcon _blueMapIcon;
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons); CD-11 (map configuration: flag locations) → CD-01</remarks>
     public TeamIconService(MapInfoService mapInfoService, IStreamerService streamerService)
     {
         _mapInfoService = mapInfoService;

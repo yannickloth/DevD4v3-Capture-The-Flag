@@ -42,6 +42,7 @@ public class ChatSystem(FrozenDictionary<char, IChatMessage> chats) : ISystem
         return true;
     }
 
+    /// <remarks>Change drivers: CD-13 (root; chat rules: prefix replacement)</remarks>
     private unsafe void ReplaceFirstCharacter(string originalText, char newCharacter)
     {
         fixed (char* text = originalText)

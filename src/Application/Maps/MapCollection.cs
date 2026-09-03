@@ -3,6 +3,7 @@
 /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
 public class MapCollection
 {
+    /// <remarks>Change drivers: CD-11 (root; map configuration: loaded maps)</remarks>
     private Map[] _maps;
 
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>

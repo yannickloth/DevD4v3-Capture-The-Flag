@@ -20,8 +20,13 @@ public class PlayerPauseSystem(
     /// <summary>
     /// Represents the minimum amount of time (in ticks) required for the player to be considered paused.
     /// </summary>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause detection threshold)</remarks>
     private readonly long _minPauseTimeTicks = TimeSpan.FromMilliseconds(4000).Ticks;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API: timer reference) → CD-02</remarks>
     private TimerReference _timerReference;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API: player data component) → CD-02</remarks>
     private readonly List<PlayerDataComponent> _playerDataComponents = new(capacity: 32);
 
     /// <summary>Handles the player pause state change.</summary>
@@ -69,6 +74,7 @@ public class PlayerPauseSystem(
         playerDataComponent.LastUpdateTick = timeProvider.GetUtcNow().Ticks;
     }
 
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause detection); CD-01 (open.mp/SampSharp platform API: timer tick, entity manager) → CD-02</remarks>
     private void CheckPauseStatus(IServiceProvider serviceProvider)
     {
         int count = _playerDataComponents.Count;

@@ -12,8 +12,13 @@ public class FlagSystem(
     FlagAutoReturnTimer flagAutoReturnTimer,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-06 (coin economy) → CD-02</remarks>
     private const int CarrierKillEarnedCoins  = 4;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-02</remarks>
     private const int CarrierKillEarnedHealth = 10;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-10 (player-statistics/rank model) → CD-02</remarks>
     private const int CarrierKillEarnedScore  = 2;
 
     /// <summary>Handles flag drop when a carrying player disconnects.</summary>

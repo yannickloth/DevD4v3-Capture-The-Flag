@@ -11,7 +11,10 @@ public class FlagAutoReturnTimer(
     TeamPickupService teamPickupService,
     FlagAutoReturnSettings flagAutoReturnSettings)
 {
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag auto-return rule); CD-01 (open.mp/SampSharp platform API: timer reference) → CD-02</remarks>
     private TimerReference _alphaTeamTimer;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag auto-return rule); CD-01 (open.mp/SampSharp platform API: timer reference) → CD-02</remarks>
     private TimerReference _betaTeamTimer;
 
     /// <summary>Starts the auto-return timer for the specified team.</summary>

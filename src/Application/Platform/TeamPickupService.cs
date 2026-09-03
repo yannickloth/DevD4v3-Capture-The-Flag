@@ -6,13 +6,25 @@
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups/model ids); CD-11 (map configuration: flag locations) → CD-01</remarks>
 public class TeamPickupService
 {
+    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
     private readonly MapInfoService _mapInfoService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
     private readonly IWorldService _worldService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickup); CD-11 (map configuration: flag locations) → CD-01</remarks>
     private Pickup _redFlagPickup;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickup); CD-11 (map configuration: flag locations) → CD-01</remarks>
     private Pickup _blueFlagPickup;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickup); CD-11 (map configuration: flag locations) → CD-01</remarks>
     private Pickup _redExteriorMarker;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickup); CD-11 (map configuration: flag locations) → CD-01</remarks>
     private Pickup _blueExteriorMarker;
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: pickups); CD-11 (map configuration: flag locations) → CD-01</remarks>
     public TeamPickupService(MapInfoService mapInfoService, IWorldService worldService)
     {
         _mapInfoService = mapInfoService;

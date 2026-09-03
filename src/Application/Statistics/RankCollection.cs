@@ -6,6 +6,7 @@
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
 public class RankCollection
 {
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: rank tiers)</remarks>
     private static readonly Rank[] s_ranks = 
     [
         new(RankId.Noob,         0),
@@ -25,6 +26,7 @@ public class RankCollection
         new(RankId.Legendary,    700)
     ];
 
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     private RankCollection() { }
 
     /// <summary>Gets the number of rank tiers.</summary>

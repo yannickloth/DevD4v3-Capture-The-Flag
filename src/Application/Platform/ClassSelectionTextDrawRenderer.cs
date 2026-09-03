@@ -6,12 +6,22 @@
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
 public class ClassSelectionTextDrawRenderer
 {
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
     private readonly IWorldService _worldService;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
     private TextDraw _gameModeTitle;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
     private TextDraw _gameModeDescription;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
     private TextDraw _commandList;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
     private TextDraw _blueCommandListBox;
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
     public ClassSelectionTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
@@ -37,6 +47,7 @@ public class ClassSelectionTextDrawRenderer
         _blueCommandListBox.Hide(player);
     }
 
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw creation)</remarks>
     private void Initialize()
     {
         _gameModeTitle = _worldService.CreateTextDraw(new Vector2(483.000000f, 4.000000f), string.Empty);

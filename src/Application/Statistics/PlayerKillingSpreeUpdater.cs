@@ -7,9 +7,16 @@ public class PlayerKillingSpreeUpdater(
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
 {
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree threshold)</remarks>
     private const int MinimumKillingSpree = 2;
+
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-06 (coin economy) → CD-10</remarks>
     private const int EarnedCoins = 20;
+
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
     private const int EarnedHealth = 10;
+
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: consecutive-kills bonus); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
     private const int ConsecutiveKillsBonusHealth = 40;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>

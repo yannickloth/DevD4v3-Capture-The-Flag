@@ -9,6 +9,7 @@
 /// </remarks>
 public abstract class WeaponCatalog
 {
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: catalog weapons)</remarks>
     private readonly List<IWeapon> _weapons = 
     [
         WeaponDefinitions.Knife,

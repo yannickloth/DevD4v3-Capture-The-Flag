@@ -12,7 +12,10 @@ public class OnFlagReturned(
     PlayerStatsRenderer playerStatsRenderer,
     FlagAutoReturnTimer flagAutoReturnTimer) : IFlagEvent
 {
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rewards); CD-06 (coin economy) → CD-02</remarks>
     private const int EarnedCoins = 5;
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rewards); CD-10 (player-statistics/rank model) → CD-02</remarks>
     private const int EarnedScore = 2;
 
     /// <summary>Gets the flag status handled by this event.</summary>

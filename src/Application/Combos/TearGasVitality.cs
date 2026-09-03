@@ -3,8 +3,13 @@
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
 public class TearGasVitality : ICombo
 {
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health); CD-03 (combat/weapon-rules specification: health) → CD-05</remarks>
     private const int Health = 100;
+
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward armour); CD-03 (combat/weapon-rules specification: armour) → CD-05</remarks>
     private const int Armour = 100;
+
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: tear gas ammo)</remarks>
     private const int TearGasAmmo = 30;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>

@@ -9,6 +9,7 @@ public class MapRotationSystem(
     MapCollection mapCollection,
     MapTextDrawRenderer mapTextDrawRenderer) : ISystem
 {
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: connected-player count)</remarks>
     private int _connectedPlayers;
 
     [Event]

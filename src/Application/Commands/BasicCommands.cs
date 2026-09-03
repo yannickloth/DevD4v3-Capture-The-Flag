@@ -9,7 +9,10 @@ public class BasicCommands(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem
 {
+    /// <remarks>Change drivers: CD-15 (root; command set: kill command health threshold); CD-02 (CTF game-rules specification) → CD-15</remarks>
     private const float MinimumHealthToUseKillCommand = 15f;
+
+    /// <remarks>Change drivers: CD-15 (root; command set: spec command health threshold); CD-02 (CTF game-rules specification) → CD-15</remarks>
     private const float MinimumHealthToUseSpectatorCommand = 85f;
 
     /// <summary>Shows the first page of public commands.</summary>
@@ -36,6 +39,7 @@ public class BasicCommands(
             await ShowSecondCommandsPage(player);
     }
 
+    /// <remarks>Change drivers: CD-15 (root; command set: commands dialog navigation); CD-01 (open.mp/SampSharp platform API: dialog) → CD-15</remarks>
     private async Task ShowSecondCommandsPage(Player player)
     {
         var content = Smart.Format(DetailedCommandInfo.Public2, new

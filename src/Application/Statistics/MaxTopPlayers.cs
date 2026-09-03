@@ -11,6 +11,8 @@ public class MaxTopPlayers
     /// </summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-17 (game configuration/.env schema) → CD-10</remarks>
     public int Value { get; private set; }
+
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-17 (game configuration/.env schema) → CD-10</remarks>
     private MaxTopPlayers(int value) => Value = value;
 
     /// <summary>

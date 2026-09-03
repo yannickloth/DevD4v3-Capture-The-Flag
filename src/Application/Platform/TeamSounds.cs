@@ -6,9 +6,16 @@
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: audio); CD-17 (game configuration/.env schema: audio URLs) → CD-01</remarks>
 public class TeamSounds
 {
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     private string _flagDropped;
+
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     private string _flagReturned;
+
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     private string _flagTaken;
+
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     private string _teamScores;
 
     /// <summary>Gets the NoTeam sounds.</summary>
@@ -21,6 +28,7 @@ public class TeamSounds
     /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     public static readonly TeamSounds Beta;
 
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs); CD-01 (open.mp/SampSharp platform API: audio stream) → CD-17</remarks>
     static TeamSounds()
     {
         var reader = new EnvReader();
@@ -45,6 +53,7 @@ public class TeamSounds
         None = new();
     }
 
+    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
     private TeamSounds() { }
 
     /// <summary>

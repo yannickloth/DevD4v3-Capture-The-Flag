@@ -64,6 +64,7 @@ public class TeamSelectionSystem(
         ChangeTeam(player, selectedTeam);
     }
 
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team change); CD-01 (open.mp/SampSharp platform API: player team/spawn, textdraw) → CD-02; CD-15 (command set) → CD-02</remarks>
     private void ChangeTeam(Player player, Team selectedTeam)
     {
         Team alphaTeam = Team.Alpha;

@@ -11,6 +11,7 @@ public class ClassSelectionSystem(
     TeamTextDrawRenderer teamTextDrawRenderer,
     ClassSelectionSettings classSelectionSettings) : ISystem
 {
+    /// <remarks>Change drivers: CD-15 (root; command set: class command health threshold); CD-02 (CTF game-rules specification) → CD-15; CD-03 (combat/weapon-rules specification) → CD-15</remarks>
     private const float MinimumHealthToUseClassSelectionCommand = 85f;
 
     /// <summary>Adds player classes for team skins on game mode init.</summary>

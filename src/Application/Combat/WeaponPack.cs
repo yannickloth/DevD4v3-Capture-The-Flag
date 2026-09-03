@@ -11,6 +11,7 @@
 /// </remarks>
 public class WeaponPack : IEnumerable<IWeapon>
 {
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: weapon collection)</remarks>
     private readonly List<IWeapon> _weapons = [];
 
     /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification)</remarks>

@@ -3,9 +3,16 @@
 /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
 public partial class PlayerInfo
 {
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: player name validation pattern)</remarks>
     private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
+
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: no-skin sentinel); CD-01 (open.mp/SampSharp platform API: skin id) → CD-08</remarks>
     private const int NoSkin = -1;
+
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: no-account sentinel)</remarks>
     private const int NoAccount = -1;
+
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: player name validation regex)</remarks>
     [GeneratedRegex(PlayerNamePattern)]
     private static partial Regex PlayerNameRegex();
 

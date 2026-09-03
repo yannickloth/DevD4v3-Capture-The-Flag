@@ -6,7 +6,10 @@
 /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
 public class MapInfoService
 {
+    /// <remarks>Change drivers: CD-11 (root; map configuration: current map state)</remarks>
     private CurrentMap _currentMap;
+
+    /// <remarks>Change drivers: CD-11 (root; map configuration: map files location)</remarks>
     private readonly string _mapsPath;
 
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>

@@ -3,11 +3,22 @@
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>
 public class ComboSystem : ISystem
 {
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected dialog service)</remarks>
     private readonly IDialogService _dialogService;
+
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: combos dialog); CD-01 (open.mp/SampSharp platform API: dialog) → CD-05</remarks>
     private readonly TablistDialog _tablistDialog;
+
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
     private readonly IWorldService _worldService;
+
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: stats textdraw renderer)</remarks>
     private readonly PlayerStatsRenderer _playerStatsRenderer;
+
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: available combos)</remarks>
     private readonly IEnumerable<ICombo> _combos;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: combo availability)</remarks>
     private readonly IGunGameMode _gunGameMode;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>

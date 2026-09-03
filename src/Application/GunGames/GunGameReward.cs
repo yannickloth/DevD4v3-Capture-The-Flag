@@ -4,15 +4,31 @@
 /// <remarks>Injected dependencies: playerStatsRenderer -> CD-10. Driven by the PlayerStatsRenderer contract + CD-21 (DI wiring).</remarks>
 public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 {
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-07</remarks>
     private const int WinnerEarnedHealth = 100;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner rewards); CD-03 (combat/weapon-rules specification: armour rewards) → CD-07</remarks>
     private const int WinnerEarnedArmour = 100;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner rewards); CD-06 (coin economy) → CD-07</remarks>
     private const int WinnerEarnedCoins  = 100;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: team rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-07</remarks>
     private const int TeamEarnedHealth   = 50;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: team rewards); CD-03 (combat/weapon-rules specification: armour rewards) → CD-07</remarks>
     private const int TeamEarnedArmour   = 50;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: team rewards); CD-06 (coin economy) → CD-07</remarks>
     private const int TeamEarnedCoins    = 15;
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: team rewards); CD-10 (player-statistics/rank model) → CD-07</remarks>
     private const int TeamEarnedScore    = 3;
+
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon reward)</remarks>
     private readonly record struct WeaponReward(IWeapon Weapon, int Ammo);
+
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon rewards); CD-04 (weapon-catalog configuration) → CD-07</remarks>
     private readonly WeaponReward[] _weaponRewards = 
     [
         new(WeaponDefinitions.Grenade,       Ammo: 5),
