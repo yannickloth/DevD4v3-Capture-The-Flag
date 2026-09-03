@@ -75,7 +75,7 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
     }
 
     /// <summary>Adds the private-message component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-13</remarks>
     [Event]
     public void OnPlayerConnect(Player player) 
     {
