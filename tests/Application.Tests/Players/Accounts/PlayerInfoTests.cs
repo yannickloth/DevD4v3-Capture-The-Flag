@@ -71,34 +71,6 @@ public class PlayerInfoTests
         player.SkinId.Should().Be(skinId);
     }
 
-    [Test] 
-    public void HasSkin_WhenPlayerHasAssignedSkin_ShouldReturnTrue()
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        player.SetSkin(311);
-
-        // Act
-        bool actual = player.HasSkin();
-
-        // Assert
-        actual.Should().BeTrue();
-    }
-
-    [Test]
-    public void HasSkin_WhenPlayerHasNoAssignedSkin_ShouldReturnFalse()
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        player.RemoveSkin();
-
-        // Act
-        bool actual = player.HasSkin();
-
-        // Assert
-        actual.Should().BeFalse();
-    }
-
     [Test]
     public void SetTotalKills_WhenArgumentIsNegative_ShouldReturnFailureResult()
     {
@@ -221,34 +193,5 @@ public class PlayerInfoTests
 
         // Assert
         player.GunGameWins.Should().Be(expectedGunGameWins);
-    }
-
-    [Test]
-    public void HasRank_WhenRankIsNoob_ShouldReturnTrue()
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        RankId rankId = RankId.Noob;
-        player.SetRank(rankId);
-
-        // Act
-        bool actual = player.HasRank(rankId);
-
-        // Assert
-        actual.Should().BeTrue();
-    }
-
-    [Test]
-    public void HasRank_WhenRankIsNotNoob_ShouldReturnFalse()
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        player.SetRank(RankId.Noob);
-
-        // Act
-        bool actual = player.HasRank(RankId.Junior);
-
-        // Assert
-        actual.Should().BeFalse();
     }
 }

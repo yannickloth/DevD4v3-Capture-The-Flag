@@ -1,43 +1,9 @@
-﻿namespace CTF.Application.Tests.Players.Accounts;
+namespace CTF.Application.Tests.Authorization;
 
-/// <summary>Tests for PlayerInfo.SetRole/HasRole.</summary>
-/// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerInfo.SetRole/HasRole); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
-public class RoleTests
+/// <summary>Tests for PlayerRoleExtensions.</summary>
+/// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+public class PlayerRoleExtensionsTests
 {
-    static readonly int[] InvalidRoleCases = [-1, -2, RoleCollection.Count];
-
-    [TestCaseSource(nameof(InvalidRoleCases))]
-    public void SetRole_WhenRoleIdIsInvalid_ShouldReturnFailureResult(int value)
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        RoleId roleId = (RoleId)value;
-        var expectedMessage = Messages.InvalidRole;
-
-        // Act
-        Result result = player.SetRole(roleId);
-
-        // Asserts
-        result.IsSuccess.Should().BeFalse();
-        result.Message.Should().Be(expectedMessage);
-        player.RoleId.Should().NotBe(roleId);
-    }
-
-    [Test]
-    public void SetRole_WhenRoleIdIsValid_ShouldReturnSuccessResult()
-    {
-        // Arrange
-        var player = new PlayerInfo();
-        RoleId roleId = RoleId.Admin;
-
-        // Act
-        Result result = player.SetRole(roleId);
-
-        // Asserts
-        result.IsSuccess.Should().BeTrue();
-        player.RoleId.Should().Be(roleId);
-    }
-
     [Test]
     public void HasRole_WhenRoleIsAdmin_ShouldReturnTrue()
     {

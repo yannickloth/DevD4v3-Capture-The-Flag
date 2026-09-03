@@ -100,36 +100,6 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
-    public bool HasSkin() => SkinId != NoSkin;
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool HasRole(RoleId id) => RoleId == id;
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool HasLowerRoleThan(RoleId id) => RoleId < id;
-
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public bool HasRank(RankId id) => RankId == id;
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsVIP() => HasRole(RoleId.VIP);
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsModerator() => HasRole(RoleId.Moderator);
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsAdmin() => HasRole(RoleId.Admin);
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsNotVIP() => !IsVIP();
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsNotModerator() => !IsModerator();
-
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public bool IsNotAdmin() => !IsAdmin();
-
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void SetLastConnection() => LastConnection = DateTime.UtcNow;
 
