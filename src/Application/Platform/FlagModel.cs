@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags;
+﻿namespace CTF.Application.Platform;
 
 /// <summary>
 /// See <see href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=flag">flag models</see>.

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Flags;
+﻿namespace CTF.Application.Platform;
 
 /// <summary>
 /// See <see href="https://www.open.mp/docs/scripting/resources/mapicons">map icons</see>.

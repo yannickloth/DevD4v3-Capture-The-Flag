@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.ClassSelection;
+﻿namespace CTF.Application.Platform;
 
 /// <summary>
 /// Renders the class-selection screen textdraws.
