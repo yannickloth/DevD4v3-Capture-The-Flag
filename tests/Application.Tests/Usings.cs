@@ -8,6 +8,7 @@ global using SampSharp.Entities.SAMP;
 
 global using GameMode.Common;
 global using CTF.Application.Players;
+global using CTF.Application.GameRules;
 global using CTF.Application.Statistics;
 global using CTF.Application.Players.Weapons;
 global using CTF.Application.Players.Weapons.Catalogs;
