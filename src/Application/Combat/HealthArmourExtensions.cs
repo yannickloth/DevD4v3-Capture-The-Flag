@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Vitalities;
+﻿namespace CTF.Application.Combat;
 
 /// <summary>
 /// Provides extension methods for adding health and armour, bounded to their maximum values.

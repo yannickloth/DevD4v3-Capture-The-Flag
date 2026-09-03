@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Vitalities;
+﻿namespace CTF.Application.Combat;
 
 /// <summary>
 /// Provides the health-related commands.

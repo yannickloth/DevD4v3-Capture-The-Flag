@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Headshots;
+﻿namespace CTF.Application.Combat;
 
 /// <summary>
 /// Represents settings for headshot events.

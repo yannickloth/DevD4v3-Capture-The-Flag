@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons;
+﻿namespace CTF.Application.Combat;
 
 /// <summary>
 /// Represents a collection of weapons where only one weapon

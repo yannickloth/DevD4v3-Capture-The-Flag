@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons;
+﻿namespace CTF.Application.Combat;
 
 /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-04 (weapon-catalog configuration) → CD-03; CD-07 (GunGame mode rules) → CD-03; CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; gunGameMode -> CD-07; weaponCatalog -> CD-04. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
