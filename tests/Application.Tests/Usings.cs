@@ -16,7 +16,6 @@ global using CTF.Application.Players.Weapons.Catalogs;
 global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
-global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Authorization;
 global using CTF.Application.Combat;
 global using CTF.Application.Players.TopPlayers;

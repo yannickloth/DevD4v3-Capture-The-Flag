@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Accounts.Roles;
+﻿namespace CTF.Application.Authorization;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema: server-owner name) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; entityManager -> CD-01; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
