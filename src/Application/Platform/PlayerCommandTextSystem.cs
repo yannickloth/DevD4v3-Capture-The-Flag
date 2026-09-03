@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.Platform;
 
 /// <summary>
 /// Handles the command-text callback, invoking the registered command handlers.

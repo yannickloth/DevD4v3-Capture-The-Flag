@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.Accounts;
 
 /// <summary>
 /// Provides extension methods over the player entity.

@@ -22,6 +22,7 @@ global using CTF.Application.GameRules;
 global using CTF.Application.Combos;
 global using CTF.Application.AntiCheat;
 global using CTF.Application.Players.TopPlayers;
+global using CTF.Application.Platform;
 global using CTF.Application.Combat;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.ClassSelection;
