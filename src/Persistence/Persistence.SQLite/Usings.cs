@@ -9,5 +9,6 @@ global using Persistence.SQLite.Extensions;
 global using GameMode.Common;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Players.Accounts.Roles;
+global using CTF.Application.Authorization;
 global using CTF.Application.Statistics;
 global using CTF.Application.Players.TopPlayers;
