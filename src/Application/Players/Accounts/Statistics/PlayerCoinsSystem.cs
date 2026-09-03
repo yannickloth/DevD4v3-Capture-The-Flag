@@ -70,7 +70,7 @@ public class PlayerCoinsSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
-    /// <remarks>Change drivers: CD-06 (root; coin economy); CD-09 (authorization policy) → CD-06; CD-17 (game configuration/.env schema) → CD-06; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-06; CD-01 (open.mp/SampSharp platform API) → CD-06</remarks>
+/// <remarks>Change drivers: CD-06 (root; coin economy); CD-15 (command set) → CD-06; CD-09 (authorization policy) → CD-06; CD-17 (game configuration/.env schema) → CD-06; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-06; CD-01 (open.mp/SampSharp platform API) → CD-06</remarks>
     [PlayerCommand("givemecoins")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void GiveMeCoins(Player currentPlayer) 

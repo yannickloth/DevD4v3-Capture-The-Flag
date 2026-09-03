@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.GunGames;
 
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-15 (command set) → CD-07; CD-09 (authorization policy) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; worldService -> CD-01; dialogService -> CD-01; handlers (FrozenDictionary&lt;GunGameResult, IGunGameResultHandler&gt;) -> CD-07; weaponProgression -> CD-07; gunGameSession -> CD-07; gunGameReward -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class GunGameSystem(
     IEntityManager entityManager,
