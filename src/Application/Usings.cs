@@ -21,7 +21,7 @@ global using CTF.Application.Players;
 global using CTF.Application.GameRules;
 global using CTF.Application.Platform;
 global using CTF.Application.Players.Accounts;
-global using CTF.Application.Players.Accounts.Authentication;
+global using CTF.Application.Accounts;
 global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Authorization;
