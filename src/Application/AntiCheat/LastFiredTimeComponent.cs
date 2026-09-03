@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.AntiCBug;
+﻿namespace CTF.Application.AntiCheat;
 
 /// <summary>
 /// Represents a component that stores the last shot time and 

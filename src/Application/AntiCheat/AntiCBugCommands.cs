@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.AntiCBug;
+﻿namespace CTF.Application.AntiCheat;
 
 /// <summary>
 /// Provides administrative commands to enable or disable the GTA: San Andreas

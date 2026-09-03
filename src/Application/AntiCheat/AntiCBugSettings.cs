@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.AntiCBug;
+﻿namespace CTF.Application.AntiCheat;
 
 /// <summary>
 /// Represents the configuration for the GTA: San Andreas crouch bug (C-Bug) protection.
