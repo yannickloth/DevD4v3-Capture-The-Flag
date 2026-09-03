@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts.Roles;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
+/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; dialogService -> CD-01; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerRoleSystem(
     IPlayerRepository playerRepository,
