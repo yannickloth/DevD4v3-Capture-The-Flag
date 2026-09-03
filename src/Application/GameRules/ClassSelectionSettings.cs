@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.ClassSelection;
+﻿namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Represents settings for class selection.

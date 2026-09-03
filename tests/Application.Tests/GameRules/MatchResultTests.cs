@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Teams;
+﻿namespace CTF.Application.Tests.GameRules;
 
 /// <summary>Tests for MatchResult.</summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: MatchResult); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>

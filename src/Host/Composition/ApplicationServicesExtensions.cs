@@ -10,6 +10,7 @@ public static class ApplicationServicesExtensions
             .AddPlayerServices()
             .AddMapServices(GameModePaths.Maps)
             .AddTeamServices()
+            .AddGameRulesServices()
             .AddGunGameServices();
 
         return services;

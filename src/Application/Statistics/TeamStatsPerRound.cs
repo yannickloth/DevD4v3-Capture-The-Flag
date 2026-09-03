@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Statistics;
+﻿namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Represents the per-round statistics for a team.

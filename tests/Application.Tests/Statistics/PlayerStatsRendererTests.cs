@@ -2,7 +2,7 @@ namespace CTF.Application.Tests.Statistics;
 
 /// <summary>Tests for PlayerStatsRenderer.GetStatsAsText.</summary>
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsRenderer.GetStatsAsText); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
-public class PlayerStatsFormatterTests
+public class PlayerStatsRendererTests
 {
     [Test]
     public void GetStatsAsText_WhenStatsAreObtained_ShouldReturnValidStringFormat()

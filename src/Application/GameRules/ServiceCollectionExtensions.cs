@@ -1,14 +1,14 @@
-﻿namespace CTF.Application.Teams.Flags;
+namespace CTF.Application.GameRules;
 
 /// <summary>
-/// Registers flag services with the DI container.
+/// Registers game-rules services with the DI container.
 /// </summary>
 /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
-public static class FlagServicesExtensions
+public static class GameRulesServicesExtensions
 {
-    /// <summary>Registers the flag event handlers and supporting services.</summary>
+    /// <summary>Registers the flag event handlers and supporting game-rules services.</summary>
     /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
-    public static IServiceCollection AddFlagServices(this IServiceCollection services)
+    public static IServiceCollection AddGameRulesServices(this IServiceCollection services)
     {
         services
             .AddFlagEvent<OnFlagAtBasePosition>()

@@ -6,7 +6,7 @@
 /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
 public static class TeamServicesExtensions
 {
-    /// <summary>Registers the team services and flag services.</summary>
+    /// <summary>Registers the team services.</summary>
     /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
     public static IServiceCollection AddTeamServices(this IServiceCollection services)
     {
@@ -16,8 +16,7 @@ public static class TeamServicesExtensions
             .AddSingleton<TeamTextDrawRenderer>()
             .AddSingleton<TeamBalancer>()
             .AddSingleton<MatchResultAnnouncer>()
-            .AddSingleton<ClassSelectionTextDrawRenderer>()
-            .AddFlagServices();
+            .AddSingleton<ClassSelectionTextDrawRenderer>();
 
         return services;
     }
