@@ -8,7 +8,7 @@ public class WeaponSelectionSystem(
     ActiveWeaponCatalog weaponCatalog) : ISystem
 {
     [Event]
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-03</remarks>
     public void OnPlayerConnect(Player player)
     {
         player.AddComponent<WeaponSelectionComponent>();

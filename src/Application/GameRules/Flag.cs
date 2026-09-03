@@ -142,7 +142,7 @@ public class Flag
     /// <summary>
     /// Removes the flag that the player is holding.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: attached-object removal)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object removal) → CD-02</remarks>
     private void RemoveCarrier()
     {
         if (Carrier is not null)

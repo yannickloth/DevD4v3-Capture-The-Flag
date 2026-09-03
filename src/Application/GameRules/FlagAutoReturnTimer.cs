@@ -47,7 +47,7 @@ public class FlagAutoReturnTimer(
     }
 
     /// <summary>Stops the auto-return timer for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: timers)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag auto-return rule); CD-01 (open.mp/SampSharp platform API: timers) → CD-02</remarks>
     public void Stop(Team team) 
     { 
         if (team.Id == TeamId.Alpha && _alphaTeamTimer is not null) 

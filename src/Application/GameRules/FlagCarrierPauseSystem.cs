@@ -15,7 +15,7 @@ public class FlagCarrierPauseSystem(
     FlagCarrierSettings flagCarrierSettings) : ISystem
 {
     /// <summary>Stops the pause timer when a carrier disconnects.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: OnPlayerDisconnect, timers)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect, timers) → CD-02</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
