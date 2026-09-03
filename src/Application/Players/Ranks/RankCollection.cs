@@ -33,70 +33,51 @@ public class RankCollection
 
     /// <summary>Gets all rank tiers.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public static IReadOnlyList<IRank> GetAll() => s_ranks;
+    public static IReadOnlyList<Rank> GetAll() => s_ranks;
 
     /// <summary>Gets the rank tier by its identifier.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public static Result<IRank> GetById(RankId id)
+    public static Result<Rank> GetById(RankId id)
     {
         if ((int)id < 0 || (int)id >= Count)
-            return Result<IRank>.Failure(Messages.InvalidRank);
+            return Result<Rank>.Failure(Messages.InvalidRank);
 
         Rank rank = s_ranks[(int)id];
-        return Result<IRank>.Success(rank);
+        return Result<Rank>.Success(rank);
     }
 
     /// <summary>Gets the rank tier corresponding to the given total kills.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public static Result<IRank> GetByRequiredKills(int value)
+    public static Result<Rank> GetByRequiredKills(int value)
     {
         if (value < 0)
-            return Result<IRank>.Failure(Messages.ValueCannotBeNegative);
+            return Result<Rank>.Failure(Messages.ValueCannotBeNegative);
 
-        foreach (IRank rank in s_ranks)
+        foreach (Rank rank in s_ranks)
         {
             if (rank.IsMax())
                 break;
 
-            IRank nextRank = GetNextRank(rank.Id).Value;
+            Rank nextRank = GetNextRank(rank.Id).Value;
             if (value >= rank.RequiredKills && value < nextRank.RequiredKills)
-                return Result<IRank>.Success(rank);
+                return Result<Rank>.Success(rank);
         }
 
-        IRank maxRank = s_ranks[Count - 1];
-        return Result<IRank>.Success(maxRank);
+        Rank maxRank = s_ranks[Count - 1];
+        return Result<Rank>.Success(maxRank);
     }
 
     /// <summary>Gets the next rank tier after the given rank.</summary>
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    public static Result<IRank> GetNextRank(RankId previous)
+    public static Result<Rank> GetNextRank(RankId previous)
     {
         if ((int)previous < 0 || (int)previous >= Count)
-            return Result<IRank>.Failure(Messages.InvalidRank);
+            return Result<Rank>.Failure(Messages.InvalidRank);
 
         Rank rank = ((int)previous + 1 == Count) ? 
             Rank.None :
             s_ranks[(int)previous + 1];
 
-        return Result<IRank>.Success(rank);
-    }
-
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
-    private class Rank : IRank
-    {
-        public static readonly Rank None = new();
-        public RankId Id { get; } = (RankId)(-1);
-        public string Name { get; } = "None";
-        public int RequiredKills { get; }
-
-        public Rank() { }
-        public Rank(RankId id, int requiredKills)
-        {
-            Id = id;
-            Name = id.ToString();
-            RequiredKills = requiredKills;
-        }
-        public bool IsMax() => Count == (int)Id + 1;
-        public bool IsNotMax() => !IsMax();
+        return Result<Rank>.Success(rank);
     }
 }

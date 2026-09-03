@@ -14,7 +14,7 @@ public class RankCollectionTests
         string expectedMessage = Messages.InvalidRank;
 
         // Act
-        Result<IRank> result = RankCollection.GetById(rankId);
+        Result<Rank> result = RankCollection.GetById(rankId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
@@ -29,7 +29,7 @@ public class RankCollectionTests
         string expectedRank = rankId.ToString();
 
         // Act
-        Result<IRank> result = RankCollection.GetById(rankId);
+        Result<Rank> result = RankCollection.GetById(rankId);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
@@ -45,7 +45,7 @@ public class RankCollectionTests
         string expectedMessage = Messages.InvalidRank;
 
         // Act
-        Result<IRank> result = RankCollection.GetNextRank(rankId);
+        Result<Rank> result = RankCollection.GetNextRank(rankId);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
@@ -60,7 +60,7 @@ public class RankCollectionTests
         string expectedNextRank = RankId.Medium.ToString();
 
         // Act
-        Result<IRank> result = RankCollection.GetNextRank(previousRank);
+        Result<Rank> result = RankCollection.GetNextRank(previousRank);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
@@ -75,7 +75,7 @@ public class RankCollectionTests
         string expectedNextRank = "None";
 
         // Act
-        Result<IRank> result = RankCollection.GetNextRank(previousRank);
+        Result<Rank> result = RankCollection.GetNextRank(previousRank);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();
@@ -90,7 +90,7 @@ public class RankCollectionTests
         int kills = -1;
 
         // Act
-        Result<IRank> result = RankCollection.GetByRequiredKills(kills);
+        Result<Rank> result = RankCollection.GetByRequiredKills(kills);
 
         // Asserts
         result.IsSuccess.Should().BeFalse();
@@ -103,7 +103,7 @@ public class RankCollectionTests
         // Arrange
 
         // Act
-        Result<IRank> result = RankCollection.GetByRequiredKills(rank.Kills);
+        Result<Rank> result = RankCollection.GetByRequiredKills(rank.Kills);
 
         // Asserts
         result.IsSuccess.Should().BeTrue();

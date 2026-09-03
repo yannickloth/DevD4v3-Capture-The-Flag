@@ -281,18 +281,18 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public bool CanMoveUpToNextRank()
     {
-        IRank currentRank = RankCollection.GetById(RankId).Value;
+        Rank currentRank = RankCollection.GetById(RankId).Value;
         if (currentRank.IsMax())
             return false;
 
-        IRank nextRank = RankCollection.GetNextRank(RankId).Value;
+        Rank nextRank = RankCollection.GetNextRank(RankId).Value;
         return TotalKills >= nextRank.RequiredKills;
     }
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public string GetStatsAsText()
     {
-        Result<IRank> rankResult = RankCollection.GetById(RankId);
+        Result<Rank> rankResult = RankCollection.GetById(RankId);
         var stats = new
         {
             StatsPerRound.Kills,

@@ -28,7 +28,7 @@ public class PlayerKillsSystem(
             return;
         }
 
-        IRank rank = RankCollection.GetByRequiredKills(kills).Value;
+        Rank rank = RankCollection.GetByRequiredKills(kills).Value;
         if (rank.Id != targetPlayerInfo.RankId)
         {
             targetPlayerInfo.SetRank(rank.Id);

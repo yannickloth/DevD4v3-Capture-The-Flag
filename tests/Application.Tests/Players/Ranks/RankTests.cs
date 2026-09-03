@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Ranks;
 
-/// <summary>Tests for IRank.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: IRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+/// <summary>Tests for Rank.</summary>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: Rank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
 public class RankTests
 {
     [Test]
@@ -9,8 +9,8 @@ public class RankTests
     {
         // Arrange
         RankId rankId = RankId.Legendary;
-        Result<IRank> result = RankCollection.GetById(rankId);
-        IRank rank = result.Value;
+        Result<Rank> result = RankCollection.GetById(rankId);
+        Rank rank = result.Value;
 
         // Act
         bool actual = rank.IsMax();
@@ -24,8 +24,8 @@ public class RankTests
     {
         // Arrange
         RankId rankId = RankId.Junior;
-        Result<IRank> result = RankCollection.GetById(rankId);
-        IRank rank = result.Value;
+        Result<Rank> result = RankCollection.GetById(rankId);
+        Rank rank = result.Value;
 
         // Act
         bool actual = rank.IsMax();
@@ -39,8 +39,8 @@ public class RankTests
     {
         // Arrange
         RankId rankId = RankId.Junior;
-        Result<IRank> result = RankCollection.GetById(rankId);
-        IRank rank = result.Value;
+        Result<Rank> result = RankCollection.GetById(rankId);
+        Rank rank = result.Value;
 
         // Act
         bool actual = rank.IsNotMax();
@@ -54,8 +54,8 @@ public class RankTests
     {
         // Arrange
         RankId rankId = RankId.Legendary;
-        Result<IRank> result = RankCollection.GetById(rankId);
-        IRank rank = result.Value;
+        Result<Rank> result = RankCollection.GetById(rankId);
+        Rank rank = result.Value;
 
         // Act
         bool actual = rank.IsNotMax();

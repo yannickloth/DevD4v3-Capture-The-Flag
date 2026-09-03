@@ -24,7 +24,7 @@ public class RankSystem : ISystem
             columnHeaders);
 
         var ranks = RankCollection.GetAll();
-        foreach (IRank rank in ranks)
+        foreach (Rank rank in ranks)
             _tablistDialog.Add(rank.Name, rank.RequiredKills.ToString());
     }
 

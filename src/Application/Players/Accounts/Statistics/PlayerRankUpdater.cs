@@ -17,7 +17,7 @@ public class PlayerRankUpdater(
         if (!playerInfo.CanMoveUpToNextRank())
             return;
 
-        IRank nextRank = RankCollection.GetNextRank(playerInfo.RankId).Value;
+        Rank nextRank = RankCollection.GetNextRank(playerInfo.RankId).Value;
         playerInfo.SetRank(nextRank.Id);
         playerRepository.UpdateRank(playerInfo);
         player.SendClientMessage(Color.Yellow, Smart.Format(Messages.NextRank, nextRank));
