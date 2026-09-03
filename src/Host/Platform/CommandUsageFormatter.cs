@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Services;
+﻿namespace CTF.Host.Platform;
 
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
 public class CommandUsageFormatter : ICommandTextFormatter

@@ -4,7 +4,7 @@
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("SampSharp.SourceGenerator", "1.0.0.0")]
     public static class Entrypoint
     {
-        private static readonly global::CTF.Host.Startup _startup = new();
+        private static readonly global::CTF.Host.Composition.Startup _startup = new();
         private static SampSharp.OpenMp.Core.StartupContext _context;
         /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-22 (hosting/deployment spec) → CD-01</remarks>
         [global::System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute]

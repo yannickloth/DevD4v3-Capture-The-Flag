@@ -1,4 +1,4 @@
-﻿namespace CTF.Host;
+﻿namespace CTF.Host.Composition;
 
 /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01; CD-17 (game configuration/.env schema) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
 public class Startup : IEcsStartup

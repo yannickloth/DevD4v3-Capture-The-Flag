@@ -1,9 +1,9 @@
-﻿namespace CTF.Host.Extensions;
+﻿namespace CTF.Host.Composition;
 
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
+/// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-01 (open.mp/SampSharp platform API: IEcsBuilder, event/middleware wiring) → CD-21</remarks>
 public static class HostEcsBuilderExtensions
 {
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-01 (open.mp/SampSharp platform API: IEcsBuilder, event/middleware wiring) → CD-21</remarks>
     public static IEcsBuilder RegisterPauseEventHandlers(this IEcsBuilder builder) 
     {
         var playerPauseSystem = builder.Services.GetRequiredService<PlayerPauseSystem>();
@@ -12,7 +12,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-01 (open.mp/SampSharp platform API: IEcsBuilder, event/middleware wiring) → CD-21</remarks>
     public static IEcsBuilder RegisterMapEventHandlers(this IEcsBuilder builder)
     {
         var mapRotationService = builder.Services.GetRequiredService<MapRotationService>();
@@ -25,7 +25,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-01 (open.mp/SampSharp platform API: IEcsBuilder, event/middleware wiring) → CD-21</remarks>
     public static IEcsBuilder RegisterTeamEventHandlers(this IEcsBuilder builder)
     {
         var teamSelectionSystem = builder.Services.GetRequiredService<TeamSelectionSystem>();
@@ -34,7 +34,7 @@ public static class HostEcsBuilderExtensions
         return builder;
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-21 (DI container/composition) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-01 (open.mp/SampSharp platform API: IEcsBuilder, event/middleware wiring) → CD-21</remarks>
     public static IEcsBuilder RegisterMiddlewares(this IEcsBuilder builder)
     {
         builder

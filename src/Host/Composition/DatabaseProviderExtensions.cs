@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Extensions;
+﻿namespace CTF.Host.Composition;
 
 /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-17 (game configuration/.env schema) → CD-21; CD-19 (MariaDB SQL dialect) → CD-21; CD-30 (SQLite SQL dialect) → CD-21</remarks>
 public static class DatabaseProviderExtensions

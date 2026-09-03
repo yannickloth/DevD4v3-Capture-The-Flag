@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
 
-namespace CTF.Host.Services;
+namespace CTF.Host.Discord;
 
 /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-17 (game configuration/.env schema) → CD-24; CD-21 (DI container/composition) → CD-24</remarks>
 public class DiscordWebhookClient : IDiscordWebhookClient
