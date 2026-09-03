@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.TopPlayers;
+﻿namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Provides the top-players leaderboard commands.

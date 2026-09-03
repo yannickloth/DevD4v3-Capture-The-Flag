@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.TopPlayers;
+﻿namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Represents the maximum number of top players allowed.
