@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Accounts.Statistics;
+﻿namespace CTF.Application.CoinEconomy;
 
 /// <remarks>Change drivers: CD-06 (root; coin economy); CD-15 (command set) → CD-06; CD-09 (authorization policy) → CD-06; CD-17 (game configuration/.env schema) → CD-06; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-06; CD-01 (open.mp/SampSharp platform API) → CD-06</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; worldService -> CD-01; playerStatsRenderer -> CD-10; unixTimeSeconds -> CD-01; commandCooldowns -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
