@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Combos;
+﻿namespace CTF.Application.Combos;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-09 (authorization policy) → CD-05; CD-17 (game configuration/.env schema) → CD-05; CD-12 (map-rotation rules) → CD-05; CD-01 (open.mp/SampSharp platform API) → CD-05</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; comboSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

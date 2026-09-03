@@ -20,7 +20,7 @@ global using CTF.Application.Authorization;
 global using CTF.Application.Players.Weapons.Catalogs;
 global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.GameRules;
-global using CTF.Application.Players.Combos;
+global using CTF.Application.Combos;
 global using CTF.Application.AntiCheat;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Combat;

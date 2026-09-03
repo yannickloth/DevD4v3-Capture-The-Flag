@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Combos.Definitions;
+﻿namespace CTF.Application.Combos;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
 public class GrenadesVitality : ICombo

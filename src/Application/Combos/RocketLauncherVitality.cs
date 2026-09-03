@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Combos.Definitions;
+﻿namespace CTF.Application.Combos;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-17 (game configuration/.env schema) → CD-05</remarks>
 /// <remarks>Injected dependencies: comboSettings -> CD-17. Driven by the ComboSettings (config) contract + CD-21 (DI wiring).</remarks>

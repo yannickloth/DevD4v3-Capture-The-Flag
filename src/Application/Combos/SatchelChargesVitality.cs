@@ -1,14 +1,14 @@
-﻿namespace CTF.Application.Players.Combos.Definitions;
+﻿namespace CTF.Application.Combos;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
-public class MolotovVitality : ICombo
+public class SatchelChargesVitality : ICombo
 {
     private const int Health = 100;
     private const int Armour = 100;
-    private const int MolotovAmmo = 6;
+    private const int SatchelAmmo = 6;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
-    public string Name => $"{Health} Health, {Armour} Armour and Molotov cocktail";
+    public string Name => $"{Health} Health, {Armour} Armour and Satchel charges";
     /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
     public int RequiredCoins => 100;
 
@@ -18,7 +18,8 @@ public class MolotovVitality : ICombo
         PlayerInfo playerInfo = player.GetRequiredInfo();
         player.Health = Health;
         player.Armour = Armour;
-        player.GiveWeapon(Weapon.Moltov, MolotovAmmo);
+        player.GiveWeapon(Weapon.SatchelCharge, SatchelAmmo);
+        player.GiveWeapon(Weapon.Detonator, 1);
         playerInfo.StatsPerRound.ResetCoins();
         return Result.Success();
     }

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Combos;
+﻿namespace CTF.Application.Combos;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-21 (DI container/composition) → CD-05</remarks>
 public static class ComboServicesExtensions
