@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTF.Application.Players.GeneralCommands {
+namespace CTF.Application.Commands {
     using System;
     
     

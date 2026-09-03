@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.GeneralCommands;
+﻿namespace CTF.Application.Commands;
 
 /// <summary>
 /// Provides the moderator-role command set.
