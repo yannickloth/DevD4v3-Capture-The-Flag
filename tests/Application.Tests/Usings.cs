@@ -16,6 +16,7 @@ global using CTF.Application.Players.Accounts.Statistics;
 global using CTF.Application.Players.Accounts.Authentication;
 global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Players.Vitalities;
+global using CTF.Application.Players.Combat;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.Matches;

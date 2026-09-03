@@ -31,6 +31,7 @@ global using CTF.Application.Players.Combos.Definitions;
 global using CTF.Application.Players.Chats;
 global using CTF.Application.Players.Chats.Definitions;
 global using CTF.Application.Players.Vitalities;
+global using CTF.Application.Players.Combat;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.ClassSelection;
 global using CTF.Application.Teams.Flags;
