@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.Catalogs;
+﻿namespace CTF.Application.WeaponCatalogs;
 
 /// <summary>
 /// Represents the available weapon catalogs.

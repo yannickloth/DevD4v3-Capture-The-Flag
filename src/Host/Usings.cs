@@ -18,6 +18,7 @@ global using CTF.Application.Players;
 global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Authorization;
 global using CTF.Application.Players.Weapons.Catalogs;
+global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Players.Pause;
 global using CTF.Application.Players.Combos;
 global using CTF.Application.Players.AntiCBug;

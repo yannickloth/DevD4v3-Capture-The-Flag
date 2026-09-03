@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.Catalogs;
+﻿namespace CTF.Application.WeaponCatalogs;
 
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
 public class RifleOnlyWeaponCatalog : WeaponCatalog

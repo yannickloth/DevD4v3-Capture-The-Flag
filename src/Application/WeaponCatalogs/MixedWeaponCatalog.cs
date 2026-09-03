@@ -1,27 +1,31 @@
-﻿namespace CTF.Application.Players.Weapons.Catalogs;
+﻿namespace CTF.Application.WeaponCatalogs;
 
 /// <summary>
-/// Defines a weapon catalog that restricts player mobility while fighting.
+/// Defines a weapon catalog that combines the Walking and Run weapon catalogs.
 /// </summary>
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
 /// <remarks>
-/// Players can only walk while using most weapons in this catalog.
+/// This catalog contains all weapons available from both categories.
 /// </remarks>
-public class WalkingWeaponCatalog : WeaponCatalog
+public class MixedWeaponCatalog : WeaponCatalog
 {
     /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
-    public override WeaponCatalogType Type => WeaponCatalogType.Walking;
+    public override WeaponCatalogType Type => WeaponCatalogType.Mixed;
 
     /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(
         [
+            WeaponDefinitions.Colt45,
             WeaponDefinitions.Silenced,
             WeaponDefinitions.Deagle,
             WeaponDefinitions.Shotgun,
             WeaponDefinitions.CombatShotgun,
+            WeaponDefinitions.Sawedoff,
             WeaponDefinitions.MP5,
+            WeaponDefinitions.Uzi,
+            WeaponDefinitions.Tec9,
             WeaponDefinitions.AK47,
             WeaponDefinitions.M4,
             WeaponDefinitions.SniperRifle,

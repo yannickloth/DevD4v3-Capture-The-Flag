@@ -13,6 +13,7 @@ global using CTF.Application.Platform;
 global using CTF.Application.Statistics;
 global using CTF.Application.Players.Weapons;
 global using CTF.Application.Players.Weapons.Catalogs;
+global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Players.Accounts.Statistics;
 global using CTF.Application.Players.Accounts.Authentication;

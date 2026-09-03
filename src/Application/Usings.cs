@@ -28,6 +28,7 @@ global using CTF.Application.Players.Accounts.Roles;
 global using CTF.Application.Authorization;
 global using CTF.Application.Players.Weapons;
 global using CTF.Application.Players.Weapons.Catalogs;
+global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Statistics;
 global using CTF.Application.Players.Combos;
 global using CTF.Application.Players.Combos.Definitions;
