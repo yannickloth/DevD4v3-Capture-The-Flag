@@ -1,6 +1,6 @@
 ﻿namespace CTF.Host.Platform;
 
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-17 (game configuration/.env schema) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
+/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: IEcsStartup lifecycle); CD-17 (game configuration/.env schema) → CD-01; CD-21 (DI container/composition) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
 public class Startup : IEcsStartup
 {
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
@@ -15,7 +15,7 @@ public class Startup : IEcsStartup
             });
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-17 (game configuration/.env schema) → CD-01; CD-23 (Serilog logging) → CD-01; CD-24 (Discord webhook contract) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition: adapter/singleton registrations); CD-01 (open.mp/SampSharp platform API: IEcsStartup contract) → CD-21; CD-17 (game configuration/.env schema) → CD-21; CD-23 (Serilog logging) → CD-21; CD-24 (Discord webhook contract) → CD-21</remarks>
     public void ConfigureServices(IServiceCollection services, IConfiguration _)
     {
         new EnvLoader()
