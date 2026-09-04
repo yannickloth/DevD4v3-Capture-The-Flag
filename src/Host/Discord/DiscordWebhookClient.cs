@@ -5,7 +5,7 @@ namespace CTF.Host.Discord;
 /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-23 (Serilog logging) → CD-24</remarks>
 public class DiscordWebhookClient : IDiscordWebhookClient
 {
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-23 (Serilog logging) → CD-24</remarks>
+    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract: Serilog logging)</remarks>
     private readonly ILogger<DiscordWebhookClient> _logger;
     /// <remarks>Change drivers: CD-24 (root; Discord webhook contract)</remarks>
     private readonly HttpClient _httpClient;

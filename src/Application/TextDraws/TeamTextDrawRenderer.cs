@@ -6,19 +6,19 @@
 /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team score/members/flag identity) → CD-34; CD-10 (player-statistics/rank model) → CD-34; CD-36 (client-message API) → CD-34</remarks>
 public class TeamTextDrawRenderer
 {
-    /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation via IWorldService)</remarks>
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team flag identity) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team flag sprite textdraw)</remarks>
     private TextDraw _redFlag;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team flag identity) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team flag sprite textdraw)</remarks>
     private TextDraw _blueFlag;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-10 (player-statistics/rank model: team score) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
     private TextDraw _alphaScore;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-10 (player-statistics/rank model: team score) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
     private TextDraw _betaScore;
 
     /// <remarks>Change drivers: CD-34 (root; textdraw API: sprite/preview model)</remarks>
@@ -27,13 +27,13 @@ public class TeamTextDrawRenderer
     /// <remarks>Change drivers: CD-34 (root; textdraw API: sprite/preview model)</remarks>
     private TextDraw _blueRic;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team membership) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
     private TextDraw _alphaTeamMembers;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team membership) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
     private TextDraw _betaTeamMembers;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team score/members/flag identity) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public TeamTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
@@ -69,7 +69,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Updates the team score textdraw.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-10 (player-statistics/rank model: team score) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
     public void UpdateTeamScore(Team team)
     {
         if (team.Id == TeamId.Alpha)
@@ -83,12 +83,12 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Formats the team's score for display in a textdraw.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team score); CD-02 (CTF game-rules specification: team identity) → CD-10; CD-34 (textdraw) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: score text formatting)</remarks>
     public static string GetScoreAsText(Team team)
         => team == Team.None ? string.Empty : $"{team.Name}: {team.StatsPerRound.Score}";
 
     /// <summary>Updates the team members textdraw.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team membership) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
     public void UpdateTeamMembers(Team team)
     {
         if (team.Id == TeamId.Alpha)
@@ -101,7 +101,7 @@ public class TeamTextDrawRenderer
         }
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation); CD-02 (CTF game-rules specification: team colors/flag sprites) → CD-34</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation)</remarks>
     private void Initialize()
     {
         _redFlag = _worldService.CreateTextDraw(new Vector2(-6.000000f, 302.000000f), string.Empty);
