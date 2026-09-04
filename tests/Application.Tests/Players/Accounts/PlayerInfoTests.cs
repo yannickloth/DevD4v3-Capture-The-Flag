@@ -25,6 +25,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetRank_WhenRankIdIsValid_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -40,6 +41,7 @@ public class PlayerInfoTests
     }
 
     [TestCaseSource(nameof(InvalidSkinCases))]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetSkin_WhenSkinIdIsInvalid_ShouldReturnFailureResult(int skinId)
     {
         // Arrange
@@ -55,6 +57,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetSkin_WhenSkinIdIsValid_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -72,6 +75,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetTotalKills_WhenArgumentIsNegative_ShouldReturnFailureResult()
     {
         // Arrange
@@ -89,6 +93,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetTotalKills_WhenArgumentIsPositive_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -104,6 +109,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddTotalKills_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -119,6 +125,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetTotalDeaths_WhenArgumentIsNegative_ShouldReturnFailureResult()
     {
         // Arrange
@@ -136,6 +143,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void SetTotalDeaths_WhenArgumentIsPositive_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -151,6 +159,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddTotalDeaths_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -166,6 +175,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddHeadShots_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -181,6 +191,7 @@ public class PlayerInfoTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo); CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddGunGameWins_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange

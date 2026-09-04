@@ -10,6 +10,7 @@ public class FakePlayer : Player
     private string _name;
     private readonly int _id;
 
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public FakePlayer(int id, string name, TeamId team = TeamId.NoTeam) 
         : base(Substitute.For<IOmpEntityProvider>(), default)
     {
@@ -24,9 +25,13 @@ public class FakePlayer : Player
         [Obsolete("Use SetName(string) instead")]
         set => SetName(value);
     }
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override int Team { get; set; }
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override int Id => _id;
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override bool RemoveAttachedObject(int index) => true;
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override bool SetAttachedObject(
         int index,
         int modelId,
@@ -37,6 +42,7 @@ public class FakePlayer : Player
         Color materialColor1,
         Color materialColor2) => true;
 
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override void SetName(string name)
     {
         _name = name;

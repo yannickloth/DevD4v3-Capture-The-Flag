@@ -20,6 +20,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void AddKillsTowardsNextLevel_WhenInvoked_ShouldIncreaseKillsTowardsNextLevel()
     {
         // Arrange
@@ -33,6 +34,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void CanLevelUp_WhenRequiredKillsHaveNotBeenReached_ShouldReturnFalse()
     {
         // Arrange
@@ -49,6 +51,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void CanLevelUp_WhenRequiredKillsAreReached_ShouldReturnTrue()
     {
         // Arrange
@@ -66,6 +69,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void CanLevelUp_WhenRequiredKillsHaveBeenExceeded_ShouldReturnTrue()
     {
         // Arrange
@@ -84,6 +88,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelUp_WhenPlayerIsBelowMaxLevel_ShouldAdvanceToNextLevel()
     {
         // Arrange
@@ -97,6 +102,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelUp_WhenPlayerIsAtMaxLevel_ShouldRemainAtMaxLevel()
     {
         // Arrange
@@ -114,6 +120,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelUp_WhenInvoked_ShouldResetKillsTowardsNextLevel()
     {
         // Arrange
@@ -130,6 +137,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelDown_WhenPlayerIsAboveFirstLevel_ShouldMoveToPreviousLevel()
     {
         // Arrange
@@ -146,6 +154,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelDown_WhenPlayerIsAtFirstLevel_ShouldRemainAtFirstLevel()
     {
         // Arrange
@@ -159,6 +168,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void LevelDown_WhenInvoked_ShouldResetKillsTowardsNextLevel()
     {
         // Arrange
@@ -176,6 +186,7 @@ public class PlayerProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: PlayerProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void Reset_WhenInvoked_ShouldRestoreInitialProgression()
     {
         // Arrange

@@ -25,6 +25,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Constructor_WhenAlphaTeamLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -46,6 +47,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Constructor_WhenBetaTeamLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -67,6 +69,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Constructor_WhenFlagLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -88,6 +91,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Constructor_WhenAlphaTeamLocationsIsEmpty_ShouldThrowArgumentException()
     {
         // Arrange
@@ -109,6 +113,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Constructor_WhenBetaTeamLocationsIsEmpty_ShouldThrowArgumentException()
     {
         // Arrange
@@ -130,6 +135,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetMapNameAsText_WhenNameIsObtained_ShouldReturnValidStringFormat()
     {
         // Arrange
@@ -148,6 +154,7 @@ public class CurrentMapTests
 
     [TestCase(TeamId.Alpha)]
     [TestCase(TeamId.Beta)]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetRandomSpawnLocation_WhenTeamIsAlphaOrBeta_ShouldReturnSpawnLocation(TeamId team)
     {
         // Arrange
@@ -165,6 +172,7 @@ public class CurrentMapTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetRandomSpawnLocation_WhenTeamIsNotAlphaOrBeta_ShouldThrowNotSupportedException()
     {
         // Arrange

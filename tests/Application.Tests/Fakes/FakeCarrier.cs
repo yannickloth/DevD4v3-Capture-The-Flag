@@ -19,5 +19,6 @@ public class FakeCarrier : Player
         Color materialColor1,
         Color materialColor2) => true;
 
+    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
     public override bool RemoveAttachedObject(int index) => true;
 }

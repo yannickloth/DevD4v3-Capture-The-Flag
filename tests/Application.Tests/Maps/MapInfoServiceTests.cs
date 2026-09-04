@@ -23,6 +23,7 @@ public class MapInfoServiceTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Load_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -40,6 +41,7 @@ public class MapInfoServiceTests
     }
 
     [TestCaseSource(typeof(MapInfoServiceTestCases))]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void Load_WhenMapIsLoadedFromFileSystem_ShouldCreateInstanceOfTypeCurrentMap(CurrentMap expectedCurrentMap)
     {
         // Arrange

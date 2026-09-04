@@ -20,6 +20,7 @@ public class PlayerRankExtensionsTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerRankExtensions.HasRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void HasRank_WhenRankIsNotNoob_ShouldReturnFalse()
     {
         // Arrange

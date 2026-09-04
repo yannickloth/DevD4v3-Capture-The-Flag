@@ -12,6 +12,7 @@ public class MatchResultTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: MatchResult); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Create_WhenAlphaTeamWins_ShouldReturnAlphaAsWinner()
     {
         // Arrange
@@ -26,6 +27,7 @@ public class MatchResultTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: MatchResult); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Create_WhenBetaTeamWins_ShouldReturnBetaAsWinner()
     {
         // Arrange
@@ -40,6 +42,7 @@ public class MatchResultTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: MatchResult); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Create_WhenNoTeamWins_ShouldReturnTieResult()
     {
         // Arrange

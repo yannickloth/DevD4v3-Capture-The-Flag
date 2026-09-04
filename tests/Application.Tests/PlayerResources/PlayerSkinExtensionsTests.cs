@@ -19,6 +19,7 @@ public class PlayerSkinExtensionsTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-44; CD-27 (FluentAssertions contract) → CD-44</remarks>
     public void HasSkin_WhenPlayerHasNoAssignedSkin_ShouldReturnFalse()
     {
         // Arrange

@@ -11,6 +11,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenPlayerIsNotAssignedToAnyTeam_ShouldReturnFalse()
     {
         // Arrange
@@ -29,6 +30,7 @@ public class IsCarryingEnemyFlagTests
     [TestCase("Bob")]
     [TestCase("BOB")]
     [TestCase("bob")]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnTrue(string playerName)
     {
         // Arrange
@@ -49,6 +51,7 @@ public class IsCarryingEnemyFlagTests
     [TestCase("Bob")]
     [TestCase("BOB")]
     [TestCase("bob")]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnTrue(string playerName)
     {
         // Arrange
@@ -67,6 +70,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenAnotherPlayerFromTheAlphaTeamIsCarryingTheBetaFlag_ShouldReturnFalse()
     {
         // Arrange
@@ -86,6 +90,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenAnotherPlayerFromTheBetaTeamIsCarryingTheAlphaFlag_ShouldReturnFalse()
     {
         // Arrange
@@ -105,6 +110,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenPlayerFromTheAlphaTeamTakesADroppedBetaFlag_ShouldReturnTrue()
     {
         // Arrange
@@ -128,6 +134,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenPlayerFromTheBetaTeamTakesADroppedAlphaFlag_ShouldReturnTrue()
     {
         // Arrange
@@ -151,6 +158,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenTheAlphaFlagHasNoCarrier_ShouldReturnFalse()
     {
         // Arrange
@@ -167,6 +175,7 @@ public class IsCarryingEnemyFlagTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag.IsCarriedBy); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsCarriedBy_WhenTheBetaFlagHasNoCarrier_ShouldReturnFalse()
     {
         // Arrange

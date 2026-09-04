@@ -17,6 +17,7 @@ public class MapCollectionTests
     [TestCase("DE")]
     [TestCase("dE")]
     [TestCase("De")]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetAll_WhenAllMapsAreObtainedWithFindBy_ShouldReturnEnumerable(string findBy)
     {
         // Arrange
@@ -43,6 +44,7 @@ public class MapCollectionTests
     }
 
     [TestCaseSource(nameof(InvalidMapCases))]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetById_WhenMapIdIsInvalid_ShouldReturnFailureResult(int mapId)
     {
         // Arrange
@@ -57,6 +59,7 @@ public class MapCollectionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetById_WhenMapIdEqualsCount_ShouldReturnFailureResult()
     {
         // Arrange
@@ -75,6 +78,7 @@ public class MapCollectionTests
     [TestCase(2)]
     [TestCase(3)]
     [TestCase(4)]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetById_WhenMapIdIsValid_ShouldReturnSuccessResult(int mapId)
     {
         // Act
@@ -87,6 +91,7 @@ public class MapCollectionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetByName_WhenMapNameIsNotFound_ShouldReturnFailureResult()
     {
         // Arrange
@@ -104,6 +109,7 @@ public class MapCollectionTests
     [TestCase("de_aztec")]
     [TestCase("DE_AZTEC")]
     [TestCase("De_Aztec")]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetByName_WhenMapNameIsFound_ShouldReturnSuccessResult(string mapName)
     {
         // Arrange
@@ -126,6 +132,7 @@ public class MapCollectionTests
     [TestCase(6, 7)]
     [TestCase(7, 8)]
     [TestCase(31, 32)]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetNext_WhenMapExists_ShouldReturnNextMap(int currentId, int expectedId)
     {
         // Arrange
@@ -139,6 +146,7 @@ public class MapCollectionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-11 (root; map configuration: MapCollection); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
     public void GetNext_WhenCurrentMapIsLast_ShouldWrapToFirstMap()
     {
         // Arrange

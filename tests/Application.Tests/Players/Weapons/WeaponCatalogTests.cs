@@ -21,6 +21,7 @@ public class WeaponCatalogTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalog); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04</remarks>
     public void GetById_WhenWeaponIdIsFound_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -38,6 +39,7 @@ public class WeaponCatalogTests
     [TestCase("")]
     [TestCase("  ")]
     [TestCase("Connect")]
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalog); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04</remarks>
     public void GetByName_WhenWeaponNameIsNotFound_ShouldReturnFailureResult(string weaponName)
     {
         // Arrange
@@ -53,6 +55,7 @@ public class WeaponCatalogTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalog); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04</remarks>
     public void GetByName_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -72,6 +75,7 @@ public class WeaponCatalogTests
     [TestCase("DEAGLE")]
     [TestCase("deagle")]
     [TestCase("DeAgLe")]
+    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalog); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04</remarks>
     public void GetByName_WhenWeaponNameIsFound_ShouldReturnSuccessResult(string weaponName)
     {
         // Arrange

@@ -22,6 +22,7 @@ public class PlayerKillingSpreeUpdaterTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void HasSurpassedMaxKillingSpree_WhenNewRecordIsNotAchieved_ShouldReturnFalse()
     {
         // Arrange

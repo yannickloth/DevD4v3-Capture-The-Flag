@@ -18,6 +18,7 @@ public class MaxWeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: MaxWeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void Constructor_WhenValueIsLessThanOne_ShouldThrowArgumentOutOfRangeException()
     {
         // Arrange

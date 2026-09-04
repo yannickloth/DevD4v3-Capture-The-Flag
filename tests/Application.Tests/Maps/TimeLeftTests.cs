@@ -15,6 +15,7 @@ public class TimeLeftTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void IsCompleted_WhenTimeLeftIsCompleted_ShouldReturnTrue()
     {
         // Arrange
@@ -32,6 +33,7 @@ public class TimeLeftTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void IsCompleted_WhenTimeLeftIsNotCompleted_ShouldReturnFalse()
     {
         // Arrange
@@ -52,6 +54,7 @@ public class TimeLeftTests
     [TestCase(-2)]
     [TestCase(61)]
     [TestCase(62)]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void SetInterval_WhenMinutesIntervalIsOutOfRange_ShouldReturnFailureResult(int value)
     {
         // Arrange
@@ -80,6 +83,7 @@ public class TimeLeftTests
     [TestCase(30, "30:00")]
     [TestCase(45, "45:00")]
     [TestCase(60, "60:00")]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void SetInterval_WhenMinutesIntervalIsNotOutOfRange_ShouldReturnSuccessResult(int value, string expectedText)
     {
         // Arrange
@@ -98,6 +102,7 @@ public class TimeLeftTests
     [TestCase(-2)]
     [TestCase(3601)]
     [TestCase(3602)]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void SetInterval_WhenSecondsIntervalIsOutOfRange_ShouldReturnFailureResult(int value)
     {
         // Arrange
@@ -126,6 +131,7 @@ public class TimeLeftTests
     [TestCase(1800, "30:00")]
     [TestCase(2700, "45:00")]
     [TestCase(3600, "60:00")]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void SetInterval_WhenSecondsIntervalIsNotOutOfRange_ShouldReturnSuccessResult(int value, string expectedText)
     {
         // Arrange
@@ -141,6 +147,7 @@ public class TimeLeftTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void Constructor_WhenObjectIsCreated_TextDrawShouldBeTheDefault()
     {
         // Arrange
@@ -154,6 +161,7 @@ public class TimeLeftTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void Reset()
     {
         // Arrange
@@ -170,6 +178,7 @@ public class TimeLeftTests
     }
 
     [TestCaseSource(typeof(DecreaseTimeLeftTestCases))]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void Decrease_WhenTimeRemainingIsNotCompleted_ShouldContinueToDecrease(string expectedText)
     {
         // Arrange
@@ -182,6 +191,7 @@ public class TimeLeftTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
     public void Decrease_WhenTimeRemainingIsZero_ShouldNotContinueToDecrease()
     {
         // Arrange

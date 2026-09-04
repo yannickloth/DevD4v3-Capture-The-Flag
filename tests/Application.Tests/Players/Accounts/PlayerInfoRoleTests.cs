@@ -24,6 +24,7 @@ public class PlayerInfoRoleTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerInfo.SetRole); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
     public void SetRole_WhenRoleIdIsValid_ShouldReturnSuccessResult()
     {
         // Arrange

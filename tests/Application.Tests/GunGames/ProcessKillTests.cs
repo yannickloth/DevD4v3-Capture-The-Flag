@@ -27,6 +27,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenPlayerAtMaxLevelKillsWithKnife_ShouldReturnScoredFinalKill()
     {
         // Arrange
@@ -49,6 +50,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenVictimIsAtFirstLevelAndKilledWithKnife_ShouldReturnNone()
     {
         // Arrange
@@ -66,6 +68,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenVictimIsAboveFirstLevelAndKilledWithKnife_ShouldLevelDownVictim()
     {
         // Arrange
@@ -84,6 +87,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenPlayerAtFirstLevelKillsWithWeaponFromAnotherLevel_ShouldReturnNone()
     {
         // Arrange
@@ -103,6 +107,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenRequiredKillsHaveNotBeenReached_ShouldReturnNone()
     {
         // Arrange
@@ -121,6 +126,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenRequiredKillsAreReached_ShouldReturnLeveledUp()
     {
         // Arrange
@@ -141,6 +147,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenPlayerReachesFinalLevel_ShouldReturnReachedFinalLevel()
     {
         // Arrange
@@ -163,6 +170,7 @@ public class ProcessKillTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: GunGame.ProcessKill); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ProcessKill_WhenPlayerAtFinalLevelKillsWithNonKnifeFinalWeapon_ShouldReturnScoredFinalKill()
     {
         // Arrange

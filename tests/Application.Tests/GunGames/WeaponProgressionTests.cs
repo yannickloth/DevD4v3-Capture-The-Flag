@@ -13,6 +13,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void WeaponProgression_WhenNoWeaponsAreDefined_ShouldThrowInvalidOperationException()
     {
         // Arrange
@@ -27,6 +28,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void GetWeapon_WhenWeaponLevelIsFirst_ShouldReturnFirstWeapon()
     {
         // Arrange
@@ -40,6 +42,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void GetWeapon_WhenWeaponLevelIsSecond_ShouldReturnSecondWeapon()
     {
         // Arrange
@@ -54,6 +57,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void GetWeapon_WhenWeaponLevelIsFinal_ShouldReturnFinalWeapon()
     {
         // Arrange
@@ -70,6 +74,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void GetWeapon_WhenWeaponLevelIsBelowFirst_ShouldThrowInvalidOperationException()
     {
         // Arrange
@@ -86,6 +91,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void MaxLevel_ShouldBeEqualToNumberOfWeapons()
     {
         // Arrange
@@ -98,6 +104,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void IsFinalLevel_WhenWeaponLevelIsMaxLevel_ShouldReturnTrue()
     {
         // Arrange
@@ -114,6 +121,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void IsFinalLevel_WhenWeaponLevelIsBelowMaxLevel_ShouldReturnFalse()
     {
         // Arrange

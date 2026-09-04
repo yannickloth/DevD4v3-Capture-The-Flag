@@ -20,6 +20,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void Next_WhenWeaponLevelIsAtMaxLevel_ShouldRemainAtMaxLevel()
     {
         // Arrange
@@ -36,6 +37,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void Previous_WhenWeaponLevelIsAboveFirstLevel_ShouldMoveToPreviousLevel()
     {
         // Arrange
@@ -51,6 +53,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void Previous_WhenWeaponLevelIsAtFirstLevel_ShouldRemainAtFirstLevel()
     {
         // Arrange
@@ -64,6 +67,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void IsMax_WhenWeaponLevelIsMaxLevel_ShouldReturnTrue()
     {
         // Arrange
@@ -80,6 +84,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void IsMax_WhenWeaponLevelIsBelowMaxLevel_ShouldReturnFalse()
     {
         // Arrange
@@ -94,6 +99,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void ToString_ShouldReturnWeaponLevelValue()
     {
         // Arrange
@@ -108,6 +114,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void EqualityOperator_WhenWeaponLevelsAreEqual_ShouldReturnTrue()
     {
         // Arrange
@@ -123,6 +130,7 @@ public class WeaponLevelTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
     public void GreaterThanOperator_WhenLeftWeaponLevelIsGreater_ShouldReturnTrue()
     {
         // Arrange

@@ -20,6 +20,7 @@ public class FlagCounterTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddCapturedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -35,6 +36,7 @@ public class FlagCounterTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddDroppedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -50,6 +52,7 @@ public class FlagCounterTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
     public void AddReturnedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange

@@ -18,6 +18,7 @@ public class TeamMembersTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void IsEmpty_WhenThereAreTeamMembers_ShouldReturnFalse()
     {
         // Arrange
@@ -34,6 +35,7 @@ public class TeamMembersTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Add_WhenMemberAlreadyExists_ShouldThrowArgumentException()
     {
         // Arrange
@@ -53,6 +55,7 @@ public class TeamMembersTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Add_WhenMemberDoesNotExist_ShouldNotThrowArgumentException()
     {
         // Arrange
@@ -72,6 +75,7 @@ public class TeamMembersTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Remove_WhenPlayerIsNotFound_ShouldThrowArgumentException()
     {
         // Arrange
@@ -89,6 +93,7 @@ public class TeamMembersTests
     }
 
     [Test]
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
     public void Remove_WhenPlayerIsFound_ShouldNotThrowArgumentException()
     {
         // Arrange

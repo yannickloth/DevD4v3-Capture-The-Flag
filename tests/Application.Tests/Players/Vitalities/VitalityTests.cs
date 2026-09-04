@@ -11,6 +11,7 @@ public class VitalityTests
     [TestCase(35)]
     [TestCase(50)]
     [TestCase(100)]
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: Vitality); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
     public void Create_WhenCalledWithValidAmount_ShouldReturnSuccessResult(float amount)
     {
         // Arrange
@@ -27,6 +28,7 @@ public class VitalityTests
     [TestCase(-2)]
     [TestCase(101)]
     [TestCase(102)]
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: Vitality); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
     public void Create_WhenCalledWithInvalidAmount_ShouldReturnFailureResult(float amount)
     {
         // Arrange
