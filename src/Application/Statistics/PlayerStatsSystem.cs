@@ -69,7 +69,7 @@ public class PlayerStatsSystem(
         }
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("re")]
     public void ResetPlayerStats(Player player)
     {
@@ -85,7 +85,7 @@ public class PlayerStatsSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("mystats")]
     public void ShowStats(Player player)
     {
@@ -94,7 +94,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("stats")]
     public void ShowStats(Player currentPlayer, [CommandParameter(Name = "playerId")]Player targetPlayer)
     {

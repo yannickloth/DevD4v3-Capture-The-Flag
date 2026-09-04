@@ -6,7 +6,7 @@ public class PlayerScoreSystem(
     IEntityManager entityManager,
     IWorldService worldService) : ISystem
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("setscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetScoreToPlayer(
@@ -41,7 +41,7 @@ public class PlayerScoreSystem(
         }
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("addscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddScoreToPlayer(
@@ -76,7 +76,7 @@ public class PlayerScoreSystem(
         }
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-09 (authorization policy) → CD-10; CD-01 (open.mp/SampSharp platform API) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("addallscore")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void AddScoreToAllPlayers(Player currentPlayer, int score)

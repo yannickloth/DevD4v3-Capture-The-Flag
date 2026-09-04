@@ -6,7 +6,7 @@ public class VIPListSystem(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-01 (open.mp/SampSharp platform API) → CD-09; CD-15 (command set) → CD-09</remarks>
     [PlayerCommand("vips")]
     public void Show(Player player)
     {

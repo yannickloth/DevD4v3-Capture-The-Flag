@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a team in the CTF gamemode, holding its identity, members, stats, and flag.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity and balance) ‖ CD-01 (root; open.mp/SampSharp platform API: player team/color/skin); CD-11 (map configuration: flag identity) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity and balance) ‖ CD-01 (root; open.mp/SampSharp platform API: player team/color/skin)</remarks>
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>
@@ -18,7 +18,7 @@ public class Team
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team instantiation)</remarks>
     private Team() { }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity initialization); CD-01 (open.mp/SampSharp platform API: team id/skin/color, TeamSounds contract) → CD-02; CD-11 (map configuration: flag model/icon identity) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity initialization); CD-01 (open.mp/SampSharp platform API: team id/skin/color, TeamSounds contract) → CD-02</remarks>
     static Team() 
     {
         Alpha = new Team
@@ -110,7 +110,7 @@ public class Team
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: audio); CD-17 (game configuration/.env schema: audio URLs) → CD-01</remarks>
     public TeamSounds Sounds { get; private set; }
     /// <summary>Gets the team's flag.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag ownership); CD-11 (map configuration: flag identity) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag ownership)</remarks>
     public Flag Flag { get; private set; }
     /// <summary>Gets the rival team.</summary>
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team pairing)</remarks>

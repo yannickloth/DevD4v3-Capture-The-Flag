@@ -6,7 +6,7 @@ public class PlayerKillsSystem(
     IPlayerRepository playerRepository,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("settotalkills")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetTotalKillsToPlayer(

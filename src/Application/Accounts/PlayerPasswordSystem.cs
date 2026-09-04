@@ -16,7 +16,7 @@ public class PlayerPasswordSystem(
         Button2 = "Close"
     };
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-01 (open.mp/SampSharp platform API) → CD-08; CD-15 (command set) → CD-08</remarks>
     [PlayerCommand("changepass")]
     public async Task ShowPasswordDialog(Player player)
     {
