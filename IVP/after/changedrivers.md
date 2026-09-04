@@ -10,9 +10,10 @@
 | Rule | Statement |
 |------|-----------|
 | Containment | module root driver set ⊇ class gamma ⊇ member gamma |
-| Class gamma | the **union of the gammas of its direct elements only** |
+| Class gamma | the **union of the gammas of its direct members only** (fields, methods, properties, events, constants); nested type declarations are not members of the containing type for IVP purposes |
 | Nested classes are modules | a nested class's driver set **does not transmit** to the enclosing type; crossing its boundary is a call-site dependency, driven by the called operation's contract |
-| Single-set modules | **every module (type or namespace) must contain exactly one Γ-set** — evaluated flat: a module's elements are its direct members, injected dependencies propagate their contract drivers to each *using function*, and nested modules are excluded from the parent's metric (nesting is layout, not cohesion) |
+| Type declarations are not elements | IVP metrics use **instances, functions, values and state transitions** as elements; where a type is declared (top-level vs. nested, in which namespace/file) is layout, not cohesion input. A module's purity/completeness is computed from its direct members only; nested types are sibling modules |
+| Single-set modules | **every module (type) must contain exactly one Γ-set** — evaluated flat: a module's elements are its direct members, injected dependencies propagate their contract drivers to each *using function*, and nested modules are excluded from the parent's metric (nesting is layout, not cohesion) |
 | Placement follows set | an element lives in the module of its **exact Γ-set**; two elements with different sets belong in different modules, siblings or nested |
 | Dependency identity | a dependency is a **parameter**, not an owned attribute. The same implementation may be injected in many modules; each using element inherits only the **declared contract's** driver set. The implementation's own extra drivers are encapsulated and surface only at the binding/composition site (CD-21) |
 | Dependency transmission | change drivers are **inherited against dependency direction**: if A depends on B, A inherits B's *contract* drivers — at each hop, never transitively through B's internals (encapsulation bounds propagation), and landing **on each using function individually**, not blanket on the class; CD-21 is wiring, not a transmitted driver |
