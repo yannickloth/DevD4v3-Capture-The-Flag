@@ -65,10 +65,10 @@
 |---|---|---|
 | Types with a change-driver annotation | 315 | 293 |
 | Namespaces | 64 | 57 |
-| Mean change drivers per class | 2.94 | 2.46 |
-| Median change drivers per class | 3 | 2 |
-| Mean change drivers per namespace | 5.34 | 4.42 |
-| Median change drivers per namespace | 4.0 | 4 |
+| Mean change drivers per class | 2.94 | 3.03 |
+| Median change drivers per class | 3 | 3 |
+| Mean change drivers per namespace | 5.34 | 6.51 |
+| Median change drivers per namespace | 4.0 | 6 |
 
 Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5, 10=3}
 
@@ -268,7 +268,7 @@ The per-driver modules created by the regroup measure as **pure single-set names
 (purity 1.000): `Pickups`, `RconSecurity`, `WeaponCatalogs`, `Players.Accounts`,
 `Players.Chats`, the single-type Host modules (`Ecs`, `ServerService`,
 `CommandInfrastructure`, `Config`, `Deployment`, `Logging`, `Bcrypt`), `SampSharp`,
-and most test namespaces. In the before state only 14 of 57 namespaces were single-set.
+and most test namespaces. In the before state only 12 of 57 namespaces were single-set.
 
 ### 7.2 Composite namespaces are now subordinate-driven, not topic-fused
 
@@ -281,7 +281,7 @@ by topic (`Players` 9 sets, `Teams` 8, `Teams.Flags` 7) no longer exist as such.
 
 ### 7.3 Scatter
 
-Scattered driver sets fell from 28 to 15. Remaining scatter is concentrated in the
+Scattered driver sets fell from 23 to 15. Remaining scatter is concentrated in the
 horizontal drivers (CD-17 .env schema, CD-20 ports, CD-26/27/28 test tooling) — decreed
 cross-cutting axes per `IVP/constraints.md`. Change-coupling drivers (CD-02, CD-07,
 CD-10) are concentrated in their domain modules.
