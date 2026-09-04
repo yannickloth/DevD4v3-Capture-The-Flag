@@ -16,6 +16,7 @@ The goal is not to follow architectural principles rigidly, but to make delibera
 - [Map Object Definitions](#map-object-definitions)
 - [Database Independence](#database-independence)
 - [Domain-Oriented Structure](#domain-oriented-structure)
+- [Change-Driver-Driven Modularisation (IVP)](#change-driver-driven-modularisation-ivp)
 
 ## Migration to SampSharp.Entities
 
@@ -238,3 +239,15 @@ GameMode.Common   ← Shared abstractions
 ```
 
 The primary motivation was to keep the game mode structure focused on concepts from the problem domain. Instead of exposing generic folders such as `Common` within `Application`, the structure should communicate the concepts the game mode is responsible for, such as `GunGames`, `Players`, `Teams`, and `Maps`.
+
+## Change-Driver-Driven Modularisation (IVP)
+
+The structure of `src/Application`, `src/Host`, and `src/Persistence` is derived from the change-driver catalogue (`IVP/after/changedrivers.md`) using the Independent Variation Principle: elements that respond to the same set of change drivers belong together; elements that respond to different sets belong apart. Every element (type and member) carries a `Change drivers` XML remark naming the drivers that can force it to change, with the causal direction made explicit (`CD-A → CD-B` reads "A's change reaches this element only through B").
+
+Key decisions:
+
+- **Platform driver decomposed.** The former monolithic platform driver (CD-01) bundled independently varying subsystems. It is decomposed into CD-31..CD-44 (player entity & events, ECS runtime, dialogs, textdraws, GameText, client messages, pickups, map icons & radar, attached objects, audio, timers, server service, command infrastructure, model/skin id resources). A variation of one subsystem now has a small, enumerable blast radius instead of firing on every platform touchpoint.
+- **One module per driver set.** Modules are flat, per-root-driver directories (`TextDraws`, `Pickups`, `MapIcons`, `Audio`, `PlayerResources`, `CommandInfrastructure`, `RconSecurity`, ...). Placement follows the root driver only; subordinates never determine placement.
+- **Persisted aggregate with same-table sub-entities.** `PlayerInfo` composes `PlayerAccount` (CD-08), `PlayerStatistics` (CD-10), `PlayerRole` (CD-09), and `PlayerAppearance` (CD-44) — four domain entities mapped onto the single `players` row, so each varies independently without schema changes.
+- **Nested classes are modules.** A nested class isolates a subordinate driver community (e.g. `Flag.CarrierAttachment` owns the only attached-object code) and does not transmit its driver set to the enclosing type. A class's driver gamma is the union of its direct elements only.
+- **Settings and DI wiring co-locate with their domain** (`FlagAutoReturnSettings`, per-module `ServiceCollectionExtensions`) — an accepted deviation from strict single-set modules, traded for locality.
