@@ -4,7 +4,7 @@
 /// Represents a combination of different advantages, such as health, armour, and weapons, 
 /// that a player can use to gain an advantage in the game.
 /// </summary>
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
+/// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
 public interface ICombo
 {
     /// <summary>
@@ -16,7 +16,7 @@ public interface ICombo
     /// <summary>
     /// Gets the required coins that a player must have to acquire the combo.
     /// </summary>
-    /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: coin cost)</remarks>
     int RequiredCoins { get; }
 
     /// <summary>

@@ -4,7 +4,7 @@
 /// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
 public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 {
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health); CD-03 (combat/weapon-rules specification: health) → CD-05</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health)</remarks>
     private const int Health = 100;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions: rocket launcher ammo)</remarks>
@@ -12,7 +12,7 @@ public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
     public string Name => $"{Health} Health and Rocket launcher(RPG)";
-    /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: coin cost)</remarks>
     public int RequiredCoins => 100;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
