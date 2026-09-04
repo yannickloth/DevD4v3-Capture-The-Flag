@@ -12,8 +12,9 @@
 | Containment | module root driver set ⊇ class gamma ⊇ member gamma |
 | Class gamma | the **union of the gammas of its direct elements only** |
 | Nested classes are modules | a nested class's driver set **does not transmit** to the enclosing type; crossing its boundary is a call-site dependency, driven by the called operation's contract |
-| Placement follows root | an element/type lives in the module of its **root** driver; subordinates never determine placement |
-| Dependency transmission | an injected dependency (or a referenced type) transmits **its own contract drivers** to the using element, plus CD-21 wiring |
+| Single-set modules | **every module (type or namespace) must contain exactly one Γ-set** — evaluated flat: a module's elements are its direct members, injected dependencies propagate their contract drivers to each *using function*, and nested modules are excluded from the parent's metric (nesting is layout, not cohesion) |
+| Placement follows set | an element lives in the module of its **exact Γ-set**; two elements with different sets belong in different modules, siblings or nested |
+| Dependency transmission | change drivers are **inherited against dependency direction**: if A depends on B, A inherits B's *contract* drivers — at each hop, never transitively through B's internals (encapsulation bounds propagation), and landing **on each using function individually**, not blanket on the class; CD-21 is wiring, not a transmitted driver |
 | No umbrella drivers | CD-01 was decomposed (see below); a driver ID must name one amendment unit |
 
 ## Retired / decomposed
