@@ -58,7 +58,7 @@ public class TeamPickupService
         if (team.Id == TeamId.Alpha)
         {
             _redFlagPickup = _worldService.CreatePickup(
-                model: (int)Team.Alpha.Flag.Identity.Model,
+                model: (int)Team.Alpha.Flag.Model,
                 type: PickupType.ScriptedActionsOnlyEveryFewSeconds,
                 position
             );
@@ -66,7 +66,7 @@ public class TeamPickupService
         else if (team.Id == TeamId.Beta)
         {
             _blueFlagPickup = _worldService.CreatePickup(
-               model: (int)Team.Beta.Flag.Identity.Model,
+               model: (int)Team.Beta.Flag.Model,
                type: PickupType.ScriptedActionsOnlyEveryFewSeconds,
                position
             );

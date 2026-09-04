@@ -3,14 +3,20 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-31 (player entity) → CD-02; CD-38 (map-icon id resources) → CD-02; CD-39 (attached-object API) → CD-02; CD-44 (object model id resources) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-38 (map-icon id resources) → CD-02; CD-44 (object model id resources) → CD-02. Nested modules (FlagCarrier sibling, CarrierAttachment nested) do not transmit their driver sets to this class</remarks>
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources); CD-39 (attached-object material color); CD-44 (object model id resources) → CD-02</remarks>
-    public required FlagIdentity Identity { get; init; }
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (object model id resources) → CD-02</remarks>
+    public required FlagModel Model { get; init; }
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources) → CD-02</remarks>
+    public required FlagIcon Icon { get; init; }
+
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color)</remarks>
+    public required Color ColorHex { get; init; }
 
     /// <summary>
     /// Gets the display name of the flag.
@@ -123,7 +129,7 @@ public class Flag
     private void SetCarrier(Player player)
     {
         Carrier = new FlagCarrier(player);
-        CarrierAttachment.Attach(player, Identity.Model, Identity.ColorHex);
+        CarrierAttachment.Attach(player, Model, ColorHex);
     }
 
     /// <summary>
@@ -137,22 +143,6 @@ public class Flag
             CarrierAttachment.Detach(Carrier.Player);
             Carrier = null;
         }
-    }
-
-    /// <summary>
-    /// Represents the visual identity of the flag: model, map icon, and color.
-    /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model/icon id spaces, color type) → CD-02</remarks>
-    public sealed record FlagIdentity
-    {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources); CD-39 (attached-object material color); CD-44 (object model id resources) → CD-02</remarks>
-        public required FlagModel Model { get; init; }
-
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id) → CD-02</remarks>
-        public required FlagIcon Icon { get; init; }
-
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color); CD-39 (attached-object material color) → CD-02</remarks>
-        public required Color ColorHex { get; init; }
     }
 
     /// <summary>

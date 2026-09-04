@@ -32,13 +32,10 @@ public class Team
             Sounds        = TeamSounds.Alpha,
             Flag          = new Flag
             {
-                Identity  = new Flag.FlagIdentity
-                {
-                    Model     = FlagModel.Red,
-                    Icon      = FlagIcon.Red,
-                    ColorHex  = Color.Red
-                },
-                Name      = "Red"
+                Model     = FlagModel.Red,
+                Icon      = FlagIcon.Red,
+                Name      = "Red",
+                ColorHex  = Color.Red
             }
         };
 
@@ -53,13 +50,10 @@ public class Team
             Sounds        = TeamSounds.Beta,
             Flag          = new Flag
             {
-                Identity  = new Flag.FlagIdentity
-                {
-                    Model     = FlagModel.Blue,
-                    Icon      = FlagIcon.Blue,
-                    ColorHex  = Color.Blue
-                },
-                Name      = "Blue"
+                Model     = FlagModel.Blue,
+                Icon      = FlagIcon.Blue,
+                Name      = "Blue",
+                ColorHex = Color.Blue
             }
         };
 
@@ -76,13 +70,10 @@ public class Team
             Sounds        = TeamSounds.None,
             Flag          = new Flag
             {
-                Identity  = new Flag.FlagIdentity
-                {
-                    Model     = FlagModel.None,
-                    Icon      = FlagIcon.White,
-                    ColorHex  = Color.White
-                },
-                Name      = "NoTeam"
+                Model     = FlagModel.None,
+                Icon      = FlagIcon.White,
+                Name      = "NoTeam",
+                ColorHex  = Color.White
             },
         };
         None.RivalTeam = None;
