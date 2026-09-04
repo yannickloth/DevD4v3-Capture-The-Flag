@@ -30,8 +30,8 @@ public class Flag
     /// <remarks>
     /// Returns <c>null</c> when the flag has no carrier.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule); CD-01 (open.mp/SampSharp platform API: player entity) → CD-02</remarks>
-    public Player Carrier { get; private set; }
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule)</remarks>
+    public FlagCarrier? Carrier { get; private set; }
 
     /// <summary>
     /// Checks if the flag has been captured by a player.
@@ -53,19 +53,8 @@ public class Flag
         if (!HasCarrier)
             return false;
 
-        return Carrier.Name.Equals(
-            player.Name,
-            StringComparison.OrdinalIgnoreCase);
+        return Carrier.Is(player);
     }
-
-    /// <summary>
-    /// Gets the name of the player who captured the flag.
-    /// </summary>
-    /// <remarks>
-    /// If the flag is not captured, returns <c>None</c>.
-    /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier display); CD-01 (open.mp/SampSharp platform API: player entity/name) → CD-02</remarks>
-    public string CarrierName => HasCarrier ? Carrier.Name : "None";
 
     /// <summary>
     /// Marks the flag as captured by the specified player.
@@ -133,7 +122,7 @@ public class Flag
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
     private void SetCarrier(Player player)
     {
-        Carrier = player;
+        Carrier = new FlagCarrier(player);
         CarrierAttachment.Attach(player, Identity.Model, Identity.ColorHex);
     }
 
@@ -145,8 +134,8 @@ public class Flag
     {
         if (Carrier is not null)
         {
-            CarrierAttachment.Detach(Carrier);
-            Carrier = default;
+            CarrierAttachment.Detach(Carrier.Player);
+            Carrier = null;
         }
     }
 

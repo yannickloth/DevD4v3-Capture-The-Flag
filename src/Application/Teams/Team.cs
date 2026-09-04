@@ -177,7 +177,7 @@ public class Team
                 return FlagStatus.Captured;
             }
 
-            if (flagPicker == RivalTeam.Flag.Carrier)
+            if (RivalTeam.Flag.Carrier?.Is(flagPicker) == true)
             {
                 RivalTeam.Flag.ReturnToBase();
                 StatsPerRound.AddScore();

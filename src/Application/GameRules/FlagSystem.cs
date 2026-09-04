@@ -127,7 +127,7 @@ public class FlagSystem(
             team.ColorName
         });
 
-        team.Flag.Carrier?.HideOnRadarMap();
+        team.Flag.Carrier?.Player.HideOnRadarMap();
         team.Flag.ReturnToBase();
         teamPickupService.CreateFlagFromBasePosition(team);
         teamPickupService.DestroyExteriorMarker(team);

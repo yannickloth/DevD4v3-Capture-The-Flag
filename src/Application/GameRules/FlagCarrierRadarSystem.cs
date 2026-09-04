@@ -20,8 +20,8 @@ public class FlagCarrierRadarSystem(
             PlayerName = player.Name
         });
         worldService.SendClientMessage(Color.Yellow, message);
-        Team.Alpha.Flag.Carrier?.ShowOnRadarMap();
-        Team.Beta.Flag.Carrier?.ShowOnRadarMap();
+        Team.Alpha.Flag.Carrier?.Player.ShowOnRadarMap();
+        Team.Beta.Flag.Carrier?.Player.ShowOnRadarMap();
         flagCarrierSettings.ShowOnRadarMap = true;
     }
 
@@ -36,8 +36,8 @@ public class FlagCarrierRadarSystem(
             PlayerName = player.Name
         });
         worldService.SendClientMessage(Color.Yellow, message);
-        Team.Alpha.Flag.Carrier?.HideOnRadarMap();
-        Team.Beta.Flag.Carrier?.HideOnRadarMap();
+        Team.Alpha.Flag.Carrier?.Player.HideOnRadarMap();
+        Team.Beta.Flag.Carrier?.Player.HideOnRadarMap();
         flagCarrierSettings.ShowOnRadarMap = false;
     }
 }

@@ -44,24 +44,23 @@ public class FlagTests
         flag.Capture(fakeCarrier);
 
         // Act
-        string actual = flag.CarrierName;
+        string actual = flag.Carrier.DisplayName;
 
         // Assert
         actual.Should().Be(expectedCarrierName);
     }
 
     [Test]
-    public void CarrierName_WhenFlagHasNoCarrier_ShouldReturnNone()
+    public void Carrier_WhenFlagHasNoCarrier_ShouldBeNull()
     {
         // Arrange
         var flag = CreateFlag();
-        var expectedCarrierName = "None";
 
         // Act
-        string actual = flag.CarrierName;
+        FlagCarrier? actual = flag.Carrier;
 
         // Assert
-        actual.Should().Be(expectedCarrierName);
+        actual.Should().BeNull();
     }
 
     [Test]
@@ -91,7 +90,7 @@ public class FlagTests
         flag.Capture(fakeCarrier);
 
         // Assert
-        flag.Carrier.Should().Be(fakeCarrier);
+        flag.Carrier.Player.Should().Be(fakeCarrier);
     }
 
     [Test]
@@ -122,7 +121,7 @@ public class FlagTests
         flag.Capture(player2);
 
         // Assert
-        flag.Carrier.Should().Be(player2);
+        flag.Carrier.Player.Should().Be(player2);
         flag.Status.Should().Be(FlagStatus.Captured);
     }
 
@@ -141,7 +140,7 @@ public class FlagTests
         flag.Capture(player2);
 
         // Assert
-        flag.Carrier.Should().Be(player2);
+        flag.Carrier.Player.Should().Be(player2);
         flag.Status.Should().Be(FlagStatus.Captured);
     }
 
@@ -172,7 +171,7 @@ public class FlagTests
         flag.Take(fakeCarrier);
 
         // Assert
-        flag.Carrier.Should().Be(fakeCarrier);
+        flag.Carrier.Player.Should().Be(fakeCarrier);
     }
 
     [Test]
@@ -203,7 +202,7 @@ public class FlagTests
         flag.Take(player2);
 
         // Assert
-        flag.Carrier.Should().Be(player2);
+        flag.Carrier.Player.Should().Be(player2);
         flag.Status.Should().Be(FlagStatus.Taken);
     }
 
@@ -222,7 +221,7 @@ public class FlagTests
         flag.Take(player2);
 
         // Assert
-        flag.Carrier.Should().Be(player2);
+        flag.Carrier.Player.Should().Be(player2);
         flag.Status.Should().Be(FlagStatus.Taken);
     }
 

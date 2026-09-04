@@ -66,14 +66,14 @@ public class TeamStatsSystem(
         Score: {alphaTeam.StatsPerRound.Score}
         Kills: {alphaTeam.StatsPerRound.Kills}
         Deaths: {alphaTeam.StatsPerRound.Deaths}
-        Flag captured by: {alphaTeam.Flag.CarrierName}
+        Flag captured by: {alphaTeam.Flag.Carrier?.DisplayName ?? "None"}
 
         {betaTeam.ColorHex}>>> Beta Team: 
         Members: {betaTeam.Members.Count}
         Score: {betaTeam.StatsPerRound.Score}
         Kills: {betaTeam.StatsPerRound.Kills}
         Deaths: {betaTeam.StatsPerRound.Deaths}
-        Flag captured by: {betaTeam.Flag.CarrierName}
+        Flag captured by: {betaTeam.Flag.Carrier?.DisplayName ?? "None"}
         """;
         var dialog = new MessageDialog("Team Stats", content, "Close");
         dialogService.ShowAsync(player, dialog);

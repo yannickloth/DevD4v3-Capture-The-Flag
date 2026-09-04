@@ -40,7 +40,7 @@ public class HandleFlagInteractionTests
         // Asserts
         actual.Should().Be(expectedStatus);
         betaTeam.Flag.Status.Should().Be(expectedStatus);
-        betaTeam.Flag.Carrier.Should().Be(alphaTeamPlayer);
+        betaTeam.Flag.Carrier.Player.Should().Be(alphaTeamPlayer);
     }
 
     [Test]
@@ -58,7 +58,7 @@ public class HandleFlagInteractionTests
         // Asserts
         actual.Should().Be(expectedStatus);
         alphaTeam.Flag.Status.Should().Be(expectedStatus);
-        alphaTeam.Flag.Carrier.Should().Be(betaTeamPlayer);
+        alphaTeam.Flag.Carrier.Player.Should().Be(betaTeamPlayer);
     }
 
     [Test]
@@ -189,7 +189,7 @@ public class HandleFlagInteractionTests
         // Asserts
         actual.Should().Be(expectedStatus);
         alphaTeam.Flag.Status.Should().Be(expectedStatus);
-        alphaTeam.Flag.Carrier.Should().Be(betaTeamPlayer);
+        alphaTeam.Flag.Carrier.Player.Should().Be(betaTeamPlayer);
     }
 
     [Test]
@@ -208,6 +208,6 @@ public class HandleFlagInteractionTests
         // Asserts
         actual.Should().Be(expectedStatus);
         betaTeam.Flag.Status.Should().Be(expectedStatus);
-        betaTeam.Flag.Carrier.Should().Be(alphaTeamPlayer);
+        betaTeam.Flag.Carrier.Player.Should().Be(alphaTeamPlayer);
     }
 }
