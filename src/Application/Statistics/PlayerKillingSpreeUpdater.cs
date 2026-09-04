@@ -10,7 +10,7 @@ public class PlayerKillingSpreeUpdater(
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree threshold)</remarks>
     private const int MinimumKillingSpree = 2;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-06 (coin economy: coin rewards for spree) → CD-10</remarks>
     private const int EarnedCoins = 20;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>

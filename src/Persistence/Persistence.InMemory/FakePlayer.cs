@@ -1,6 +1,6 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
 public class FakePlayer
 {
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>

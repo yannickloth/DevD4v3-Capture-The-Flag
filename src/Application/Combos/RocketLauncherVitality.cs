@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Combos;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-17 (game configuration/.env schema) → CD-05</remarks>
-/// <remarks>Injected dependencies: comboSettings -> CD-17. Driven by the ComboSettings (config) contract + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
+/// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
 public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 {
     /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health); CD-03 (combat/weapon-rules specification: health) → CD-05</remarks>
@@ -15,7 +15,7 @@ public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
     /// <remarks>Change drivers: CD-06 (root; coin economy)</remarks>
     public int RequiredCoins => 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-17 (game configuration/.env schema) → CD-05</remarks>
+    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
     public Result Give(Player player)
     {
         if (comboSettings.IsRocketLauncherDisabled)

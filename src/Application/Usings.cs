@@ -36,6 +36,5 @@ global using CTF.Application.Teams;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Rotation;
 
-global using CTF.Application.GunGameRules;
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Results;

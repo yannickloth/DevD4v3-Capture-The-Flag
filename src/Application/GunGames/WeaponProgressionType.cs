@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGameRules;
+﻿namespace CTF.Application.GunGames;
 
 /// <summary>
 /// Identifies the available weapon progression types.

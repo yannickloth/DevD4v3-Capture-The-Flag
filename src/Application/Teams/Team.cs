@@ -18,7 +18,7 @@ public class Team
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team instantiation)</remarks>
     private Team() { }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity initialization); CD-01 (open.mp/SampSharp platform API: team id/skin/color) → CD-02; CD-11 (map configuration: flag model/icon identity) → CD-02; CD-17 (game configuration/.env schema: audio URLs) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity initialization); CD-01 (open.mp/SampSharp platform API: team id/skin/color/audio) → CD-02; CD-11 (map configuration: flag model/icon identity) → CD-02; CD-17 (game configuration/.env schema: audio URLs) → CD-01 → CD-02</remarks>
     static Team() 
     {
         Alpha = new Team

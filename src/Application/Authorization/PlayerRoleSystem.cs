@@ -7,7 +7,7 @@ public class PlayerRoleSystem(
     IDialogService dialogService,
     ServerOwnerSettings serverOwnerSettings) : ISystem
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09; CD-01 (open.mp/SampSharp platform API) → CD-09</remarks>
     [PlayerCommand("setrole")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetRole(

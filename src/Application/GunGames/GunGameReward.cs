@@ -28,7 +28,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon reward)</remarks>
     private readonly record struct WeaponReward(IWeapon Weapon, int Ammo);
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon rewards); CD-04 (weapon-catalog configuration) → CD-07</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: winner weapon rewards); CD-03 (combat/weapon-rules specification: weapon definitions) → CD-07</remarks>
     private readonly WeaponReward[] _weaponRewards = 
     [
         new(WeaponDefinitions.Grenade,       Ammo: 5),

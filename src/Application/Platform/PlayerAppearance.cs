@@ -9,7 +9,7 @@ public class PlayerAppearance
     /// <summary>
     /// It is a sentinel value that indicates the player has no skin selected.
     /// </summary>
-    /// <remarks>Change drivers: CD-08 (account &amp; authentication policy: no-skin sentinel); CD-01 (open.mp/SampSharp platform API: skin id) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: skin id, no-skin sentinel)</remarks>
     private const int NoSkin = -1;
 
     /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-20 (outbound repository contract) → CD-01</remarks>
