@@ -3,7 +3,7 @@
 /// <summary>
 /// Renders team-related information as textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team score/members/flag identity) → CD-34</remarks>
+/// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team score/members/flag identity) → CD-34; CD-10 (player-statistics/rank model) → CD-34; CD-36 (client-message API) → CD-34</remarks>
 public class TeamTextDrawRenderer
 {
     /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>

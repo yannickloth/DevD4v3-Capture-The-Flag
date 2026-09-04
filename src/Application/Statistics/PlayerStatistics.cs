@@ -3,7 +3,7 @@ namespace CTF.Application.Statistics;
 /// <summary>
 /// Represents the persisted career statistics of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
 public class PlayerStatistics
 {
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>

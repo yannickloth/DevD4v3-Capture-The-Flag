@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.Discord;
 
 /// <summary>
 /// Notifies an external Discord webhook of player connect/disconnect activity.

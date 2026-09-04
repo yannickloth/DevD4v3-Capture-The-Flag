@@ -3,7 +3,7 @@ namespace CTF.Application.PlayerResources;
 /// <summary>
 /// Represents the persisted visual/platform preferences of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
+/// <remarks>Change drivers: CD-44 (root; model & skin id resources); CD-20 (outbound repository contract) → CD-44</remarks>
 public class PlayerAppearance
 {
     /// <summary>

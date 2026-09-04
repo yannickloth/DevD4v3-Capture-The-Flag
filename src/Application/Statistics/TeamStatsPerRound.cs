@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the per-round statistics for a team.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats)</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-02 (CTF game-rules specification) → CD-10</remarks>
 public class TeamStatsPerRound
 {
     /// <summary>Gets the team's score.</summary>

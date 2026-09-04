@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods for the class-selection player state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-32 (player ECS) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-32 (player ECS) → CD-02; CD-31 (player entity & lifecycle events) → CD-02</remarks>
 public static class ClassSelectionExtensions
 {
     /// <summary>Checks whether the player is in class selection.</summary>

@@ -3,7 +3,7 @@
 /// <summary>
 /// Creates and destroys dynamic map icons for team flags.
 /// </summary>
-/// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations/interior) → CD-38</remarks>
+/// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations/interior) → CD-38; CD-37 (pickup API) → CD-38</remarks>
 public class TeamIconService
 {
     /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations); CD-38 (map icon dependencies) → CD-11</remarks>

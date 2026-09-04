@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a team in the CTF gamemode, holding its identity, members, stats, and flag.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity and balance) ‖ CD-31 (root; player team/color state) ‖ CD-44 (root; skin id resources)</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity and balance) ‖ CD-31 (root; player team/color state) ‖ CD-44 (root; skin id resources); CD-10 (player-statistics/rank model) → CD-02; CD-17 (game configuration/.env schema) → CD-02; CD-34 (textdraw API) → CD-02; CD-35 (GameText API) → CD-02; CD-40 (audio API) → CD-02</remarks>
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>

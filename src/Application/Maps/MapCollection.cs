@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration); CD-12 (map-rotation rules) → CD-11</remarks>
 public class MapCollection
 {
     /// <remarks>Change drivers: CD-11 (root; map configuration: loaded maps)</remarks>

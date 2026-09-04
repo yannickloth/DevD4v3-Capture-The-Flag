@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-34 (Textdraw API) → CD-12; CD-11 (map configuration) → CD-12</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-34 (Textdraw API) → CD-12; CD-11 (map configuration) → CD-12; CD-36 (client-message API) → CD-12</remarks>
 public class MapTextDrawRenderer
 {
     /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>

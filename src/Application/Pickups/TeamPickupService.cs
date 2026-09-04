@@ -3,7 +3,7 @@
 /// <summary>
 /// Creates and destroys pickups for team flags and exterior markers.
 /// </summary>
-/// <remarks>Change drivers: CD-37 (root; pickup API); CD-44 (model id resources); CD-11 (map configuration: flag locations) → CD-37</remarks>
+/// <remarks>Change drivers: CD-37 (root; pickup API); CD-44 (model id resources); CD-11 (map configuration: flag locations) → CD-37; CD-36 (client-message API) → CD-37</remarks>
 public class TeamPickupService
 {
     /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>

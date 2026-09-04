@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Combos;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-31 (player key-state event); CD-33 (dialog); CD-34 (stats textdraw); CD-35 (GameText); CD-36 (client messages) → CD-05</remarks>
+/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-31 (player key-state event); CD-33 (dialog); CD-34 (stats textdraw); CD-35 (GameText); CD-36 (client messages) → CD-05; CD-10 (player-statistics/rank model) → CD-05</remarks>
 public class ComboSystem : ISystem
 {
     /// <remarks>Change drivers: CD-33 (root; dialog API)</remarks>

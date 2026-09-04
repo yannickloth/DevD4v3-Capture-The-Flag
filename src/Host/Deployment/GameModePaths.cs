@@ -1,6 +1,6 @@
 ﻿namespace CTF.Host.Deployment;
 
-/// <remarks>Change drivers: CD-22 (root; hosting/deployment spec)</remarks>
+/// <remarks>Change drivers: CD-22 (root; hosting/deployment spec); CD-11 (map configuration) → CD-22</remarks>
 public static class GameModePaths
 {
     /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec); CD-11 (map configuration) → CD-22</remarks>

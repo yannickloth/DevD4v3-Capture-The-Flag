@@ -3,7 +3,7 @@
 /// <summary>
 /// Renders the class-selection screen textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+/// <remarks>Change drivers: CD-34 (root; textdraw API); CD-36 (client-message API) → CD-34</remarks>
 public class ClassSelectionTextDrawRenderer
 {
     /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>

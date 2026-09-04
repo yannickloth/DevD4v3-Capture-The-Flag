@@ -3,7 +3,7 @@ namespace CTF.Application.Accounts;
 /// <summary>
 /// Represents the persisted account of a player: identity and credentials.
 /// </summary>
-/// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy)</remarks>
+/// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy); CD-18 (database schema/player data model) → CD-08; CD-20 (outbound repository contract) → CD-08</remarks>
 public partial class PlayerAccount
 {
     /// <summary>
