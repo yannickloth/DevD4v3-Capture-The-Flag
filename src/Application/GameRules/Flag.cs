@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-39 (attached-object rendering) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-31 (player entity) → CD-02; CD-38 (map-icon id resources) → CD-02; CD-39 (attached-object API) → CD-02; CD-44 (object model id resources) → CD-02</remarks>
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model id) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources); CD-39 (attached-object material color); CD-44 (object model id resources) → CD-02</remarks>
     public required FlagIdentity Identity { get; init; }
 
     /// <summary>
@@ -145,7 +145,7 @@ public class Flag
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model/icon id spaces, color type) → CD-02</remarks>
     public sealed record FlagIdentity
     {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model id) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources); CD-39 (attached-object material color); CD-44 (object model id resources) → CD-02</remarks>
         public required FlagModel Model { get; init; }
 
         /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id) → CD-02</remarks>
