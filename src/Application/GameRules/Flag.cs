@@ -142,32 +142,52 @@ public class Flag
     /// <summary>
     /// Sets the player who holds the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
     private void SetCarrier(Player player)
     {
         Carrier = player;
-        player.SetAttachedObject(
-            index: 0, 
-            modelId: (int)Model, 
-            bone: Bone.Spine, 
-            offset: new Vector3(-0.057000f, -0.108999f, 0.075000f), 
-            rotation: new Vector3(171.500030f, 66.200012f, -4.100002f), 
-            scale: new Vector3(1.0f, 1.0f, 1.0f), 
-            materialColor1: ColorHex,
-            materialColor2: ColorHex
-        );
+        CarrierAttachment.Attach(player, Model, ColorHex);
     }
 
     /// <summary>
     /// Removes the flag that the player is holding.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object removal) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
     private void RemoveCarrier()
     {
         if (Carrier is not null)
         {
-            Carrier.RemoveAttachedObject(0);
+            CarrierAttachment.Detach(Carrier);
             Carrier = default;
+        }
+    }
+
+    /// <summary>
+    /// Renders the flag on the carrier via an attached object.
+    /// It isolates the platform rendering details of the carrier-attachment rule.
+    /// </summary>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+    private static class CarrierAttachment
+    {
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+        internal static void Attach(Player player, FlagModel model, Color color)
+        {
+            player.SetAttachedObject(
+                index: 0,
+                modelId: (int)model,
+                bone: Bone.Spine,
+                offset: new Vector3(-0.057000f, -0.108999f, 0.075000f),
+                rotation: new Vector3(171.500030f, 66.200012f, -4.100002f),
+                scale: new Vector3(1.0f, 1.0f, 1.0f),
+                materialColor1: color,
+                materialColor2: color
+            );
+        }
+
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object removal: attachment index) → CD-02</remarks>
+        internal static void Detach(Player player)
+        {
+            player.RemoveAttachedObject(0);
         }
     }
 }
