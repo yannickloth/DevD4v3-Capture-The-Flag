@@ -125,7 +125,48 @@ Reading:
   driver sets went from a minority to 30/45, and severe incompleteness (< 0.5)
   halved — driver sets are no longer split across modules.
 
-## 8. Reproduction
+## 8. Pure modules — namespaces and types
+
+**Namespaces** (module purity, §4 of both metrics reports):
+
+| | Before | After |
+|---|---|---|
+| Pure namespaces (purity 1.0) | 12/57 | **29/64** |
+| Pure production namespaces | 5/42 | **18/45** |
+| Pure *and* complete (purity 1.0, completeness 1.0) | sparse | Pickups, RconSecurity, MapIcons, TextDraws, Discord, WeaponCatalogs, Players.Accounts/Chats, Ecs, ServerService, CommandInfrastructure, Config, Deployment, Logging, Bcrypt, SampSharp, most test namespaces |
+
+**Types** (member-level purity, `ClassCohesion` tool; a type is pure when all
+its members share one Γ-set):
+
+| | Before | After |
+|---|---|---|
+| Types measured | 233 | 249 |
+| Mean member-level purity | 0.812 | 0.807 |
+| Pure types | 159 (68%) | **169 (68%)** |
+
+The type-level aggregate is flat, but the extremes moved decisively:
+
+- **`PlayerInfo`, the system's worst god aggregate** (52 members, purity 0.077,
+  contamination extent 0.827 — the before report's headline offender) is now a
+  4-property composition root (purity 0.250); its former members live in the
+  single-purpose sub-entities `PlayerAccount`, `PlayerStatistics`, `PlayerRole`,
+  `PlayerAppearance`.
+- **`Flag` reached purity 1.000** (0.500 before): pure CD-02 rule members, with
+  CD-39 isolated in the nested `CarrierAttachment` module and carrier state in
+  the sibling `FlagCarrier`.
+- `PlayerExtensions` 0.333 → 1.000; `Team` 0.125 → 0.143.
+- **10 types declined** — a refinement effect, not new coupling: their members
+  gained distinct platform-subordinate IDs (CD-31/32/36/41/43), splitting
+  formerly identical Γ-sets (e.g. `PlayerRepository` 0.5 → 0.25 with the
+  dialect/port naming, `PlayerPauseSystem` 1.0 → 0.25). The drivers were always
+  there; the annotations now say so.
+
+Reading: *namespace* purity is where IVP moved the system (structural regroup);
+*type* purity improved where it mattered (the god aggregate and the flag rules
+engine) and stayed flat in aggregate because subordinate visibility splits
+sets without adding coupling.
+
+## 9. Reproduction
 
 ```
 java IVP/tools/IvpMeasure.java .        # after tree
