@@ -3,7 +3,7 @@
 /// <summary>
 /// Registers flag services with the DI container.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
 public static class FlagServicesExtensions
 {
     /// <summary>Registers the flag event handlers and supporting services.</summary>

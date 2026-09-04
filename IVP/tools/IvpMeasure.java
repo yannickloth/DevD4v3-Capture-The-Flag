@@ -30,7 +30,13 @@ void main(String[] args) throws IOException {
       {"CD-22","hosting/deployment spec"},{"CD-23","Serilog logging"},{"CD-24","Discord webhook contract"},
       {"CD-25","BCrypt password-hashing contract"},{"CD-26","NUnit test-framework contract"},
       {"CD-27","FluentAssertions contract"},{"CD-28","NSubstitute mock contract"},
-      {"CD-30","SQLite SQL dialect"}
+      {"CD-30","SQLite SQL dialect"},
+      // CD-01 decomposed; sub-drivers added in the after refinement (labels only — set semantics unchanged)
+      {"CD-31","player entity & lifecycle events"},{"CD-32","ECS runtime"},{"CD-33","dialog API"},
+      {"CD-34","textdraw API"},{"CD-35","GameText API"},{"CD-36","client-message API"},
+      {"CD-37","pickup API"},{"CD-38","map-icon & radar API"},{"CD-39","attached-object API"},
+      {"CD-40","audio API"},{"CD-41","timer API"},{"CD-42","server service API"},
+      {"CD-43","command infrastructure"},{"CD-44","model & skin id resources"}
     };
     Map<String,String> label = new LinkedHashMap<>(); for (var l : L) label.put(l[0], l[1]);
 

@@ -1,4 +1,4 @@
-﻿// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18; CD-21 (DI container/composition) → CD-20</remarks>
+﻿// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using MySqlConnector;

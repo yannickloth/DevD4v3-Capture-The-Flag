@@ -1,6 +1,6 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
+/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
 internal static class FakePlayerSeedData
 {
     /// <summary>

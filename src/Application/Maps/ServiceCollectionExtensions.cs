@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-11 (root; map configuration); CD-21 (DI container/composition) → CD-11</remarks>
+/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
 public static class MapServicesExtensions
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration); CD-21 (DI container/composition) → CD-11</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public static IServiceCollection AddMapServices(
         this IServiceCollection services,
         string mapsPath)

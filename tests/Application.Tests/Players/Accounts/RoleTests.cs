@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts;
 
 /// <summary>Tests for PlayerInfo.SetRole/HasRole.</summary>
-/// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerInfo.SetRole/HasRole); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+/// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerInfo.SetRole); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
 public class RoleTests
 {
     static readonly int[] InvalidRoleCases = [-1, -2, RoleCollection.Count];

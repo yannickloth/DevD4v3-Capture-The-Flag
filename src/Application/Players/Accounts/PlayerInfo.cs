@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Accounts;
 
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
+/// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player data model composition); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-44 (model & skin id resources) → CD-08</remarks>
 public partial class PlayerInfo
 {
     private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
@@ -9,7 +9,7 @@ public partial class PlayerInfo
     [GeneratedRegex(PlayerNamePattern)]
     private static partial Regex PlayerNameRegex();
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player data model composition); CD-09 (authorization policy) → CD-08; CD-10 (player-statistics/rank model) → CD-08; CD-44 (model & skin id resources) → CD-08</remarks>
     public PlayerInfo() { }
 
     /// <summary>
@@ -27,7 +27,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
     public string Password { get; private set; } = "DefaultPassword";
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: account identity/credentials)</remarks>
     public PlayerStatsPerRound StatsPerRound { get; } = new();
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
@@ -78,13 +78,13 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
     public RoleId RoleId { get; private set; } = RoleId.Basic;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-20 (outbound repository contract) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-44 (root; model & skin id resources); CD-20 (outbound repository contract) → CD-44</remarks>
     public int SkinId { get; private set; } = NoSkin;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public RankId RankId { get; private set; } = RankId.Noob;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
     public Team Team { get; private set; } = Team.None;
 
     /// <remarks>Change drivers: CD-18 (database schema/player data model) ‖ CD-20 (outbound repository contract); both → CD-08 (account)</remarks>
@@ -96,7 +96,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public bool HasSurpassedMaxKillingSpree() => StatsPerRound.KillingSpree > MaxKillingSpree;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
     public bool HasSkin() => SkinId != NoSkin;
 
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
@@ -132,7 +132,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
     public void SetMaxKillingSpree(int value) => MaxKillingSpree = value;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
     public void RemoveSkin() => SkinId = NoSkin;
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
@@ -159,7 +159,7 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10</remarks>
     public void AddGunGameWins() => GunGameWins++;
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy)</remarks>
     public Result SetName(string value)
     {
         ArgumentNullException.ThrowIfNull(value);
@@ -176,7 +176,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy)</remarks>
     public Result SetPassword(string value)
     {
         ArgumentNullException.ThrowIfNull(value);
@@ -210,7 +210,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09; CD-31 (player entity); CD-35 (GameText API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09; CD-15 (command set) → CD-09</remarks>
     public Result SetRole(RoleId id)
     {
         if (id < 0 || (int)id >= RoleCollection.Count)
@@ -230,7 +230,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
     public Result SetSkin(int id)
     {
         if (id < 0 || id > 311)
@@ -240,7 +240,7 @@ public partial class PlayerInfo
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
     public Result SetTeam(TeamId id)
     {
         Result<Team> result = id switch
@@ -263,7 +263,7 @@ public partial class PlayerInfo
     /// <summary>
     /// Checks if the player has captured the opposing team's flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag possession); CD-31 (player entity/name) → CD-02</remarks>
     public bool IsCarryingEnemyFlag()
     {
         if (Team == Team.None) 

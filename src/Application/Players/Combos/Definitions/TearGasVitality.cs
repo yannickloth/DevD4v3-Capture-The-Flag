@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Players.Combos.Definitions;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
+/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-03 (combat/weapon-rules specification) → CD-05</remarks>
 public class TearGasVitality : ICombo
 {
     private const int Health = 100;

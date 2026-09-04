@@ -6,14 +6,14 @@ namespace CTF.Application.GunGames;
 /// Ensures that players can only use the weapon assigned to their current
 /// GunGame level while the mode is active.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime) → CD-07</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): gunGameMode -> CD-07; weaponProgression -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class GunGameWeaponEnforcer(
     IGunGameMode gunGameMode,
     ActiveWeaponProgression weaponProgression) : ISystem
 {
     [Event]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime) → CD-07</remarks>
     public void OnPlayerUpdate(Player player, TimePoint _)
     {
         if (!gunGameMode.IsEnabled)

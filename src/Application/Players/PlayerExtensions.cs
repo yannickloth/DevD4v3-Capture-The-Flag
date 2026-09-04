@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-02 (CTF game-rules specification) → CD-08; CD-17 (game configuration/.env schema) → CD-08</remarks>
+/// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
 public static class PlayerExtensions
 {
     /// <summary>
@@ -85,7 +85,7 @@ public static class PlayerExtensions
     /// <see langword="true"/> if the player is the server owner;
     /// otherwise, <see langword="false"/>.
     /// </returns>
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09</remarks>
     public static bool IsServerOwner(this Player player)
     {
         var envReader = new EnvReader();

@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides the context associated with a kill processed by <see cref="GunGame"/>.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+/// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
 /// <param name="Victim">
 /// The player who was killed.
 /// </param>

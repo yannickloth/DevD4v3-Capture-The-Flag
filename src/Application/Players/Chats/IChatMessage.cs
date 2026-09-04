@@ -20,6 +20,6 @@ public interface IChatMessage
     /// <returns>
     /// <c>true</c> if the message was successfully sent; otherwise, <c>false</c>.
     /// </returns>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-36 (client messages) → CD-13</remarks>
     bool SendToAllPlayers(PlayerInfo sender, string message);
 }

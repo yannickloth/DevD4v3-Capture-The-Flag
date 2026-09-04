@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.Players.Accounts.Statistics;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerKillsSystem(
     IPlayerRepository playerRepository,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-15 (command set) → CD-10</remarks>
     [PlayerCommand("settotalkills")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetTotalKillsToPlayer(
