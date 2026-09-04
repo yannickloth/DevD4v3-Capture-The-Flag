@@ -16,7 +16,7 @@ public class WeaponCatalogSettings
     /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
     public WeaponCatalogSettings(WeaponCatalogType type = WeaponCatalogType.Walking)
     {
-        EnsureValidCatalog(type);
+        WeaponCatalogTypeValidator.EnsureValidCatalog(type);
         Type = type;
     }
 
@@ -29,17 +29,8 @@ public class WeaponCatalogSettings
     /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
     public void Change(WeaponCatalogType type)
     {
-        EnsureValidCatalog(type);
+        WeaponCatalogTypeValidator.EnsureValidCatalog(type);
         Type = type;
     }
 
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
-    private static void EnsureValidCatalog(WeaponCatalogType type)
-    {
-        if (!Enum.IsDefined(type))
-            throw new ArgumentOutOfRangeException(
-                paramName: nameof(type),
-                actualValue: type,
-                message: "The weapon catalog type is invalid.");    
-    }
 }
