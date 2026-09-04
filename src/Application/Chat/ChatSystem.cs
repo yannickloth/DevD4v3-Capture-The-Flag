@@ -34,20 +34,11 @@ public class ChatSystem(FrozenDictionary<char, IChatMessage> chats) : ISystem
         if (chats.TryGetValue(identifier, out IChatMessage chatMessage)) 
         {
             PlayerInfo sender = player.GetRequiredInfo();
-            ReplaceFirstCharacter(text, newCharacter: ' ');
+            ChatText.ReplaceFirstCharacter(text, newCharacter: ' ');
             bool sendMessageByDefault = !chatMessage.SendToAllPlayers(sender, text);
-            ReplaceFirstCharacter(text, newCharacter: identifier);
+            ChatText.ReplaceFirstCharacter(text, newCharacter: identifier);
             return sendMessageByDefault;
         }
         return true;
-    }
-
-    /// <remarks>Change drivers: CD-13 (root; chat rules: prefix replacement)</remarks>
-    private unsafe void ReplaceFirstCharacter(string originalText, char newCharacter)
-    {
-        fixed (char* text = originalText)
-        {
-            text[0] = newCharacter;
-        }
     }
 }
