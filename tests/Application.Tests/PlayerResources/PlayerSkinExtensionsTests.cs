@@ -1,4 +1,4 @@
-namespace CTF.Application.Tests.Platform;
+namespace CTF.Application.Tests.PlayerResources;
 
 /// <summary>Tests for PlayerSkinExtensions.HasSkin.</summary>
 /// <remarks>Change drivers: CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-44; CD-27 (FluentAssertions contract) → CD-44</remarks>

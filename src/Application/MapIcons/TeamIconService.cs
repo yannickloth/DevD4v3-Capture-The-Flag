@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.MapIcons;
 
 /// <summary>
 /// Creates and destroys dynamic map icons for team flags.

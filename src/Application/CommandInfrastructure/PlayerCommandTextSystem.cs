@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.CommandInfrastructure;
 
 /// <summary>
 /// Handles the command-text callback, invoking the registered command handlers.

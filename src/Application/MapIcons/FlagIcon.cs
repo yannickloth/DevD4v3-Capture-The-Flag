@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.MapIcons;
 
 /// <summary>
 /// See <see href="https://www.open.mp/docs/scripting/resources/mapicons">map icons</see>.

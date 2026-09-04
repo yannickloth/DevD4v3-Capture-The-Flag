@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Platform;
+﻿namespace CTF.Host.Ecs;
 
 /// <remarks>Change drivers: CD-32 (root; ECS runtime: IEcsStartup lifecycle); CD-17 (game configuration/.env schema) → CD-32; CD-21 (DI container/composition) → CD-32; CD-23 (Serilog logging) → CD-32; CD-24 (Discord webhook contract) → CD-32</remarks>
 public class Startup : IEcsStartup

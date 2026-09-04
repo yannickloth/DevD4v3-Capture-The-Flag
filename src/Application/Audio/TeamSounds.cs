@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.Audio;
 
 /// <summary>
 /// Represents the sounds played for team flag events.

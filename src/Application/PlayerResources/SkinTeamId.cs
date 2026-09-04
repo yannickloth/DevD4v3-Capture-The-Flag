@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.PlayerResources;
 
 /// <summary>
 /// Represents the player skin ids assigned to teams.

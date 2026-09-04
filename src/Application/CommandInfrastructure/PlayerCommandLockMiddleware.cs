@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.CommandInfrastructure;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerCommandText</c> to prevent command execution

@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Platform;
+﻿namespace CTF.Host.CommandInfrastructure;
 
 /// <remarks>Change drivers: CD-43 (root; command infrastructure)</remarks>
 public class CommandUsageFormatter : ICommandTextFormatter

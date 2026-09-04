@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Platform;
+﻿namespace CTF.Application.Pickups;
 
 /// <summary>
 /// Creates and destroys pickups for team flags and exterior markers.

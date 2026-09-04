@@ -5,7 +5,7 @@
     public static class Entrypoint
     {
         /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint/startup); CD-22 (hosting/deployment spec) → CD-32</remarks>
-        private static readonly global::CTF.Host.Platform.Startup _startup = new();
+        private static readonly global::CTF.Host.Ecs.Startup _startup = new();
 
         /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint)</remarks>
         private static SampSharp.OpenMp.Core.StartupContext _context;

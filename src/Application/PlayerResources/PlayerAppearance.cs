@@ -1,4 +1,4 @@
-namespace CTF.Application.Platform;
+namespace CTF.Application.PlayerResources;
 
 /// <summary>
 /// Represents the persisted visual/platform preferences of a player.
