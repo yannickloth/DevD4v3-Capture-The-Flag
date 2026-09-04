@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the time left on the current map.
 /// </summary>
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
 public class TimeLeft
 {
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
@@ -22,7 +22,7 @@ public class TimeLeft
     /// <summary>
     /// Represents the time left in a text draw.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public string TextDraw { get; } = "00:00";
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
@@ -89,7 +89,7 @@ public class TimeLeft
     /// <remarks>
     /// This decision was made because the text will be updated every 1s by a timer.
     /// </remarks>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     private unsafe void UpdateTextDraw()
     {
         int minutes = _interval / 60;

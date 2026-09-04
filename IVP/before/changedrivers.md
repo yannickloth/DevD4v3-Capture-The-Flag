@@ -14,7 +14,7 @@ The following change drivers were identified from the codebase. Each is an exter
 
 | ID | Change driver | Anchoring artifact(s) |
 |----|---------------|----------------------|
-| **CD-01** | **open.mp / SampSharp platform API** — the game platform and its managed bindings: player entity & events (`OnPlayerConnect`, `OnPlayerDisconnect`, `OnPlayerDeath`, `OnPlayerSpawn`, `OnPlayerRequestSpawn`, `OnPlayerText`, `OnPlayerCommandText`, `OnPlayerKeyStateChange`, `OnPlayerTakeDamage`, `OnPlayerUpdate`, `OnPlayerPickUpPickup`, `OnPlayerPauseStateChange`), services (`IWorldService`, `IServerService`, `IDialogService`, `ITimerService`, `IEntityManager`, `IPlayerCommandService`, streamer service), ECS (`ISystem`, `Component`, `[Event]`, `[PlayerCommand]`), textdraws, pickups, map icons, audio, model/skin/icon ids, `Player`, `Team`, `Flag`, `Component`, `UnixTimeSeconds`, `TimeProvider`, `TimePoint`. | `external/SampSharp`, SampSharp packages, open.mp server API, `config.json`, open.mp resources (model ids, skin ids, map icons, GameText styles, interior ids) |
+| **CD-01** | **DECOMPOSED** (was: open.mp / SampSharp platform API). The platform driver was a coarse bundle whose subsystems vary independently (e.g. an attached-object API change never forces a textdraw edit). It is decomposed into CD-31..CD-44 below; no element may cite CD-01. kept for history; do not reference. | `external/SampSharp`, SampSharp packages, open.mp server API |
 | **CD-02** | **CTF game-rules specification** — the Capture-the-Flag gameplay rules: game objective, flag rules (steal/capture/score/drop/return/auto-return/carrier-death/disconnect/pause), match end conditions, round transition rules, team balancing, death/respawn. | `README.md` § *Gameplay / Gameplay Rules*; game-design spec |
 | **CD-03** | **Combat / weapon-rules specification** — health & armour rules, headshot rule, weapon-selection rules (spawn selection, weapon pack, one-weapon-per-GTA-slot, unlimited ammo, parachute), kill/score/coins-on-kill rules. | `README.md` § *Weapon System*; `GameMode.Common` weapon model (`IWeapon`, `WeaponDefinitions`) |
 | **CD-04** | **Weapon-catalog configuration** — the closed set of weapon catalogs (`Walking`, `Run`, `Mixed`, `RifleOnly`, `War`, `Heavy`, `Melee`), the weapons each catalog contains, and the active catalog selection. | `WeaponCatalogType`, `WeaponCatalogSettings`, catalog DI registrations; `.env` `WeaponCatalog__Type` |
@@ -34,6 +34,20 @@ The following change drivers were identified from the codebase. Each is an exter
 | **CD-18** | **Database schema / player data model** — the `players` table columns and seed data that the outbound ports persist. | `schema.sql` (SQLite & MariaDB), `seed_data.sql`, `FakePlayer` |
 | **CD-19** | **MariaDB SQL dialect** — the MariaDB/MySQL SQL dialect and driver: `MySqlConnector`, `@parameter` placeholders, `enum` role column, `LAST_INSERT_ID()`. A change in the MariaDB dialect/driver forces only the MariaDB provider to change. | `MySqlConnector` (MariaDB), `Persistence.MariaDB/*` |
 | **CD-30** | **SQLite SQL dialect** — the SQLite SQL dialect and driver: `Microsoft.Data.Sqlite`, positional parameters, int-based role column, `CreateRegexpFunction`. A change in the SQLite dialect/driver forces only the SQLite provider to change. | `Microsoft.Data.Sqlite` (SQLite), `Persistence.SQLite/*` |
+| **CD-31** | **Player entity & lifecycle events** — the `Player` entity and its lifecycle events (`OnPlayerConnect`, `OnPlayerDisconnect`, `OnPlayerDeath`, `OnPlayerSpawn`, `OnPlayerRequestSpawn`, `OnPlayerText`, `OnPlayerKeyStateChange`, `OnPlayerTakeDamage`, `OnPlayerUpdate`, `OnPlayerPauseStateChange`), player state APIs (name, team, spawn, score, spectating, radar show/hide), player classes. | `SampSharp.OpenMp.Entities` `Player`, player event wiring |
+| **CD-32** | **ECS runtime** — the entity-component-system runtime: `ISystem`, `Component`, `[Event]`, `IEcsStartup`, `IEcsBuilder`, middlewares, `IEntityManager`, startup context, component storage. | `SampSharp.Entities` |
+| **CD-33** | **Dialog API** — `IDialogService` and the dialog types and their handlers. | `SampSharp.Entities.SAMP` dialogs |
+| **CD-34** | **Textdraw API** — `TextDraw`/`PlayerTextDraw` creation, fonts, preview models, positions. | `SampSharp.Entities.SAMP` textdraws |
+| **CD-35** | **GameText API** — `GameText` display and its text-color codes (`~r~` etc.) and styles. | open.mp GameText resources, `Player.GameText` |
+| **CD-36** | **Client-message API** — `SendClientMessage`/`SendClientMessageToAll` and message colors. | `SampSharp.Entities.SAMP` client messaging |
+| **CD-37** | **Pickup API** — pickup creation (incl. streamer pickups), pickup model ids, `OnPlayerPickUpPickup`. | streamer service, `OnPlayerPickUpPickup` |
+| **CD-38** | **Map-icon & radar API** — map icon creation (`CreateDynamicMapIcon`, map-icon ids) and player radar visibility (`ShowOnRadarMap`/`HideOnRadarMap`). | streamer service map icons, player radar API |
+| **CD-39** | **Attached-object API** — `SetAttachedObject`/`RemoveAttachedObject`: index, bone, offset, rotation, scale, material colors. | `Player.SetAttachedObject`, open.mp attached objects |
+| **CD-40** | **Audio API** — `PlayAudioStream` and audio stream playback. (The `.env` audio URLs are CD-17.) | `Player.PlayAudioStream` |
+| **CD-41** | **Timer API** — `ITimerService`, `TimerReference`, timer callbacks and intervals. | `SampSharp.Entities` timers |
+| **CD-42** | **Server service API** — `IServerService`: server name, language, website, gamemode text, `UsePlayerPedAnims`, `DisableInteriorEnterExits`. | `IServerService` |
+| **CD-43** | **Command infrastructure** — the player-command framework: `[PlayerCommand]`, command definitions/tags, `ICommandTextFormatter`, `IPermissionChecker`, command plumbing. | `SampSharp.Entities.SAMP.Commands` |
+| **CD-44** | **Model & skin id resources** — the open.mp id spaces for object models (flag models, pickup models), skins, and player-class skin ids. | open.mp resources (model ids, skin ids), `FlagModel`, `FlagIcon`, `SkinTeamId` |
 | **CD-20** | **Outbound repository contract** — the persistence ports `IPlayerRepository` and `ITopPlayersRepository` that all providers implement. | `IPlayerRepository`, `ITopPlayersRepository` |
 | **CD-21** | **DI container / composition** — the dependency-injection registrations and the ECS system/middleware wiring. | `Startup`, `ServiceCollectionExtensions` (all subsystems), `Microsoft.Extensions.DependencyInjection` |
 | **CD-22** | **Hosting / deployment spec** — the open.mp deployment layout (`gamemode/` working directory, maps folder, yesql SQL folders), server entry, environment selection. | `GameModePaths`, `Program.cs`, `Dockerfile`, `.env` (Docker section) |
@@ -50,63 +64,67 @@ The following change drivers were identified from the codebase. Each is an exter
 
 ## 2. Namespace Driver Assignments
 
+> **CD-01 decomposition note.** CD-01 was an umbrella over independently-varying platform subsystems. It is decomposed into CD-31..CD-44. In the namespace table below, every row that previously cited `CD-01` now spans the sub-drivers CD-31..CD-44 actually present in its elements; the per-element stamps in the source remain the single source of truth for which subsystem applies where.
+
+
+
 1 yesC# file-scoped namespaces (`namespace X.Y;`) cannot carry `///` XML doc comments, so the namespace → driver mapping is recorded here as the single source of truth. Each namespace's driver set is the union of the drivers of the types and members it contains.
 
 | Namespace | Change drivers |
 |-----------|----------------|
 | `CTF.Application` | CD-17 (game configuration / messages) |
-| `CTF.Application.GunGames` | CD-01, CD-03, CD-06, CD-07, CD-10, CD-15, CD-17, CD-21 |
-| `CTF.Application.GunGames.Results` | CD-01, CD-03, CD-07, CD-10, CD-20 |
+| `CTF.Application.GunGames` | CD-31..CD-44, CD-03, CD-06, CD-07, CD-10, CD-15, CD-17, CD-21 |
+| `CTF.Application.GunGames.Results` | CD-31..CD-44, CD-03, CD-07, CD-10, CD-20 |
 | `CTF.Application.GunGames.WeaponProgressions` | CD-07 |
 | `CTF.Application.GunGames.WeaponProgressions.Definitions` | CD-07 |
-| `CTF.Application.Maps` | CD-01, CD-11, CD-12, CD-17, CD-21 |
-| `CTF.Application.Maps.Rotation` | CD-01, CD-11, CD-12, CD-15 |
-| `CTF.Application.Players` | CD-01, CD-02, CD-08, CD-11, CD-12, CD-16, CD-17, CD-21, CD-24 |
-| `CTF.Application.Players.Accounts` | CD-01, CD-07, CD-08, CD-09, CD-10, CD-18, CD-20, CD-25 |
-| `CTF.Application.Players.Accounts.Authentication` | CD-01, CD-08, CD-20, CD-25 |
-| `CTF.Application.Players.Accounts.Profile` | CD-01, CD-08, CD-20 |
-| `CTF.Application.Players.Accounts.Roles` | CD-01, CD-09, CD-17, CD-20 |
-| `CTF.Application.Players.Accounts.Statistics` | CD-01, CD-06, CD-07, CD-08, CD-09, CD-10, CD-17, CD-20 |
-| `CTF.Application.Players.AntiCBug` | CD-01, CD-14, CD-17 |
-| `CTF.Application.Players.Chats` | CD-01, CD-09, CD-13, CD-21 |
-| `CTF.Application.Players.Chats.Definitions` | CD-01, CD-09, CD-13 |
-| `CTF.Application.Players.Combos` | CD-01, CD-05, CD-06, CD-07, CD-12, CD-15, CD-17, CD-21 |
+| `CTF.Application.Maps` | CD-31..CD-44, CD-11, CD-12, CD-17, CD-21 |
+| `CTF.Application.Maps.Rotation` | CD-31..CD-44, CD-11, CD-12, CD-15 |
+| `CTF.Application.Players` | CD-31..CD-44, CD-02, CD-08, CD-11, CD-12, CD-16, CD-17, CD-21, CD-24 |
+| `CTF.Application.Players.Accounts` | CD-31..CD-44, CD-07, CD-08, CD-09, CD-10, CD-18, CD-20, CD-25 |
+| `CTF.Application.Players.Accounts.Authentication` | CD-31..CD-44, CD-08, CD-20, CD-25 |
+| `CTF.Application.Players.Accounts.Profile` | CD-31..CD-44, CD-08, CD-20 |
+| `CTF.Application.Players.Accounts.Roles` | CD-31..CD-44, CD-09, CD-17, CD-20 |
+| `CTF.Application.Players.Accounts.Statistics` | CD-31..CD-44, CD-06, CD-07, CD-08, CD-09, CD-10, CD-17, CD-20 |
+| `CTF.Application.Players.AntiCBug` | CD-31..CD-44, CD-14, CD-17 |
+| `CTF.Application.Players.Chats` | CD-31..CD-44, CD-09, CD-13, CD-21 |
+| `CTF.Application.Players.Chats.Definitions` | CD-31..CD-44, CD-09, CD-13 |
+| `CTF.Application.Players.Combos` | CD-31..CD-44, CD-05, CD-06, CD-07, CD-12, CD-15, CD-17, CD-21 |
 | `CTF.Application.Players.Combos.Definitions` | CD-05, CD-06, CD-17 |
-| `CTF.Application.Players.GeneralCommands` | CD-01, CD-02, CD-09, CD-15 |
-| `CTF.Application.Players.Headshots` | CD-01, CD-03, CD-10, CD-17, CD-20 |
-| `CTF.Application.Players.Pause` | CD-01, CD-02 |
-| `CTF.Application.Players.Ranks` | CD-01, CD-10, CD-15 |
-| `CTF.Application.Players.TopPlayers` | CD-01, CD-10, CD-15, CD-17, CD-20 |
-| `CTF.Application.Players.Vitalities` | CD-01, CD-03, CD-09, CD-15, CD-17 |
-| `CTF.Application.Players.Weapons` | CD-01, CD-03, CD-04, CD-07, CD-15, CD-17, CD-21 |
+| `CTF.Application.Players.GeneralCommands` | CD-31..CD-44, CD-02, CD-09, CD-15 |
+| `CTF.Application.Players.Headshots` | CD-31..CD-44, CD-03, CD-10, CD-17, CD-20 |
+| `CTF.Application.Players.Pause` | CD-31..CD-44, CD-02 |
+| `CTF.Application.Players.Ranks` | CD-31..CD-44, CD-10, CD-15 |
+| `CTF.Application.Players.TopPlayers` | CD-31..CD-44, CD-10, CD-15, CD-17, CD-20 |
+| `CTF.Application.Players.Vitalities` | CD-31..CD-44, CD-03, CD-09, CD-15, CD-17 |
+| `CTF.Application.Players.Weapons` | CD-31..CD-44, CD-03, CD-04, CD-07, CD-15, CD-17, CD-21 |
 | `CTF.Application.Players.Weapons.Catalogs` | CD-04, CD-17 |
-| `CTF.Application.Teams` | CD-01, CD-02, CD-10, CD-11, CD-15, CD-17, CD-21 |
-| `CTF.Application.Teams.ClassSelection` | CD-01, CD-02, CD-03, CD-08, CD-12, CD-15, CD-17 |
-| `CTF.Application.Teams.Flags` | CD-01, CD-02, CD-03, CD-06, CD-09, CD-10, CD-11, CD-15, CD-21 |
-| `CTF.Application.Teams.Flags.AutoReturn` | CD-01, CD-02, CD-17 |
-| `CTF.Application.Teams.Flags.Carriers` | CD-01, CD-02, CD-09, CD-15, CD-17 |
-| `CTF.Application.Teams.Flags.Events` | CD-01, CD-02, CD-06, CD-10, CD-17, CD-20 |
-| `CTF.Application.Teams.Matches` | CD-01, CD-02 |
-| `CTF.Application.Teams.Statistics` | CD-01, CD-02, CD-09, CD-10, CD-15 |
-| `CTF.Host` | CD-01, CD-11, CD-17, CD-21, CD-22, CD-23, CD-24 |
-| `CTF.Host.Extensions` | CD-01, CD-17, CD-19, CD-30, CD-21, CD-22, CD-23, CD-24 |
-| `CTF.Host.Services` | CD-01, CD-17, CD-21, CD-23, CD-24, CD-25 |
+| `CTF.Application.Teams` | CD-31..CD-44, CD-02, CD-10, CD-11, CD-15, CD-17, CD-21 |
+| `CTF.Application.Teams.ClassSelection` | CD-31..CD-44, CD-02, CD-03, CD-08, CD-12, CD-15, CD-17 |
+| `CTF.Application.Teams.Flags` | CD-31..CD-44, CD-02, CD-03, CD-06, CD-09, CD-10, CD-11, CD-15, CD-21 |
+| `CTF.Application.Teams.Flags.AutoReturn` | CD-31..CD-44, CD-02, CD-17 |
+| `CTF.Application.Teams.Flags.Carriers` | CD-31..CD-44, CD-02, CD-09, CD-15, CD-17 |
+| `CTF.Application.Teams.Flags.Events` | CD-31..CD-44, CD-02, CD-06, CD-10, CD-17, CD-20 |
+| `CTF.Application.Teams.Matches` | CD-31..CD-44, CD-02 |
+| `CTF.Application.Teams.Statistics` | CD-31..CD-44, CD-02, CD-09, CD-10, CD-15 |
+| `CTF.Host` | CD-31..CD-44, CD-11, CD-17, CD-21, CD-22, CD-23, CD-24 |
+| `CTF.Host.Extensions` | CD-31..CD-44, CD-17, CD-19, CD-30, CD-21, CD-22, CD-23, CD-24 |
+| `CTF.Host.Services` | CD-31..CD-44, CD-17, CD-21, CD-23, CD-24, CD-25 |
 | `Persistence.InMemory` | CD-17, CD-18, CD-20, CD-21, CD-25 |
 | `Persistence.MariaDB` | CD-17, CD-18, CD-19, CD-20, CD-21, CD-25 |
 | `Persistence.SQLite` | CD-17, CD-18, CD-30, CD-20, CD-21, CD-25 |
 | `Persistence.SQLite.Extensions` | CD-30 |
-| `SampSharp` | CD-01, CD-22 |
+| `SampSharp` | CD-31..CD-44, CD-22 |
 
 ### Test-project namespaces
 
 | Namespace | Change drivers |
 |-----------|----------------|
 | `CTF.Application.Tests` | CD-11, CD-22, CD-26, CD-27 |
-| `CTF.Application.Tests.Fakes` | CD-01, CD-11, CD-28 |
+| `CTF.Application.Tests.Fakes` | CD-31..CD-44, CD-11, CD-28 |
 | `CTF.Application.Tests.GunGames` | CD-07, CD-26, CD-27 |
 | `CTF.Application.Tests.Maps` | CD-11, CD-12, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27 |
-| `CTF.Application.Tests.Players.Extensions` | CD-01, CD-08, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Extensions` | CD-31..CD-44, CD-08, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.Ranks` | CD-10, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.TopPlayers` | CD-10, CD-17, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.Vitalities` | CD-03, CD-26, CD-27 |

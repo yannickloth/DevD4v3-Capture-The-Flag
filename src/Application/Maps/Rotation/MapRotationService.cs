@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Maps.Rotation;
 
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: flag/team reset on rotation) → CD-12; CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-01; mapObjects -> CD-01; worldService -> CD-01; timerService -> CD-01; mapInfoService -> CD-11; mapCollection -> CD-11; mapTextDrawRenderer -> CD-01; flagStateResetter -> CD-02; teamBalancer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: flag/team reset on rotation) → CD-12; CD-31 (player events); CD-34 (Textdraw API); CD-36 (client messages); CD-41 (Timer API); CD-42 (Server service API) → CD-12</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-42; mapObjects -> CD-37; worldService -> CD-36; timerService -> CD-41; mapInfoService -> CD-11; mapCollection -> CD-11; mapTextDrawRenderer -> CD-34; flagStateResetter -> CD-02; teamBalancer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class MapRotationService(
     IServerService serverService,
     IMapObjectService mapObjects,
@@ -16,7 +16,7 @@ public class MapRotationService(
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules: round-load countdown)</remarks>
     private LoadTime _loadTime;
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API: timer reference) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-41 (timer reference) → CD-12</remarks>
     private TimerReference _timerReference;
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loading state)</remarks>
@@ -67,7 +67,7 @@ public class MapRotationService(
         _timerReference = default;
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-34 (Textdraw API) → CD-12</remarks>
     private void OnTimer(IServiceProvider serviceProvider)
     {
         if (_timeLeft.IsCompleted())
@@ -81,7 +81,7 @@ public class MapRotationService(
         mapTextDrawRenderer.UpdateTimeLeft(_timeLeft);
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: flag reset on rotation) → CD-12; CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: flag reset on rotation) → CD-12; CD-31 (player events); CD-36 (client messages); CD-42 (Server service API) → CD-12</remarks>
     private void OnLoadingMap()
     {
         _isMapLoading = true;
@@ -101,7 +101,7 @@ public class MapRotationService(
         serverService.SetMapName(nextMap.Name);
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: team rebalancing on rotation) → CD-12; CD-01 (open.mp/SampSharp platform API) → CD-12</remarks>
+    /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-02 (CTF game-rules specification: team rebalancing on rotation) → CD-12; CD-31 (player events); CD-34 (Textdraw API); CD-36 (client messages); CD-42 (Server service API) → CD-12</remarks>
     private void OnLoadedMap()
     {
         _isMapLoading = false;

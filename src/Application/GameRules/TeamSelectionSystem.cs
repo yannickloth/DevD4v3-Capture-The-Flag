@@ -3,8 +3,8 @@
 /// <summary>
 /// Handles team selection for players via the team command and dialog.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-01 (open.mp/SampSharp platform API: dialog, commands, player team/spawn) → CD-02; CD-15 (command set: team command) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; dialogService -> CD-01; teamTextDrawRenderer -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-33; CD-31; CD-43 (dialog, commands, player team/spawn) → CD-02; CD-15 (command set: team command) → CD-02</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; dialogService -> CD-33; teamTextDrawRenderer -> CD-34. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TeamSelectionSystem(
     IWorldService worldService,
     IDialogService dialogService,
@@ -19,7 +19,7 @@ public class TeamSelectionSystem(
     public event TeamChangeEventHandler TeamChangeEvent;
 
     /// <summary>Shows the team selection dialog.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-15 (command set: team command) → CD-02; CD-01 (open.mp/SampSharp platform API: dialog) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-15 (command set: team command) → CD-02; CD-33 (dialog) → CD-02</remarks>
     [PlayerCommand("team")]
     public async Task ShowTeams(Player player)
     {
@@ -64,7 +64,7 @@ public class TeamSelectionSystem(
         ChangeTeam(player, selectedTeam);
     }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team change); CD-01 (open.mp/SampSharp platform API: player team/spawn, textdraw) → CD-02; CD-15 (command set) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team change); CD-34; CD-31 (player team/spawn, textdraw) → CD-02; CD-15 (command set) → CD-02</remarks>
     private void ChangeTeam(Player player, Team selectedTeam)
     {
         Team alphaTeam = Team.Alpha;

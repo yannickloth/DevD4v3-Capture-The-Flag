@@ -4,8 +4,8 @@
 /// Middleware executed before <c>OnPlayerRequestSpawn</c> to prevent players
 /// from spawning when the required conditions are not met.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection and team balancing); CD-01 (open.mp/SampSharp platform API: ECS middleware) → CD-02; CD-08 (account & authentication policy) → CD-02; CD-12 (map-rotation rules) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-01; next -> CD-01; mapRotationService -> CD-12. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection and team balancing); CD-32 (ECS middleware) → CD-02; CD-08 (account & authentication policy) → CD-02; CD-12 (map-rotation rules) → CD-02</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; next -> CD-32; mapRotationService -> CD-12. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerSpawnLockMiddleware(
     IEntityManager entityManager,
     EventDelegate next,

@@ -3,8 +3,8 @@
 /// <summary>
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-01 (open.mp/SampSharp platform API: player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-01; flagAutoReturnTimer -> CD-02; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-37; CD-31 (player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-37; flagAutoReturnTimer -> CD-02; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class FlagSystem(
     IWorldService worldService,
     FrozenDictionary<FlagStatus, IFlagEvent> flagEvents,
@@ -22,7 +22,7 @@ public class FlagSystem(
     private const int CarrierKillEarnedScore  = 2;
 
     /// <summary>Handles flag drop when a carrying player disconnects.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-disconnect drop rule); CD-01 (open.mp/SampSharp platform API: OnPlayerDisconnect) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-disconnect drop rule); CD-31 (OnPlayerDisconnect) → CD-02</remarks>
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -36,7 +36,7 @@ public class FlagSystem(
     }
 
     /// <summary>Handles flag drop and rewards when a carrying player dies.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-death drop rule); CD-01 (open.mp/SampSharp platform API: OnPlayerDeath) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-06 (coin economy: coins-on-kill) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-death drop rule); CD-31 (OnPlayerDeath) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-06 (coin economy: coins-on-kill) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -72,7 +72,7 @@ public class FlagSystem(
     }
 
     /// <summary>Handles flag pickup interactions.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/return rules); CD-01 (open.mp/SampSharp platform API: OnPlayerPickUpPickup) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/return rules); CD-37; CD-31 (OnPlayerPickUpPickup) → CD-02</remarks>
     [Event]
     public void OnPlayerPickUpPickup(Player player, Pickup pickup)
     {
@@ -101,7 +101,7 @@ public class FlagSystem(
     }
 
     /// <summary>Returns a flag to its base position via the returnflag command.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rule); CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02; CD-01 (open.mp/SampSharp platform API: pickups, audio, timers) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rule); CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02; CD-37; CD-40; CD-41 (pickups, audio, timers) → CD-02</remarks>
     [PlayerCommand("returnflag")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ReturnToBasePosition(

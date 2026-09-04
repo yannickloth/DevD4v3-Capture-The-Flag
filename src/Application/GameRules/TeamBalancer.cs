@@ -3,8 +3,8 @@
 /// <summary>
 /// Balances players between two teams based on their score.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-01 (open.mp/SampSharp platform API: player team/score) → CD-02</remarks>
-/// <remarks>Injected dependencies: teamTextDrawRenderer -> CD-01. Driven by the TeamTextDrawRenderer (rendering) contract + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-31 (player team/score) → CD-02</remarks>
+/// <remarks>Injected dependencies: teamTextDrawRenderer -> CD-34. Driven by the TeamTextDrawRenderer (rendering) contract + CD-21 (DI wiring).</remarks>
 public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
 {
     /// <summary>

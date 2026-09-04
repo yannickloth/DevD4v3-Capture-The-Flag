@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Platform;
 
 /// <summary>Tests for PlayerSkinExtensions.HasSkin.</summary>
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: PlayerSkinExtensions.HasSkin); CD-26 (NUnit test-framework contract) → CD-01; CD-27 (FluentAssertions contract) → CD-01</remarks>
+/// <remarks>Change drivers: CD-44 (root; skin id resources); CD-26 (NUnit test-framework contract) → CD-44; CD-27 (FluentAssertions contract) → CD-44</remarks>
 public class PlayerSkinExtensionsTests
 {
     [Test]

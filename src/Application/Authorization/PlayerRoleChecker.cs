@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.Authorization;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-01 (open.mp/SampSharp platform API: IPermissionChecker/command plumbing) → CD-09</remarks>
+/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (IPermissionChecker/command plumbing) → CD-09</remarks>
 public class PlayerRoleChecker : IPermissionChecker
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-01 (open.mp/SampSharp platform API: command plumbing) → CD-09</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (command plumbing) → CD-09</remarks>
     public bool HasPermission(Player player, CommandDefinition command)
     {
         string minimumRequiredRoleValue = command.GetTag("role");

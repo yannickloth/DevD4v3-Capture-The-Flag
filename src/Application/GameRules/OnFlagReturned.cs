@@ -3,8 +3,8 @@
 /// <summary>
 /// This event occurs when a player has returned the flag to their team's base.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rule); CD-01 (open.mp/SampSharp platform API: pickups, audio, GameText) → CD-02; CD-06 (coin economy: coins-on-flag-event) → CD-02; CD-10 (player-statistics/rank model: returned flags) → CD-02; CD-20 (outbound repository contract: UpdateReturnedFlags) → CD-02</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-01; teamPickupService -> CD-01; playerStatsRenderer -> CD-10; flagAutoReturnTimer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rule); CD-35; CD-37; CD-40 (pickups, audio, GameText) → CD-02; CD-06 (coin economy: coins-on-flag-event) → CD-02; CD-10 (player-statistics/rank model: returned flags) → CD-02; CD-20 (outbound repository contract: UpdateReturnedFlags) → CD-02</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36; teamPickupService -> CD-37; playerStatsRenderer -> CD-10; flagAutoReturnTimer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class OnFlagReturned(
     IPlayerRepository playerRepository,
     IWorldService worldService,

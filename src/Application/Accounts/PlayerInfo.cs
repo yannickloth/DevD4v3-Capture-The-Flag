@@ -17,6 +17,6 @@ public partial class PlayerInfo
     /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: authorization composition); CD-09 (authorization policy) → CD-08</remarks>
     public PlayerRole Role { get; } = new();
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: appearance composition); CD-01 (open.mp/SampSharp platform API) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: appearance composition); CD-44 (model &amp; skin id resources) → CD-08</remarks>
     public PlayerAppearance Appearance { get; } = new();
 }

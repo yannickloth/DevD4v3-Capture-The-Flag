@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods for adding health and armour, bounded to their maximum values.
 /// </summary>
-/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
+/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-31 (player health/armour state) → CD-03</remarks>
 public static class HealthArmourExtensions
 {
     /// <summary>
@@ -11,7 +11,7 @@ public static class HealthArmourExtensions
     /// </summary>
     /// <param name="player">The current player.</param>
     /// <param name="amount">The amount of health to be added.</param>
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-31 (player health state) → CD-03</remarks>
     public static void AddHealth(this Player player, float amount)
     {
         if (amount < 0)
@@ -30,7 +30,7 @@ public static class HealthArmourExtensions
     /// </summary>
     /// <param name="player">The current player.</param>
     /// <param name="amount">The amount of armour to be added.</param>
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-31 (player armour state) → CD-03</remarks>
     public static void AddArmour(this Player player, float amount)
     {
         if (amount < 0)

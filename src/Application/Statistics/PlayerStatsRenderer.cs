@@ -1,10 +1,10 @@
 ﻿namespace CTF.Application.Statistics;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
-/// <remarks>Injected dependencies: worldService -> CD-01. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
+/// <remarks>Injected dependencies: worldService -> CD-36. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
 public class PlayerStatsRenderer(IWorldService worldService)
 {
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public void CreateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -32,7 +32,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -63,7 +63,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         return Smart.Format(message, stats);
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public void ShowTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -71,7 +71,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Show();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public void HideTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -79,20 +79,20 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Hide();
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     private PlayerStatsTextDraw GetTextDrawOrThrow(Player player)
     {
         return player.GetComponent<PlayerStatsTextDraw>()
              ?? throw new InvalidOperationException($"The '{nameof(PlayerStatsTextDraw)}' component is not attached to the player");
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
     private class PlayerStatsTextDraw : Component
     {
-        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-34 (Textdraw API) → CD-10</remarks>
         public PlayerTextDraw Value { get; }
 
-        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-01 (open.mp/SampSharp platform API) → CD-10</remarks>
+        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-34 (Textdraw API) → CD-10</remarks>
         public PlayerStatsTextDraw(PlayerTextDraw value)
         {
             ArgumentNullException.ThrowIfNull(value);

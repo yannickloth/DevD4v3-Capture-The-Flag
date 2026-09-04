@@ -3,7 +3,7 @@ namespace CTF.Application.GameRules;
 /// <summary>
 /// Provides team-membership extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (player entity: team/color) → CD-02</remarks>
 public static class TeamPlayerExtensions
 {
     /// <summary>

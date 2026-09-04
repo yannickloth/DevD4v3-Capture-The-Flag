@@ -3,25 +3,25 @@
 /// <summary>
 /// Renders the class-selection screen textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+/// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
 public class ClassSelectionTextDrawRenderer
 {
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected world service)</remarks>
+    /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     private TextDraw _gameModeTitle;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     private TextDraw _gameModeDescription;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     private TextDraw _commandList;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     private TextDraw _blueCommandListBox;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public ClassSelectionTextDrawRenderer(IWorldService worldService)
     {
         _worldService = worldService;
@@ -29,7 +29,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Shows the class-selection textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public void Show(Player player)
     {
         _gameModeDescription.Show(player);
@@ -39,7 +39,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Hides the class-selection textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraws)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
     public void Hide(Player player)
     {
         _gameModeDescription.Hide(player);
@@ -47,7 +47,7 @@ public class ClassSelectionTextDrawRenderer
         _blueCommandListBox.Hide(player);
     }
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: textdraw creation)</remarks>
+    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation)</remarks>
     private void Initialize()
     {
         _gameModeTitle = _worldService.CreateTextDraw(new Vector2(483.000000f, 4.000000f), string.Empty);

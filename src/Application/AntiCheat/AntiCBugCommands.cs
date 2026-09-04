@@ -4,19 +4,19 @@
 /// Provides administrative commands to enable or disable the GTA: San Andreas
 /// crouch bug (C-Bug) protection.
 /// </summary>
-/// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-01 (open.mp/SampSharp platform API) → CD-14</remarks>
+/// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-43 (command infrastructure); CD-36 (client messages); CD-31 (player) → CD-14</remarks>
 /// <remarks>
 /// C-Bug is a bug in GTA: San Andreas that allows players to manipulate the
 /// reload animation of certain weapons, particularly the Desert Eagle, to fire
 /// much faster than the game's normal mechanics would allow.
 /// </remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; antiCBugSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; antiCBugSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class AntiCBugCommands(
     IWorldService worldService,
     AntiCBugSettings antiCBugSettings) : ISystem
 {
     /// <summary>Disables the anti-cheat protection for the C-Bug.</summary>
-    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-01 (open.mp/SampSharp platform API) → CD-14</remarks>
+    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-43 (command infrastructure); CD-36 (client messages); CD-31 (player) → CD-14</remarks>
     [PlayerCommand("anticbugoff")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void Disable(Player player)
@@ -30,7 +30,7 @@ public class AntiCBugCommands(
     }
 
     /// <summary>Enables the anti-cheat protection for the C-Bug.</summary>
-    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-01 (open.mp/SampSharp platform API) → CD-14</remarks>
+    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-15 (command set) → CD-14; CD-09 (authorization policy) → CD-14; CD-17 (game configuration/.env schema) → CD-14; CD-43 (command infrastructure); CD-36 (client messages); CD-31 (player) → CD-14</remarks>
     [PlayerCommand("anticbugon")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void Enable(Player player)

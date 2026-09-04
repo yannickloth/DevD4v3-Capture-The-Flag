@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods for the class-selection player state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-01 (open.mp/SampSharp platform API: player ECS) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-32 (player ECS) → CD-02</remarks>
 public static class ClassSelectionExtensions
 {
     /// <summary>Checks whether the player is in class selection.</summary>
@@ -32,7 +32,7 @@ public static class ClassSelectionExtensions
         => player.GetComponent<ClassSelectionComponent>().IsInClassSelection = false;
 
     /// <summary>Redirects the player to the class selection screen.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-01 (open.mp/SampSharp platform API: spectating) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-31 (spectating) → CD-02</remarks>
     public static void RedirectToClassSelection(this Player player)
     {
         player.EnableClassSelection();

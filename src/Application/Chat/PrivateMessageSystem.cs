@@ -3,12 +3,12 @@
 /// <summary>
 /// Provides private-message commands (PM, block, unblock) and manages the per-player PM state.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
-/// <remarks>Injected dependencies: entityManager -> CD-01. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-09 (authorization policy) → CD-13; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages); CD-43 (command infrastructure) → CD-13</remarks>
+/// <remarks>Injected dependencies: entityManager -> CD-32. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
 public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
 {
     /// <summary>Sends a private message to a player and relays it to the staff.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-09 (authorization policy) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-09 (authorization policy) → CD-13; CD-43 (command infrastructure); CD-36 (client messages); CD-32 (ECS runtime) → CD-13</remarks>
     [PlayerCommand("pm")]
     public void SendMessageToPlayer(
         Player sender,
@@ -53,7 +53,7 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
     }
 
     /// <summary>Blocks private messages for the player.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-43 (command infrastructure); CD-36 (client messages); CD-32 (ECS runtime) → CD-13</remarks>
     [PlayerCommand("blockpm")]
     public void Block(Player player)
     {
@@ -64,7 +64,7 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
     }
 
     /// <summary>Unblocks private messages for the player.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-15 (command set) → CD-13; CD-43 (command infrastructure); CD-36 (client messages); CD-32 (ECS runtime) → CD-13</remarks>
     [PlayerCommand("unblockpm")]
     public void Unblock(Player player)
     {
@@ -75,14 +75,14 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
     }
 
     /// <summary>Adds the private-message component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API: OnPlayerConnect) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-31 (OnPlayerConnect) → CD-13</remarks>
     [Event]
     public void OnPlayerConnect(Player player) 
     {
         player.AddComponent<PrivateMessageComponent>();
     }
 
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-32 (component storage) → CD-13</remarks>
     private class PrivateMessageComponent : Component
     {
         /// <remarks>Change drivers: CD-13 (root; chat rules: PM block state)</remarks>

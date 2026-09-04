@@ -3,22 +3,22 @@
 /// <summary>
 /// Creates and destroys dynamic map icons for team flags.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons); CD-11 (map configuration: flag locations/interior) → CD-01</remarks>
+/// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations/interior) → CD-38</remarks>
 public class TeamIconService
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations); CD-01 (open.mp/SampSharp platform API: map icon dependencies) → CD-11</remarks>
+    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations); CD-38 (map icon dependencies) → CD-11</remarks>
     private readonly MapInfoService _mapInfoService;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: injected streamer service)</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API via streamer service)</remarks>
     private readonly IStreamerService _streamerService;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icon); CD-11 (map configuration: flag location/interior) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
     private DynamicMapIcon _redMapIcon;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icon); CD-11 (map configuration: flag location/interior) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
     private DynamicMapIcon _blueMapIcon;
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons); CD-11 (map configuration: flag locations) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations) → CD-38</remarks>
     public TeamIconService(MapInfoService mapInfoService, IStreamerService streamerService)
     {
         _mapInfoService = mapInfoService;
@@ -44,7 +44,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon at the specified position.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons); CD-11 (map configuration: flag location/interior) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
     public void CreateFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -73,7 +73,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys the map icon for the specified team.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons)</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
     public void Destroy(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -90,7 +90,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys all team map icons.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: map icons)</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
     public void DestroyAll()
     {
         Destroy(Team.Alpha);

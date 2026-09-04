@@ -1,12 +1,12 @@
 ﻿namespace CTF.Host.Platform;
 
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-17 (game configuration/.env schema) → CD-01</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-01; serverSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-42 (root; server service API); CD-17 (game configuration/.env schema) → CD-42</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-42; serverSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class GameModeInit(
     IServerService serverService,
     ServerSettings serverSettings) : ISystem
 {
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-17 (game configuration/.env schema) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-42 (root; server service API); CD-17 (game configuration/.env schema) → CD-42</remarks>
     [Event]
     public void OnGameModeInit()
     {

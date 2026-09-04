@@ -3,8 +3,8 @@
 /// <summary>
 /// Handles the command-text callback, invoking the registered command handlers.
 /// </summary>
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): playerCommandService -> CD-01; serviceProvider -> CD-21. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-43 (root; command infrastructure); CD-31 (player text event)</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): playerCommandService -> CD-43; serviceProvider -> CD-21. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerCommandTextSystem(
     IPlayerCommandService playerCommandService,
     IServiceProvider serviceProvider) : ISystem
@@ -23,7 +23,7 @@ public class PlayerCommandTextSystem(
     /// <c>true</c> if the command was processed, otherwise <c>false</c>; If the command was not found both in 
     /// filterscripts and in gamemode, the player will be received a message: 'SERVER: Unknown command'.
     /// </returns>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-43 (root; command infrastructure); CD-31 (player text event)</remarks>
     [Event]
     public bool OnPlayerCommandText(Player player, string text)
     {

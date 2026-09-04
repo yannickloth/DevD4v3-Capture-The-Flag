@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-01 (open.mp/SampSharp platform API: attached-object rendering) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-39 (attached-object rendering) → CD-02</remarks>
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model id) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model id) → CD-02</remarks>
     public required FlagIdentity Identity { get; init; }
 
     /// <summary>
@@ -142,16 +142,16 @@ public class Flag
     /// <summary>
     /// Represents the visual identity of the flag: model, map icon, and color.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model/icon id spaces, color type) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model/icon id spaces, color type) → CD-02</remarks>
     public sealed record FlagIdentity
     {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model id) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (model id) → CD-02</remarks>
         public required FlagModel Model { get; init; }
 
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: map-icon id) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id) → CD-02</remarks>
         public required FlagIcon Icon { get; init; }
 
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color); CD-01 (open.mp/SampSharp platform API: attached-object material color) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color); CD-39 (attached-object material color) → CD-02</remarks>
         public required Color ColorHex { get; init; }
     }
 
@@ -159,10 +159,10 @@ public class Flag
     /// Renders the flag on the carrier via an attached object.
     /// It isolates the platform rendering details of the carrier-attachment rule.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
     private static class CarrierAttachment
     {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
         internal static void Attach(Player player, FlagModel model, Color color)
         {
             player.SetAttachedObject(
@@ -177,7 +177,7 @@ public class Flag
             );
         }
 
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object removal: attachment index) → CD-02</remarks>
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object removal: attachment index) → CD-02</remarks>
         internal static void Detach(Player player)
         {
             player.RemoveAttachedObject(0);

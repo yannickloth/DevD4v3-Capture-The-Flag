@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods for working with the player's paused state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (player entity); CD-32 (components) → CD-02</remarks>
 public static class PlayerPauseExtensions
 {
     /// <summary>
@@ -16,7 +16,7 @@ public static class PlayerPauseExtensions
     /// <see langword="true"/> if the player is currently paused;
     /// otherwise, <see langword="false"/>.
     /// </returns>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-01 (open.mp/SampSharp platform API) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (player entity); CD-32 (components) → CD-02</remarks>
     public static bool IsPaused(this Player player)
         => player.GetComponent<PlayerDataComponent>().IsPaused;
 }

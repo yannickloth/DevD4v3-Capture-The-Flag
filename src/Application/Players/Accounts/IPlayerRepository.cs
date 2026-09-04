@@ -48,7 +48,7 @@ public interface IPlayerRepository
     /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
     void UpdateRole(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API); CD-20 (outbound repository contract) → CD-01</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract)</remarks>
     void UpdateSkin(PlayerInfo player);
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>

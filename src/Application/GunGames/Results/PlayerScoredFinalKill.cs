@@ -3,8 +3,8 @@
 /// <summary>
 /// Handles the <see cref="GunGameResult.ScoredFinalKill"/> result.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-10 (player-statistics/rank model) → CD-07; CD-20 (outbound repository contract) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-01; playerRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-10 (player-statistics/rank model) → CD-07; CD-20 (outbound repository contract) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; playerRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class PlayerScoredFinalKill(
     IWorldService worldService,
     IPlayerRepository playerRepository) : IGunGameResultHandler
@@ -12,7 +12,7 @@ public class PlayerScoredFinalKill(
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
     public GunGameResult Result => GunGameResult.ScoredFinalKill;
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-10 (player-statistics/rank model) → CD-07; CD-20 (outbound repository contract) → CD-07; CD-01 (open.mp/SampSharp platform API) → CD-07</remarks>
+    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-10 (player-statistics/rank model) → CD-07; CD-20 (outbound repository contract) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
     public void Handle(KillContext context)
     {
         PlayerInfo killerInfo = context.Killer.GetRequiredInfo();

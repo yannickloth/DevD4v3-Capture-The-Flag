@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Platform;
 
-/// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+/// <remarks>Change drivers: CD-43 (root; command infrastructure)</remarks>
 public class CommandUsageFormatter : ICommandTextFormatter
 {
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API)</remarks>
+    /// <remarks>Change drivers: CD-43 (root; command infrastructure)</remarks>
     public string FormatCommandUsage(
         string commandName,
         string group,

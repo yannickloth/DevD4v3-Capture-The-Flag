@@ -3,15 +3,15 @@
 /// <summary>
 /// Tracks team statistics and provides stat-related commands.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-01 (open.mp/SampSharp platform API: player events, dialog, textdraw) → CD-10; CD-15 (command set: rstats/tstats commands) → CD-10; CD-09 (authorization policy: moderator gating) → CD-10; CD-02 (CTF game-rules specification: scoring) → CD-10</remarks>
-/// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-01; worldService -> CD-01; teamTextDrawRenderer -> CD-01. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-33; CD-34; CD-31 (player events, dialog, textdraw) → CD-10; CD-15 (command set: rstats/tstats commands) → CD-10; CD-09 (authorization policy: moderator gating) → CD-10; CD-02 (CTF game-rules specification: scoring) → CD-10</remarks>
+/// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; worldService -> CD-36; teamTextDrawRenderer -> CD-34. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 public class TeamStatsSystem(
     IDialogService dialogService, 
     IWorldService worldService,
     TeamTextDrawRenderer teamTextDrawRenderer) : ISystem
 {
     /// <summary>Shows team textdraws when the player spawns.</summary>
-    /// <remarks>Change drivers: CD-01 (root; open.mp/SampSharp platform API: OnPlayerSpawn, textdraws)</remarks>
+    /// <remarks>Change drivers: CD-31 (root; OnPlayerSpawn); CD-34 (root; textdraws)</remarks>
     [Event]
     public void OnPlayerSpawn(Player player)
     {
@@ -19,7 +19,7 @@ public class TeamStatsSystem(
     }
 
     /// <summary>Updates team kills and deaths on player death.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-01 (open.mp/SampSharp platform API: OnPlayerDeath) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-31 (OnPlayerDeath) → CD-10</remarks>
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -34,7 +34,7 @@ public class TeamStatsSystem(
     }
 
     /// <summary>Resets team stats via the rstats command.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-15 (command set: rstats command) → CD-10; CD-09 (authorization policy: moderator gating) → CD-10; CD-01 (open.mp/SampSharp platform API: textdraw) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-15 (command set: rstats command) → CD-10; CD-09 (authorization policy: moderator gating) → CD-10; CD-34 (textdraw) → CD-10</remarks>
     [PlayerCommand("rstats")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ResetStats(Player player) 
@@ -53,7 +53,7 @@ public class TeamStatsSystem(
     }
 
     /// <summary>Shows team stats via the tstats command.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-15 (command set: tstats command) → CD-10; CD-01 (open.mp/SampSharp platform API: dialog) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats); CD-15 (command set: tstats command) → CD-10; CD-33 (dialog) → CD-10</remarks>
     [PlayerCommand("tstats")]
     public void ShowStats(Player player)
     {
