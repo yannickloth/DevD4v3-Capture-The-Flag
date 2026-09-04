@@ -72,70 +72,70 @@ The following change drivers were identified from the codebase. Each is an exter
 
 | Namespace | Change drivers |
 |-----------|----------------|
-| `CTF.Application` | CD-17 (game configuration / messages) |
-| `CTF.Application.GunGames` | CD-31..CD-44, CD-03, CD-06, CD-07, CD-10, CD-15, CD-17, CD-21 |
-| `CTF.Application.GunGames.Results` | CD-31..CD-44, CD-03, CD-07, CD-10, CD-20 |
+| `CTF.Application` | CD-17 |
+| `CTF.Application.GunGames` | CD-03, CD-06, CD-07, CD-09, CD-10, CD-15, CD-17, CD-31, CD-32, CD-33, CD-35, CD-36, CD-43 |
+| `CTF.Application.GunGames.Results` | CD-03, CD-07, CD-10, CD-17, CD-20, CD-31, CD-32, CD-36 |
 | `CTF.Application.GunGames.WeaponProgressions` | CD-07 |
 | `CTF.Application.GunGames.WeaponProgressions.Definitions` | CD-07 |
-| `CTF.Application.Maps` | CD-31..CD-44, CD-11, CD-12, CD-17, CD-21 |
-| `CTF.Application.Maps.Rotation` | CD-31..CD-44, CD-11, CD-12, CD-15 |
-| `CTF.Application.Players` | CD-31..CD-44, CD-02, CD-08, CD-11, CD-12, CD-16, CD-17, CD-21, CD-24 |
-| `CTF.Application.Players.Accounts` | CD-31..CD-44, CD-07, CD-08, CD-09, CD-10, CD-18, CD-20, CD-25 |
-| `CTF.Application.Players.Accounts.Authentication` | CD-31..CD-44, CD-08, CD-20, CD-25 |
-| `CTF.Application.Players.Accounts.Profile` | CD-31..CD-44, CD-08, CD-20 |
-| `CTF.Application.Players.Accounts.Roles` | CD-31..CD-44, CD-09, CD-17, CD-20 |
-| `CTF.Application.Players.Accounts.Statistics` | CD-31..CD-44, CD-06, CD-07, CD-08, CD-09, CD-10, CD-17, CD-20 |
-| `CTF.Application.Players.AntiCBug` | CD-31..CD-44, CD-14, CD-17 |
-| `CTF.Application.Players.Chats` | CD-31..CD-44, CD-09, CD-13, CD-21 |
-| `CTF.Application.Players.Chats.Definitions` | CD-31..CD-44, CD-09, CD-13 |
-| `CTF.Application.Players.Combos` | CD-31..CD-44, CD-05, CD-06, CD-07, CD-12, CD-15, CD-17, CD-21 |
-| `CTF.Application.Players.Combos.Definitions` | CD-05, CD-06, CD-17 |
-| `CTF.Application.Players.GeneralCommands` | CD-31..CD-44, CD-02, CD-09, CD-15 |
-| `CTF.Application.Players.Headshots` | CD-31..CD-44, CD-03, CD-10, CD-17, CD-20 |
-| `CTF.Application.Players.Pause` | CD-31..CD-44, CD-02 |
-| `CTF.Application.Players.Ranks` | CD-31..CD-44, CD-10, CD-15 |
-| `CTF.Application.Players.TopPlayers` | CD-31..CD-44, CD-10, CD-15, CD-17, CD-20 |
-| `CTF.Application.Players.Vitalities` | CD-31..CD-44, CD-03, CD-09, CD-15, CD-17 |
-| `CTF.Application.Players.Weapons` | CD-31..CD-44, CD-03, CD-04, CD-07, CD-15, CD-17, CD-21 |
+| `CTF.Application.Maps` | CD-11, CD-12, CD-17, CD-32, CD-34, CD-36, CD-37, CD-38, CD-42 |
+| `CTF.Application.Maps.Rotation` | CD-02, CD-09, CD-11, CD-12, CD-15, CD-31, CD-33, CD-34, CD-36, CD-41, CD-42, CD-43 |
+| `CTF.Application.Players` | CD-02, CD-08, CD-11, CD-12, CD-16, CD-17, CD-21, CD-24, CD-31, CD-32, CD-36, CD-43 |
+| `CTF.Application.Players.Accounts` | CD-08, CD-09, CD-10, CD-20, CD-44 |
+| `CTF.Application.Players.Accounts.Authentication` | CD-08, CD-20, CD-25, CD-31, CD-32, CD-33, CD-36 |
+| `CTF.Application.Players.Accounts.Profile` | CD-08, CD-15, CD-20, CD-31, CD-33, CD-36, CD-43, CD-44 |
+| `CTF.Application.Players.Accounts.Roles` | CD-09, CD-15, CD-17, CD-20, CD-31, CD-32, CD-33, CD-35, CD-36, CD-43 |
+| `CTF.Application.Players.Accounts.Statistics` | CD-06, CD-07, CD-08, CD-09, CD-10, CD-15, CD-17, CD-20, CD-31, CD-32, CD-33, CD-34, CD-35, CD-36, CD-43 |
+| `CTF.Application.Players.AntiCBug` | CD-09, CD-14, CD-15, CD-17, CD-31, CD-32, CD-35, CD-36, CD-43 |
+| `CTF.Application.Players.Chats` | CD-09, CD-13, CD-15, CD-21, CD-31, CD-32, CD-36, CD-43 |
+| `CTF.Application.Players.Chats.Definitions` | CD-09, CD-13, CD-32, CD-36 |
+| `CTF.Application.Players.Combos` | CD-05, CD-06, CD-07, CD-09, CD-10, CD-12, CD-15, CD-31, CD-33, CD-34, CD-35, CD-36 |
+| `CTF.Application.Players.Combos.Definitions` | CD-03, CD-05, CD-06 |
+| `CTF.Application.Players.GeneralCommands` | CD-09, CD-15, CD-17, CD-31, CD-32, CD-33, CD-36, CD-42 |
+| `CTF.Application.Players.Headshots` | CD-03, CD-10, CD-17, CD-20, CD-31, CD-32, CD-36, CD-40 |
+| `CTF.Application.Players.Pause` | CD-02, CD-31, CD-32, CD-41 |
+| `CTF.Application.Players.Ranks` | CD-10, CD-15, CD-33, CD-43 |
+| `CTF.Application.Players.TopPlayers` | CD-10, CD-15, CD-17, CD-20, CD-33, CD-36, CD-43 |
+| `CTF.Application.Players.Vitalities` | CD-03, CD-09, CD-15, CD-17, CD-31, CD-32, CD-36, CD-43 |
+| `CTF.Application.Players.Weapons` | CD-03, CD-04, CD-07, CD-09, CD-15, CD-17, CD-31, CD-32, CD-33, CD-36, CD-43 |
 | `CTF.Application.Players.Weapons.Catalogs` | CD-04, CD-17 |
-| `CTF.Application.Teams` | CD-31..CD-44, CD-02, CD-10, CD-11, CD-15, CD-17, CD-21 |
-| `CTF.Application.Teams.ClassSelection` | CD-31..CD-44, CD-02, CD-03, CD-08, CD-12, CD-15, CD-17 |
-| `CTF.Application.Teams.Flags` | CD-31..CD-44, CD-02, CD-03, CD-06, CD-09, CD-10, CD-11, CD-15, CD-21 |
-| `CTF.Application.Teams.Flags.AutoReturn` | CD-31..CD-44, CD-02, CD-17 |
-| `CTF.Application.Teams.Flags.Carriers` | CD-31..CD-44, CD-02, CD-09, CD-15, CD-17 |
-| `CTF.Application.Teams.Flags.Events` | CD-31..CD-44, CD-02, CD-06, CD-10, CD-17, CD-20 |
-| `CTF.Application.Teams.Matches` | CD-31..CD-44, CD-02 |
-| `CTF.Application.Teams.Statistics` | CD-31..CD-44, CD-02, CD-09, CD-10, CD-15 |
-| `CTF.Host` | CD-31..CD-44, CD-11, CD-17, CD-21, CD-22, CD-23, CD-24 |
-| `CTF.Host.Extensions` | CD-31..CD-44, CD-17, CD-19, CD-30, CD-21, CD-22, CD-23, CD-24 |
-| `CTF.Host.Services` | CD-31..CD-44, CD-17, CD-21, CD-23, CD-24, CD-25 |
+| `CTF.Application.Teams` | CD-02, CD-10, CD-11, CD-15, CD-17, CD-21, CD-31, CD-33, CD-34, CD-35, CD-36, CD-37, CD-38, CD-40, CD-43, CD-44 |
+| `CTF.Application.Teams.ClassSelection` | CD-02, CD-08, CD-12, CD-15, CD-17, CD-31, CD-32, CD-34, CD-36, CD-40 |
+| `CTF.Application.Teams.Flags` | CD-02, CD-03, CD-07, CD-09, CD-10, CD-15, CD-21, CD-31, CD-37, CD-38, CD-41, CD-44 |
+| `CTF.Application.Teams.Flags.AutoReturn` | CD-02, CD-17, CD-37, CD-40, CD-41 |
+| `CTF.Application.Teams.Flags.Carriers` | CD-02, CD-09, CD-15, CD-17, CD-31, CD-37, CD-38, CD-40, CD-41 |
+| `CTF.Application.Teams.Flags.Events` | CD-02, CD-06, CD-10, CD-17, CD-20, CD-34, CD-35, CD-37, CD-38, CD-40 |
+| `CTF.Application.Teams.Matches` | CD-02, CD-31, CD-35, CD-36 |
+| `CTF.Application.Teams.Statistics` | CD-02, CD-09, CD-10, CD-15, CD-31, CD-33, CD-34 |
+| `CTF.Host` | CD-11, CD-17, CD-21, CD-22, CD-23, CD-24, CD-32, CD-42 |
+| `CTF.Host.Extensions` | CD-17, CD-21, CD-22, CD-23, CD-24, CD-32 |
+| `CTF.Host.Services` | CD-23, CD-24, CD-25, CD-43 |
 | `Persistence.InMemory` | CD-17, CD-18, CD-20, CD-21, CD-25 |
 | `Persistence.MariaDB` | CD-17, CD-18, CD-19, CD-20, CD-21, CD-25 |
-| `Persistence.SQLite` | CD-17, CD-18, CD-30, CD-20, CD-21, CD-25 |
+| `Persistence.SQLite` | CD-17, CD-18, CD-19, CD-20, CD-21, CD-25, CD-30 |
 | `Persistence.SQLite.Extensions` | CD-30 |
-| `SampSharp` | CD-31..CD-44, CD-22 |
+| `SampSharp` | CD-22, CD-32 |
 
 ### Test-project namespaces
 
 | Namespace | Change drivers |
 |-----------|----------------|
 | `CTF.Application.Tests` | CD-11, CD-22, CD-26, CD-27 |
-| `CTF.Application.Tests.Fakes` | CD-31..CD-44, CD-11, CD-28 |
+| `CTF.Application.Tests.Fakes` | CD-11, CD-18, CD-25, CD-28, CD-31 |
 | `CTF.Application.Tests.GunGames` | CD-07, CD-26, CD-27 |
 | `CTF.Application.Tests.Maps` | CD-11, CD-12, CD-26, CD-27 |
-| `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27 |
-| `CTF.Application.Tests.Players.Extensions` | CD-31..CD-44, CD-08, CD-26, CD-27 |
+| `CTF.Application.Tests.Players.Accounts` | CD-02, CD-06, CD-08, CD-09, CD-10, CD-26, CD-27, CD-44 |
+| `CTF.Application.Tests.Players.Extensions` | CD-08, CD-26, CD-27, CD-32 |
 | `CTF.Application.Tests.Players.Ranks` | CD-10, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.TopPlayers` | CD-10, CD-17, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.Vitalities` | CD-03, CD-26, CD-27 |
 | `CTF.Application.Tests.Players.Weapons` | CD-03, CD-04, CD-17, CD-26, CD-27 |
 | `CTF.Application.Tests.Teams` | CD-02, CD-10, CD-26, CD-27 |
 | `CTF.Application.Tests.Teams.Flags` | CD-02, CD-26, CD-27 |
-| `Persistence.Tests.Common` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-26, CD-30 |
+| `Persistence.Tests.Common` | CD-11, CD-19, CD-20, CD-21, CD-22, CD-25, CD-26, CD-27, CD-30 |
 | `Persistence.Tests.Common.DatabaseProviders` | CD-18, CD-19, CD-20, CD-21, CD-25, CD-30 |
 | `Persistence.Tests.Players` | CD-18, CD-20, CD-26, CD-27 |
 
-> Note: `SampSharp` here is the `Program.cs` source-generated entry point namespace (not the vendored framework), driven by the host ABI contract (CD-01) and deployment layout (CD-22).
+> Note: `SampSharp` here is the `Program.cs` source-generated entry point namespace (not the vendored framework), driven by the host ABI contract (CD-32) and deployment layout (CD-22).
 
 ## 3. Per-Element Driver Assignments
 
@@ -148,5 +148,5 @@ The following change drivers were identified from the codebase. Each is an exter
 - **Counterfactual grounding.** Every driver above survives the counterfactual test: removing the referenced artifact condition eliminates the element's modification requirement. No driver was invented; each traces to a read artifact (README rules, `.env.example`, `schema.sql`, platform API usage, config sections).
 - **No proxy reasoning.** Co-variation (files changed together), team ownership, layer uniformity, and semantic similarity were NOT used as drivers. Drivers are the external authorities themselves.
 - **No ranking.** No "primary"/"secondary"/"main" vocabulary is used; all drivers are equal forces on the elements that respond to them.
-- **Not eliminated by design.** Encapsulation/abstraction bounds blast radius but never eliminates a driver; e.g. the platform API (CD-01) and the game rules (CD-02) drive elements regardless of how they are factored.
+- **Not eliminated by design.** Encapsulation/abstraction bounds blast radius but never eliminates a driver; e.g. the platform sub-drivers (CD-31..CD-44) and the game rules (CD-02) drive elements regardless of how they are factored.
 - **Scope.** Project C# code (`src/Application`, `src/Host`, `src/Persistence`) plus the test projects (`tests/Application.Tests`, `tests/Persistence.Tests`) are analysed. The vendored `external/SampSharp` framework is excluded.
