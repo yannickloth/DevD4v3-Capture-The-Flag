@@ -91,7 +91,50 @@ states differ by *code structure only*. Consequences:
    artifact exists, so only unweighted module-touch counts are reported
    (`IVP/before/metrics.md` §7.4 caveat stands).
 
-## 7. Causal cohesion evolution (purity & completeness)
+## 7. Why not maximal cohesion everywhere?
+
+IVP groups elements by *identical driver sets* — it does not make multi-driver elements disappear. Four structural reasons the system cannot reach purity 1.0 / completeness 1.0 everywhere:
+
+1. **Subordinates are real variation.** A CD-02-rooted system that plays audio and shows GameText genuinely answers to `{CD-02, CD-40, CD-35}`. That is one coherent element, not contamination — the refinement exists to *name* these, and naming them lowers set-purity while raising honesty. The alternative (max purity) would be exiling every platform call into adapters, adding indirection without removing coupling.
+2. **Decreed composites and cross-cutting axes.** `IVP/constraints.md` App. A: `Startup` (composition), the repository managers (ports × dialects), DI extensions, `.env` schema, test tooling — these fuse drivers by decree of other axes (composition, persistence, deployment). IVP is one axis among many.
+3. **Documented locality deviations.** Settings (CD-17) and DI wiring (CD-21) co-locate with their domain module instead of their driver module — an accepted trade, and it caps both purity and the single-set namespace count.
+4. **Shared-set design.** `Team`/`Flag` and their `OnFlag*`/`FlagSystem` handlers intentionally share Γ-sets across type boundaries (domain model + reaction systems). That deflates completeness of the individual types while being causally correct — the sets are split by role, not scattered by accident.
+
+So the residual impurity is: subordinate visibility (metric artifact), decreed composites (other axes), locality trades (accepted), and role-split sets (by design). What IVP removed is the *fifth* kind: distinct root drivers fused by topic — which the before state was full of.
+
+## 8. The four-quadrant verdict
+
+### Big wins
+
+- **`PlayerInfo` god aggregate dissolved** — the before report's headline offender (52 members, purity 0.077, extent 0.827) is now a 4-property root; members live in `PlayerAccount`/`PlayerStatistics`/`PlayerRole`/`PlayerAppearance`.
+- **`Flag` at purity 1.000**, and the attached-object API is a **1-element driver** (CD-39, `CarrierAttachment`) — the smallest possible blast radius.
+- **Scattered sets 23 → 15**; remaining scatter is the decreed horizontal axes (CD-17, CD-20, CD-26/27/28).
+- **Single-set namespaces 12 → 29**, pure-and-complete leaf modules across Application and Host.
+- **Production completeness = 1.0 in 30/45 namespaces**; severe incompleteness (< 0.5) halved.
+- **Impact sets are greppable**: any driver's touch list is a query, machine-audited against the catalogue.
+
+### Big losses
+
+- **`GameRules` is now the system's most contaminated module by the metric**: purity 0.034, 29 Γ-sets over 38 classes. The sets are subordinate-driven (domain root + named platform IDs), but the number is real and it is the price of subordinate visibility plus one big domain module.
+- **Class-weighted purity flat (0.337 → 0.337)** — the aggregate metric we hoped to move did not move.
+- **10 types declined in member-level purity** (`PlayerRepository` 0.5 → 0.25, `PlayerPauseSystem` 1.0 → 0.25, `FakePlayer` 0.5 → 0.333, ...) — subordinate-ID visibility split formerly identical sets.
+
+### Good surprises
+
+- **`GunGames.Results` completeness 0.042 → 1.000** (purity 0.25 → 0.500): the GunGame reward handlers now fully own their driver sets in one module — before, they were the report's worst scatter offender.
+- **New modules are pure *and* complete on arrival**: `Pickups`, `RconSecurity`, `MapIcons`, `TextDraws`, `Discord`, `Players.Accounts/Chats`, `WeaponCatalogs` (completeness 0.818), every single-type Host module.
+- **`Maps.Rotation` completeness 1.000** (0.500 before) after absorbing `LoadTime`/`TimeLeft` — the one declining purity came with full set ownership.
+- **`PlayerExtensions` purity 0.333 → 1.000** as a side effect of the account split.
+- **The paired-namespace trend**: of namespaces existing in both trees, 9 improved in purity, only 1 declined.
+
+### Disappointments
+
+- **Class-weighted purity did not improve at all** (0.337 → 0.337) — large domain modules dominate the weighting and legitimately hold many distinct Γ-sets. If the project's success metric were weighted purity, IVP did not deliver it.
+- **`Team` completeness is still 0.022** and `GunGameSystem` 0.021 — the domain-model/reaction-system role split keeps their sets shared across types; the metric reads it as incompleteness.
+- **Composite namespaces remain 55%** — the subordinate-driven composites are honest, but a reader of only the composite count would miss the difference from before.
+- **The weighted change-cost claim remains unproven** — no λ(γ) artifact exists, so "IVP reduced change cost" rests on unweighted touch counts and argument, not measurement.
+
+## 9. Causal cohesion evolution (purity & completeness)
 
 From §4 of both metrics reports (same driver layer; structure-only diff):
 
@@ -125,7 +168,7 @@ Reading:
   driver sets went from a minority to 30/45, and severe incompleteness (< 0.5)
   halved — driver sets are no longer split across modules.
 
-## 8. Pure modules — namespaces and types
+## 10. Pure modules — namespaces and types
 
 **Namespaces** (module purity, §4 of both metrics reports):
 
@@ -166,7 +209,7 @@ Reading: *namespace* purity is where IVP moved the system (structural regroup);
 engine) and stayed flat in aggregate because subordinate visibility splits
 sets without adding coupling.
 
-## 9. Reproduction
+## 11. Reproduction
 
 ```
 java IVP/tools/IvpMeasure.java .        # after tree
