@@ -6,25 +6,25 @@
 /// <remarks>Change drivers: CD-37 (root; pickup API); CD-44 (model id resources); CD-11 (map configuration: flag locations) → CD-37; CD-36 (client-message API) → CD-37</remarks>
 public class TeamPickupService
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: map-config flag locations provider)</remarks>
     private readonly MapInfoService _mapInfoService;
 
-    /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: creation via IWorldService)</remarks>
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup)</remarks>
     private Pickup _redFlagPickup;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup)</remarks>
     private Pickup _blueFlagPickup;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker pickup)</remarks>
     private Pickup _redExteriorMarker;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker pickup)</remarks>
     private Pickup _blueExteriorMarker;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API)</remarks>
     public TeamPickupService(MapInfoService mapInfoService, IWorldService worldService)
     {
         _mapInfoService = mapInfoService;
@@ -34,7 +34,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the flag pickup at the team's base position.</summary>
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup from base position)</remarks>
     public void CreateFlagFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -50,7 +50,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the flag pickup at the specified position.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag location) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup creation)</remarks>
     public void CreateFlagFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -91,7 +91,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys all flag pickups.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup destruction)</remarks>
     public void DestroyFlags()
     {
         DestroyFlag(Team.Alpha);
@@ -99,7 +99,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the exterior marker for the specified team.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API); CD-11 (map configuration: flag locations) → CD-37</remarks>
+    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker creation)</remarks>
     public void CreateExteriorMarker(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);

@@ -6,19 +6,19 @@
 /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations/interior) → CD-38; CD-37 (pickup API) → CD-38</remarks>
 public class TeamIconService
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations); CD-38 (map icon dependencies) → CD-11</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: flag-location/interior provider)</remarks>
     private readonly MapInfoService _mapInfoService;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API via streamer service)</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation via streamer service)</remarks>
     private readonly IStreamerService _streamerService;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: team flag map icon)</remarks>
     private DynamicMapIcon _redMapIcon;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: team flag map icon)</remarks>
     private DynamicMapIcon _blueMapIcon;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations) → CD-38</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
     public TeamIconService(MapInfoService mapInfoService, IStreamerService streamerService)
     {
         _mapInfoService = mapInfoService;
@@ -28,7 +28,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon from the team's base position.</summary>
-    /// <remarks>Change drivers: CD-11 (root; map configuration: flag locations)</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation from base position)</remarks>
     public void CreateFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -44,7 +44,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon at the specified position.</summary>
-    /// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag location/interior) → CD-38</remarks>
+    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation at position)</remarks>
     public void CreateFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
