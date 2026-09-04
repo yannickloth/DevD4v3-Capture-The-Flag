@@ -3,21 +3,16 @@
 /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
 internal static class FakePlayerSeedData
 {
-    /// <summary>
-    /// Password Text: 123456
-    /// This password is for test purposes only.
-    /// </summary>
-    /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
-    private const string Password = "$2a$10$60QnEiafBCLfVBMfQkExVeolyBxVHWcSQKTvkxVJj9FUozRpRP/GW";
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
     public static Dictionary<int, FakePlayer> Create()
     {
+        const string password = "$2a$10$60QnEiafBCLfVBMfQkExVeolyBxVHWcSQKTvkxVJj9FUozRpRP/GW";
         FakePlayer[] players =
         [
             new()
             {
                 Name = "Admin_Player",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Admin,
                 RankId = RankId.Noob,
                 SkinId = 146
@@ -25,7 +20,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Moderator_Player",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Moderator,
                 RankId = RankId.Noob,
                 SkinId = 146
@@ -33,7 +28,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "VIP_Player",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.VIP,
                 RankId = RankId.Noob,
                 SkinId = 146
@@ -41,7 +36,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.Noob,
                 SkinId = 146
@@ -49,7 +44,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(2)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.SemiAdvance,
                 TotalKills = 150,
@@ -59,7 +54,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(3)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.SemiAdvance,
                 TotalKills = 160,
@@ -69,7 +64,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(4)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.SemiAdvance,
                 TotalKills = 170,
@@ -79,7 +74,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(5)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.Advanced,
                 TotalKills = 200,
@@ -89,7 +84,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(6)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.Hitman,
                 TotalKills = 251,
@@ -99,7 +94,7 @@ internal static class FakePlayerSeedData
             new()
             {
                 Name = "Basic_Player(7)",
-                PasswordHash = Password,
+                PasswordHash = password,
                 RoleId = RoleId.Basic,
                 RankId = RankId.Advanced,
                 TotalKills = 200,

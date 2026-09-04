@@ -9,7 +9,7 @@ public class PlayerRole
     /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
     public RoleId Id { get; private set; } = RoleId.Basic;
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09 — inherited against dependency direction from the Id column this method writes</remarks>
     public Result Set(RoleId id)
     {
         if (id < 0 || (int)id >= RoleCollection.Count)

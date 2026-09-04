@@ -6,9 +6,9 @@ public class InMemoryRepositoryManager : IRepositoryManager
 {
     private readonly ServiceProvider _serviceProvider;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary<int,FakePlayer></c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>
     public IPlayerRepository PlayerRepository { get; }
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract)</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary<int,FakePlayer></c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>
     public ITopPlayersRepository TopPlayersRepository { get; }
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public InMemoryRepositoryManager()
@@ -22,20 +22,20 @@ public class InMemoryRepositoryManager : IRepositoryManager
         TopPlayersRepository = _serviceProvider.GetRequiredService<ITopPlayersRepository>();
     }
 
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary<int,FakePlayer></c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>
     public void Dispose()
     {
         _serviceProvider.Dispose();
         GC.SuppressFinalize(this);
     }
 
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model: seed-data lifecycle)</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary<int,FakePlayer></c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>
     public void InitializeSeedData()
     {
 
     }
 
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary<int,FakePlayer></c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>
     public void RemoveSeedData()
     {
         _serviceProvider
