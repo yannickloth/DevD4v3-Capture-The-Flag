@@ -7,7 +7,7 @@
 public static class ChatServicesExtensions
 {
     /// <summary>Registers the chat subsystem services.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-13 (chat rules) → CD-21</remarks>
     public static IServiceCollection AddChatServices(this IServiceCollection services)
     {
         services

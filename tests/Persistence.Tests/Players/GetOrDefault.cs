@@ -25,7 +25,7 @@ public class GetPlayerOrDefault
         actual.Appearance.SkinId.Should().Be(146);
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20</remarks>
+    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: IPlayerRepository.GetOrDefault); CD-26 (NUnit test-framework contract) → CD-20; CD-27 (FluentAssertions contract) → CD-20; CD-18 (database schema/player data model: seed data) → CD-20</remarks>
     [TestCaseSource(typeof(RepositoryManagerTestCases))]
     public void GetOrDefault_WhenPlayerDoesNotExist_ShouldReturnNull(DatabaseProvider provider)
     {

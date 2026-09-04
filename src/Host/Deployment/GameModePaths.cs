@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Deployment;
 
-/// <remarks>Change drivers: CD-22 (root; hosting/deployment spec); CD-11 (map configuration) → CD-22</remarks>
+/// <remarks>Change drivers: CD-22 (root; hosting/deployment spec)</remarks>
 public static class GameModePaths
 {
-    /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec); CD-11 (map configuration) → CD-22</remarks>
+    /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec: maps directory layout)</remarks>
     public static string Maps =>
         Path.Combine(
             Root,
