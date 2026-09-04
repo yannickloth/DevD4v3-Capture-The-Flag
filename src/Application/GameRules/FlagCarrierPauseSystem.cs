@@ -80,6 +80,7 @@ public class FlagCarrierPauseSystem(
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-17 (game configuration/.env schema: FlagCarrier__PauseTime) → CD-02; CD-01 (open.mp/SampSharp platform API: timer) → CD-02</remarks>
     private class PauseTimerReference(TimerReference value) : Component
     {
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-01 (open.mp/SampSharp platform API: timer) → CD-02</remarks>
         public TimerReference Value { get; } = value;
     }
 }

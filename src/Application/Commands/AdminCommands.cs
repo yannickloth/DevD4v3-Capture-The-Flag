@@ -179,10 +179,15 @@ public class AdminCommands(
     /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
     private class BannedPlayer
     {
+        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
         public string Address { get; set; } = string.Empty;
+        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
         public string Player { get; set; } = string.Empty;
+        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
         public string Reason { get; set; } = string.Empty;
+        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
         public string Time { get; set; } = "2023-12-07T16:05:21-0500";
+        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry, display format)</remarks>
         public override string ToString()
         {
             var dt = DateTimeOffset.Parse(Time).DateTime;

@@ -85,6 +85,7 @@ public class PrivateMessageSystem(IEntityManager entityManager) : ISystem
     /// <remarks>Change drivers: CD-13 (root; chat rules); CD-01 (open.mp/SampSharp platform API) → CD-13</remarks>
     private class PrivateMessageComponent : Component
     {
+        /// <remarks>Change drivers: CD-13 (root; chat rules: PM block state)</remarks>
         public bool IsBlocked { get; set; }
     }
 }

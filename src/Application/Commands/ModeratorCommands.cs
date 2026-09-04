@@ -154,6 +154,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     /// <remarks>Change drivers: CD-15 (root; command set: warn count); CD-01 (open.mp/SampSharp platform API) → CD-15</remarks>
     private class WarningsComponent : Component
     {
+        /// <remarks>Change drivers: CD-15 (root; command set: warn count)</remarks>
         public int Value { get; set; }
     }
 }

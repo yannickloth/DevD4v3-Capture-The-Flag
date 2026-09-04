@@ -191,12 +191,19 @@ public class Team
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity, the None team)</remarks>
     private class NoTeam : Team
     {
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team)</remarks>
         public NoTeam() { }
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team, no availability message)</remarks>
         public override string GetAvailabilityMessage() => string.Empty;
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team takes no flag interaction); CD-01 (open.mp/SampSharp platform API: player entity) → CD-02</remarks>
         public override FlagStatus HandleFlagInteraction(Player flagPicker) => FlagStatus.BasePosition;
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team has no member text)</remarks>
         public override string GetMembersAsText() => string.Empty;
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team is never full)</remarks>
         public override bool IsFull() => false;
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team never wins)</remarks>
         public override bool IsWinner() => false;
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team round/flag reset rule)</remarks>
         public override void Reset()
         {
             StatsPerRound.Reset();

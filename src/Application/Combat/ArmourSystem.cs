@@ -106,6 +106,7 @@ public class ArmourSystem(
     /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: armour-restore cooldown); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-01 (open.mp/SampSharp platform API) → CD-03</remarks>
     private class WaitTimeComponent : Component
     {
+        /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: armour-restore cooldown); CD-01 (open.mp/SampSharp platform API: component/tick time) → CD-03</remarks>
         public long Value { get; set; }
     }
 }
