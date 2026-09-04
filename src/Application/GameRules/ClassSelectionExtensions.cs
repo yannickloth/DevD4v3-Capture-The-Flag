@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides extension methods for the class-selection player state.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-32 (player ECS) → CD-02; CD-31 (player entity & lifecycle events) → CD-02</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-32 (player ECS) → CD-02</remarks>
 public static class ClassSelectionExtensions
 {
     /// <summary>Checks whether the player is in class selection.</summary>
@@ -30,14 +30,4 @@ public static class ClassSelectionExtensions
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow)</remarks>
     public static void DisableClassSelection(this Player player)
         => player.GetComponent<ClassSelectionComponent>().IsInClassSelection = false;
-
-    /// <summary>Redirects the player to the class selection screen.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: class-selection flow); CD-31 (spectating) → CD-02</remarks>
-    public static void RedirectToClassSelection(this Player player)
-    {
-        player.EnableClassSelection();
-        player.ForceClassSelection();
-        player.ToggleSpectating(true);
-        player.ToggleSpectating(false);
-    }
 }
