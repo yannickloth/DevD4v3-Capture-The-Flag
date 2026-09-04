@@ -17,21 +17,22 @@ states differ by *code structure only*. Consequences:
   per-driver activation and containment, CD-01 activation (= 0 after).
 - Raw distinct-set counts are comparable in direction but still encode the
   annotation-layer additions (sub-drivers named on elements that previously
-  carried no remark): 171 → 180.
+  carried no remark): 171 → 181.
 
 ## 2. Cardinalities
 
 | Cardinality | Before | After |
 |---|---|---|
-| Annotated types (`E`) | 293 | 309 |
+| Annotated types (`E`) | 293 | 315 |
 | Namespaces (modules) | 57 | 64 |
-| Distinct Γ-sets (`E/Γ`) | 171 | 180 |
+| Distinct Γ-sets (`E/Γ`) | 171 | 181 |
 | Scattered Γ-sets (>1 namespace) | **23** | **15** |
-| Composite namespaces | 45/57 (79%) | 35/64 (55%) |
-| Single-set namespaces | 12/57 | 29/64 |
+| Composite namespaces | 45/57 (79%) | 37/64 (58%) |
+| Single-set namespaces | 12/57 | 27/64 |
+| ModulePurity violating modules | — | **10** class-level (of 185 evaluated) |
 | CD-01 activation | **0** (decomposed; catalogue keeps the row for history) | **0** |
 | CD-39 attached-object activation | **0** (attachment inline, unattributed) | 1 / 1 (`Flag.CarrierAttachment`) |
-| Mean / median drivers per class | ~2.9 / 3 | 2.99 / 3 |
+| Mean / median drivers per class | ~2.9 / 3 | 2.94 / 3 |
 
 ## 3. Driver activation — the drivers that matter
 
@@ -42,7 +43,7 @@ states differ by *code structure only*. Consequences:
 | CD-33 dialogs | 20 / 13 | 20 / 10 | slightly more concentrated |
 | CD-40 audio | 11 / 6 | 11 / 4 | more concentrated |
 | CD-34 textdraws | 14 / 8 | 14 / 8 | same, now in its own module |
-| CD-02 CTF game rules | 50 / 14 | 53 / 10 | more concentrated |
+| CD-02 CTF game rules | 50 / 14 | 54 / 10 | more concentrated |
 | CD-10 stats/rank | 44 / 16 | 49 / 16 | PlayerInfo split adds elements |
 | CD-17 .env schema | 50 / 26 | 49 / 24 | still the widest horizontal axis |
 
@@ -57,6 +58,7 @@ states differ by *code structure only*. Consequences:
 | Nested classes | treated as transparent members — drivers flowed upward | **modules**: their driver sets stop at their own boundary; class gamma = union of direct elements |
 | Annotations | same refined layer (re-baselined remark-for-remark); platform usages unattributed where elements predated the sub-drivers | every element carries its own remark; IDs validated against the catalogue; gammas machine-audited |
 | Sub-team layout | `Teams/{ClassSelection,Flags,Statistics}` sub-modules without distinct driver sets | dissolved into their true driver modules (GameRules, Statistics, DI wiring) |
+| Remediation splits | — | additional single-root splits applied during remediation: `Audio` → `TeamSounds` + `TeamSoundCatalog`; `Players.Weapons.Catalogs` → `WeaponCatalogSettings` + `WeaponCatalogTypeValidator`; `Chat` `ChatText`; `VipCommands` `VipHelpCommands`; `ClassSelectionExtensions` CD-02 / CD-31 variants; plus the combos, textdraws, pickups, map-icons, and rank-system modules each holding their driver set |
 
 ## 5. What improved (with evidence)
 
@@ -67,7 +69,7 @@ states differ by *code structure only*. Consequences:
    attached-object API is a 1-element module member (`Flag.CarrierAttachment`)
    instead of inline unattributed calls; every subsystem (dialogs, audio,
    textdraws, pickups, timers) has its own ID, module, and enumerable touch set.
-3. **Single-set modules 12 → 29.** New modules (Pickups, MapIcons, Audio,
+3. **Single-set modules 12 → 27.** New modules (Pickups, MapIcons, Audio,
    RconSecurity, TextDraws, PlayerResources, CommandInfrastructure, all single-type
    Host modules) measure purity 1.000.
 4. **Composite namespaces changed character** — domain root + enumerable platform
@@ -79,15 +81,21 @@ states differ by *code structure only*. Consequences:
 
 ## 6. What did not improve (honest)
 
-1. **Distinct sets rose slightly** (171 → 180) — annotation additions
+1. **Distinct sets rose slightly** (171 → 181) — annotation additions
    (sub-driver remarks on elements that previously carried none), not new
-   coupling; mean/median drivers per class are unchanged (~2.9 / 3).
+   coupling; mean/median drivers per class are unchanged (~2.94 / 3).
 2. **Large domain namespaces still measure low purity by set count**
    (`GameRules` 0.034) — the number counts subordinate tokens; the fused-root
    defect it measured before is gone, but the metric alone doesn't show that.
-3. **Costs paid**: +7 namespaces, small extra types (`FlagCarrier`,
+3. **10 class-level modules still violate single-set purity** (`ModulePurity`):
+   `PlayerStatsPerRound`, `GunGameReward`, `ComboSystem`, `TeamStatsPerRound`,
+   `PlayerAppearance`, `Startup`, `TeamScoreboardSystem`, `PrivateAdminChat`,
+   `PrivateModeratorChat`, `PrivateVipChat`. All but `Startup` are *internal*
+   contract/call-site refactors (role/coin splits plus platform subordinates),
+   not topic-fusion; `Startup` is the only external-contract blocker.
+4. **Costs paid**: +7 namespaces, small extra types (`FlagCarrier`,
    `CarrierAttachment`), large churn across the refactor.
-4. **Weighted change-cost is still unproven**: no λ(γ) activation-frequency
+5. **Weighted change-cost is still unproven**: no λ(γ) activation-frequency
    artifact exists, so only unweighted module-touch counts are reported
    (`IVP/before/metrics.md` §7.4 caveat stands).
 
@@ -102,6 +110,11 @@ IVP groups elements by *identical driver sets* — it does not make multi-driver
 
 So the residual impurity is: subordinate visibility (metric artifact), decreed composites (other axes), locality trades (accepted), and role-split sets (by design). What IVP removed is the *fifth* kind: distinct root drivers fused by topic — which the before state was full of.
 
+A distinct class-level lens (`ModulePurity`) confirms this: 175 of 185 evaluated class
+modules are single-set; the 10 that are not are the internal role/coin/call-site shapes
+(`GunGameReward`, `ComboSystem`, the `Statistics` per-round types, the private chats)
+plus the decreed composition blocker `Startup` — none is root-topic fusion.
+
 ## 8. The four-quadrant verdict
 
 ### Big wins
@@ -109,13 +122,13 @@ So the residual impurity is: subordinate visibility (metric artifact), decreed c
 - **`PlayerInfo` god aggregate dissolved** — the before report's headline offender (52 members, purity 0.077, extent 0.827) is now a 4-property root; members live in `PlayerAccount`/`PlayerStatistics`/`PlayerRole`/`PlayerAppearance`.
 - **`Flag` at purity 1.000**, and the attached-object API is a **1-element driver** (CD-39, `CarrierAttachment`) — the smallest possible blast radius.
 - **Scattered sets 23 → 15**; remaining scatter is the decreed horizontal axes (CD-17, CD-20, CD-26/27/28).
-- **Single-set namespaces 12 → 29**, pure-and-complete leaf modules across Application and Host.
+- **Single-set namespaces 12 → 27**, pure-and-complete leaf modules across Application and Host; the `ModulePurity` audit confirms 175/185 class modules are single-set.
 - **Production completeness = 1.0 in 30/45 namespaces**; severe incompleteness (< 0.5) halved.
 - **Impact sets are greppable**: any driver's touch list is a query, machine-audited against the catalogue.
 
 ### Big losses
 
-- **`GameRules` is now the system's most contaminated module by the metric**: purity 0.034, 29 Γ-sets over 38 classes. The sets are subordinate-driven (domain root + named platform IDs), but the number is real and it is the price of subordinate visibility plus one big domain module.
+- **`GameRules` is now the system's most contaminated module by the metric**: purity 0.034, 29 Γ-sets over 39 classes. The sets are subordinate-driven (domain root + named platform IDs), but the number is real and it is the price of subordinate visibility plus one big domain module.
 - **Class-weighted purity flat (0.337 → 0.337)** — the aggregate metric we hoped to move did not move.
 - **10 types declined in member-level purity** (`PlayerRepository` 0.5 → 0.25, `PlayerPauseSystem` 1.0 → 0.25, `FakePlayer` 0.5 → 0.333, ...) — subordinate-ID visibility split formerly identical sets.
 
@@ -131,7 +144,8 @@ So the residual impurity is: subordinate visibility (metric artifact), decreed c
 
 - **Class-weighted purity did not improve at all** (0.337 → 0.337) — large domain modules dominate the weighting and legitimately hold many distinct Γ-sets. If the project's success metric were weighted purity, IVP did not deliver it.
 - **`Team` completeness is still 0.022** and `GunGameSystem` 0.021 — the domain-model/reaction-system role split keeps their sets shared across types; the metric reads it as incompleteness.
-- **Composite namespaces remain 55%** — the subordinate-driven composites are honest, but a reader of only the composite count would miss the difference from before.
+- **Composite namespaces remain 58%** — the subordinate-driven composites are honest, but a reader of only the composite count would miss the difference from before.
+- **10 class-level modules could not be made single-set** (`ModulePurity`): the 9 Application cases are internal contract/call-site shapes and the metric still flags them, while `Startup` cannot split without changing the hosting contract. None is topic-fusion, but the audit list is not empty.
 - **The weighted change-cost claim remains unproven** — no λ(γ) artifact exists, so "IVP reduced change cost" rests on unweighted touch counts and argument, not measurement.
 
 ## 9. Causal cohesion evolution (purity & completeness)
@@ -143,7 +157,7 @@ From §4 of both metrics reports (same driver layer; structure-only diff):
 | Mean purity per namespace (all) | 0.442 | **0.622** |
 | Mean purity per namespace (production) | 0.367 | **0.574** |
 | Class-weighted purity | 0.337 | 0.337 (flat) |
-| Pure namespaces (purity = 1.0) | 12 | **29** |
+| Pure namespaces (purity = 1.0) | 12 | **27** |
 | Pure production namespaces | 5/42 | **18/45** |
 | Class-weighted completeness (all / production) | 0.531 / 0.541 | **0.627 / 0.672** |
 | Production namespaces with completeness < 0.5 | 15/42 | **8/45** |
@@ -174,7 +188,7 @@ Reading:
 
 | | Before | After |
 |---|---|---|
-| Pure namespaces (purity 1.0) | 12/57 | **29/64** |
+| Pure namespaces (purity 1.0) | 12/57 | **27/64** |
 | Pure production namespaces | 5/42 | **18/45** |
 | Pure *and* complete (purity 1.0, completeness 1.0) | sparse | Pickups, RconSecurity, MapIcons, TextDraws, Discord, WeaponCatalogs, Players.Accounts/Chats, Ecs, ServerService, CommandInfrastructure, Config, Deployment, Logging, Bcrypt, SampSharp, most test namespaces |
 
