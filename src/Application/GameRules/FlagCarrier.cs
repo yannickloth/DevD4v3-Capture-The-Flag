@@ -9,7 +9,7 @@ public class FlagCarrier
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule); CD-31 (player entity) → CD-02</remarks>
     public Player Player { get; internal set; }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state); CD-31 (player entity) → CD-02</remarks>
     public FlagCarrier(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);

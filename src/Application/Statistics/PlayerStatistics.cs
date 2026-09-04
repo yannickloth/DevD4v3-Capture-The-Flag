@@ -3,7 +3,7 @@ namespace CTF.Application.Statistics;
 /// <summary>
 /// Represents the persisted career statistics of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
 public class PlayerStatistics
 {
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
@@ -51,7 +51,7 @@ public class PlayerStatistics
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public int HeadShots { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public int GunGameWins { get; private set; }
 
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
@@ -60,37 +60,37 @@ public class PlayerStatistics
     /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void SetLastConnection() => LastConnection = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void SetMaxKillingSpree(int value) => MaxKillingSpree = value;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddTotalKills() => TotalKills++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddTotalDeaths() => TotalDeaths++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddBroughtFlags() => BroughtFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddCapturedFlags() => CapturedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddDroppedFlags() => DroppedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddReturnedFlags() => ReturnedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddHeadShots() => HeadShots++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public void AddGunGameWins() => GunGameWins++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public Result SetTotalKills(int value)
     {
         if (value < 0)
@@ -100,7 +100,7 @@ public class PlayerStatistics
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public Result SetTotalDeaths(int value)
     {
         if (value < 0)
@@ -110,7 +110,7 @@ public class PlayerStatistics
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
     public Result SetRank(RankId id)
     {
         if (id < 0 || (int)id >= RankCollection.Count)
