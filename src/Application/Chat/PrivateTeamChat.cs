@@ -11,7 +11,7 @@ public class PrivateTeamChat : IChatMessage
     public char Id => '!';
 
     /// <summary>Sends the message to all players of the sender's team.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-36 (client messages) → CD-13</remarks>
+    /// <remarks>Change drivers: CD-13 (root; chat rules: team chat delivery)</remarks>
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
         if (sender.Appearance.Team == Team.None)
