@@ -42,7 +42,7 @@ public class Flag
     /// <remarks>
     /// Returns <c>null</c> when the flag has no carrier.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule); CD-01 (open.mp/SampSharp platform API: player entity) → CD-02</remarks>
     public Player Carrier { get; private set; }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class Flag
     /// <remarks>
     /// If the flag is not captured, returns <c>None</c>.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier display); CD-10 (player-statistics/rank model: carrier stats) → CD-02</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier display); CD-01 (open.mp/SampSharp platform API: player entity/name) → CD-02</remarks>
     public string CarrierName => HasCarrier ? Carrier.Name : "None";
 
     /// <summary>
@@ -142,7 +142,7 @@ public class Flag
     /// <summary>
     /// Sets the player who holds the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-01 (open.mp/SampSharp platform API: attached-object rendering) → CD-02; CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-01 (open.mp/SampSharp platform API: attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
     private void SetCarrier(Player player)
     {
         Carrier = player;
