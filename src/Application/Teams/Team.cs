@@ -29,7 +29,7 @@ public class Team
             ColorName     = "red",
             GameTextColor = "~r~",
             ColorHex      = new Color(255, 32, 64, 00),
-            Sounds        = TeamSounds.Alpha,
+            Sounds        = new TeamSounds(TeamSoundCatalog.Alpha),
             Flag          = new Flag
             {
                 Model     = FlagModel.Red,
@@ -47,7 +47,7 @@ public class Team
             ColorName     = "blue",
             GameTextColor = "~b~",
             ColorHex      = new Color(0, 136, 255, 00),
-            Sounds        = TeamSounds.Beta,
+            Sounds        = new TeamSounds(TeamSoundCatalog.Beta),
             Flag          = new Flag
             {
                 Model     = FlagModel.Blue,
@@ -67,7 +67,7 @@ public class Team
             ColorName     = "white",
             GameTextColor = "~w~",
             ColorHex      = new Color(255, 255, 255, 00),
-            Sounds        = TeamSounds.None,
+            Sounds        = new TeamSounds(TeamSoundCatalog.None),
             Flag          = new Flag
             {
                 Model     = FlagModel.None,
@@ -107,7 +107,7 @@ public class Team
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color identity)</remarks>
     public Color ColorHex { get; private set; }
     /// <summary>Gets the sounds associated with the team.</summary>
-    /// <remarks>Change drivers: CD-40 (root; audio API); CD-17 (game configuration/.env schema: audio URLs) → CD-40</remarks>
+    /// <remarks>Change drivers: CD-40 (root; audio API)</remarks>
     public TeamSounds Sounds { get; private set; }
     /// <summary>Gets the team's flag.</summary>
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag ownership)</remarks>
