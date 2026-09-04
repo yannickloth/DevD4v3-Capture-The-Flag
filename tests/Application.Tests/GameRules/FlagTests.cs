@@ -338,9 +338,12 @@ public class FlagTests
     private static Flag CreateFlag() =>
         new()
         {
-            Model = FlagModel.Red,
-            Icon = FlagIcon.Red,
-            Name = "Red",
-            ColorHex = Color.Red
+            Identity = new Flag.FlagIdentity
+            {
+                Model = FlagModel.Red,
+                Icon = FlagIcon.Red,
+                ColorHex = Color.Red
+            },
+            Name = "Red"
         };
 }

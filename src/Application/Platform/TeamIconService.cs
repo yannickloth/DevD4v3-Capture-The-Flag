@@ -54,20 +54,20 @@ public class TeamIconService
         {
             _redMapIcon = _streamerService.CreateDynamicMapIcon(
                 position: position,
-                type: (MapIcon)Team.Alpha.Flag.Icon,
+                type: (MapIcon)Team.Alpha.Flag.Identity.Icon,
                 streamDistance: 5000f,
                 interior: currentMap.Interior,
-                color: Team.Alpha.Flag.ColorHex
+                color: Team.Alpha.Flag.Identity.ColorHex
             );
         }
         else if (team.Id == TeamId.Beta)
         {
             _blueMapIcon = _streamerService.CreateDynamicMapIcon(
                 position: position,
-                type: (MapIcon)Team.Beta.Flag.Icon,
+                type: (MapIcon)Team.Beta.Flag.Identity.Icon,
                 streamDistance: 5000f,
                 interior: currentMap.Interior,
-                color: Team.Beta.Flag.ColorHex
+                color: Team.Beta.Flag.Identity.ColorHex
             );
         }
     }

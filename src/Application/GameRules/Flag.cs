@@ -10,25 +10,13 @@ public class Flag
     /// Gets the 3D model associated with the flag.
     /// </summary>
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model id) → CD-02</remarks>
-    public required FlagModel Model { get; init; }
-
-    /// <summary>
-    /// Gets the map icon associated with the flag.
-    /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: map-icon id) → CD-02</remarks>
-    public required FlagIcon Icon { get; init; }
+    public required FlagIdentity Identity { get; init; }
 
     /// <summary>
     /// Gets the display name of the flag.
     /// </summary>
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag display name)</remarks>
     public required string Name { get; init; } = string.Empty;
-
-    /// <summary>
-    /// Gets the primary color associated with the flag.
-    /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color); CD-01 (open.mp/SampSharp platform API: attached-object material color) → CD-02</remarks>
-    public required Color ColorHex { get; init; }
 
     /// <summary>
     /// Gets the current status of the flag.
@@ -146,7 +134,7 @@ public class Flag
     private void SetCarrier(Player player)
     {
         Carrier = player;
-        CarrierAttachment.Attach(player, Model, ColorHex);
+        CarrierAttachment.Attach(player, Identity.Model, Identity.ColorHex);
     }
 
     /// <summary>
@@ -160,6 +148,22 @@ public class Flag
             CarrierAttachment.Detach(Carrier);
             Carrier = default;
         }
+    }
+
+    /// <summary>
+    /// Represents the visual identity of the flag: model, map icon, and color.
+    /// </summary>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model/icon id spaces, color type) → CD-02</remarks>
+    public sealed record FlagIdentity
+    {
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: model id) → CD-02</remarks>
+        public required FlagModel Model { get; init; }
+
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-01 (open.mp/SampSharp platform API: map-icon id) → CD-02</remarks>
+        public required FlagIcon Icon { get; init; }
+
+        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color); CD-01 (open.mp/SampSharp platform API: attached-object material color) → CD-02</remarks>
+        public required Color ColorHex { get; init; }
     }
 
     /// <summary>
