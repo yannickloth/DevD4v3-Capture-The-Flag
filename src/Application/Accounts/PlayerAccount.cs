@@ -9,18 +9,8 @@ public partial class PlayerAccount
     /// <summary>
     /// It is a sentinel value that indicates the player has no account in the database.
     /// </summary>
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: no-account sentinel)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: no-account sentinel); CD-18 (database schema/player data model) → CD-08; CD-20 (outbound repository contract) → CD-08</remarks>
     private const int NoAccount = -1;
-
-    /// <summary>
-    /// It is a validation pattern for player names.
-    /// </summary>
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player name validation pattern)</remarks>
-    private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
-
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player name validation regex)</remarks>
-    [GeneratedRegex(PlayerNamePattern)]
-    private static partial Regex PlayerNameRegex();
 
     /// <summary>
     /// It is generated automatically by the database provider.
@@ -31,41 +21,32 @@ public partial class PlayerAccount
     /// <remarks>Change drivers: CD-18 (database schema/player data model) ‖ CD-20 (outbound repository contract); both → CD-08 (account)</remarks>
     public int AccountId { get; private set; } = NoAccount;
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy); CD-18 (database schema/player data model: name column); CD-20 (outbound repository contract) → CD-08</remarks>
     public string Name { get; private set; } = "DefaultUser";
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy); CD-18 (database schema/player data model: password column); CD-20 (outbound repository contract) → CD-08</remarks>
     public string Password { get; private set; } = "DefaultPassword";
 
     /// <remarks>Change drivers: CD-18 (database schema/player data model) ‖ CD-20 (outbound repository contract); both → CD-08 (account)</remarks>
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: name validation); CD-18 (database schema/player data model: name column) → CD-08; CD-20 (outbound repository contract) → CD-08 — inherited against dependency direction from the Name column this method writes</remarks>
     public Result SetName(string value)
     {
-        ArgumentNullException.ThrowIfNull(value);
-        if (string.IsNullOrWhiteSpace(value))
-            return Result.Failure(Messages.NameCannotBeEmpty);
-
-        if (value.Length < 3 || value.Length > 20)
-            return Result.Failure(Messages.PlayerNameLength);
-
-        if (!PlayerNameRegex().IsMatch(value))
-            return Result.Failure(Messages.InvalidNickName);
+        Result policyResult = PlayerNamePolicy.ValidateName(value);
+        if (!policyResult.IsSuccess)
+            return policyResult;
 
         Name = value;
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy)</remarks>
+    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: password validation); CD-18 (database schema/player data model: password column) → CD-08; CD-20 (outbound repository contract) → CD-08 — inherited against dependency direction from the Password column this method writes</remarks>
     public Result SetPassword(string value)
     {
-        ArgumentNullException.ThrowIfNull(value);
-        if (string.IsNullOrWhiteSpace(value))
-            return Result.Failure(Messages.PasswordCannotBeEmpty);
-
-        if (value.Length < 5 || value.Length > 20)
-            return Result.Failure(Messages.PasswordLength);
+        Result policyResult = PlayerNamePolicy.ValidatePassword(value);
+        if (!policyResult.IsSuccess)
+            return policyResult;
 
         Password = value;
         return Result.Success();
