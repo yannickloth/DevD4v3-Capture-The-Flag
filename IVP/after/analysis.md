@@ -19,7 +19,8 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 |--------|----------------|----------|
 | `Accounts` | CD-08 | AccountAuthenticator, AccountComponent, AccountSystem, AuthenticationDialog, PlayerInfo (aggregate), PlayerAccount, PlayerName/PasswordSystem, PlayerExtensions |
 | `AntiCheat` | CD-14 | AntiCBugSystem/Commands/Settings, LastFiredTimeComponent |
-| `Audio` | CD-40 | TeamSounds, TeamSoundCatalog |
+| `Audio` | CD-40 | TeamSounds |
+| `Audio.Configuration` | CD-17 | TeamSoundCatalog |
 | `Authorization` | CD-09 | PlayerRole, RoleId/Collection, PlayerRoleSystem/Checker/Extensions, Admin/VIPListSystem, ServerOwner*, RequiresMinimumRoleAttribute |
 | `Bcrypt` (Host) | CD-25 | PasswordHasherBcrypt |
 | `Chat` | CD-13 | ChatSystem, ChatText, IChatMessage, Private*Chat, PrivateMessageSystem |
@@ -33,10 +34,11 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | `Deployment` (Host) | CD-22 | GameModePaths |
 | `Discord` | CD-24 | DiscordWebhookClient (Host), PlayerActivityNotificationSystem |
 | `Ecs` (Host) | CD-32 | Startup, Entrypoint |
-| `GameRules` | CD-02 (+settings CD-17, wiring CD-21) | Flag (aggregate), FlagCarrier, FlagSystem + On*Flag handlers, TeamBalancer, TeamMembers, PlayerSpawn/Death/Pause/Welcome systems, ClassSelectionComponent/System/Settings; `ClassSelectionExtensions` split into CD-02 state + CD-31 redirect (spectating) variants |
+| `GameRules` | CD-02 (+wiring CD-21) | Flag (aggregate), FlagCarrier, FlagSystem + On*Flag handlers, TeamBalancer, TeamMembers, PlayerSpawn/Death/Pause/Welcome systems, ClassSelectionComponent/System; `ClassSelectionExtensions` split into CD-02 state + CD-31 redirect (spectating) variants |
+| `GameRules.Configuration` | CD-17 | `ClassSelectionSettings` |
 | `GunGames(/Results)` | CD-07 | GunGameSystem, progression types, GunGameReward, result handlers |
 | `MapIcons` | CD-38 | TeamIconService, FlagIcon |
-| `Maps(/Rotation)` | CD-11, CD-12 | MapCollection, MapInfoService, rotation service/system, LoadTime/TimeLeft, MapTextDrawRenderer |
+| `Maps(/Rotation)` | CD-11, CD-12 | MapCollection, MapInfoService, rotation service/system, LoadTime/TimeLeft |
 | `Pickups` | CD-37 | TeamPickupService |
 | `PlayerResources` | CD-44 | FlagModel, SkinTeamId, ExteriorMarker, PlayerSkinSystem/Extensions, PlayerAppearance |
 | `Players(/Weapons,/TopPlayers,/Chats,/Accounts)` | CD-17 settings, CD-20 ports, CD-04, CD-21 wiring, CD-08 port | CommandCooldowns, IPlayerRepository, ITopPlayersRepository, WeaponCatalogSystem; `Players.Weapons.Catalogs` refines `WeaponCatalogSettings` + `WeaponCatalogTypeValidator`; service extensions |
@@ -44,7 +46,7 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | `ServerService` (Host) | CD-42 | GameModeInit |
 | `Statistics` | CD-10 | PlayerStatistics (entity), PlayerStatsPerRound, rank types, stat systems/updaters, TopPlayers* types, TeamStats* |
 | `Teams` | CD-02 (+wiring CD-21, TeamId CD-31‖CD-02) | Team aggregate (composite), TeamId |
-| `TextDraws` | CD-34 | TeamTextDrawRenderer, ClassSelectionTextDrawRenderer |
+| `TextDraws` | CD-34 | TeamTextDrawRenderer, ClassSelectionTextDrawRenderer, MapTextDrawRenderer |
 | `WeaponCatalogs` | CD-04 | the seven catalogs + `WeaponCatalog` base + `WeaponCatalogType` |
 | Host `Logging` | CD-23 | SerilogExtensions |
 
@@ -84,7 +86,7 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | Driver IDs ∈ catalogue | ✅ 0 invalid |
 | CD-01 / CD-29 citations | ✅ 0 |
 | Class gamma = union of direct elements | ✅ 33 gaps completed; remaining class-only drivers audited as base-class / signature-type / injected-contract transmission |
-| Module root sets | ✅ single-root per module except the documented settings/wiring co-locations |
+| Module root sets | ✅ 56/67 namespaces single-root-set; the 11 root-set composites are the documented essential deviations in `IVP/constraints.md` (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots) |
 | Single-set module audit (`ModulePurity`) | ⚠️ modules with transmissions evaluated=185, single-set=175, violating=10, skipped=82 — the 10 are class-level and internal: `PlayerStatsPerRound`, `GunGameReward`, `ComboSystem`, `TeamStatsPerRound`, `PlayerAppearance`, `Startup`, `TeamScoreboardSystem`, `PrivateAdminChat`, `PrivateModeratorChat`, `PrivateVipChat` |
 
 ### 4.1 Remaining module-purity violations

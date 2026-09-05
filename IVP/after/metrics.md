@@ -2,7 +2,7 @@
 
 > Canonical measurement of the post-IVP tree with the pinned tool `IVP/tools/IvpMeasure.java`
 > (display labels for CD-31..CD-44 added; set semantics unchanged). 315 annotated types
-> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 64 namespaces, 42 active
+> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 67 namespaces, 42 active
 > drivers (CD-01 decomposed into CD-31..CD-44, CD-29 retired), 181 distinct Γ-sets,
 > 15 scattered sets.
 >
@@ -64,10 +64,10 @@
 | Statistic | Value | Before |
 |---|---|---|
 | Types with a change-driver annotation | 315 | 293 |
-| Namespaces | 64 | 57 |
+| Namespaces | 67 | 57 |
 | Mean change drivers per class | 2.94 | 3.03 |
 | Median change drivers per class | 3 | 3 |
-| Mean change drivers per namespace | 5.34 | 6.51 |
+| Mean change drivers per namespace | 5.19 | 6.51 |
 | Median change drivers per namespace | 4.0 | 6 |
 
 Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5, 10=3}
@@ -78,7 +78,7 @@ Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5,
 |---|---|---|
 | **classes (elements `E`)** | 315 | the code elements supplied to the partition |
 | **distinct change-driver sets (`E/Γ`)** | 181 | the Γ-equivalence classes = the IVP normative partition |
-| **namespaces (actual modules)** | 64 | the partition the code actually has |
+| **namespaces (actual modules)** | 67 | the partition the code actually has |
 
 After the refinement the set space is finer by construction (the former CD-01 umbrella
 sets split), so `181 vs 137` before is not a regression signal. The structural defect
@@ -91,7 +91,8 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application | 1 | 1 | 1 | yes |
 | CTF.Application.Accounts | 11 | 13 | 9 | no |
 | CTF.Application.AntiCheat | 4 | 9 | 4 | no |
-| CTF.Application.Audio | 2 | 2 | 2 | no |
+| CTF.Application.Audio | 1 | 1 | 1 | yes |
+| CTF.Application.Audio.Configuration | 1 | 1 | 1 | yes |
 | CTF.Application.Authorization | 12 | 10 | 8 | no |
 | CTF.Application.Chat | 9 | 7 | 6 | no |
 | CTF.Application.CoinEconomy | 2 | 9 | 2 | no |
@@ -100,11 +101,12 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.CommandInfrastructure | 2 | 6 | 2 | no |
 | CTF.Application.Commands | 8 | 7 | 7 | no |
 | CTF.Application.Discord | 1 | 3 | 1 | yes |
-| CTF.Application.GameRules | 39 | 25 | 29 | no |
+| CTF.Application.GameRules | 38 | 25 | 27 | no |
+| CTF.Application.GameRules.Configuration | 1 | 2 | 1 | yes |
 | CTF.Application.GunGames | 27 | 13 | 6 | no |
 | CTF.Application.GunGames.Results | 4 | 7 | 2 | no |
 | CTF.Application.MapIcons | 2 | 3 | 2 | no |
-| CTF.Application.Maps | 10 | 8 | 4 | no |
+| CTF.Application.Maps | 9 | 8 | 3 | no |
 | CTF.Application.Maps.Rotation | 6 | 12 | 3 | no |
 | CTF.Application.Pickups | 1 | 4 | 1 | yes |
 | CTF.Application.PlayerResources | 6 | 4 | 3 | no |
@@ -122,7 +124,8 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.Tests.Fakes | 5 | 3 | 2 | no |
 | CTF.Application.Tests.GameRules | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.GunGames | 8 | 3 | 2 | no |
-| CTF.Application.Tests.Maps | 6 | 4 | 2 | no |
+| CTF.Application.Tests.Maps | 3 | 3 | 1 | yes |
+| CTF.Application.Tests.Maps.Rotation | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.PlayerResources | 1 | 3 | 1 | yes |
 | CTF.Application.Tests.Players.Accounts | 7 | 8 | 6 | no |
 | CTF.Application.Tests.Players.Extensions | 1 | 4 | 1 | yes |
@@ -133,7 +136,7 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.Tests.Statistics | 5 | 4 | 2 | no |
 | CTF.Application.Tests.Teams | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.TextDraws | 1 | 3 | 1 | yes |
-| CTF.Application.TextDraws | 2 | 4 | 2 | no |
+| CTF.Application.TextDraws | 3 | 6 | 3 | no |
 | CTF.Application.WeaponCatalogs | 9 | 1 | 1 | yes |
 | CTF.Host.Bcrypt | 1 | 1 | 1 | yes |
 | CTF.Host.CommandInfrastructure | 1 | 1 | 1 | yes |
@@ -153,78 +156,85 @@ metrics are the ones below: scattered sets and composite namespaces.
 | Persistence.Tests.Players | 5 | 4 | 1 | yes |
 | SampSharp | 1 | 2 | 1 | yes |
 
-37 of 64 namespaces are composite; 27 are single-set (before: 43/57 composite, 14 single).
+35 of 67 namespaces are composite by raw code equality; 32 are single-set (before: 43/57 composite, 14 single).
+
+### 3.1 Root-causal namespace purity
+
+When subordinate platform/config/test-tooling drivers (anything explicitly fed via `→`, or unmarked when another driver in the same line is marked `(root`) are ignored, the namespace partition becomes much cleaner: **56 of 67 namespaces are single-root-set**, and the remaining **11** composites are documented essential deviations (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots).
 
 ## 4. Causal cohesion per namespace
 
 Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness(M) = min over each driver-set A in M of |M ∩ [A]| / |[A]|.
 
-| namespace | classes | purity | completeness |
-|---|---|---|---|
-| CTF.Application | 1 | 1.000 | 0.167 |
-| CTF.Application.Accounts | 11 | 0.111 | 1.000 |
-| CTF.Application.AntiCheat | 4 | 0.250 | 1.000 |
-| CTF.Application.Audio | 2 | 0.500 | 0.167 |
-| CTF.Application.Authorization | 12 | 0.125 | 1.000 |
-| CTF.Application.Chat | 9 | 0.167 | 1.000 |
-| CTF.Application.CoinEconomy | 2 | 0.500 | 1.000 |
-| CTF.Application.Combat | 11 | 0.125 | 1.000 |
-| CTF.Application.Combos | 11 | 0.200 | 1.000 |
-| CTF.Application.CommandInfrastructure | 2 | 0.500 | 1.000 |
-| CTF.Application.Commands | 8 | 0.143 | 1.000 |
-| CTF.Application.Discord | 1 | 1.000 | 1.000 |
-| CTF.Application.GameRules | 39 | 0.034 | 0.333 |
-| CTF.Application.GunGames | 27 | 0.167 | 0.167 |
-| CTF.Application.GunGames.Results | 4 | 0.500 | 1.000 |
-| CTF.Application.MapIcons | 2 | 0.500 | 1.000 |
-| CTF.Application.Maps | 10 | 0.250 | 0.875 |
-| CTF.Application.Maps.Rotation | 6 | 0.333 | 1.000 |
-| CTF.Application.Pickups | 1 | 1.000 | 1.000 |
-| CTF.Application.PlayerResources | 6 | 0.333 | 1.000 |
-| CTF.Application.Players | 2 | 0.500 | 0.167 |
-| CTF.Application.Players.Accounts | 1 | 1.000 | 1.000 |
-| CTF.Application.Players.Chats | 1 | 1.000 | 1.000 |
-| CTF.Application.Players.TopPlayers | 2 | 0.500 | 0.500 |
-| CTF.Application.Players.Weapons | 3 | 0.333 | 0.083 |
-| CTF.Application.Players.Weapons.Catalogs | 2 | 0.500 | 0.083 |
-| CTF.Application.RconSecurity | 1 | 1.000 | 1.000 |
-| CTF.Application.Statistics | 21 | 0.063 | 0.500 |
-| CTF.Application.Teams | 4 | 0.250 | 0.125 |
-| CTF.Application.Tests | 1 | 1.000 | 1.000 |
-| CTF.Application.Tests.Authorization | 1 | 1.000 | 0.500 |
-| CTF.Application.Tests.Fakes | 5 | 0.500 | 0.125 |
-| CTF.Application.Tests.GameRules | 3 | 1.000 | 0.429 |
-| CTF.Application.Tests.GunGames | 8 | 0.500 | 0.083 |
-| CTF.Application.Tests.Maps | 6 | 0.500 | 1.000 |
-| CTF.Application.Tests.PlayerResources | 1 | 1.000 | 1.000 |
-| CTF.Application.Tests.Players.Accounts | 7 | 0.167 | 0.111 |
-| CTF.Application.Tests.Players.Extensions | 1 | 1.000 | 1.000 |
-| CTF.Application.Tests.Players.Ranks | 3 | 1.000 | 0.333 |
-| CTF.Application.Tests.Players.TopPlayers | 1 | 1.000 | 1.000 |
-| CTF.Application.Tests.Players.Vitalities | 2 | 1.000 | 0.667 |
-| CTF.Application.Tests.Players.Weapons | 5 | 0.250 | 0.083 |
-| CTF.Application.Tests.Statistics | 5 | 0.500 | 0.444 |
-| CTF.Application.Tests.Teams | 3 | 1.000 | 0.429 |
-| CTF.Application.Tests.TextDraws | 1 | 1.000 | 0.111 |
-| CTF.Application.TextDraws | 2 | 0.500 | 1.000 |
-| CTF.Application.WeaponCatalogs | 9 | 1.000 | 0.750 |
-| CTF.Host.Bcrypt | 1 | 1.000 | 0.500 |
-| CTF.Host.CommandInfrastructure | 1 | 1.000 | 1.000 |
-| CTF.Host.Composition | 3 | 0.333 | 1.000 |
-| CTF.Host.Config | 1 | 1.000 | 1.000 |
-| CTF.Host.Deployment | 1 | 1.000 | 1.000 |
-| CTF.Host.Discord | 2 | 0.500 | 1.000 |
-| CTF.Host.Ecs | 1 | 1.000 | 1.000 |
-| CTF.Host.Logging | 1 | 1.000 | 1.000 |
-| CTF.Host.ServerService | 1 | 1.000 | 1.000 |
-| Persistence.InMemory | 6 | 0.200 | 1.000 |
-| Persistence.MariaDB | 5 | 0.200 | 0.167 |
-| Persistence.SQLite | 5 | 0.200 | 0.167 |
-| Persistence.SQLite.Extensions | 2 | 1.000 | 1.000 |
-| Persistence.Tests.Common | 6 | 0.200 | 0.500 |
-| Persistence.Tests.Common.DatabaseProviders | 3 | 0.333 | 1.000 |
-| Persistence.Tests.Players | 5 | 1.000 | 1.000 |
-| SampSharp | 1 | 1.000 | 1.000 |
+| namespace | classes | tokens | sets | purity | completeness |
+|---|---|---|---|---|---|
+| CTF.Application | 1 | 1 | 1 | 1.000 | 0.167 |
+| CTF.Application.Accounts | 11 | 13 | 9 | 0.111 | 1.000 |
+| CTF.Application.AntiCheat | 4 | 9 | 4 | 0.250 | 1.000 |
+| CTF.Application.Audio | 1 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.Audio.Configuration | 1 | 1 | 1 | 1.000 | 0.167 |
+| CTF.Application.Authorization | 12 | 10 | 8 | 0.125 | 1.000 |
+| CTF.Application.Chat | 9 | 7 | 6 | 0.167 | 1.000 |
+| CTF.Application.CoinEconomy | 2 | 9 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combat | 11 | 14 | 8 | 0.125 | 1.000 |
+| CTF.Application.Combos | 11 | 13 | 5 | 0.200 | 1.000 |
+| CTF.Application.CommandInfrastructure | 2 | 6 | 2 | 0.500 | 1.000 |
+| CTF.Application.Commands | 8 | 7 | 7 | 0.143 | 1.000 |
+| CTF.Application.Discord | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules | 38 | 25 | 27 | 0.037 | 0.750 |
+| CTF.Application.GameRules.Configuration | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.GunGames | 27 | 13 | 6 | 0.167 | 0.167 |
+| CTF.Application.GunGames.Results | 4 | 7 | 2 | 0.500 | 1.000 |
+| CTF.Application.MapIcons | 2 | 3 | 2 | 0.500 | 1.000 |
+| CTF.Application.Maps | 9 | 8 | 3 | 0.333 | 0.875 |
+| CTF.Application.Maps.Rotation | 6 | 12 | 3 | 0.333 | 1.000 |
+| CTF.Application.Pickups | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.PlayerResources | 6 | 4 | 3 | 0.333 | 1.000 |
+| CTF.Application.Players | 2 | 2 | 2 | 0.500 | 0.167 |
+| CTF.Application.Players.Accounts | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Players.Chats | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Players.TopPlayers | 2 | 3 | 2 | 0.500 | 0.500 |
+| CTF.Application.Players.Weapons | 3 | 10 | 3 | 0.333 | 0.083 |
+| CTF.Application.Players.Weapons.Catalogs | 2 | 2 | 2 | 0.500 | 0.083 |
+| CTF.Application.RconSecurity | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics | 21 | 16 | 16 | 0.063 | 0.500 |
+| CTF.Application.Teams | 4 | 9 | 4 | 0.250 | 0.125 |
+| CTF.Application.Tests | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Authorization | 1 | 3 | 1 | 1.000 | 0.500 |
+| CTF.Application.Tests.Fakes | 5 | 3 | 2 | 0.500 | 0.125 |
+| CTF.Application.Tests.GameRules | 3 | 3 | 1 | 1.000 | 0.429 |
+| CTF.Application.Tests.GunGames | 8 | 3 | 2 | 0.500 | 0.083 |
+| CTF.Application.Tests.Maps | 3 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Maps.Rotation | 3 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.PlayerResources | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Accounts | 7 | 8 | 6 | 0.167 | 0.111 |
+| CTF.Application.Tests.Players.Extensions | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Ranks | 3 | 3 | 1 | 1.000 | 0.333 |
+| CTF.Application.Tests.Players.TopPlayers | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Vitalities | 2 | 3 | 1 | 1.000 | 0.667 |
+| CTF.Application.Tests.Players.Weapons | 5 | 5 | 4 | 0.250 | 0.083 |
+| CTF.Application.Tests.Statistics | 5 | 4 | 2 | 0.500 | 0.444 |
+| CTF.Application.Tests.Teams | 3 | 3 | 1 | 1.000 | 0.429 |
+| CTF.Application.Tests.TextDraws | 1 | 3 | 1 | 1.000 | 0.111 |
+| CTF.Application.TextDraws | 3 | 6 | 3 | 0.333 | 1.000 |
+| CTF.Application.WeaponCatalogs | 9 | 1 | 1 | 1.000 | 0.750 |
+| CTF.Host.Bcrypt | 1 | 1 | 1 | 1.000 | 0.500 |
+| CTF.Host.CommandInfrastructure | 1 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Host.Composition | 3 | 4 | 3 | 0.333 | 1.000 |
+| CTF.Host.Config | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Host.Deployment | 1 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Host.Discord | 2 | 2 | 2 | 0.500 | 1.000 |
+| CTF.Host.Ecs | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Host.Logging | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Host.ServerService | 1 | 2 | 1 | 1.000 | 1.000 |
+| Persistence.InMemory | 6 | 5 | 5 | 0.200 | 1.000 |
+| Persistence.MariaDB | 5 | 6 | 5 | 0.200 | 0.167 |
+| Persistence.SQLite | 5 | 6 | 5 | 0.200 | 0.167 |
+| Persistence.SQLite.Extensions | 2 | 1 | 1 | 1.000 | 1.000 |
+| Persistence.Tests.Common | 6 | 7 | 5 | 0.200 | 0.500 |
+| Persistence.Tests.Common.DatabaseProviders | 3 | 6 | 3 | 0.333 | 1.000 |
+| Persistence.Tests.Players | 5 | 4 | 1 | 1.000 | 1.000 |
+| SampSharp | 1 | 2 | 1 | 1.000 | 1.000 |
 
 ## 5. Module purity (single-set audit)
 
@@ -268,16 +278,20 @@ The per-driver modules created by the regroup measure as **pure single-set names
 (purity 1.000): `Pickups`, `RconSecurity`, `WeaponCatalogs`, `Players.Accounts`,
 `Players.Chats`, the single-type Host modules (`Ecs`, `ServerService`,
 `CommandInfrastructure`, `Config`, `Deployment`, `Logging`, `Bcrypt`), `SampSharp`,
-and most test namespaces. In the before state only 12 of 57 namespaces were single-set.
+and most test namespaces. The recent namespace splits added `Audio.Configuration`,
+`GameRules.Configuration`, and `Tests.Maps.Rotation` as additional single-root-set
+modules. In the before state only 12 of 57 namespaces were single-set.
 
 ### 7.2 Composite namespaces are now subordinate-driven, not topic-fused
 
-The large composite namespaces (`GameRules` 29 sets/39 classes, `Statistics` 16/21,
+The large raw-composite namespaces (`GameRules` 27 sets/38 classes, `Statistics` 16/21,
 `Accounts` 13/11) are domain modules whose elements carry domain-rooted gammas with
 *platform subordinates* (CD-31/32/36 → CD-02 etc.). Under the refined drivers that is
 the expected shape: the subordinate IDs exist precisely so those usages are enumerable,
 not co-located as roots. The before-state offenders with distinct *root* drivers fused
-by topic (`Players` 9 sets, `Teams` 8, `Teams.Flags` 7) no longer exist as such.
+by topic (`Players` 9 sets, `Teams` 8, `Teams.Flags` 7) no longer exist as such. After
+the three namespace splits and applying the root-causal rule, only 11 namespaces remain
+root-set-composite; all are documented essential deviations in `IVP/constraints.md`.
 
 ### 7.3 Scatter
 
@@ -288,10 +302,11 @@ CD-10) are concentrated in their domain modules.
 
 ### 7.4 Bottom line
 
-The after state is a **root-aligned modularisation**: every module's elements answer to
-one domain root (plus documented settings/wiring co-locations), platform touchpoints are
-enumerable subordinates, and the former umbrella driver has zero activation. The remaining
-impurity is measured in subordinate tokens, which is annotation richness, not contamination.
+The after state is a **root-aligned modularisation**: 56 of 67 namespaces are
+single-root-set, every module's elements answer to one domain root (plus documented
+settings/wiring co-locations), platform touchpoints are enumerable subordinates, and the
+former umbrella driver has zero activation. The remaining raw-code impurity is measured
+in subordinate tokens, which is annotation richness, not contamination.
 
 ### 7.5 Module-purity reading
 
