@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Roles;
+﻿namespace CTF.Application.Authorization.Roles.Gamma_CD09_CD43;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (IPermissionChecker/command plumbing) → CD-09</remarks>
 public class PlayerRoleChecker : IPermissionChecker

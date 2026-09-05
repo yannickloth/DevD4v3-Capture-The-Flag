@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Roles;
+namespace CTF.Application.Authorization.Roles.Gamma_CD09_CD20;
 
 /// <summary>
 /// Represents the persisted authorization state of a player.

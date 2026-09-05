@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Roles;
+namespace CTF.Application.Authorization.Roles.Core;
 
 /// <summary>
 /// Provides player role query extension methods.

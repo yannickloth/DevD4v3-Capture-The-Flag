@@ -1,17 +1,17 @@
-﻿namespace CTF.Application.Authorization.Roles;
+﻿namespace CTF.Application.Authorization.Roles.Core;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-public class RoleCollection
+public enum RoleId
 {
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    private RoleCollection() { }
+    Basic,
 
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    private static readonly RoleId[] s_roles = Enum.GetValues<RoleId>();
+    VIP,
 
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public static IReadOnlyList<RoleId> GetAll() => s_roles;
+    Moderator,
 
     /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
-    public static int Count => s_roles.Length;
+    Admin
 }

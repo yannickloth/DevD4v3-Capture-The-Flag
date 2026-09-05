@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Admin;
+namespace CTF.Application.Authorization.Admin.Gamma_CD09_CD17;
 
 /// <summary>
 /// Provides server-owner authorization extension methods over the player entity.
