@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD33;
+namespace CTF.Application.Commands.Vip.Help;
 
 /// <summary>
 /// Shows the VIP-role help dialog.
