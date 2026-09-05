@@ -97,8 +97,8 @@ global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
 
 global using CTF.Application.Combat;
 global using CTF.Application.Combat.Health.Core;
-global using CTF.Application.Combat.Health.Gamma_CD03_CD31;
-global using CTF.Application.Combat.Health.Gamma_CD03_CD09_CD15_CD17_CD31_CD32_CD36_CD43;
+global using CTF.Application.Combat.Health.Extensions;
+global using CTF.Application.Combat.Health.Systems;
 global using CTF.Application.Combat.Headshot.Settings;
 global using CTF.Application.Combat.Headshot.HeadshotSystem;
 global using CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD32;
