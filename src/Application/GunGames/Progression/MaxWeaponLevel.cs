@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGames.Progression;
 
 /// <summary>
 /// Represents the highest weapon level available in a weapon progression.

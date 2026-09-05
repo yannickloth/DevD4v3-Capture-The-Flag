@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGames.Systems;
 
 /// <summary>
 /// Represents the possible results produced after processing a kill

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGames.Progression;
 
 /// <summary>
 /// Defines a GunGame weapon progression using only pistols.

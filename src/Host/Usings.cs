@@ -45,6 +45,7 @@ global using CTF.Application.Teams;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Rotation;
 global using CTF.Application.GunGames;
+global using CTF.Application.GunGames.Systems;
 global using CTF.Host.Composition;
 global using CTF.Host.Ecs;
 global using CTF.Host.ServerService;
