@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Maps;
+﻿namespace CTF.Application.Tests.Maps.Rotation;
 
 /// <summary>Tests for TimeLeft (case source).</summary>
 /// <remarks>Change drivers: CD-12 (root; map-rotation rules: TimeLeft case source); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
