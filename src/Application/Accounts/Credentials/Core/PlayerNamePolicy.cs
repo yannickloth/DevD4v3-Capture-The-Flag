@@ -1,4 +1,4 @@
-namespace CTF.Application.Accounts.Credentials;
+namespace CTF.Application.Accounts.Credentials.Core;
 
 /// <summary>
 /// Validates player name and password credentials against the account policy.

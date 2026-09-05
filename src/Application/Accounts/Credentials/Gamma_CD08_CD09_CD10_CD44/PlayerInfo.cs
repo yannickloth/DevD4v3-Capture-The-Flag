@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Credentials;
+﻿namespace CTF.Application.Accounts.Credentials.Gamma_CD08_CD09_CD10_CD44;
 
 /// <summary>
 /// Represents the account of a player as persisted in the database.
