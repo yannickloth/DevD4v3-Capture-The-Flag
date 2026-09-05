@@ -34,7 +34,12 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | `Deployment` (Host) | CD-22 | GameModePaths |
 | `Discord` | CD-24 | DiscordWebhookClient (Host), PlayerActivityNotificationSystem |
 | `Ecs` (Host) | CD-32 | Startup, Entrypoint |
-| `GameRules` | CD-02 (+wiring CD-21) | Flag (aggregate), FlagCarrier, FlagSystem + On*Flag handlers, TeamBalancer, TeamMembers, PlayerSpawn/Death/Pause/Welcome systems, ClassSelectionComponent/System; `ClassSelectionExtensions` split into CD-02 state + CD-31 redirect (spectating) variants |
+| `GameRules` | CD-02 (+wiring CD-21) | Module-level `ServiceCollectionExtensions` (DI registration root) |
+| `GameRules.Flag` | CD-02 | `Flag` aggregate, `FlagCarrier`, `FlagSystem`, `On*Flag` handlers, `FlagAutoReturnTimer`/`Settings`, `FlagCarrier*` systems, `FlagStateResetter`, `IFlagEvent`, `FlagStatus` |
+| `GameRules.ClassSelection` | CD-02 | `ClassSelectionComponent`/`System`/`Extensions`/`RedirectExtensions`, `TeamSelectionSystem`, `PlayerSpawnSystem`, `PlayerSpawnLockMiddleware` |
+| `GameRules.Players` | CD-02 | `PlayerDataComponent`, `PlayerDeathSystem`, `PlayerPauseSystem`/`Extensions`, `PlayerWelcomeSystem` |
+| `GameRules.Match` | CD-02 | `MatchPlayers`, `MatchResult`, `MatchResultAnnouncer`, `TeamBalancer`, `TeamMembers`, `TeamPlayerExtensions` |
+| `GameRules.Configuration` | CD-17 | `ClassSelectionSettings` (`.env`-schema settings for the GameRules module) |
 | `GameRules.Configuration` | CD-17 | `ClassSelectionSettings` |
 | `GunGames(/Results)` | CD-07 | GunGameSystem, progression types, GunGameReward, result handlers |
 | `MapIcons` | CD-38 | TeamIconService, FlagIcon |
@@ -86,7 +91,7 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | Driver IDs ∈ catalogue | ✅ 0 invalid |
 | CD-01 / CD-29 citations | ✅ 0 |
 | Class gamma = union of direct elements | ✅ 33 gaps completed; remaining class-only drivers audited as base-class / signature-type / injected-contract transmission |
-| Module root sets | ✅ 56/67 namespaces single-root-set; the 11 root-set composites are the documented essential deviations in `IVP/constraints.md` (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots) |
+| Module root sets | ✅ 60/71 namespaces single-root-set; the 11 root-set composites are the documented essential deviations in `IVP/constraints.md` (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots) |
 | Single-set module audit (`ModulePurity`) | ⚠️ modules with transmissions evaluated=185, single-set=175, violating=10, skipped=82 — the 10 are class-level and internal: `PlayerStatsPerRound`, `GunGameReward`, `ComboSystem`, `TeamStatsPerRound`, `PlayerAppearance`, `Startup`, `TeamScoreboardSystem`, `PrivateAdminChat`, `PrivateModeratorChat`, `PrivateVipChat` |
 
 ### 4.1 Remaining module-purity violations
