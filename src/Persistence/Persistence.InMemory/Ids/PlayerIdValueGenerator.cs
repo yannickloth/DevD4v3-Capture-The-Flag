@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory;
+﻿namespace Persistence.InMemory.Ids;
 
 /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
 internal class PlayerIdValueGenerator

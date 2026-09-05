@@ -49,6 +49,7 @@ global using CTF.Application.Players.TopPlayers.Settings;
 global using Persistence.Tests.Common;
 global using Persistence.Tests.Common.DatabaseProviders;
 global using Persistence.InMemory;
+global using Persistence.InMemory.Models;
 global using Persistence.SQLite;
 global using Persistence.SQLite.Extensions;
 global using Persistence.SQLite.Settings;

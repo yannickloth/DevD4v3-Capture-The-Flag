@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory;
+﻿namespace Persistence.InMemory.Repositories.TopPlayers;
 
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-17 (game configuration/.env schema: required-kills/spree thresholds) → CD-20</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): players (Dictionary&lt;int, FakePlayer&gt;) -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

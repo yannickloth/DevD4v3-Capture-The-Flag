@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory;
+﻿namespace Persistence.InMemory.Models;
 
 /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
 public class FakePlayer

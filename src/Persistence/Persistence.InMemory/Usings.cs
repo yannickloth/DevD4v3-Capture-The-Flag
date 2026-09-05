@@ -39,4 +39,8 @@ global using CTF.Application.Statistics.TopPlayers;
 global using CTF.Application.Statistics.TopPlayers.Commands;
 global using CTF.Application.Statistics.TopPlayers.Limits;
 global using CTF.Application.Players.TopPlayers;
+global using Persistence.InMemory.Ids;
+global using Persistence.InMemory.Models;
+global using Persistence.InMemory.Repositories.Players;
+global using Persistence.InMemory.Repositories.TopPlayers;
 global using CTF.Application.Players.TopPlayers.Settings;
