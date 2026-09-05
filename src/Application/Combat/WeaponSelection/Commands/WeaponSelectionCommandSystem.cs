@@ -1,19 +1,12 @@
-﻿namespace CTF.Application.Combat.WeaponSelection.System;
+namespace CTF.Application.Combat.WeaponSelection.Commands;
 
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; gunGameMode -> CD-07; weaponCatalog -> CD-04. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.WeaponCatalog, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
-public class WeaponSelectionSystem(
+[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.WeaponCatalog, ChangeDriver.GunGame, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
+public class WeaponSelectionCommandSystem(
     IDialogService dialogService,
     IGunGameMode gunGameMode,
     ActiveWeaponCatalog weaponCatalog) : ISystem
 {
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player)]
-    public void OnPlayerConnect(Player player)
-    {
-        player.AddComponent<WeaponSelectionComponent>();
-    }
-
     [Event]
     [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     public async Task OnPlayerRequestSpawn(Player player)
@@ -31,46 +24,18 @@ public class WeaponSelectionSystem(
     }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.GunGame, ChangeDriver.Player)]
-    public void OnPlayerSpawn(Player player)
-    {
-        if (gunGameMode.IsEnabled)
-            return;
-
-        var weaponSelection = player.GetComponent<WeaponSelectionComponent>();
-        WeaponPack selectedWeapons = weaponSelection.SelectedWeapons;
-        // Don't user foreach for performance reasons.
-        // OnPlayerSpawn is invoked too often.
-        for (int i = 0; i < selectedWeapons.TotalItems; i++)
-        {
-            IWeapon weapon = selectedWeapons[i];
-            player.GiveWeapon(weapon.Id, IWeapon.UnlimitedAmmo);
-        }
-    }
-
-    [Event]
     [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Dialog)]
     public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
-        if (KeyUtils.HasPressed(newKeys, oldKeys, Keys.Walk | Keys.CtrlBack))
-        {
-            GiveParachute(player);
-        }
-        else if (KeyUtils.HasPressed(newKeys, oldKeys, Keys.Yes))
+        bool parachuteCombo = KeyUtils.HasPressed(newKeys, oldKeys, Keys.Walk | Keys.CtrlBack);
+        if (!parachuteCombo && KeyUtils.HasPressed(newKeys, oldKeys, Keys.Yes))
         {
             await ShowWeapons(player);
         }
-        else if (KeyUtils.HasPressed(newKeys, oldKeys, Keys.CtrlBack))
+        else if (!parachuteCombo && KeyUtils.HasPressed(newKeys, oldKeys, Keys.CtrlBack))
         {
             await ShowWeaponPackage(player);
         }
-    }
-
-    [PlayerCommand("p")]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.CommandInfrastructure, ChangeDriver.Player, ChangeDriver.CommandSet)]
-    public void GiveParachute(Player player)
-    {
-        player.GiveWeapon(Weapon.Parachute, 1);
     }
 
     [PlayerCommand("weapons")]
