@@ -62,10 +62,10 @@ global using CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD4
 global using CTF.Application.CommandInfrastructure.Gamma_CD31_CD43;
 global using CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD31;
 global using CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD33;
-global using CTF.Application.AntiCheat.Gamma_CD09_CD14_CD15_CD17_CD31_CD36_CD43;
-global using CTF.Application.AntiCheat.Gamma_CD14_CD17;
-global using CTF.Application.AntiCheat.Gamma_CD14_CD17_CD31_CD32_CD35;
-global using CTF.Application.AntiCheat.Gamma_CD14_CD32;
+global using CTF.Application.AntiCheat.Commands;
+global using CTF.Application.AntiCheat.Settings;
+global using CTF.Application.AntiCheat.System;
+global using CTF.Application.AntiCheat.ECS;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
 global using CTF.Application.Accounts.Authentication.RepositoryBCrypt;

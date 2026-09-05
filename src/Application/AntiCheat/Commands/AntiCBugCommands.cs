@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat.Gamma_CD09_CD14_CD15_CD17_CD31_CD36_CD43;
+﻿namespace CTF.Application.AntiCheat.Commands;
 
 /// <summary>
 /// Provides administrative commands to enable or disable the GTA: San Andreas

@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.regex.*;
 
 /** IVP helper: rename Gamma_* namespace dirs to curated semantic leaf names.
  *  Usage: java IVP/tools/RenameGamma.java mapping.tsv
@@ -56,10 +57,13 @@ static void replaceNs(String oldNs, String newNs) throws Exception {
         }
     }
     int changed = 0;
+    String rx = Pattern.quote(oldNs) + "(?![A-Za-z0-9_])";
+    Pattern p = Pattern.compile(rx);
     for (Path f : files) {
         String c = Files.readString(f, UTF8);
-        if (c.contains(oldNs)) {
-            Files.writeString(f, c.replace(oldNs, newNs), UTF8);
+        Matcher m = p.matcher(c);
+        if (m.find()) {
+            Files.writeString(f, m.replaceAll(Matcher.quoteReplacement(newNs)), UTF8);
             changed++;
         }
     }
