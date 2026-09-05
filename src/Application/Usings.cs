@@ -53,7 +53,7 @@ global using CTF.Application.TextDraws.Gamma_CD02_CD10_CD34_CD36;
 global using CTF.Application.TextDraws.Gamma_CD11_CD12_CD34;
 global using CTF.Application.Pickups;
 global using CTF.Application.MapIcons.Core;
-global using CTF.Application.MapIcons.Gamma_CD11_CD37_CD38;
+global using CTF.Application.MapIcons.TeamIcons;
 global using CTF.Application.Audio;
 global using CTF.Application.PlayerResources.Core;
 global using CTF.Application.PlayerResources.Gamma_CD20_CD44;
