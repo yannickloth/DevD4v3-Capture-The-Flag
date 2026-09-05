@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps;
+﻿namespace CTF.Application.Maps.Core;
 
 /// <summary>
 /// Represents the current information of a map.

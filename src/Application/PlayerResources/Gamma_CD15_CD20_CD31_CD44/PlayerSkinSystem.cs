@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.PlayerResources;
+﻿namespace CTF.Application.PlayerResources.Gamma_CD15_CD20_CD31_CD44;
 
 /// <remarks>Change drivers: CD-44 (root; skin id resources); CD-31 (player state); CD-15 (command set) → CD-44; CD-20 (outbound repository contract) → CD-44</remarks>
 /// <remarks>Injected dependencies: playerRepository -> CD-20. Driven by the IPlayerRepository contract + CD-21 (DI wiring).</remarks>

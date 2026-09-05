@@ -1,4 +1,4 @@
-namespace CTF.Application.PlayerResources;
+namespace CTF.Application.PlayerResources.Gamma_CD20_CD44;
 
 /// <summary>
 /// Represents the persisted visual/platform preferences of a player.

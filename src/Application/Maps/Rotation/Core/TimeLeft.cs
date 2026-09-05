@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps.Rotation;
+﻿namespace CTF.Application.Maps.Rotation.Core;
 
 /// <summary>
 /// Represents the time left on the current map.

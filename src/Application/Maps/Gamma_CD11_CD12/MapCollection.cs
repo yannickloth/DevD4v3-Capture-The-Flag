@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps;
+﻿namespace CTF.Application.Maps.Gamma_CD11_CD12;
 
 /// <remarks>Change drivers: CD-11 (root; map configuration); CD-12 (map-rotation rules) → CD-11</remarks>
 public class MapCollection

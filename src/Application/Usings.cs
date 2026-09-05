@@ -30,7 +30,9 @@ global using CTF.Application.Pickups;
 global using CTF.Application.MapIcons.Core;
 global using CTF.Application.MapIcons.Gamma_CD11_CD37_CD38;
 global using CTF.Application.Audio;
-global using CTF.Application.PlayerResources;
+global using CTF.Application.PlayerResources.Core;
+global using CTF.Application.PlayerResources.Gamma_CD20_CD44;
+global using CTF.Application.PlayerResources.Gamma_CD15_CD20_CD31_CD44;
 global using CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD43;
 global using CTF.Application.CommandInfrastructure.Gamma_CD31_CD43;
 global using CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD31;
@@ -98,8 +100,12 @@ global using CTF.Application.Combat.Headshot.Gamma_CD03_CD10_CD17_CD20_CD31_CD32
 global using CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD32;
 global using CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD04_CD07_CD15_CD31_CD32_CD33_CD36_CD43;
 global using CTF.Application.Teams;
-global using CTF.Application.Maps;
-global using CTF.Application.Maps.Rotation;
+global using CTF.Application.Maps.Core;
+global using CTF.Application.Maps.Gamma_CD11_CD12;
+global using CTF.Application.Maps.Gamma_CD11_CD17_CD32_CD34_CD37_CD38_CD42;
+global using CTF.Application.Maps.Rotation.Core;
+global using CTF.Application.Maps.Rotation.Gamma_CD02_CD11_CD12_CD31_CD34_CD36_CD41_CD42;
+global using CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43;
 
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Progression;

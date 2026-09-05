@@ -1,4 +1,4 @@
-namespace CTF.Application.PlayerResources;
+namespace CTF.Application.PlayerResources.Core;
 
 /// <summary>
 /// Provides player skin query extension methods.

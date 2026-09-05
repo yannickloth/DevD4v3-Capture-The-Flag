@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.PlayerResources;
+﻿namespace CTF.Application.PlayerResources.Core;
 
 /// <summary>
 /// See <see href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=EnExMarker">exterior markers</see>.
