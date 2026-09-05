@@ -141,7 +141,7 @@ global using CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_C
 
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Progression.Core;
-global using CTF.Application.GunGames.Progression.Gamma_CD07_CD32;
+global using CTF.Application.GunGames.Progression.ECS;
 global using CTF.Application.GunGames.Rewards;
 global using CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36;
 global using CTF.Application.GunGames.Results.Gamma_CD07_CD10_CD20_CD31_CD32_CD36;
