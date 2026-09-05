@@ -15,8 +15,8 @@ public class RestoreVitalityCommands(
     [RequiresMinimumRole(RoleId.VIP)]
     public void RestoreHealth(Player currentPlayer)
     {
-        var waitTimeComponent = currentPlayer.GetComponent<WaitTimeComponent>();
-        if (waitTimeComponent.Value > unixTimeSeconds.Value)
+        var healthCooldownComponent = currentPlayer.GetComponent<HealthCooldownComponent>();
+        if (healthCooldownComponent.Value > unixTimeSeconds.Value)
         {
             var message = Smart.Format(Messages.TimeRequiredToReuseCommand, new 
             { 
@@ -28,7 +28,7 @@ public class RestoreVitalityCommands(
 
         static int ConvertMinutesToSeconds(int value) => value * 60;
         int seconds = ConvertMinutesToSeconds(commandCooldowns.Health);
-        waitTimeComponent.Value = unixTimeSeconds.Value + seconds;
+        healthCooldownComponent.Value = unixTimeSeconds.Value + seconds;
         currentPlayer.Health = 100;
     }
 
@@ -38,8 +38,8 @@ public class RestoreVitalityCommands(
     [RequiresMinimumRole(RoleId.VIP)]
     public void RestoreArmour(Player currentPlayer)
     {
-        var waitTimeComponent = currentPlayer.GetComponent<WaitTimeComponent>();
-        if (waitTimeComponent.Value > unixTimeSeconds.Value)
+        var armourCooldownComponent = currentPlayer.GetComponent<ArmourCooldownComponent>();
+        if (armourCooldownComponent.Value > unixTimeSeconds.Value)
         {
             var message = Smart.Format(Messages.TimeRequiredToReuseCommand, new 
             { 
@@ -51,13 +51,16 @@ public class RestoreVitalityCommands(
 
         static int ConvertMinutesToSeconds(int value) => value * 60;
         int seconds = ConvertMinutesToSeconds(commandCooldowns.Armour);
-        waitTimeComponent.Value = unixTimeSeconds.Value + seconds;
+        armourCooldownComponent.Value = unixTimeSeconds.Value + seconds;
         currentPlayer.Armour = 100;
     }
 
-    /// <summary>Adds the shared wait-time component when a player connects.</summary>
+    /// <summary>Adds the health and armour cooldown components when a player connects.</summary>
     [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player)]
     [Event]
     public void OnPlayerConnect(Player player)
-        => player.AddComponent<WaitTimeComponent>();
+    {
+        player.AddComponent<HealthCooldownComponent>();
+        player.AddComponent<ArmourCooldownComponent>();
+    }
 }
