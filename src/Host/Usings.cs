@@ -79,8 +79,8 @@ global using CTF.Application.CommandInfrastructure.Middleware;
 global using CTF.Application.CommandInfrastructure.Text;
 
 global using CTF.Application.Statistics.Ranks.Core;
-global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20;
-global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43;
+global using CTF.Application.Statistics.Ranks.Updater;
+global using CTF.Application.Statistics.Ranks.Commands;
 global using CTF.Application.Statistics.Score.PerRound;
 global using CTF.Application.Statistics.Score.KillingSpree;
 global using CTF.Application.Statistics.Score.System;
