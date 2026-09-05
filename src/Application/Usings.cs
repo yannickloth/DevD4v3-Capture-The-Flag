@@ -42,6 +42,8 @@ global using CTF.Application.Statistics.Score;
 global using CTF.Application.Statistics.TeamStats;
 global using CTF.Application.Statistics.TopPlayers;
 global using CTF.Application.Combos;
+global using CTF.Application.Combos.Systems;
+global using CTF.Application.Combos.Vitalities;
 global using CTF.Application.Players.Chats;
 global using CTF.Application.Chat;
 global using CTF.Application.Combat;

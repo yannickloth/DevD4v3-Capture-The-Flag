@@ -24,6 +24,7 @@ global using CTF.Application.GameRules.ClassSelection;
 global using CTF.Application.GameRules.Players;
 global using CTF.Application.GameRules.Match;
 global using CTF.Application.Combos;
+global using CTF.Application.Combos.Systems;
 global using CTF.Application.AntiCheat;
 global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.TextDraws;

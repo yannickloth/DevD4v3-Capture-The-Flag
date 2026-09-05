@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos;
+﻿namespace CTF.Application.Combos.Systems;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions: RocketLauncher enable/disable toggle)</remarks>
 public class ComboSettings

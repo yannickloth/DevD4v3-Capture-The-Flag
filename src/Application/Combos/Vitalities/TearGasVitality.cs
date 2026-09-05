@@ -1,7 +1,7 @@
-﻿namespace CTF.Application.Combos;
+﻿namespace CTF.Application.Combos.Vitalities;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-03 (combat/weapon-rules specification) → CD-05</remarks>
-public class SatchelChargesVitality : ICombo
+public class TearGasVitality : ICombo
 {
     /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health)</remarks>
     private const int Health = 100;
@@ -9,11 +9,11 @@ public class SatchelChargesVitality : ICombo
     /// <remarks>Change drivers: CD-05 (root; combo definitions: reward armour)</remarks>
     private const int Armour = 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: satchel charge ammo)</remarks>
-    private const int SatchelAmmo = 6;
+    /// <remarks>Change drivers: CD-05 (root; combo definitions: tear gas ammo)</remarks>
+    private const int TearGasAmmo = 30;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
-    public string Name => $"{Health} Health, {Armour} Armour and Satchel charges";
+    public string Name => $"{Health} Health, {Armour} Armour and Tear gas";
     /// <remarks>Change drivers: CD-05 (root; combo definitions: coin cost)</remarks>
     public int RequiredCoins => 100;
 
@@ -23,8 +23,7 @@ public class SatchelChargesVitality : ICombo
         PlayerInfo playerInfo = player.GetRequiredInfo();
         player.Health = Health;
         player.Armour = Armour;
-        player.GiveWeapon(Weapon.SatchelCharge, SatchelAmmo);
-        player.GiveWeapon(Weapon.Detonator, 1);
+        player.GiveWeapon(Weapon.Teargas, TearGasAmmo);
         playerInfo.Stats.PerRound.ResetCoins();
         return Result.Success();
     }
