@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.GunGames;
+﻿namespace CTF.Application.Tests.GunGames.Gamma_CD07_CD26_CD27;
 
 /// <summary>Tests for MaxWeaponLevel.</summary>
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: MaxWeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>

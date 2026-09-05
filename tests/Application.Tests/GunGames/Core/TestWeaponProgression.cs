@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.GunGames;
+﻿namespace CTF.Application.Tests.GunGames.Core;
 
 /// <summary>Test double for WeaponProgression (fixture).</summary>
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression (fixture))</remarks>
