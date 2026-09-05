@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.CommandInfrastructure;
 
-/// <remarks>Change drivers: CD-43 (root; command infrastructure)</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandInfrastructure)]
 public class CommandUsageFormatter : ICommandTextFormatter
 {
-    /// <remarks>Change drivers: CD-43 (root; command infrastructure)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandInfrastructure)]
     public string FormatCommandUsage(
         string commandName,
         string group,

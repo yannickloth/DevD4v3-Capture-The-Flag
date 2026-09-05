@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Ecs;
 
-/// <remarks>Change drivers: CD-32 (root; ECS runtime: IEcsStartup lifecycle); CD-17 (game configuration/.env schema) → CD-32; CD-21 (DI container/composition) → CD-32; CD-23 (Serilog logging) → CD-32; CD-24 (Discord webhook contract) → CD-32</remarks>
+[ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
 public class Startup : IEcsStartup
 {
-    /// <remarks>Change drivers: CD-32 (root; ECS runtime)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Ecs)]
     public void Initialize(IStartupContext context)
     {
         context.UseEntities()
@@ -15,7 +15,7 @@ public class Startup : IEcsStartup
             });
     }
 
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition: adapter/singleton registrations); CD-32 (IEcsStartup contract) → CD-21; CD-17 (game configuration/.env schema) → CD-21; CD-23 (Serilog logging) → CD-21; CD-24 (Discord webhook contract) → CD-21</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Logging, ChangeDriver.Discord)]
     public void ConfigureServices(IServiceCollection services, IConfiguration _)
     {
         new EnvLoader()
@@ -57,7 +57,7 @@ public class Startup : IEcsStartup
             .AddSystemsInAssembly(typeof(Startup).Assembly);
     }
 
-    /// <remarks>Change drivers: CD-32 (root; ECS runtime)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Ecs)]
     public void Configure(IEcsBuilder builder)
     {
         // TODO: Enable desired ECS system features

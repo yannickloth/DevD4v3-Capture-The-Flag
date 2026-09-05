@@ -1,13 +1,13 @@
 ﻿namespace CTF.Host.Bcrypt;
 
-/// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
+[ChangeDriversAttribute(ChangeDriver.BCrypt)]
 public class PasswordHasherBcrypt : IPasswordHasher
 {
-    /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.BCrypt)]
     public string HashPassword(string text)
         => BCrypt.Net.BCrypt.HashPassword(text);
 
-    /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.BCrypt)]
     public bool Verify(string text, string passwordHash)
         => BCrypt.Net.BCrypt.Verify(text, passwordHash);
 }

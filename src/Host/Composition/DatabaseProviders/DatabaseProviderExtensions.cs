@@ -1,9 +1,9 @@
 ﻿namespace CTF.Host.Composition.DatabaseProviders;
 
-/// <remarks>Change drivers: CD-21 (root; DI container/composition: provider selection); CD-17 (game configuration/.env schema: DatabaseProvider) → CD-21; CD-22 (hosting/deployment spec: yesql path) → CD-21</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.Hosting)]
 public static class DatabaseProviderExtensions
 {
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition: provider selection); CD-17 (game configuration/.env schema: DatabaseProvider) → CD-21; CD-22 (hosting/deployment spec: yesql path) → CD-21</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.Hosting)]
     public static void ChooseDatabaseProvider(
         this IServiceCollection services,
         IConfiguration configuration)

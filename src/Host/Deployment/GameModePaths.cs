@@ -1,22 +1,22 @@
 ﻿namespace CTF.Host.Deployment;
 
-/// <remarks>Change drivers: CD-22 (root; hosting/deployment spec)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Hosting)]
 public static class GameModePaths
 {
-    /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec: maps directory layout)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Hosting)]
     public static string Maps =>
         Path.Combine(
             Root,
             "Maps",
             "Files");
 
-    /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Hosting)]
     public static string Sql =>
         Path.Combine(
             Root,
             "yesql");
 
-    /// <remarks>Change drivers: CD-22 (root; hosting/deployment spec)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Hosting)]
     private static string Root => 
         Path.Combine(
             Directory.GetCurrentDirectory(), 

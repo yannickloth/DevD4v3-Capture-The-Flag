@@ -1,15 +1,15 @@
 ﻿namespace SampSharp
 {
-    /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint/startup); CD-22 (hosting/deployment spec) → CD-32</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("SampSharp.SourceGenerator", "1.0.0.0")]
     public static class Entrypoint
     {
-        /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint/startup); CD-22 (hosting/deployment spec) → CD-32</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         private static readonly global::CTF.Host.Ecs.Startup _startup = new();
 
-        /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Ecs)]
         private static SampSharp.OpenMp.Core.StartupContext _context;
-        /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint/startup); CD-22 (hosting/deployment spec) → CD-32</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         [global::System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute]
         public static void Initialize(SampSharp.OpenMp.Core.SampSharpInitParams inf)
         {
@@ -17,7 +17,7 @@
             _context.InitializeUsing(_startup);
         }
 
-        /// <remarks>Change drivers: CD-32 (root; ECS runtime: unmanaged entrypoint/startup); CD-22 (hosting/deployment spec) → CD-32</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         public static void Main()
         {
             SampSharp.OpenMp.Core.StartupContext.MainInfoProvider();

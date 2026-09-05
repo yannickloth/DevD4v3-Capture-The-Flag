@@ -2,17 +2,17 @@
 
 namespace CTF.Host.Discord;
 
-/// <remarks>Change drivers: CD-24 (root; Discord webhook contract); CD-23 (Serilog logging) → CD-24</remarks>
+[ChangeDriversAttribute(ChangeDriver.Discord, ChangeDriver.Logging)]
 public class DiscordWebhookClient : IDiscordWebhookClient
 {
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract: Serilog logging)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Discord)]
     private readonly ILogger<DiscordWebhookClient> _logger;
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Discord)]
     private readonly HttpClient _httpClient;
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract: the <c>DISCORD_WEBHOOK_URL</c> env variable is anchored under the Discord contract's amendment unit, not the general .env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Discord)]
     private readonly string _discordWebhookUrl;
 
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Discord)]
     private record DiscordWebhookPayload(string Content);
 
     /// <remarks>Change drivers: CD-24 (root; Discord webhook contract)</remarks>
@@ -32,7 +32,7 @@ public class DiscordWebhookClient : IDiscordWebhookClient
         _httpClient = httpClient;
     }
 
-    /// <remarks>Change drivers: CD-24 (root; Discord webhook contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Discord)]
     public async Task<bool> SendAsync(DiscordMessage message)
     {
         if (string.IsNullOrWhiteSpace(_discordWebhookUrl))
