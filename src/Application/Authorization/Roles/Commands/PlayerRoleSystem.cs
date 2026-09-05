@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Roles.Gamma_CD09_CD15_CD17_CD20_CD31_CD32_CD33_CD35_CD36_CD43;
+﻿namespace CTF.Application.Authorization.Roles.Commands;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-31 (player entity); CD-32 (ECS runtime); CD-33 (dialog API); CD-35 (GameText API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; dialogService -> CD-33; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

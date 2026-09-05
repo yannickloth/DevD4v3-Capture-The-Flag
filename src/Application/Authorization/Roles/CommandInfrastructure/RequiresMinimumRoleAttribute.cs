@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Roles.Gamma_CD09_CD43;
+﻿namespace CTF.Application.Authorization.Roles.CommandInfrastructure;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (command infrastructure) → CD-09</remarks>
 [AttributeUsage(AttributeTargets.Method)]
