@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02;
+﻿namespace CTF.Application.Statistics.TeamStats.PerRound;
 
 /// <summary>
 /// Represents the per-round statistics for a team.
