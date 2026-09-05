@@ -1,4 +1,4 @@
-﻿using CTF.Application.GameRules.Configuration;
+﻿using CTF.Application.Configuration;
 
 namespace CTF.Host.Config;
 

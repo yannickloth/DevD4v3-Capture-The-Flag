@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Configuration;
+﻿namespace CTF.Application.Configuration;
 
 /// <summary>
 /// Represents settings for class selection.
