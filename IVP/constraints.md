@@ -85,8 +85,13 @@ Consequences already applied (commit-per-split, verified by `dotnet build` 0 err
 | `CTF.Application.GunGames` root | `GunGameExtensions` (CD-07) → `GunGames.Composition`; root holds only generated `GunGameMessages` (CD-17) |
 | `CTF.Application.Tests.Fakes` | player fakes (`FakePlayer*`,`FakeCarrier`, CD-31+28) stay; `FakeMap` (CD-11) → `Fakes.Maps` |
 | `CTF.Application.Tests.Players.Accounts` | split by sub-entity under test into `.Account`, `.Role`, `.Team`, `.FlagCounter`, `.StatsPerRound`, `.Core` |
+| `Persistence.InMemory` | root holds the DI ext (CD-21); `.Models` (`FakePlayer`,`FakePlayerSeedData`), `.Repositories.Players`, `.Repositories.TopPlayers`, `.Ids` (`PlayerIdValueGenerator`) |
+| `Persistence.MariaDB` | root holds `PersistenceMariaDBServicesExtensions` (keeps the `ns/sql` loader path); `.Settings`, `.Schema`, `.Repositories.Player`, `.Repositories.TopPlayers` |
+| `Persistence.SQLite` | root holds `PersistenceSQLiteServicesExtensions`; `.Settings`, `.Schema`, `.Repositories.Player`, `.Repositories.TopPlayers` (plus pre-existing `.Extensions` CD-30) |
+| `Persistence.Tests.Common` | `.Contracts` (`DatabaseProvider`,`IRepositoryManager`), `.TestCases`, `.Factory`, `.Paths`, `.PasswordHasher` |
+| `Persistence.Tests.Common.DatabaseProviders` | `.InMemory`, `.MariaDb`, `.Sqlite` |
 
-Persistence providers (`Persistence.InMemory` / `MariaDB` / `SQLite`) and `Persistence.Tests.Common(+.DatabaseProviders)` are the remaining namespace composites: their types each carry a *distinct* exact set (dialect × port), so the strict rule pushes to per-role sub-namespaces. See §2/§5 — they stay one assembly each; the namespace split is recorded in the per-name audit.
+Each persistence provider keeps its assembly/deployable unit (its dialect × port union stays an essential composite **at the assembly level** per §2/§5); only the namespace layer is now single-set.
 
 ---
 
@@ -103,7 +108,7 @@ The analysis in `before/analysis.md` §C.1 splits co-located driver-set mixes in
 | `IGunGameMode` + its consumers (`WeaponCatalogSystem`, `ComboSystem`, `PlayerKillingSpreeUpdater`, `PlayerRankUpdater`) | CD-07 + (CD-04/06/10) | Game (CD-07) | GunGame is a deliberate cross-cutting gate that suspends/replaces parts of weapons/combos/coins/stats; the co-location is a game rule. |
 | Flag event handlers (`OnFlagScore`, `OnFlagCaptured`, …) | CD-02 + CD-06 + CD-10 + CD-20 | Game (CD-02) | A single game event (flag score) drives several reward systems (coins, stats, persistence) by rule — game-designed composite, not grouping error. |
 | `Messages.Designer.cs`, `GunGameMessages.Designer.cs`, `DetailedCommandInfo.Designer.cs` | CD-17 (+ CD-15) | Generated-code (CD-17) | Tool-generated from `.resx`; shape fixed by the resource tooling, annotation-only. |
-| Test fakes (`FakePlayer`, `FakeCarrier`, `FakeMap`, `FakePasswordHasher`, the `*RepositoryManager`s) | the mocked contract's domain driver (CD-01/11/20/25, CD-28 tooling subordinated) | Test/mocked-contract domain | A fake is driven by the domain driver of the seam it mimics (mock-inheritance rule); its union is the mocked contract's domain, not a domain grouping. |
-| `DatabaseProviderExtensions`, `RepositoryManagerFactory`, `DatabaseProvider` (test enum) | CD-17 + CD-19 + CD-30 + CD-21 | Persistence dispatch (CD-19/CD-30) | The provider dispatch is the storage axis's switch; it necessarily carries both SQL dialects. |
+| Test fakes (`FakePlayer`, `FakeCarrier`, `FakeMap`, `FakePasswordHasher`, the `*RepositoryManager`s) | the mocked contract's domain driver (CD-01/11/20/25, CD-28 tooling subordinated) | Test/mocked-contract domain | A fake is driven by the domain driver of the seam it mimics (mock-inheritance rule). Namespace layer now split by faked domain (`Fakes.Maps` for CD-11 vs `Fakes` player fakes; persistence fakes split under `Persistence.*`); the union remains only at the class/assembly level. |
+| `DatabaseProviderExtensions`, `RepositoryManagerFactory`, `DatabaseProvider` (test enum) | CD-17 + CD-19 + CD-30 + CD-21 | Persistence dispatch (CD-19/CD-30) | The provider dispatch is the storage axis's switch; it necessarily carries both SQL dialects. `RepositoryManagerFactory` / `DatabaseProvider` now split into single-set namespaces (`Persistence.Tests.Common.Factory` / `.Contracts`); the dispatch composite remains at the assembly level. |
 
 Every *other* co-located driver-set mix in `before/analysis.md` §C.1 (`Players`, `Accounts.Statistics`, `Teams`, `Teams.Flags`, `Maps`, `Weapons`, `Combos`, `GunGames`, `Chats`, …) is **spurious** — grouped by topic, with no decreed axis forcing the mixture — and is therefore the legitimate object of the IVP regroup.
