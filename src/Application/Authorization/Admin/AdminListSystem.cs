@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization;
+﻿namespace CTF.Application.Authorization.Admin;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema: server-owner name) → CD-09; CD-32 (ECS runtime); CD-33 (dialog API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; entityManager -> CD-32; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization;
+namespace CTF.Application.Authorization.Roles;
 
 /// <summary>
 /// Represents the persisted authorization state of a player.

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization;
+﻿namespace CTF.Application.Authorization.Admin;
 
 /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema) → CD-09</remarks>
 public class ServerOwnerSettings
