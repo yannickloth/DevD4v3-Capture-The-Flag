@@ -120,3 +120,4 @@ global using CTF.Application.GunGames.Systems;
 global using CTF.Application.GunGames.Systems.Mode;
 global using CTF.Application.GunGames.Systems.Enforcement;
 global using CTF.Application.Tests.Fakes;
+global using CTF.Application.Tests.Fakes.Maps;
