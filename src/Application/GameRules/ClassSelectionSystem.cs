@@ -1,4 +1,6 @@
-﻿namespace CTF.Application.GameRules;
+﻿using CTF.Application.GameRules.Configuration;
+
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Handles the class-selection flow for players.

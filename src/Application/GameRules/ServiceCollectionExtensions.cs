@@ -3,11 +3,11 @@ namespace CTF.Application.GameRules;
 /// <summary>
 /// Registers game-rules services with the DI container.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: service registration)</remarks>
 public static class GameRulesServicesExtensions
 {
     /// <summary>Registers the flag event handlers and supporting game-rules services.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: service registration)</remarks>
     public static IServiceCollection AddGameRulesServices(this IServiceCollection services)
     {
         services
@@ -31,7 +31,7 @@ public static class GameRulesServicesExtensions
     }
 
     /// <summary>Registers a flag event implementation as a singleton.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: service registration)</remarks>
     private static IServiceCollection AddFlagEvent<T>(this IServiceCollection services)
         where T : class, IFlagEvent
     {

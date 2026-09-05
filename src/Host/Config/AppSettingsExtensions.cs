@@ -1,4 +1,6 @@
-﻿namespace CTF.Host.Config;
+﻿using CTF.Application.GameRules.Configuration;
+
+namespace CTF.Host.Config;
 
 /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema); CD-21 (DI container/composition) → CD-17</remarks>
 public static class AppSettingsExtensions
