@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts;
+﻿namespace CTF.Application.Accounts.Authentication;
 
 /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-32 (ECS runtime) → CD-08</remarks>
 public class AccountComponent : Component

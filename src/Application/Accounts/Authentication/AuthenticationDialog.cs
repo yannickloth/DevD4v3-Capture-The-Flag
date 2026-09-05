@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts;
+﻿namespace CTF.Application.Accounts.Authentication;
 
 /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-33 (dialog API) → CD-08</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; accountAuthenticator -> CD-08. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
