@@ -1,15 +1,15 @@
 ﻿namespace Persistence.Tests.Common.DatabaseProviders.Sqlite;
 
 /// <summary>Wires the SQLite persistence stack for the repository tests.</summary>
-/// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
 public class SqliteRepositoryManager : IRepositoryManager
 {
     private readonly ISqlCollection _seedSqlCollection;
     private readonly ServiceProvider _serviceProvider;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     public IPlayerRepository PlayerRepository { get; }
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     public ITopPlayersRepository TopPlayersRepository { get; }
     /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
     public SqliteRepositoryManager()
@@ -38,19 +38,19 @@ public class SqliteRepositoryManager : IRepositoryManager
         TopPlayersRepository = _serviceProvider.GetRequiredService<ITopPlayersRepository>();
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     public void Dispose()
     {
         _serviceProvider.Dispose();
         GC.SuppressFinalize(this);
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     public void InitializeSeedData() => ExecuteCommand("InitializeSeedData");
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     public void RemoveSeedData() => ExecuteCommand("RemoveSeedData");
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the SQLite repository seam); CD-30 (SQLite SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
     private void ExecuteCommand(string tagName)
     {
         var settings = _serviceProvider.GetRequiredService<SQLiteSettings>();

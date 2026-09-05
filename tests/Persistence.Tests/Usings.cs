@@ -1,3 +1,4 @@
+global using CTF.Application.IVP;
 global using System.Collections;
 global using NUnit.Framework;
 global using FluentAssertions;

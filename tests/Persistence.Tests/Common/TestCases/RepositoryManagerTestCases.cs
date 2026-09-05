@@ -1,10 +1,10 @@
 ﻿namespace Persistence.Tests.Common.TestCases;
 
 /// <summary>Provides the three provider cases for the repository test suite.</summary>
-/// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-26 (NUnit test-case-source convention: <c>IEnumerable&lt;DatabaseProvider&gt;</c>) → CD-20; CD-19 (MariaDB SQL dialect) → CD-20; CD-30 (SQLite SQL dialect) → CD-20</remarks>
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
 public class RepositoryManagerTestCases : IEnumerable<DatabaseProvider>
 {
-    /// <remarks>Change drivers: CD-26 (root; NUnit test-case-source convention); CD-19 (MariaDB SQL dialect) → CD-26; CD-30 (SQLite SQL dialect) → CD-26</remarks>
+    [ChangeDriversAttribute(ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     public IEnumerator<DatabaseProvider> GetEnumerator()
     {
         yield return DatabaseProvider.InMemory;
@@ -12,7 +12,7 @@ public class RepositoryManagerTestCases : IEnumerable<DatabaseProvider>
         yield return DatabaseProvider.MariaDb;
     }
 
-    /// <remarks>Change drivers: CD-26 (root; NUnit test-case-source convention)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.NUnit)]
     IEnumerator IEnumerable.GetEnumerator()
         => this.GetEnumerator();
 }
