@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Statistics;
+﻿namespace CTF.Application.Tests.Statistics.Gamma_CD10_CD26_CD27;
 
 /// <summary>Tests for RankCollection.CanMoveUpToNextRank.</summary>
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>

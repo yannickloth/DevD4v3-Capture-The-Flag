@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Composition;
+﻿namespace CTF.Host.Composition.Gamma_CD21_CD22;
 
 /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-22 (hosting/deployment spec) → CD-21</remarks>
 public static class ApplicationServicesExtensions
