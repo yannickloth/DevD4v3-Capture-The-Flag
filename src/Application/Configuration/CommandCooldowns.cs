@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Settings;
+﻿namespace CTF.Application.Configuration;
 
 /// <summary>
 /// Represents the reuse times for different commands in the game.

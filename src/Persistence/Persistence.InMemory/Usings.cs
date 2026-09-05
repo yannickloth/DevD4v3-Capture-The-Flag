@@ -43,4 +43,4 @@ global using Persistence.InMemory.Ids;
 global using Persistence.InMemory.Models;
 global using Persistence.InMemory.Repositories.Players;
 global using Persistence.InMemory.Repositories.TopPlayers;
-global using CTF.Application.Players.TopPlayers.Settings;
+global using CTF.Application.Configuration;

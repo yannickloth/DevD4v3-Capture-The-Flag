@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.TopPlayers.Settings;
+﻿namespace CTF.Application.Configuration;
 
 /// <summary>
 /// Represents the configuration thresholds for qualifying top players.

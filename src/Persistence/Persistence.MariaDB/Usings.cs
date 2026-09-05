@@ -46,4 +46,4 @@ global using Persistence.MariaDB.Settings;
 global using Persistence.MariaDB.Schema;
 global using Persistence.MariaDB.Repositories.Player;
 global using Persistence.MariaDB.Repositories.TopPlayers;
-global using CTF.Application.Players.TopPlayers.Settings;
+global using CTF.Application.Configuration;

@@ -49,4 +49,4 @@ global using Persistence.SQLite.Settings;
 global using Persistence.SQLite.Schema;
 global using Persistence.SQLite.Repositories.Player;
 global using Persistence.SQLite.Repositories.TopPlayers;
-global using CTF.Application.Players.TopPlayers.Settings;
+global using CTF.Application.Configuration;
