@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps.Gamma_CD11_CD17_CD32_CD34_CD37_CD38_CD42;
+﻿namespace CTF.Application.Maps.Initialization;
 
 /// <remarks>Change drivers: CD-11 (root; map configuration); CD-17 (game configuration/.env schema) → CD-11; CD-32 (ECS runtime); CD-34 (Textdraw API); CD-37 (Pickup API); CD-38 (Map-icon & radar API); CD-42 (Server service API) → CD-11</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; serverService -> CD-42; mapObjects -> CD-37; mapInfoService -> CD-11; mapCollection -> CD-11; teamPickupService -> CD-37; teamIconService -> CD-38; mapTextDrawRenderer -> CD-34; serverSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
