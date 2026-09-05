@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat;
+﻿namespace CTF.Application.Chat.Gamma_CD09_CD13_CD15_CD31_CD32_CD36_CD43;
 
 /// <summary>
 /// Provides private-message commands (PM, block, unblock) and manages the per-player PM state.

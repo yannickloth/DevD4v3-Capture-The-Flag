@@ -1,21 +1,21 @@
-﻿namespace CTF.Application.Chat;
+﻿namespace CTF.Application.Chat.Gamma_CD09_CD13_CD32_CD36;
 
 /// <summary>
-/// Represents the admin private chat tier, routed by the '#' prefix.
+/// Represents the VIP private chat tier, routed by the '$' prefix.
 /// </summary>
 /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
 /// <remarks>Injected dependencies: entityManager -> CD-32. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
-public class PrivateAdminChat(IEntityManager entityManager) : IChatMessage
+public class PrivateVipChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
     /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
-    public char Id => '#';
+    public char Id => '$';
 
-    /// <summary>Sends the message to all players of the required admin role.</summary>
+    /// <summary>Sends the message to all players of the required VIP role.</summary>
     /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
-        if (sender.HasLowerRoleThan(RoleId.Admin))
+        if (sender.HasLowerRoleThan(RoleId.VIP))
             return false;
 
         var players = entityManager.GetComponents<Player>();
@@ -25,10 +25,10 @@ public class PrivateAdminChat(IEntityManager entityManager) : IChatMessage
                 continue;
 
             PlayerInfo playerInfo = player.GetRequiredInfo();
-            if (playerInfo.HasLowerRoleThan(RoleId.Admin))
+            if (playerInfo.HasLowerRoleThan(RoleId.VIP))
                 continue;
 
-            player.SendClientMessage(new Color(0x33FF33AA), $"[Admin Chat] {sender.Account.Name}: {message}");
+            player.SendClientMessage($"{{8b0000}}[Vip Chat] {sender.Account.Name}: {message}");
         }
         return true;
     }

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat;
+﻿namespace CTF.Application.Chat.Gamma_CD13_CD31_CD32_CD36;
 
 /// <summary>
 /// Routes player chat messages to the matching private chat tier based on its prefix identifier.

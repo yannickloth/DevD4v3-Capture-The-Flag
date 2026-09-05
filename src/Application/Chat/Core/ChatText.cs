@@ -1,4 +1,4 @@
-namespace CTF.Application.Chat;
+namespace CTF.Application.Chat.Core;
 
 /// <summary>
 /// Helper for chat-message text manipulation that carries only chat-rule drivers.

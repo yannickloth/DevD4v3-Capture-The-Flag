@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat;
+﻿namespace CTF.Application.Chat.Gamma_CD13_CD36;
 
 /// <summary>
 /// Represents the team private chat tier, routed by the '!' prefix.
