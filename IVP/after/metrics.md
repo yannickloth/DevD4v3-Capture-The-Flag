@@ -1,5 +1,15 @@
 # Capture-The-Flag — Change-Driver & Causal-Cohesion Metrics (After)
 
+> **Revision note (post causal-nesting pass):** the tables below are the measurement baseline of an
+> earlier tree state and are superseded for the *namespace census* by the current tree. The causal-nesting
+> restructure dissolved the `CTF.Application.Players` topic shell and introduced single-root grouping
+> namespaces `CTF.Application.Composition` (CD-21), `CTF.Application.Configuration` (CD-17),
+> `CTF.Application.MapRotation` (CD-12), and `CTF.Application.Tests.WeaponCatalogs` (CD-04); re-rooted
+> `GunGameMessages` to CD-07; and merged weapon runtime into `CTF.Application.WeaponCatalogs`. Current
+> census: `java IVP/tools/IvpMeasure.java .` → 315 types, 199 namespaces, 181 distinct sets, 20 scattered
+> sets (the `Players.Weapons.Catalogs.Core`/`WeaponCatalogs.Core` rows below no longer exist). Driver,
+> purity and scatter *ratios* per surviving namespace remain governed by the tables where the namespace still exists.
+
 > Canonical measurement of the post-IVP tree with the pinned tool `IVP/tools/IvpMeasure.java`
 > (display labels for CD-31..CD-44 added; set semantics unchanged). 315 annotated types
 > (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 178 namespaces, 42 active

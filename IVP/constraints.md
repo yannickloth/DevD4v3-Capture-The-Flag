@@ -75,15 +75,36 @@ IVP states the change-coupling grouping; the other axis states its grouping. The
 
 At the **namespace** layer the strict IVP rule applies without exception: every top-level class must live in a namespace whose top-level classes share exactly one change-driver set. The "irreducible essential composite" exemptions above apply at the **assembly / deployable-unit** layer only, not at the namespace layer. Where a provider or fixture set was previously cited as an essential composite, its *namespace* is now recursively split into exact-set sub-namespaces; the composite boundary moves down to the assembly/deployment level, which still keeps MariaDB / SQLite / InMemory / the repository ports / generated resources together as decreed by their axis.
 
-Consequences already applied (commit-per-split, verified by `dotnet build` 0 errors + 694 Application tests):
+Consequences applied in two passes (commit-per-change, verified by `dotnet build` 0 errors + 694 Application tests):
+
+*Pass 1 — flatten each namespace's top-level classes into exact-set sub-namespaces (single top-level type per namespace).*
+*Pass 2 — **causal nesting**: no namespace is nested under a parent whose root causality differs. Independent roots (config CD-17, composition CD-21, ports CD-20/CD-08, weapon catalogs CD-04, map rotation CD-12) are no longer hosted as children of an unrelated single-root topic namespace. Topic shells that grouped independent driver sets were dissolved; each class now sits in the namespace for its own change-driver root.*
+
+Pass-2 restructures (all committed):
+
+| Old nesting (violation) | New structure |
+|---|---|
+| `CTF.Application.Players` (CD-21 shell holding `PlayerServicesExtensions`) ⊃ `Accounts`(CD-08), `Settings`(CD-17), `TopPlayers`(CD-20), `Weapons`(CD-04) | `Players` dissolved. `PlayerServicesExtensions`,`ChatServicesExtensions` → `CTF.Application.Composition` (CD-21). `IPlayerRepository` → `Accounts` (CD-08). `CommandCooldowns`,`TopPlayersSettings` → `Configuration` (CD-17). `ITopPlayersRepository` → `Statistics.TopPlayers` (CD-10). Weapon runtime → `WeaponCatalogs` domain (CD-04). |
+| `Players.TopPlayers`(CD-20) ⊃ `Settings`(CD-17) | `TopPlayersSettings` → `Configuration` (CD-17) |
+| `Players.Weapons` ⊃ CD-04 sub-namespaces | moved under `WeaponCatalogs` domain root (`WeaponCatalogs`, `.ActiveCatalog`, `.System`, `.Catalogs`, `.Catalogs.Settings`) |
+| `CTF.Application.Teams`(CD-02) ⊃ `Composition`(CD-21) | `TeamServicesExtensions` → `CTF.Application.Composition` (CD-21) |
+| `CTF.Application.GunGames` root CD-17 (generated `GunGameMessages`) ⊃ CD-07 children | `GunGameMessages` re-rooted CD-07 (GunGame-mode messages); `GunGames` single root CD-07 |
+| `Audio`(CD-40) ⊃ `Audio.Configuration`(CD-17) | `TeamSoundCatalog` → `CTF.Application.Configuration` (CD-17) |
+| `GameRules`(CD-02) ⊃ `GameRules.Configuration`(CD-17) | `ClassSelectionSettings` → `CTF.Application.Configuration` (CD-17) |
+| `Maps`(CD-11) ⊃ `Maps.Rotation`(CD-12) | `MapRotation` promoted to sibling CD-12 root (`CTF.Application.MapRotation`); test mirror → `Tests.MapRotation` |
+| `Tests.Fakes`(CD-31) ⊃ `Fakes.Maps`(CD-11) | `FakeMap` → `CTF.Application.Tests.Maps` (CD-11) |
+| `Tests.Players.Weapons`(CD-03) ⊃ `.Catalogs`(CD-04) | catalog tests → `CTF.Application.Tests.WeaponCatalogs` (CD-04) sibling root |
+
+New single-root grouping namespaces introduced in pass 2:
+- `CTF.Application.Composition` — pure CD-21 DI wiring (`PlayerServicesExtensions`, `ChatServicesExtensions`, `TeamServicesExtensions`).
+- `CTF.Application.Configuration` — CD-17 config root (`TeamSoundCatalog`, `ClassSelectionSettings`, `CommandCooldowns`, `TopPlayersSettings`).
+- `CTF.Application.MapRotation` / `CTF.Application.Tests.MapRotation` — CD-12 map-rotation domain.
+- `CTF.Application.Tests.WeaponCatalogs` — CD-04 weapon-catalog tests.
+
+Pass-1 splits (per-namespace single top-level set) that remain in force:
 
 | Namespace split | Resulting single-set sub-namespaces |
 |---|---|
-| `CTF.Application.Players` | root holds `PlayerServicesExtensions` (CD-21); `CommandCooldowns` (CD-17) → `Players.Settings` |
-| `CTF.Application.Players.TopPlayers` | root holds `ITopPlayersRepository` (CD-10+20); `TopPlayersSettings` (CD-17) → `TopPlayers.Settings` |
-| `CTF.Application.Teams` | root holds `Team`; `TeamId` → `Teams.Ids`; `TeamServicesExtensions` → `Teams.Composition` |
-| `CTF.Application.GunGames` root | `GunGameExtensions` (CD-07) → `GunGames.Composition`; root holds only generated `GunGameMessages` (CD-17) |
-| `CTF.Application.Tests.Fakes` | player fakes (`FakePlayer*`,`FakeCarrier`, CD-31+28) stay; `FakeMap` (CD-11) → `Fakes.Maps` |
 | `CTF.Application.Tests.Players.Accounts` | split by sub-entity under test into `.Account`, `.Role`, `.Team`, `.FlagCounter`, `.StatsPerRound`, `.Core` |
 | `Persistence.InMemory` | root holds the DI ext (CD-21); `.Models` (`FakePlayer`,`FakePlayerSeedData`), `.Repositories.Players`, `.Repositories.TopPlayers`, `.Ids` (`PlayerIdValueGenerator`) |
 | `Persistence.MariaDB` | root holds `PersistenceMariaDBServicesExtensions` (keeps the `ns/sql` loader path); `.Settings`, `.Schema`, `.Repositories.Player`, `.Repositories.TopPlayers` |
@@ -92,6 +113,15 @@ Consequences already applied (commit-per-split, verified by `dotnet build` 0 err
 | `Persistence.Tests.Common.DatabaseProviders` | `.InMemory`, `.MariaDb`, `.Sqlite` |
 
 Each persistence provider keeps its assembly/deployable unit (its dialect × port union stays an essential composite **at the assembly level** per §2/§5); only the namespace layer is now single-set.
+
+Intentionally left as cross-root nesting (assembly/axis-decreed, not topic grouping):
+
+| Nesting | Reason |
+|---|---|
+| `CTF.Application` (CD-17, generated `Messages.Designer.cs`) hosting all domain namespaces | Assembly root namespace; the shared generated message resource is irreducibly CD-17 (generated-code axis §5). Mirrors the prior accepted state. |
+| `CTF.Application.Tests` (CD-22) hosting test namespaces | Assembly root of the test project. |
+| `Persistence.InMemory/MariaDB/SQLite` root (CD-21 DI ext) with CD-17/18/20/30 sub-namespaces | Each provider is a separate-assembly composition root whose DI extension must wire every service in the assembly (composition axis §3 + persistence axis §2). Its sub-namespaces are each single-set; the composite boundary is the assembly/deployable unit. |
+| `CTF.Application.Teams` ⊃ `Teams.Ids` | `TeamId`'s root set (CD-02 + CD-31) is a subset of `Team`'s own root set (CD-02 + CD-31 + CD-44); the child shares the parent's causal root, so nesting is consistent, not a differing-root violation. |
 
 ---
 
@@ -103,12 +133,12 @@ The analysis in `before/analysis.md` §C.1 splits co-located driver-set mixes in
 |---|---|---|---|
 | `CTF.Host.Startup`, `CTF.Host.GameModeInit` | CD-01 + CD-17 + CD-21 + CD-23 + CD-24 | Composition/DI (CD-21) | The composition root must reference every driver's services to wire the object graph; no split reduces its union without breaking wiring. |
 | `CTF.Host.Program` / `SampSharp.Entrypoint` | CD-01 + CD-22 | Platform (CD-01) | The unmanaged ABI entry point and source-generated bootstrap are fixed by the SampSharp host; cannot be regrouped. |
-| `IPlayerRepository`, `ITopPlayersRepository` | CD-20 (+ CD-18/CD-10 per method) | Persistence (CD-20) | Outbound ports sit at the hexagon boundary by dependency-inversion; their per-method union is the repository contract, not a grouping choice. |
+| `IPlayerRepository`, `ITopPlayersRepository` | CD-20 (+ CD-18/CD-10 per method) | Persistence (CD-20) | Outbound ports sit at the hexagon boundary by dependency-inversion; their per-method union is the repository contract, not a grouping choice. Each port is now nested under the root of the entity it persists: `IPlayerRepository` under `Accounts` (CD-08), `ITopPlayersRepository` under `Statistics.TopPlayers` (CD-10), with CD-20 kept as the subordinate repository-contract driver. The provider implementations remain the persistence axis's per-DBMS adaptors at the assembly level. |
 | `Persistence.InMemory/MariaDB/SQLite` providers | CD-17 + CD-18 + CD-20 + CD-21 + (CD-19 \| CD-30) | Persistence/storage (CD-19/CD-30/CD-20) | One adaptor per DBMS; each provider must implement the full port + its dialect. Dialect is the only per-provider difference (CD-19 MariaDB vs CD-30 SQLite). |
 | `IGunGameMode` + its consumers (`WeaponCatalogSystem`, `ComboSystem`, `PlayerKillingSpreeUpdater`, `PlayerRankUpdater`) | CD-07 + (CD-04/06/10) | Game (CD-07) | GunGame is a deliberate cross-cutting gate that suspends/replaces parts of weapons/combos/coins/stats; the co-location is a game rule. |
 | Flag event handlers (`OnFlagScore`, `OnFlagCaptured`, …) | CD-02 + CD-06 + CD-10 + CD-20 | Game (CD-02) | A single game event (flag score) drives several reward systems (coins, stats, persistence) by rule — game-designed composite, not grouping error. |
-| `Messages.Designer.cs`, `GunGameMessages.Designer.cs`, `DetailedCommandInfo.Designer.cs` | CD-17 (+ CD-15) | Generated-code (CD-17) | Tool-generated from `.resx`; shape fixed by the resource tooling, annotation-only. |
-| Test fakes (`FakePlayer`, `FakeCarrier`, `FakeMap`, `FakePasswordHasher`, the `*RepositoryManager`s) | the mocked contract's domain driver (CD-01/11/20/25, CD-28 tooling subordinated) | Test/mocked-contract domain | A fake is driven by the domain driver of the seam it mimics (mock-inheritance rule). Namespace layer now split by faked domain (`Fakes.Maps` for CD-11 vs `Fakes` player fakes; persistence fakes split under `Persistence.*`); the union remains only at the class/assembly level. |
+| `Messages.Designer.cs`, `GunGameMessages.Designer.cs`, `DetailedCommandInfo.Designer.cs` | CD-17 (+ CD-15) | Generated-code (CD-17) | Tool-generated from `.resx`; shape fixed by the resource tooling, annotation-only. Domain-scoped message resources are rooted at their owning domain (`DetailedCommandInfo` → CD-15 command set; `GunGameMessages` → CD-07 GunGame mode) so the namespace root stays single; only the assembly-wide `Messages.Designer.cs` stays CD-17 at the `CTF.Application` root. |
+| Test fakes (`FakePlayer`, `FakeCarrier`, `FakeMap`, `FakePasswordHasher`, the `*RepositoryManager`s) | the mocked contract's domain driver (CD-01/11/20/25, CD-28 tooling subordinated) | Test/mocked-contract domain | A fake is driven by the domain driver of the seam it mimics (mock-inheritance rule). Namespace layer split by faked domain: player fakes under `Tests.Fakes` (CD-31); `FakeMap` (CD-11) now under `Tests.Maps`; persistence fakes split under `Persistence.*`; the union remains only at the class/assembly level. |
 | `DatabaseProviderExtensions`, `RepositoryManagerFactory`, `DatabaseProvider` (test enum) | CD-17 + CD-19 + CD-30 + CD-21 | Persistence dispatch (CD-19/CD-30) | The provider dispatch is the storage axis's switch; it necessarily carries both SQL dialects. `RepositoryManagerFactory` / `DatabaseProvider` now split into single-set namespaces (`Persistence.Tests.Common.Factory` / `.Contracts`); the dispatch composite remains at the assembly level. |
 
 Every *other* co-located driver-set mix in `before/analysis.md` §C.1 (`Players`, `Accounts.Statistics`, `Teams`, `Teams.Flags`, `Maps`, `Weapons`, `Combos`, `GunGames`, `Chats`, …) is **spurious** — grouped by topic, with no decreed axis forcing the mixture — and is therefore the legitimate object of the IVP regroup.
