@@ -24,7 +24,7 @@ global using CTF.Application.Authorization.Admin.Commands;
 global using CTF.Application.Authorization.Admin.Settings;
 global using CTF.Application.Authorization.Vip;
 global using CTF.Application.Players.Weapons.Catalogs.Core;
-global using CTF.Application.Players.Weapons.Catalogs.Gamma_CD04_CD17;
+global using CTF.Application.Players.Weapons.Catalogs.Settings;
 global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.GameRules;
 global using CTF.Application.GameRules.Flag.Core;

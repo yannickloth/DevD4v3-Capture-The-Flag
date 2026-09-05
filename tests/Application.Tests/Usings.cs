@@ -71,7 +71,7 @@ global using CTF.Application.Players.Weapons.Core;
 global using CTF.Application.Players.Weapons.Gamma_CD04_CD17;
 global using CTF.Application.Players.Weapons.Gamma_CD03_CD04_CD07_CD09_CD15_CD32_CD33_CD36_CD43;
 global using CTF.Application.Players.Weapons.Catalogs.Core;
-global using CTF.Application.Players.Weapons.Catalogs.Gamma_CD04_CD17;
+global using CTF.Application.Players.Weapons.Catalogs.Settings;
 global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
