@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD32;
+﻿namespace CTF.Application.GameRules.ClassSelection.Components;
 
 /// <summary>
 /// Provides extension methods for the class-selection player state.

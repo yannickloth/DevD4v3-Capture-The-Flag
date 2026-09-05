@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD31_CD33_CD43;
+﻿namespace CTF.Application.GameRules.ClassSelection.Teams;
 
 /// <summary>
 /// Handles team selection for players via the team command and dialog.

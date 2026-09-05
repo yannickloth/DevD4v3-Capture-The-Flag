@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD31;
+namespace CTF.Application.GameRules.ClassSelection.Redirect;
 
 /// <summary>
 /// Provides the class-selection redirect extension, which also drives player spectating state.

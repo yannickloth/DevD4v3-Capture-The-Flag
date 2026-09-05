@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD32;
+﻿namespace CTF.Application.GameRules.ClassSelection.Components;
 
 /// <summary>
 /// An ECS component tracking whether the player is in class selection.

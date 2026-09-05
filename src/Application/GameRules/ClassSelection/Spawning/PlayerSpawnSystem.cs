@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD11_CD12_CD31;
+﻿namespace CTF.Application.GameRules.ClassSelection.Spawning;
 
 /// <summary>
 /// Positions and configures the player at spawn using the current map's spawn locations.

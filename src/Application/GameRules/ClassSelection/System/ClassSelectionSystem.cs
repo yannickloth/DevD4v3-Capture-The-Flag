@@ -1,6 +1,6 @@
 ﻿using CTF.Application.GameRules.Configuration;
 
-namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD17_CD31;
+namespace CTF.Application.GameRules.ClassSelection.System;
 
 /// <summary>
 /// Handles the class-selection flow for players.

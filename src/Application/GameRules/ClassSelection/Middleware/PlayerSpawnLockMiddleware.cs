@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD08_CD12_CD32;
+﻿namespace CTF.Application.GameRules.ClassSelection.Middleware;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerRequestSpawn</c> to prevent players
