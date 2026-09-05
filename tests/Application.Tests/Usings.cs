@@ -7,7 +7,6 @@ global using FluentAssertions;
 global using SampSharp.Entities.SAMP;
 
 global using GameMode.Common;
-global using CTF.Application.Players;
 global using CTF.Application.GameRules;
 global using CTF.Application.GameRules.Flag;
 global using CTF.Application.GameRules.Flag.Settings;
@@ -99,7 +98,6 @@ global using CTF.Application.Combat.Headshot.Settings;
 global using CTF.Application.Combat.Headshot.HeadshotSystem;
 global using CTF.Application.Combat.WeaponSelection.ECS;
 global using CTF.Application.Combat.WeaponSelection.System;
-global using CTF.Application.Players.TopPlayers;
 global using CTF.Application.Configuration;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.Ids;

@@ -43,7 +43,6 @@ global using CTF.Application.Statistics.TeamStats.Scoreboard;
 global using CTF.Application.Statistics.TopPlayers;
 global using CTF.Application.Statistics.TopPlayers.Commands;
 global using CTF.Application.Statistics.TopPlayers.Limits;
-global using CTF.Application.Players.TopPlayers;
 global using Persistence.SQLite.Settings;
 global using Persistence.SQLite.Schema;
 global using Persistence.SQLite.Repositories.Player;
