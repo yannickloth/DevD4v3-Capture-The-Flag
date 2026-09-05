@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands;
+﻿namespace CTF.Application.Commands.Basic;
 
 /// <summary>
 /// Provides the basic (public) command set.

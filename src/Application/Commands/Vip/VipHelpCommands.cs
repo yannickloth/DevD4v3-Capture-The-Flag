@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands;
+namespace CTF.Application.Commands.Vip;
 
 /// <summary>
 /// Shows the VIP-role help dialog.

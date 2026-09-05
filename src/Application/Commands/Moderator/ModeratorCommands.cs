@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands;
+﻿namespace CTF.Application.Commands.Moderator;
 
 /// <summary>
 /// Provides the moderator-role command set.

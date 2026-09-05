@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands;
+﻿namespace CTF.Application.Commands.Admin;
 
 /// <summary>
 /// Provides the admin-role command set.

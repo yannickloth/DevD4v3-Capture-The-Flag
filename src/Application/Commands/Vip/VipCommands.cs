@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands;
+﻿namespace CTF.Application.Commands.Vip;
 
 /// <summary>
 /// Provides the VIP-role weapon command set.
