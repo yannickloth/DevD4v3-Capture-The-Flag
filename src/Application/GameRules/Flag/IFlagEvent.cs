@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.Flag;
 
 /// <summary>
 /// Represents an event related to the flag in the game.

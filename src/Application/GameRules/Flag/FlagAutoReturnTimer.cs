@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.Flag;
 
 /// <summary>
 /// A timer service that automatically returns the flag to its base if it is not picked up by a player within a certain time limit.
