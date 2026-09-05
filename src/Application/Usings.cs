@@ -55,6 +55,7 @@ global using CTF.Application.Pickups;
 global using CTF.Application.MapIcons;
 global using CTF.Application.MapIcons.TeamIcons;
 global using CTF.Application.Audio;
+global using CTF.Application.Configuration;
 global using CTF.Application.PlayerResources;
 global using CTF.Application.PlayerResources.Appearance;
 global using CTF.Application.PlayerResources.Commands;

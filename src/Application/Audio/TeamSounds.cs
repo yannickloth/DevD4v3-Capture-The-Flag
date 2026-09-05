@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Audio;
 
-using CTF.Application.Audio.Configuration;
+using CTF.Application.Configuration;
 
 /// <summary>
 /// Plays the configured team flag-event sounds.

@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Teams;
 
-using CTF.Application.Audio.Configuration;
+using CTF.Application.Configuration;
 
 /// <summary>
 /// Represents a team in the CTF gamemode, holding its identity, members, stats, and flag.
