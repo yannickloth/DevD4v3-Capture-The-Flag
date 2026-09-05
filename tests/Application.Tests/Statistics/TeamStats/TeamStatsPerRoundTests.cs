@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Statistics.Gamma_CD02_CD10_CD26_CD27;
+﻿namespace CTF.Application.Tests.Statistics.TeamStats;
 
 /// <summary>Tests for TeamStatsPerRound.</summary>
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
