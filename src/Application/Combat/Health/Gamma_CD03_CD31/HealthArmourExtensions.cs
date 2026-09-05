@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Health;
+﻿namespace CTF.Application.Combat.Health.Gamma_CD03_CD31;
 
 /// <summary>
 /// Provides extension methods for adding health and armour, bounded to their maximum values.

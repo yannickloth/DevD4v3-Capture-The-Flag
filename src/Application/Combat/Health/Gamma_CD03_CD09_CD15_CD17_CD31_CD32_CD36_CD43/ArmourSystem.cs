@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Health;
+﻿namespace CTF.Application.Combat.Health.Gamma_CD03_CD09_CD15_CD17_CD31_CD32_CD36_CD43;
 
 /// <summary>
 /// Provides the armour-related commands.

@@ -58,9 +58,13 @@ global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD3
 global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
 
 global using CTF.Application.Combat;
-global using CTF.Application.Combat.Health;
-global using CTF.Application.Combat.Headshot;
-global using CTF.Application.Combat.WeaponSelection;
+global using CTF.Application.Combat.Health.Core;
+global using CTF.Application.Combat.Health.Gamma_CD03_CD31;
+global using CTF.Application.Combat.Health.Gamma_CD03_CD09_CD15_CD17_CD31_CD32_CD36_CD43;
+global using CTF.Application.Combat.Headshot.Gamma_CD03_CD17;
+global using CTF.Application.Combat.Headshot.Gamma_CD03_CD10_CD17_CD20_CD31_CD32_CD36_CD40;
+global using CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD32;
+global using CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD04_CD07_CD15_CD31_CD32_CD33_CD36_CD43;
 global using CTF.Application.Teams;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Rotation;

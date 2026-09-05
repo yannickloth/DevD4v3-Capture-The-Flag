@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Headshot;
+﻿namespace CTF.Application.Combat.Headshot.Gamma_CD03_CD10_CD17_CD20_CD31_CD32_CD36_CD40;
 
 /// <summary>
 /// Handles headshot detection, reward, and persistence.
