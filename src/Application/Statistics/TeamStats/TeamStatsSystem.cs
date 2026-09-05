@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.TeamStats;
 
 /// <summary>
 /// Tracks team statistics and provides stat-related commands.

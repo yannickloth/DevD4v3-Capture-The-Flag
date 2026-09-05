@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.Score;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-36. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>

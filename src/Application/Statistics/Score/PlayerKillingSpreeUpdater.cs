@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.Score;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-31 (player events); CD-32 (ECS runtime); CD-35 (GameText API); CD-36 (client messages) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

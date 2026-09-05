@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics;
+namespace CTF.Application.Statistics.Score;
 
 /// <summary>
 /// Represents the persisted career statistics of a player.

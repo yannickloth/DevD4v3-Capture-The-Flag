@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.Score;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: player score); CD-15 (command set) → CD-10; CD-09 (authorization policy) → CD-10; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages); CD-43 (command infrastructure) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; worldService -> CD-36. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.TopPlayers;
 
 /// <summary>
 /// Represents a top player entry ranked by total kills.

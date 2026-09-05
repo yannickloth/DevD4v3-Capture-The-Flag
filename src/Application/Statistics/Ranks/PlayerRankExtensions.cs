@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics;
+namespace CTF.Application.Statistics.Ranks;
 
 /// <summary>
 /// Provides player rank query extension methods.

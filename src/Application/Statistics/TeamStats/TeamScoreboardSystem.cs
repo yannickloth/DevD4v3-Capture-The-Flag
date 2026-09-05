@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.TeamStats;
 
 /// <summary>
 /// Shows the team scoreboard dialog to players.

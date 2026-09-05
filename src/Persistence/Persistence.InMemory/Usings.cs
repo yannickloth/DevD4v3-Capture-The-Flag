@@ -5,4 +5,8 @@ global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
 global using CTF.Application.Authorization;
 global using CTF.Application.Statistics;
+global using CTF.Application.Statistics.Ranks;
+global using CTF.Application.Statistics.Score;
+global using CTF.Application.Statistics.TeamStats;
+global using CTF.Application.Statistics.TopPlayers;
 global using CTF.Application.Players.TopPlayers;

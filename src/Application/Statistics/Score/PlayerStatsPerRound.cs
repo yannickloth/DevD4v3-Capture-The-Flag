@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics;
+﻿namespace CTF.Application.Statistics.Score;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
 public class PlayerStatsPerRound
