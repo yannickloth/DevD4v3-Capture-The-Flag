@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.Players;
 
 /// <summary>
 /// Stores the runtime state required for player pause detection.
