@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB;
+﻿namespace Persistence.MariaDB.Schema;
 
 /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-19 (MariaDB SQL dialect) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
 internal class MariaDbSchemaExecutor

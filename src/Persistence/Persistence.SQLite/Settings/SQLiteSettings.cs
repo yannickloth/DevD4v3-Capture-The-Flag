@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite;
+﻿namespace Persistence.SQLite.Settings;
 
 /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
 public class SQLiteSettings

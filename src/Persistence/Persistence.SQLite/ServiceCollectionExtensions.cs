@@ -1,5 +1,10 @@
 ﻿namespace Persistence.SQLite;
 
+using Persistence.SQLite.Repositories.Player;
+using Persistence.SQLite.Repositories.TopPlayers;
+using Persistence.SQLite.Schema;
+using Persistence.SQLite.Settings;
+
 /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-17 (game configuration/.env schema) → CD-21; CD-18 (database schema/player data model) → CD-21; CD-30 (SQLite SQL dialect) → CD-18</remarks>
 public static class PersistenceSQLiteServicesExtensions
 {

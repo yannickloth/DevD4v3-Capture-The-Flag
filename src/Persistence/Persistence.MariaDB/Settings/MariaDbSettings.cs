@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB;
+﻿namespace Persistence.MariaDB.Settings;
 
 /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
 public class MariaDbSettings

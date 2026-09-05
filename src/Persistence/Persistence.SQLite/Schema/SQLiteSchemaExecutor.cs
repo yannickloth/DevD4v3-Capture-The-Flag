@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite;
+﻿namespace Persistence.SQLite.Schema;
 
 /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-30 (SQLite SQL dialect) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
 internal static class SQLiteSchemaExecutor
