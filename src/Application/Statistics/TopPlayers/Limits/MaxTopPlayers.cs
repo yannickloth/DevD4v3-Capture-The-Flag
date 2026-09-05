@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
+﻿namespace CTF.Application.Statistics.TopPlayers.Limits;
 
 /// <summary>
 /// Represents the maximum number of top players allowed.

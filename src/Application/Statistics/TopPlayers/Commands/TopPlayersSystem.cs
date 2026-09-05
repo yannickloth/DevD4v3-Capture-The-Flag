@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43;
+﻿namespace CTF.Application.Statistics.TopPlayers.Commands;
 
 /// <summary>
 /// Provides the top-players leaderboard commands.

@@ -39,6 +39,6 @@ global using CTF.Application.Statistics.TeamStats.PerRound;
 global using CTF.Application.Statistics.TeamStats.System;
 global using CTF.Application.Statistics.TeamStats.Scoreboard;
 global using CTF.Application.Statistics.TopPlayers.Core;
-global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43;
-global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
+global using CTF.Application.Statistics.TopPlayers.Commands;
+global using CTF.Application.Statistics.TopPlayers.Limits;
 global using CTF.Application.Players.TopPlayers;
