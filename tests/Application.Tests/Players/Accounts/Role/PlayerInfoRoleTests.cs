@@ -1,4 +1,4 @@
-namespace CTF.Application.Tests.Players.Accounts;
+namespace CTF.Application.Tests.Players.Accounts.Role;
 
 /// <summary>Tests for PlayerInfo.SetRole.</summary>
 /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerInfo.SetRole); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>

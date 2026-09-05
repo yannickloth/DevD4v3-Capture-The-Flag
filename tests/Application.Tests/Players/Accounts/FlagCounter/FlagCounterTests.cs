@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts;
+﻿namespace CTF.Application.Tests.Players.Accounts.FlagCounter;
 
 /// <summary>Tests for PlayerInfo flag counters.</summary>
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>

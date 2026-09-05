@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts;
+﻿namespace CTF.Application.Tests.Players.Accounts.Team;
 
 /// <summary>Tests for PlayerInfo.SetTeam.</summary>
 /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
