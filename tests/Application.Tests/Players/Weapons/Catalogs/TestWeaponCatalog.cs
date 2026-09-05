@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Weapons;
+﻿namespace CTF.Application.Tests.Players.Weapons.Catalogs;
 
 /// <summary>Test double for WeaponCatalog (fixture).</summary>
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalog (fixture))</remarks>

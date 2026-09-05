@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Weapons;
+﻿namespace CTF.Application.Tests.Players.Weapons.Catalogs;
 
 /// <summary>Tests for WeaponCatalogType.</summary>
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalogType); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04</remarks>
