@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Headshot.Gamma_CD03_CD17;
+﻿namespace CTF.Application.Combat.Headshot.Settings;
 
 /// <summary>
 /// Represents settings for headshot events.
