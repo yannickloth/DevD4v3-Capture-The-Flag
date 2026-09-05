@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.ClassSelection;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerRequestSpawn</c> to prevent players

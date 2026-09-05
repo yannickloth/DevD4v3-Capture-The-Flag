@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules;
+namespace CTF.Application.GameRules.ClassSelection;
 
 /// <summary>
 /// Provides the class-selection redirect extension, which also drives player spectating state.

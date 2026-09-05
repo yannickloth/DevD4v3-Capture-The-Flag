@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.ClassSelection;
 
 /// <summary>
 /// Handles team selection for players via the team command and dialog.

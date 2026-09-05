@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.ClassSelection;
 
 /// <summary>
 /// An ECS component tracking whether the player is in class selection.
