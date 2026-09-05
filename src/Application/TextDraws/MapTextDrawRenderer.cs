@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps;
+﻿namespace CTF.Application.TextDraws;
 
 /// <remarks>Change drivers: CD-34 (root; Textdraw API); CD-12 (map-rotation rules) → CD-34; CD-11 (map configuration) → CD-34</remarks>
 public class MapTextDrawRenderer
