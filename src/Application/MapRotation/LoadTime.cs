@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps.Rotation;
+﻿namespace CTF.Application.MapRotation;
 
 /// <summary>
 /// Represents the total wait time for the new map to load.
