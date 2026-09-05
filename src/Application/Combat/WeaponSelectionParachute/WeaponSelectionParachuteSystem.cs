@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelection.Parachute;
+namespace CTF.Application.Combat.WeaponSelectionParachute;
 
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.CommandInfrastructure)]
 public class WeaponSelectionParachuteSystem : ISystem

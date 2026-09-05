@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Health.Systems;
+﻿namespace CTF.Application.Combat.HealthSystems;
 
 /// <summary>
 /// Provides the health-related commands.

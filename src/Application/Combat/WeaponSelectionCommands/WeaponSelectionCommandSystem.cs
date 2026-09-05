@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelection.Commands;
+namespace CTF.Application.Combat.WeaponSelectionCommands;
 
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; gunGameMode -> CD-07; weaponCatalog -> CD-04. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.WeaponCatalog, ChangeDriver.GunGame, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
