@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match.Gamma_CD02_CD31;
+﻿namespace CTF.Application.GameRules.Match.Teams;
 
 /// <summary>
 /// Provides access to all players participating in the current match.

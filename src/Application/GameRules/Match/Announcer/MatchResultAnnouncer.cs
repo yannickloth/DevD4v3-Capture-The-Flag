@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match.Gamma_CD02_CD35_CD36;
+﻿namespace CTF.Application.GameRules.Match.Announcer;
 
 /// <summary>
 /// Announces the result of a match to all players.
