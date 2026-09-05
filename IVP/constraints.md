@@ -71,6 +71,23 @@ Only the second quantity is the IVP optimization target. The first is a constant
 
 IVP states the change-coupling grouping; the other axis states its grouping. The composition is recorded symmetrically: both recommendations stated, the chosen composition stated, and the accepted impurity/incompleteness quantified. No silent override, no silent demotion of either axis.
 
+## Namespace-layer override (namespace single-set rule)
+
+At the **namespace** layer the strict IVP rule applies without exception: every top-level class must live in a namespace whose top-level classes share exactly one change-driver set. The "irreducible essential composite" exemptions above apply at the **assembly / deployable-unit** layer only, not at the namespace layer. Where a provider or fixture set was previously cited as an essential composite, its *namespace* is now recursively split into exact-set sub-namespaces; the composite boundary moves down to the assembly/deployment level, which still keeps MariaDB / SQLite / InMemory / the repository ports / generated resources together as decreed by their axis.
+
+Consequences already applied (commit-per-split, verified by `dotnet build` 0 errors + 694 Application tests):
+
+| Namespace split | Resulting single-set sub-namespaces |
+|---|---|
+| `CTF.Application.Players` | root holds `PlayerServicesExtensions` (CD-21); `CommandCooldowns` (CD-17) → `Players.Settings` |
+| `CTF.Application.Players.TopPlayers` | root holds `ITopPlayersRepository` (CD-10+20); `TopPlayersSettings` (CD-17) → `TopPlayers.Settings` |
+| `CTF.Application.Teams` | root holds `Team`; `TeamId` → `Teams.Ids`; `TeamServicesExtensions` → `Teams.Composition` |
+| `CTF.Application.GunGames` root | `GunGameExtensions` (CD-07) → `GunGames.Composition`; root holds only generated `GunGameMessages` (CD-17) |
+| `CTF.Application.Tests.Fakes` | player fakes (`FakePlayer*`,`FakeCarrier`, CD-31+28) stay; `FakeMap` (CD-11) → `Fakes.Maps` |
+| `CTF.Application.Tests.Players.Accounts` | split by sub-entity under test into `.Account`, `.Role`, `.Team`, `.FlagCounter`, `.StatsPerRound`, `.Core` |
+
+Persistence providers (`Persistence.InMemory` / `MariaDB` / `SQLite`) and `Persistence.Tests.Common(+.DatabaseProviders)` are the remaining namespace composites: their types each carry a *distinct* exact set (dialect × port), so the strict rule pushes to per-role sub-namespaces. See §2/§5 — they stay one assembly each; the namespace split is recorded in the per-name audit.
+
 ---
 
 ## Appendix A — Essential composite elements (per-element citation)
