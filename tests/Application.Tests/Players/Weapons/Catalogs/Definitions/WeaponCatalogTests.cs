@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Weapons.Catalogs.Gamma_CD04_CD26_CD27;
+﻿namespace CTF.Application.Tests.Players.Weapons.Catalogs.Definitions;
 
 using CTF.Application.Tests.Players.Weapons.Catalogs.Core;
 
