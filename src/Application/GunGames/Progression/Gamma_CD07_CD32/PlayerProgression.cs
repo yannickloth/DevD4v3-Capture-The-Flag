@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+﻿namespace CTF.Application.GunGames.Progression.Gamma_CD07_CD32;
 
 /// <summary>
 /// Represents a player's progression in the GunGame mode.

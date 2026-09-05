@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Systems;
+﻿namespace CTF.Application.GunGames.Systems.Core;
 
 /// <summary>
 /// Provides the context associated with a kill processed by <see cref="GunGame"/>.

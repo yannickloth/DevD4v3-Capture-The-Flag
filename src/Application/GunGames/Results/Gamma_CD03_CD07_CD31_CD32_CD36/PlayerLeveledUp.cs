@@ -1,16 +1,17 @@
-﻿namespace CTF.Application.GunGames.Results;
+﻿namespace CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36;
 
 /// <summary>
-/// Handles the <see cref="GunGameResult.ReachedFinalLevel"/> result.
+/// Handles the <see cref="GunGameResult.LeveledUp"/> result.
 /// </summary>
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; weaponProgression -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-public class PlayerReachedFinalLevel(
+public class PlayerLeveledUp(
     IWorldService worldService,
     ActiveWeaponProgression weaponProgression) : IGunGameResultHandler
 {
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
-    public GunGameResult Result => GunGameResult.ReachedFinalLevel;
+    public GunGameResult Result => GunGameResult.LeveledUp;
+
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
     public void Handle(KillContext context)
     {
@@ -19,9 +20,10 @@ public class PlayerReachedFinalLevel(
         context.Killer.RemoveWeapon(context.Reason);
         context.Killer.GiveWeapon(newWeapon.Id, IWeapon.UnlimitedAmmo);
 
-        var message = Smart.Format(GunGameMessages.PlayerReachedFinalLevel, new
+        var message = Smart.Format(GunGameMessages.PlayerLeveledUp, new
         {
             Killer = context.Killer.Name,
+            Level  = killerProgression.WeaponLevel,
             Weapon = newWeapon.Name
         });
 

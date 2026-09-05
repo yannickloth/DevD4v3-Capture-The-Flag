@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+﻿namespace CTF.Application.GunGames.Progression.Core;
 
 /// <summary>
 /// Represents a weapon progression consisting of an ordered sequence of weapons.

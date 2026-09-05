@@ -1,31 +1,27 @@
-﻿namespace CTF.Application.GunGames.Results;
+﻿namespace CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36;
 
 /// <summary>
-/// Handles the <see cref="GunGameResult.LeveledDown"/> result.
+/// Handles the <see cref="GunGameResult.ReachedFinalLevel"/> result.
 /// </summary>
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; weaponProgression -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-public class PlayerLeveledDown(
+public class PlayerReachedFinalLevel(
     IWorldService worldService,
     ActiveWeaponProgression weaponProgression) : IGunGameResultHandler
 {
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
-    public GunGameResult Result => GunGameResult.LeveledDown;
-
+    public GunGameResult Result => GunGameResult.ReachedFinalLevel;
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-36 (client messages) → CD-07</remarks>
     public void Handle(KillContext context)
     {
-        var victimProgression = context.Victim.GetComponent<PlayerProgression>();
-        IWeapon newWeapon = weaponProgression.GetWeapon(victimProgression.WeaponLevel);
-        context.Victim.ResetWeapons(); 
-        context.Victim.GiveWeapon(Weapon.Knife, 1); 
-        context.Victim.GiveWeapon(newWeapon.Id, IWeapon.UnlimitedAmmo);
+        var killerProgression = context.Killer.GetComponent<PlayerProgression>();
+        IWeapon newWeapon = weaponProgression.GetWeapon(killerProgression.WeaponLevel);
+        context.Killer.RemoveWeapon(context.Reason);
+        context.Killer.GiveWeapon(newWeapon.Id, IWeapon.UnlimitedAmmo);
 
-        var message = Smart.Format(GunGameMessages.PlayerLeveledDown, new
+        var message = Smart.Format(GunGameMessages.PlayerReachedFinalLevel, new
         {
             Killer = context.Killer.Name,
-            Victim = context.Victim.Name,
-            Level  = victimProgression.WeaponLevel,
             Weapon = newWeapon.Name
         });
 

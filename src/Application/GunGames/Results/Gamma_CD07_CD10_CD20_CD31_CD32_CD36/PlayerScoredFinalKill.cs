@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Results;
+﻿namespace CTF.Application.GunGames.Results.Gamma_CD07_CD10_CD20_CD31_CD32_CD36;
 
 /// <summary>
 /// Handles the <see cref="GunGameResult.ScoredFinalKill"/> result.

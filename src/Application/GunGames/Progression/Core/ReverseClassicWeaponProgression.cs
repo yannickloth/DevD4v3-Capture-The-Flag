@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+﻿namespace CTF.Application.GunGames.Progression.Core;
 
 /// <summary>
 /// Defines the reverse of the classic GunGame weapon progression.
