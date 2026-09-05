@@ -136,8 +136,8 @@ global using CTF.Application.Maps.Core;
 global using CTF.Application.Maps.Collection;
 global using CTF.Application.Maps.Initialization;
 global using CTF.Application.Maps.Rotation.Core;
-global using CTF.Application.Maps.Rotation.Gamma_CD02_CD11_CD12_CD31_CD34_CD36_CD41_CD42;
-global using CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43;
+global using CTF.Application.Maps.Rotation.Scheduler;
+global using CTF.Application.Maps.Rotation.Commands;
 
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Progression.Core;

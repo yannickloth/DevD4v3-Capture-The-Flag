@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43;
+﻿namespace CTF.Application.Maps.Rotation.Commands;
 
 /// <remarks>Change drivers: CD-12 (root; map-rotation rules); CD-11 (map configuration) → CD-12; CD-31 (player events); CD-33 (dialog API); CD-34 (Textdraw API); CD-36 (client messages); CD-43 (command infrastructure) → CD-12; CD-15 (command set) → CD-12; CD-09 (authorization policy) → CD-12</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; dialogService -> CD-33; mapRotationService -> CD-12; mapCollection -> CD-11; mapTextDrawRenderer -> CD-34. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
