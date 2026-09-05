@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD21;
+﻿namespace CTF.Application.GameRules.Flag.Events;
 
 /// <summary>
 /// Represents an event related to the flag in the game.

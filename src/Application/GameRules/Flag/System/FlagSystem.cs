@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD03_CD09_CD10_CD15_CD31_CD37;
+﻿namespace CTF.Application.GameRules.Flag.System;
 
 /// <summary>
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.

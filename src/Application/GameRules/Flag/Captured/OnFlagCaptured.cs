@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD17_CD20_CD35_CD37_CD38_CD40;
+﻿namespace CTF.Application.GameRules.Flag.Captured;
 
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag from their base.

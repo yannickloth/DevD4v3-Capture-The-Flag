@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD37_CD38_CD41;
+﻿namespace CTF.Application.GameRules.Flag.Reset;
 
 /// <summary>
 /// Resets the state of both teams' flags and associated pickups, icons, and timers.

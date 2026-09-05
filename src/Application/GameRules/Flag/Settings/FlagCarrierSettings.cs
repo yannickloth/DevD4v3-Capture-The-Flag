@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD17;
+﻿namespace CTF.Application.GameRules.Flag.Settings;
 
 /// <summary>
 /// Represents the settings for the flag carrier.

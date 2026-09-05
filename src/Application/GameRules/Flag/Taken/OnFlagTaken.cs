@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD35_CD37_CD38_CD40;
+﻿namespace CTF.Application.GameRules.Flag.Taken;
 
 /// <summary>
 /// This event occurs when a player has taken the flag from a position other than the base.

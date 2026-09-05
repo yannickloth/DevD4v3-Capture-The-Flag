@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD38_CD44;
+﻿namespace CTF.Application.GameRules.Flag.FlagState;
 
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.

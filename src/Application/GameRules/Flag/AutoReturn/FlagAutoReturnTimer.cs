@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD37_CD40_CD41;
+﻿namespace CTF.Application.GameRules.Flag.AutoReturn;
 
 /// <summary>
 /// A timer service that automatically returns the flag to its base if it is not picked up by a player within a certain time limit.

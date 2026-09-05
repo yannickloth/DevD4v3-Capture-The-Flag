@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD35_CD37_CD40;
+﻿namespace CTF.Application.GameRules.Flag.Returned;
 
 /// <summary>
 /// This event occurs when a player has returned the flag to their team's base.

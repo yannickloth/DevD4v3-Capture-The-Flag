@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD31_CD37_CD40_CD41;
+﻿namespace CTF.Application.GameRules.Flag.CarrierPause;
 
 /// <summary>
 /// A system that handles the pause logic for flag carriers.

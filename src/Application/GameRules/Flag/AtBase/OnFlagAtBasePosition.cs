@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD35;
+﻿namespace CTF.Application.GameRules.Flag.AtBase;
 
 /// <summary>
 /// This event occurs when a player attempts to pick up their own team's flag, which is currently at the base position.

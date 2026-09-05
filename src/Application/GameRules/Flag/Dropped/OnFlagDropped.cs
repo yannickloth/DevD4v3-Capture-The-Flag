@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD10_CD20_CD35_CD37_CD38_CD40;
+﻿namespace CTF.Application.GameRules.Flag.Dropped;
 
 /// <summary>
 /// This event occurs when a player has dropped the opposing team's flag.

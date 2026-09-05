@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD09_CD15_CD17_CD38;
+﻿namespace CTF.Application.GameRules.Flag.Radar;
 
 /// <summary>
 /// Handles showing and hiding flag carriers on the radar map.

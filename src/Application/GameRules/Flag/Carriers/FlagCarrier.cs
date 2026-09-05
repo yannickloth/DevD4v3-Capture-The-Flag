@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD31;
+namespace CTF.Application.GameRules.Flag.Carriers;
 
 /// <summary>
 /// Represents the player currently carrying a flag.

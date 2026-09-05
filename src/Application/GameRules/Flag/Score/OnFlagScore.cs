@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD34_CD35_CD37_CD40;
+﻿namespace CTF.Application.GameRules.Flag.Score;
 
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag and brought it back to their own base.
