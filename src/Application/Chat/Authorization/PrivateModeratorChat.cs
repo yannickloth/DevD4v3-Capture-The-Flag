@@ -1,21 +1,21 @@
-﻿namespace CTF.Application.Chat.Gamma_CD09_CD13_CD32_CD36;
+﻿namespace CTF.Application.Chat.Authorization;
 
 /// <summary>
-/// Represents the VIP private chat tier, routed by the '$' prefix.
+/// Represents the moderator private chat tier, routed by the '&' prefix.
 /// </summary>
 /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
 /// <remarks>Injected dependencies: entityManager -> CD-32. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
-public class PrivateVipChat(IEntityManager entityManager) : IChatMessage
+public class PrivateModeratorChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
     /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
-    public char Id => '$';
+    public char Id => '&';
 
-    /// <summary>Sends the message to all players of the required VIP role.</summary>
+    /// <summary>Sends the message to all players of the required moderator role.</summary>
     /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
-        if (sender.HasLowerRoleThan(RoleId.VIP))
+        if (sender.HasLowerRoleThan(RoleId.Moderator))
             return false;
 
         var players = entityManager.GetComponents<Player>();
@@ -25,10 +25,10 @@ public class PrivateVipChat(IEntityManager entityManager) : IChatMessage
                 continue;
 
             PlayerInfo playerInfo = player.GetRequiredInfo();
-            if (playerInfo.HasLowerRoleThan(RoleId.VIP))
+            if (playerInfo.HasLowerRoleThan(RoleId.Moderator))
                 continue;
 
-            player.SendClientMessage($"{{8b0000}}[Vip Chat] {sender.Account.Name}: {message}");
+            player.SendClientMessage(Color.Yellow, $"[Moderator Chat] {sender.Account.Name}: {message}");
         }
         return true;
     }
