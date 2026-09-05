@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands.Vip;
+﻿namespace CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD31;
 
 /// <summary>
 /// Provides the VIP-role weapon command set.

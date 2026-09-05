@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat;
+﻿namespace CTF.Application.AntiCheat.Gamma_CD14_CD32;
 
 /// <summary>
 /// Represents a component that stores the last shot time and 

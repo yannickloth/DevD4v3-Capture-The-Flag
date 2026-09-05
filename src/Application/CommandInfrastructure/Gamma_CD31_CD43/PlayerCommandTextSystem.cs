@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.CommandInfrastructure;
+﻿namespace CTF.Application.CommandInfrastructure.Gamma_CD31_CD43;
 
 /// <summary>
 /// Handles the command-text callback, invoking the registered command handlers.

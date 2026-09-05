@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat;
+﻿namespace CTF.Application.AntiCheat.Gamma_CD14_CD17_CD31_CD32_CD35;
 
 /// <summary>
 /// Prevents players from abusing the GTA: San Andreas crouch bug (C-Bug).
