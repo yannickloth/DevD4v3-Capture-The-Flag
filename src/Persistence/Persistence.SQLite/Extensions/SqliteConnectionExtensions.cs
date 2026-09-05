@@ -1,6 +1,6 @@
 ﻿namespace Persistence.SQLite.Extensions;
 
-/// <remarks>Change drivers: CD-30 (root; SQLite SQL dialect)</remarks>
+[ChangeDriversAttribute(ChangeDriver.SqliteDialect)]
 public static class SqliteConnectionExtensions
 {
     /// <summary>
@@ -8,7 +8,7 @@ public static class SqliteConnectionExtensions
     /// See user-defined functions.
     /// </see>
     /// </summary>
-    /// <remarks>Change drivers: CD-30 (root; SQLite SQL dialect)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.SqliteDialect)]
     public static void CreateRegexpFunction(this SqliteConnection connection)
     {
         connection.CreateFunction(

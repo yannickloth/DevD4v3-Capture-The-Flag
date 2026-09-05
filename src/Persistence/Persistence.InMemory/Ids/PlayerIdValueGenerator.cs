@@ -1,16 +1,16 @@
 ﻿namespace Persistence.InMemory.Ids;
 
-/// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
 internal class PlayerIdValueGenerator
 {
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
     private PlayerIdValueGenerator() { }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
     private int _current = 1;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
     public static PlayerIdValueGenerator Instance { get; } = new();
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
     public int Next() => _current++;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
     public int Reset() => _current = 1;
 }

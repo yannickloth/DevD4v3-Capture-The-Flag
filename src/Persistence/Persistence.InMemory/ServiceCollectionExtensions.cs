@@ -1,9 +1,9 @@
 ﻿namespace Persistence.InMemory;
 
-/// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-18 (database schema/player data model) → CD-21</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.DatabaseSchema)]
 public static class PersistenceInMemoryServicesExtensions
 {
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-18 (database schema/player data model) → CD-21</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.DatabaseSchema)]
     public static IServiceCollection AddPersistenceInMemoryServices(
         this IServiceCollection services)
     {

@@ -1,9 +1,9 @@
 ﻿namespace Persistence.InMemory.Models;
 
-/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
 public class FakePlayer
 {
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     private const int NoSkin = -1;
     /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
     public FakePlayer() => Id = PlayerIdValueGenerator.Instance.Next();
@@ -15,38 +15,38 @@ public class FakePlayer
         PasswordHash = passwordHash;
     }
 
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int Id { get; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public string Name { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public string PasswordHash { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int TotalKills { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int TotalDeaths { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int MaxKillingSpree { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int BroughtFlags { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int CapturedFlags { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int DroppedFlags { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int ReturnedFlags { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int HeadShots { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int GunGameWins { get; set; }
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public int SkinId { get; set; } = NoSkin;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public RoleId RoleId { get; set; } = RoleId.Basic;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public RankId RankId { get; set; } = RankId.Noob;
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public DateTime CreatedAt { get; set; } = DateTime.Parse("2023-10-12 12:19:24");
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public DateTime LastConnection { get; set; } = DateTime.Parse("2023-10-13 12:19:24");
 }

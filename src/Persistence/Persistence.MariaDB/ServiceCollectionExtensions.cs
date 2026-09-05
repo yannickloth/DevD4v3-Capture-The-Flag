@@ -5,10 +5,10 @@ using Persistence.MariaDB.Repositories.TopPlayers;
 using Persistence.MariaDB.Schema;
 using Persistence.MariaDB.Settings;
 
-/// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-17 (game configuration/.env schema) → CD-21; CD-18 (database schema/player data model) → CD-21; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
 public static class PersistenceMariaDBServicesExtensions
 {
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-17 (game configuration/.env schema) → CD-21; CD-18 (database schema/player data model) → CD-21; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
     public static IServiceCollection AddPersistenceMariaDBServices(
         this IServiceCollection services, 
         IConfiguration configuration,

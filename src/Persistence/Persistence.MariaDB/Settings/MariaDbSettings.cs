@@ -1,18 +1,18 @@
 ﻿namespace Persistence.MariaDB.Settings;
 
-/// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Configuration)]
 public class MariaDbSettings
 {
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string Server { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public uint Port { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string Database { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string UserName { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string Password { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string ConnectionString { get; set; }
 }

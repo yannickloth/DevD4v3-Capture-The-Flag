@@ -1,9 +1,9 @@
 ﻿namespace Persistence.MariaDB.Schema;
 
-/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-19 (MariaDB SQL dialect) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]
 internal class MariaDbSchemaExecutor
 {
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-19 (MariaDB SQL dialect) → CD-18; CD-17 (game configuration/.env schema) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]
     public static void Execute(string connectionString, string schemaFile)
     {
         if (!File.Exists(schemaFile))

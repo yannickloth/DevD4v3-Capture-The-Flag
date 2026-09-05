@@ -1,4 +1,5 @@
 // <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+global using CTF.Application.IVP;
 global using SampSharp.Entities;
 global using System.Text.RegularExpressions;
 global using Microsoft.Extensions.Configuration;

@@ -1,10 +1,10 @@
 ﻿namespace Persistence.SQLite.Settings;
 
-/// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Configuration)]
 public class SQLiteSettings
 {
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string DataSource { get; set; }
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string ConnectionString { get; set; }
 }

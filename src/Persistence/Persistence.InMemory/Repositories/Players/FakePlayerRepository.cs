@@ -1,12 +1,12 @@
 ﻿namespace Persistence.InMemory.Repositories.Players;
 
-/// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): players (Dictionary&lt;int, FakePlayer&gt;) -> CD-18; passwordHasher -> CD-25. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
 internal class FakePlayerRepository(
     Dictionary<int, FakePlayer> players,
     IPasswordHasher passwordHasher) : IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Account.Password);
@@ -32,11 +32,11 @@ internal class FakePlayerRepository(
         player.Account.SetValue(value: fakePlayer.Id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public bool Exists(string name)
         => players.Any(player => player.Value.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public PlayerInfo GetOrDefault(string name)
     {
         FakePlayer fakePlayer = players
@@ -74,63 +74,63 @@ internal class FakePlayerRepository(
         return playerInfo;
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateBroughtFlags(PlayerInfo player) 
         => players[player.Account.AccountId].BroughtFlags = player.Stats.BroughtFlags;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateCapturedFlags(PlayerInfo player)
         => players[player.Account.AccountId].CapturedFlags = player.Stats.CapturedFlags;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateDroppedFlags(PlayerInfo player)
         => players[player.Account.AccountId].DroppedFlags = player.Stats.DroppedFlags;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateReturnedFlags(PlayerInfo player)
         => players[player.Account.AccountId].ReturnedFlags = player.Stats.ReturnedFlags;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateHeadShots(PlayerInfo player)
         => players[player.Account.AccountId].HeadShots = player.Stats.HeadShots;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateGunGameWins(PlayerInfo player)
         => players[player.Account.AccountId].GunGameWins = player.Stats.GunGameWins;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateLastConnection(PlayerInfo player)
         => players[player.Account.AccountId].LastConnection = player.Stats.LastConnection;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => players[player.Account.AccountId].MaxKillingSpree = player.Stats.MaxKillingSpree;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateName(PlayerInfo player)
         => players[player.Account.AccountId].Name = player.Account.Name;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdatePassword(PlayerInfo player)
        => players[player.Account.AccountId].PasswordHash = passwordHasher.HashPassword(player.Account.Password);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateRank(PlayerInfo player)
         => players[player.Account.AccountId].RankId = player.Stats.RankId;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateRole(PlayerInfo player)
         => players[player.Account.AccountId].RoleId = player.Role.Id;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateSkin(PlayerInfo player)
         => players[player.Account.AccountId].SkinId = player.Appearance.SkinId;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateTotalDeaths(PlayerInfo player)
         => players[player.Account.AccountId].TotalDeaths = player.Stats.TotalDeaths;
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
     public void UpdateTotalKills(PlayerInfo player)
         => players[player.Account.AccountId].TotalKills = player.Stats.TotalKills;
 }

@@ -1,9 +1,9 @@
 ﻿namespace Persistence.InMemory.Models;
 
-/// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
 internal static class FakePlayerSeedData
 {
-    /// <remarks>Change drivers: CD-18 (root; database schema/player data model); CD-25 (BCrypt password-hashing contract) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public static Dictionary<int, FakePlayer> Create()
     {
         const string password = "$2a$10$60QnEiafBCLfVBMfQkExVeolyBxVHWcSQKTvkxVJj9FUozRpRP/GW";

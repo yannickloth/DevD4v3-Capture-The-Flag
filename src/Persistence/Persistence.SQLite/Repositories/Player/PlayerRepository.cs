@@ -1,13 +1,13 @@
 ﻿namespace Persistence.SQLite.Repositories.Player;
 
-/// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18; CD-25 (BCrypt password-hashing contract) → CD-20; CD-17 (game configuration/.env schema: connection string) → CD-20</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; sqlCollection -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
 internal class PlayerRepository(
     IPasswordHasher passwordHasher,
     ISqlCollection sqlCollection,
     SQLiteSettings settings) : IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.BCrypt)]
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Account.Password);
@@ -39,7 +39,7 @@ internal class PlayerRepository(
         player.Account.SetValue(value: id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public bool Exists(string name)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -51,7 +51,7 @@ internal class PlayerRepository(
         return reader.HasRows;
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public PlayerInfo GetOrDefault(string name)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -93,39 +93,39 @@ internal class PlayerRepository(
         return playerInfo;
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateBroughtFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "brought_flags", player.Stats.BroughtFlags);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateCapturedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "captured_flags", player.Stats.CapturedFlags);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateDroppedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "dropped_flags", player.Stats.DroppedFlags);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateReturnedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "returned_flags", player.Stats.ReturnedFlags);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateHeadShots(PlayerInfo player)
         => Update(player.Account.AccountId, "head_shots", player.Stats.HeadShots);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateGunGameWins(PlayerInfo player)
         => Update(player.Account.AccountId, "gungame_wins", player.Stats.GunGameWins);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateLastConnection(PlayerInfo player)
         => Update(player.Account.AccountId, "last_connection", player.Stats.LastConnection);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => Update(player.Account.AccountId, "max_killing_spree", player.Stats.MaxKillingSpree);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateName(PlayerInfo player)
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
@@ -139,34 +139,34 @@ internal class PlayerRepository(
         command.ExecuteNonQuery();
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.BCrypt)]
     public void UpdatePassword(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Account.Password);
         Update(player.Account.AccountId, "password", passwordHash);
     }
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateRank(PlayerInfo player)
         => Update(player.Account.AccountId, "rank_id", player.Stats.RankId);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateRole(PlayerInfo player)
         => Update(player.Account.AccountId, "role_id", player.Role.Id);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateSkin(PlayerInfo player)
         => Update(player.Account.AccountId, "skin_id", player.Appearance.SkinId);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateTotalDeaths(PlayerInfo player)
         => Update(player.Account.AccountId, "total_deaths", player.Stats.TotalDeaths);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     public void UpdateTotalKills(PlayerInfo player) 
         => Update(player.Account.AccountId, "total_kills", player.Stats.TotalKills);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-30 (SQLite SQL dialect) → CD-18</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
     private void Update(int id, string columnName, object value) 
     {
         using var connection = new SqliteConnection(settings.ConnectionString);
