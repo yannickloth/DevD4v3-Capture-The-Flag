@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.TopPlayers;
 
 /// <summary>Tests for MaxTopPlayers.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: MaxTopPlayers); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-17 (game configuration/.env schema) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
 public class MaxTopPlayersTests
 {
     [TestCase(5)]
@@ -25,7 +25,7 @@ public class MaxTopPlayersTests
     [TestCase(4)]
     [TestCase(16)]
     [TestCase(20)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: MaxTopPlayers); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-17 (game configuration/.env schema) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
     public void Create_WhenCalledWithInvalidValue_ShouldReturnFailureResult(int value)
     {
         // Arrange

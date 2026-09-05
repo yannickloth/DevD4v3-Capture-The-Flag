@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Statistics.TeamStats;
 
 /// <summary>Tests for TeamStatsPerRound.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.GameRules)]
 public class TeamStatsPerRoundTests
 {
     [Test]
@@ -20,7 +20,7 @@ public class TeamStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.GameRules)]
     public void AddKills_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -36,7 +36,7 @@ public class TeamStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.GameRules)]
     public void AddDeaths_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -52,7 +52,7 @@ public class TeamStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: TeamStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-02 (CTF game-rules specification) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.GameRules)]
     public void Reset_WhenCalled_ShouldResetAllStatsToZero()
     {
         // Arrange

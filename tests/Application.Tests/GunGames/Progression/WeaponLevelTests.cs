@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames.Progression;
 
 /// <summary>Tests for WeaponLevel.</summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class WeaponLevelTests
 {
     private readonly MaxWeaponLevel _maxLevel = new(4);
@@ -20,7 +20,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Next_WhenWeaponLevelIsAtMaxLevel_ShouldRemainAtMaxLevel()
     {
         // Arrange
@@ -37,7 +37,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Previous_WhenWeaponLevelIsAboveFirstLevel_ShouldMoveToPreviousLevel()
     {
         // Arrange
@@ -53,7 +53,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Previous_WhenWeaponLevelIsAtFirstLevel_ShouldRemainAtFirstLevel()
     {
         // Arrange
@@ -67,7 +67,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsMax_WhenWeaponLevelIsMaxLevel_ShouldReturnTrue()
     {
         // Arrange
@@ -84,7 +84,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsMax_WhenWeaponLevelIsBelowMaxLevel_ShouldReturnFalse()
     {
         // Arrange
@@ -99,7 +99,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void ToString_ShouldReturnWeaponLevelValue()
     {
         // Arrange
@@ -114,7 +114,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void EqualityOperator_WhenWeaponLevelsAreEqual_ShouldReturnTrue()
     {
         // Arrange
@@ -130,7 +130,7 @@ public class WeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GreaterThanOperator_WhenLeftWeaponLevelIsGreater_ShouldReturnTrue()
     {
         // Arrange

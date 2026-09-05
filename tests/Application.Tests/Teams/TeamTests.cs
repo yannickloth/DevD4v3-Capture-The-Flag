@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
 /// <summary>Tests for Team.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class TeamTests
 {
     [SetUp]
@@ -12,7 +12,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetMembersAsText_WhenMembersAreObtained_ShouldReturnValidStringFormat()
     {
         // Arrange
@@ -28,7 +28,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsFull_WhenTeamIsFull_ShouldReturnTrue()
     {
         // Arrange
@@ -46,7 +46,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsFull_WhenTeamIsNotFull_ShouldReturnFalse()
     {
         // Arrange
@@ -63,7 +63,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsWinner_WhenTeamIsWinner_ShouldReturnTrue()
     {
         // Arrange
@@ -81,7 +81,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsWinner_WhenTeamIsNotWinner_ShouldReturnFalse()
     {
         // Arrange
@@ -99,7 +99,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetAvailabilityMessage_WhenTeamIsFull_ShouldReturnUnavailableMessage()
     {
         // Arrange
@@ -118,7 +118,7 @@ public class TeamTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetAvailabilityMessage_WhenTeamIsNotFull_ShouldReturnAvailableMessage()
     {
         // Arrange

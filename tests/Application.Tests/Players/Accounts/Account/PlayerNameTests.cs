@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts.Account;
 
 /// <summary>Tests for PlayerInfo.SetName.</summary>
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class PlayerNameTests
 {
     [Test]
@@ -21,7 +21,7 @@ public class PlayerNameTests
     [TestCase("")]
     [TestCase(" ")]
     [TestCase("   ")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetName_WhenNameIsEmpty_ShouldReturnFailureResult(string name)
     {
         // Arrange
@@ -40,7 +40,7 @@ public class PlayerNameTests
     [TestCase("a")]
     [TestCase("ab")]
     [TestCase("aaaaaaaaaaaaaaaaaaaaa")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetName_WhenNameLengthIsInvalid_ShouldReturnFailureResult(string name)
     {
         // Arrange
@@ -61,7 +61,7 @@ public class PlayerNameTests
     [TestCase("ññÑÑáéíóú")]
     [TestCase("ÁÉÍÚÓ")]
     [TestCase("><`°°¬")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetName_WhenNickNameHasInvalidCharacters_ShouldReturnFailureResult(string name)
     {
         // Arrange
@@ -83,7 +83,7 @@ public class PlayerNameTests
     [TestCase("ZXCVBNM")]
     [TestCase("qwertyuiopasdfghjkl")]
     [TestCase("zxcvbnm")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetName); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetName_WhenNickNameHasValidCharacters_ShouldReturnSuccessResult(string name)
     {
         // Arrange

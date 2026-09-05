@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Statistics.PlayerStats;
 
 /// <summary>Tests for PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class PlayerKillingSpreeUpdaterTests
 {
     [Test]
@@ -22,7 +22,7 @@ public class PlayerKillingSpreeUpdaterTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasSurpassedMaxKillingSpree_WhenNewRecordIsNotAchieved_ShouldReturnFalse()
     {
         // Arrange

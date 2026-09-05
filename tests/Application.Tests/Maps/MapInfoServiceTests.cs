@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for MapInfoService.</summary>
-/// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class MapInfoServiceTests
 {
     private static readonly MapCollection s_maps = new(TestPaths.Maps);
@@ -23,7 +23,7 @@ public class MapInfoServiceTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Load_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -41,7 +41,7 @@ public class MapInfoServiceTests
     }
 
     [TestCaseSource(typeof(MapInfoServiceTestCases))]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: MapInfoService); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Load_WhenMapIsLoadedFromFileSystem_ShouldCreateInstanceOfTypeCurrentMap(CurrentMap expectedCurrentMap)
     {
         // Arrange

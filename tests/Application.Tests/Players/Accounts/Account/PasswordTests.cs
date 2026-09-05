@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts.Account;
 
 /// <summary>Tests for PlayerInfo.SetPassword.</summary>
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class PasswordTests
 {
     [Test]
@@ -21,7 +21,7 @@ public class PasswordTests
     [TestCase("")]
     [TestCase(" ")]
     [TestCase("   ")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetPassword_WhenPasswordIsEmpty_ShouldReturnFailureResult(string password)
     {
         // Arrange
@@ -39,7 +39,7 @@ public class PasswordTests
 
     [TestCase("aaaa")]
     [TestCase("aaaaaaaaaaaaaaaaaaaaa")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetPassword_WhenPasswordLengthIsInvalid_ShouldReturnFailureResult(string password)
     {
         // Arrange
@@ -57,7 +57,7 @@ public class PasswordTests
 
     [TestCase("12345")]
     [TestCase("bbbbbbbbbbbbbbbbbbbb")]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerInfo.SetPassword); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetPassword_WhenPasswordIsValid_ShouldReturnSuccessResult(string password)
     {
         // Arrange

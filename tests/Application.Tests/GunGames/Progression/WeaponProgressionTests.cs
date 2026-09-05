@@ -3,7 +3,7 @@
 using CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for WeaponProgression.</summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class WeaponProgressionTests
 {
     private TestWeaponProgression _progression;
@@ -15,7 +15,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void WeaponProgression_WhenNoWeaponsAreDefined_ShouldThrowInvalidOperationException()
     {
         // Arrange
@@ -30,7 +30,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetWeapon_WhenWeaponLevelIsFirst_ShouldReturnFirstWeapon()
     {
         // Arrange
@@ -44,7 +44,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetWeapon_WhenWeaponLevelIsSecond_ShouldReturnSecondWeapon()
     {
         // Arrange
@@ -59,7 +59,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetWeapon_WhenWeaponLevelIsFinal_ShouldReturnFinalWeapon()
     {
         // Arrange
@@ -76,7 +76,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetWeapon_WhenWeaponLevelIsBelowFirst_ShouldThrowInvalidOperationException()
     {
         // Arrange
@@ -93,7 +93,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void MaxLevel_ShouldBeEqualToNumberOfWeapons()
     {
         // Arrange
@@ -106,7 +106,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsFinalLevel_WhenWeaponLevelIsMaxLevel_ShouldReturnTrue()
     {
         // Arrange
@@ -123,7 +123,7 @@ public class WeaponProgressionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsFinalLevel_WhenWeaponLevelIsBelowMaxLevel_ShouldReturnFalse()
     {
         // Arrange

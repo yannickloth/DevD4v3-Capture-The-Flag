@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Ranks;
 
 /// <summary>Tests for RankCollection (case source).</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection (case source)); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class GetRankByRequiredKillsTestCases : IEnumerable<(RankId, int Kills)>
 {
     public IEnumerator<(RankId, int Kills)> GetEnumerator()

@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Tests for CurrentMap.</summary>
-/// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class CurrentMapTests
 {
     [Test]
@@ -25,7 +25,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenAlphaTeamLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -47,7 +47,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenBetaTeamLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -69,7 +69,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenFlagLocationsIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -91,7 +91,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenAlphaTeamLocationsIsEmpty_ShouldThrowArgumentException()
     {
         // Arrange
@@ -113,7 +113,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenBetaTeamLocationsIsEmpty_ShouldThrowArgumentException()
     {
         // Arrange
@@ -135,7 +135,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetMapNameAsText_WhenNameIsObtained_ShouldReturnValidStringFormat()
     {
         // Arrange
@@ -154,7 +154,7 @@ public class CurrentMapTests
 
     [TestCase(TeamId.Alpha)]
     [TestCase(TeamId.Beta)]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetRandomSpawnLocation_WhenTeamIsAlphaOrBeta_ShouldReturnSpawnLocation(TeamId team)
     {
         // Arrange
@@ -172,7 +172,7 @@ public class CurrentMapTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-11 (root; map configuration: CurrentMap); CD-26 (NUnit test-framework contract) → CD-11; CD-27 (FluentAssertions contract) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetRandomSpawnLocation_WhenTeamIsNotAlphaOrBeta_ShouldThrowNotSupportedException()
     {
         // Arrange

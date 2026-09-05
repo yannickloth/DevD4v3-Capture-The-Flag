@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Ranks;
 
 /// <summary>Tests for Rank.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: Rank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class RankTests
 {
     [Test]
@@ -20,7 +20,7 @@ public class RankTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: Rank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsMax_WhenRankIsNotMaximum_ShouldReturnFalse()
     {
         // Arrange
@@ -36,7 +36,7 @@ public class RankTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: Rank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsNotMax_WhenRankIsNotMaximum_ShouldReturnTrue() 
     {
         // Arrange
@@ -52,7 +52,7 @@ public class RankTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: Rank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsNotMax_WhenRankIsMaximum_ShouldReturnFalse()
     {
         // Arrange

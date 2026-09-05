@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Test double for WeaponProgression (fixture).</summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression (fixture))</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public class TestWeaponProgression : WeaponProgression
 {
     public override WeaponProgressionType Type => WeaponProgressionType.Classic;
@@ -18,7 +18,7 @@ public class TestWeaponProgression : WeaponProgression
     }
 }
 
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression (fixture))</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public class NonKnifeFinalWeaponProgression : WeaponProgression
 {
     public override WeaponProgressionType Type => WeaponProgressionType.Classic;

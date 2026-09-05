@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Vitalities;
 
 /// <summary>Tests for health/armour extensions.</summary>
-/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class HealthArmourExtensionsTests
 {
     [TestCase(50, 20, 70)]
@@ -28,7 +28,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddHealth_WhenAmountIsPositiveAndExceedsLimit_ShouldSetHealthToMax()
     {
         // Arrange
@@ -51,7 +51,7 @@ public class HealthArmourExtensionsTests
     [TestCase(98, -2, 100)]
     [TestCase(80, -20, 100)]
     [TestCase(70, -10, 80)]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddHealth_WhenAmountIsNegative_ShouldConvertToPositiveAndIncreaseHealth(
         float currentHealth,
         float amount,
@@ -71,7 +71,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddHealth_WhenAmountIsZero_ShouldNotChangeHealth()
     {
         // Arrange
@@ -90,7 +90,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddHealth_WhenPlayerHasMaxHealth_ShouldNotChangeHealth()
     {
         // Arrange
@@ -113,7 +113,7 @@ public class HealthArmourExtensionsTests
     [TestCase(80, 20, 100)]
     [TestCase(70, 10, 80)]
     [TestCase(100, 0, 100)]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddArmour_WhenAmountIsPositiveAndBelowLimit_ShouldIncreaseArmour(
         float currentArmour,
         float amount,
@@ -133,7 +133,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddArmour_WhenAmountIsPositiveAndExceedsLimit_ShouldSetArmourToMax()
     {
         // Arrange
@@ -156,7 +156,7 @@ public class HealthArmourExtensionsTests
     [TestCase(98, -2, 100)]
     [TestCase(80, -20, 100)]
     [TestCase(70, -10, 80)]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddArmour_WhenAmountIsNegative_ShouldConvertToPositiveAndIncreaseArmour(
         float currentArmour,
         float amount,
@@ -176,7 +176,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddArmour_WhenAmountIsZero_ShouldNotChangeArmour()
     {
         // Arrange
@@ -195,7 +195,7 @@ public class HealthArmourExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health/armour extensions); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddArmour_WhenPlayerHasMaxArmour_ShouldNotChangeArmour()
     {
         // Arrange

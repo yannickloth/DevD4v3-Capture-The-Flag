@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts.FlagCounter;
 
 /// <summary>Tests for PlayerInfo flag counters.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class FlagCounterTests
 {
     [Test]
@@ -20,7 +20,7 @@ public class FlagCounterTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddCapturedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -36,7 +36,7 @@ public class FlagCounterTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddDroppedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -52,7 +52,7 @@ public class FlagCounterTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerInfo flag counters); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void AddReturnedFlags_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange

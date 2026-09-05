@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Weapons;
 
 /// <summary>Tests for WeaponPack.</summary>
-/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class WeaponPackTests
 {
     [Test]
@@ -18,7 +18,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsEmpty_WhenThereAreWeapons_ShouldReturnFalse()
     {
         // Arrange
@@ -32,7 +32,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Add_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -49,7 +49,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Add_WhenThereIsWeaponWithSameCategoryOrSlot_ShouldReplaceExistingWeapon()
     {
         // Arrange
@@ -68,7 +68,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Add_WhenNewWeaponIsNotOfTheSameCategoryOrSlot_ShouldNotReplaceExistingWeapon()
     {
         // Arrange
@@ -87,7 +87,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Exists_WhenWeaponIsFound_ShouldReturnTrue()
     {
         // Arrange
@@ -102,7 +102,7 @@ public class WeaponPackTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: WeaponPack); CD-26 (NUnit test-framework contract) → CD-03; CD-27 (FluentAssertions contract) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Exists_WhenWeaponIsNotFound_ShouldReturnFalse()
     {
         // Arrange

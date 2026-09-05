@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GameRules;
 
 /// <summary>Tests for Flag.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class FlagTests
 {
     [Test]
@@ -21,7 +21,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasCarrier_WhenFlagHasNoCarrier_ShouldReturnFalse()
     {
         // Arrange
@@ -35,7 +35,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void CarrierName_WhenFlagHasCarrier_ShouldReturnCarrierName()
     {
         // Arrange
@@ -53,7 +53,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Carrier_WhenFlagHasNoCarrier_ShouldBeNull()
     {
         // Arrange
@@ -67,7 +67,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Capture_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -84,7 +84,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Capture_WhenArgumentIsValid_ShouldSetPlayerAsCarrier()
     {
         // Arrange
@@ -99,7 +99,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Capture_WhenArgumentIsValid_ShouldSetStatusAsCaptured()
     {
         // Arrange
@@ -114,7 +114,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Capture_WhenFlagAlreadyHasCarrier_ShouldReplaceCarrier()
     {
         // Arrange
@@ -133,7 +133,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Capture_WhenFlagWasReturnedToBase_ShouldSetNewCarrier()
     {
         // Arrange
@@ -153,7 +153,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Take_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -170,7 +170,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Take_WhenArgumentIsValid_ShouldSetPlayerAsCarrier()
     {
         // Arrange
@@ -185,7 +185,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Take_WhenArgumentIsValid_ShouldSetStatusAsTaken()
     {
         // Arrange
@@ -200,7 +200,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Take_WhenFlagAlreadyHasCarrier_ShouldReplaceCarrier()
     {
         // Arrange
@@ -219,7 +219,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Take_WhenFlagWasDropped_ShouldSetNewCarrier()
     {
         // Arrange
@@ -239,7 +239,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Drop_WhenFlagHasCarrier_ShouldRemoveCarrier()
     {
         // Arrange
@@ -256,7 +256,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Drop_WhenCalled_ShouldSetStatusAsDropped()
     {
         // Arrange
@@ -273,7 +273,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Drop_WhenFlagHasNoCarrier_ShouldNotThrowNullReferenceException()
     {
         // Arrange
@@ -287,7 +287,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void ReturnToBase_WhenFlagHasCarrier_ShouldRemoveCarrier()
     {
         // Arrange
@@ -304,7 +304,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void ReturnToBase_WhenCalled_ShouldSetStatusAsBasePosition()
     {
         // Arrange
@@ -321,7 +321,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Reset_WhenFlagHasCarrier_ShouldRemoveCarrier()
     {
         // Arrange
@@ -338,7 +338,7 @@ public class FlagTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Reset_WhenCalled_ShouldSetStatusAsBasePosition()
     {
         // Arrange
@@ -354,7 +354,7 @@ public class FlagTests
         flag.Status.Should().Be(FlagStatus.BasePosition);
     }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Flag); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     private static Flag CreateFlag() =>
         new()
         {

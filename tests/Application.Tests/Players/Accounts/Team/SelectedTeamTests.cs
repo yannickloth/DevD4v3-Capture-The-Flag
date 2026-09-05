@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts.Team;
 
 /// <summary>Tests for PlayerInfo.SetTeam.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class SelectedTeamTests
 {
     [TestCase(-1)]
@@ -11,7 +11,7 @@ public class SelectedTeamTests
     [TestCase(4)]
     [TestCase(254)]
     [TestCase(256)]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetTeam_WhenTeamIsInvalid_ShouldReturnFailureResult(int id)
     {
         // Arrange
@@ -31,7 +31,7 @@ public class SelectedTeamTests
     [TestCase(TeamId.Alpha)]
     [TestCase(TeamId.Beta)]
     [TestCase(TeamId.NoTeam)]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: PlayerInfo.SetTeam); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void SetTeam_WhenTeamIsValid_ShouldReturnSuccessResult(TeamId teamId)
     {
         // Arrange

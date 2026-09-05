@@ -1,7 +1,7 @@
 namespace CTF.Application.Tests.Authorization;
 
 /// <summary>Tests for PlayerRoleExtensions.</summary>
-/// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class PlayerRoleExtensionsTests
 {
     [Test]
@@ -20,7 +20,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasRole_WhenRoleIsNotAdmin_ShouldReturnFalse()
     {
         // Arrange
@@ -37,7 +37,7 @@ public class PlayerRoleExtensionsTests
     [TestCase(RoleId.Basic)]
     [TestCase(RoleId.VIP)]
     [TestCase(RoleId.Moderator)]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasLowerRoleThanAdmin_ShouldReturnTrue(RoleId roleId)
     {
         // Arrange
@@ -52,7 +52,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasNoLowerRoleThanAdmin_ShouldReturnFalse()
     {
         // Arrange
@@ -68,7 +68,7 @@ public class PlayerRoleExtensionsTests
 
     [TestCase(RoleId.Basic)]
     [TestCase(RoleId.VIP)]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasLowerRoleThanModerator_ShouldReturnTrue(RoleId roleId)
     {
         // Arrange
@@ -84,7 +84,7 @@ public class PlayerRoleExtensionsTests
 
     [TestCase(RoleId.Moderator)]
     [TestCase(RoleId.Admin)]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasNoLowerRoleThanModerator_ShouldReturnFalse(RoleId roleId)
     {
         // Arrange
@@ -99,7 +99,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasLowerRoleThanVIP_ShouldReturnTrue()
     {
         // Arrange
@@ -116,7 +116,7 @@ public class PlayerRoleExtensionsTests
     [TestCase(RoleId.VIP)]
     [TestCase(RoleId.Moderator)]
     [TestCase(RoleId.Admin)]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HasLowerRoleThan_WhenPlayerHasNoLowerRoleThanVIP_ShouldReturnFalse(RoleId roleId)
     {
         // Arrange
@@ -131,7 +131,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsVIP_WhenPlayerIsVIP_ShouldReturnTrue()
     {
         // Arrange
@@ -146,7 +146,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsVIP_WhenPlayerIsNotVIP_ShouldReturnFalse()
     {
         // Arrange
@@ -161,7 +161,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsModerator_WhenPlayerIsModerator_ShouldReturnTrue()
     {
         // Arrange
@@ -176,7 +176,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsModerator_WhenPlayerIsNotModerator_ShouldReturnFalse()
     {
         // Arrange
@@ -191,7 +191,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsAdmin_WhenPlayerIsAdmin_ShouldReturnTrue()
     {
         // Arrange
@@ -206,7 +206,7 @@ public class PlayerRoleExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-09 (root; authorization policy: PlayerRoleExtensions); CD-26 (NUnit test-framework contract) → CD-09; CD-27 (FluentAssertions contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsAdmin_WhenPlayerIsNotAdmin_ShouldReturnFalse()
     {
         // Arrange

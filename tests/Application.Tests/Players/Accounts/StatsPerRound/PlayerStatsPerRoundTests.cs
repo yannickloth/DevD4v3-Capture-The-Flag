@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Accounts.StatsPerRound;
 
 /// <summary>Tests for PlayerStatsPerRound.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
 public class PlayerStatsPerRoundTests
 {
     [TestCase(10)]
@@ -22,7 +22,7 @@ public class PlayerStatsPerRoundTests
 
     [TestCase(11)]
     [TestCase(12)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void HasSufficientCoins_WhenPlayerHasInsufficientCoins_ShouldReturnFalse(int amount)
     {
         // Arrange
@@ -39,7 +39,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(10)]
     [TestCase(9)]
     [TestCase(8)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void HasInsufficientCoins_WhenPlayerHasSufficientCoins_ShouldReturnFalse(int amount)
     {
         // Arrange
@@ -55,7 +55,7 @@ public class PlayerStatsPerRoundTests
 
     [TestCase(11)]
     [TestCase(12)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void HasInsufficientCoins_WhenPlayerHasInsufficientCoins_ShouldReturnTrue(int amount)
     {
         // Arrange
@@ -72,7 +72,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(0)]
     [TestCase(-1)]
     [TestCase(101)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddCoins_WhenCoinsAreNotBetween1To100_ShouldReturnFailureResult(int value)
     {
         // Arrange
@@ -91,7 +91,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(2)]
     [TestCase(99)]
     [TestCase(100)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddCoins_WhenCoinsAreBetween1To100_ShouldReturnSuccessResult(int value)
     {
         // Arrange
@@ -109,7 +109,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(22)]
     [TestCase(23)]
     [TestCase(100)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddCoins_WhenSumOfCoinsExceedsValueOf100_ShouldSetValueTo100(int value)
     {
         // Arrange
@@ -128,7 +128,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(0)]
     [TestCase(1)]
     [TestCase(-101)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void SubtractCoins_WhenCoinsAreNotInSpecifiedRange_ShouldReturnFailureResult(int value)
     {
         // Arrange
@@ -148,7 +148,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(-2)]
     [TestCase(-99)]
     [TestCase(-100)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void SubtractCoins_WhenCoinsAreInSpecifiedRange_ShouldReturnSuccessResult(int value)
     {
         // Arrange
@@ -167,7 +167,7 @@ public class PlayerStatsPerRoundTests
     [TestCase(-12)]
     [TestCase(-13)]
     [TestCase(-100)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void SubtractCoins_WhenSubtractionOfCoinsGivesNegativeResult_ShouldSetValueToZero(int value)
     {
         // Arrange
@@ -184,7 +184,7 @@ public class PlayerStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddKills_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -200,7 +200,7 @@ public class PlayerStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddDeaths_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -216,7 +216,7 @@ public class PlayerStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void AddKillingSpree_WhenCalledTwice_ShouldBeIncreasedTo2()
     {
         // Arrange
@@ -232,7 +232,7 @@ public class PlayerStatsPerRoundTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: PlayerStatsPerRound); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10; CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Coin)]
     public void ResetStats_WhenCalled_ShouldResetAllStatsToZero()
     {
         // Arrange

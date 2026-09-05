@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Extensions;
 
 /// <summary>Tests for PlayerExtensions.</summary>
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerExtensions); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08; CD-32 (ECS runtime) → CD-08</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
 public class PlayerExtensionsTests
 {
     [Test]
@@ -18,7 +18,7 @@ public class PlayerExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerExtensions); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08; CD-32 (ECS runtime) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
     public void GetRequiredInfo_WhenAccountComponentIsAssigned_ShouldNotThrowInvalidOperationException()
     {
         // Arrange
@@ -32,7 +32,7 @@ public class PlayerExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerExtensions); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08; CD-32 (ECS runtime) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
     public void IsUnauthenticated_WhenPlayerIsUnauthenticated_ShouldReturnTrue()
     {
         // Arrange
@@ -49,7 +49,7 @@ public class PlayerExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerExtensions); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08; CD-32 (ECS runtime) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
     public void IsUnauthenticated_WhenPlayerIsAuthenticated_ShouldReturnFalse()
     {
         // Arrange
@@ -66,7 +66,7 @@ public class PlayerExtensionsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy: PlayerExtensions); CD-26 (NUnit test-framework contract) → CD-08; CD-27 (FluentAssertions contract) → CD-08; CD-32 (ECS runtime) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
     public void IsUnauthenticated_WhenNoAccountComponent_ShouldThrowInvalidOperationException()
     {
         // Arrange

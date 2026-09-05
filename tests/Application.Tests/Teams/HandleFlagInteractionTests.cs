@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
 /// <summary>Tests for Team.HandleFlagInteraction.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class HandleFlagInteractionTests
 {
     [SetUp]
@@ -12,7 +12,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenArgumentIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -27,7 +27,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenAlphaTeamCapturesTheFlagOfTheBetaTeam_ShouldReturnCapturedStatus()
     {
         // Arrange
@@ -46,7 +46,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenBetaTeamCapturesTheFlagOfTheAlphaTeam_ShouldReturnCapturedStatus()
     {
         // Arrange
@@ -65,7 +65,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromAlphaTeamBroughtTheFlagOfTheBetaTeamToTheirOwnBase_ShouldReturnBroughtStatus()
     {
         // Arrange
@@ -87,7 +87,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromBetaTeamBroughtTheFlagOfTheAlphaTeamToTheirOwnBase_ShouldReturnBroughtStatus()
     {
         // Arrange
@@ -109,7 +109,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromAlphaTeamAttemptsToCaptureTheFlagOfTheirTeamFromBase_ShouldReturnBasePositionStatus()
     {
         // Arrange
@@ -127,7 +127,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromBetaTeamAttemptsToCaptureTheFlagOfTheirTeamFromBase_ShouldReturnBasePositionStatus()
     {
         // Arrange
@@ -145,7 +145,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromAlphaTeamReturnsTheFlagOfTheirOwnTeam_ShouldReturnReturnedStatus()
     {
         // Arrange
@@ -164,7 +164,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromBetaTeamReturnsTheFlagOfTheirOwnTeam_ShouldReturnReturnedStatus()
     {
         // Arrange
@@ -183,7 +183,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromBetaTeamTakesTheFlagOfTheAlphaTeamFrom_A_PositionOtherThanTheBase_ShouldReturnTakenStatus()
     {
         // Arrange
@@ -203,7 +203,7 @@ public class HandleFlagInteractionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: Team.HandleFlagInteraction); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void HandleFlagInteraction_WhenPlayerFromAlphaTeamTakesTheFlagOfTheBetaTeamFrom_A_PositionOtherThanTheBase_ShouldReturnTakenStatus()
     {
         // Arrange

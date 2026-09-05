@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Players.Ranks;
 
 /// <summary>Tests for RankCollection.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class RankCollectionTests
 {
     static readonly int[] InvalidRankCases = [-1, 1000, RankCollection.Count];
@@ -22,7 +22,7 @@ public class RankCollectionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetById_WhenRankIsValid_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -39,7 +39,7 @@ public class RankCollectionTests
     }
 
     [TestCaseSource(nameof(InvalidRankCases))]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetNextRank_WhenRankIsInvalid_ShouldReturnFailureResult(int value)
     {
         // Arrange
@@ -55,7 +55,7 @@ public class RankCollectionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetNextRank_WhenRankIsValid_ShouldReturnSuccessResult()
     {
         // Arrange
@@ -71,7 +71,7 @@ public class RankCollectionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetNextRank_WhenThereIsNoNextRank_ShouldNotReturnsAnyRank()
     {
         // Arrange
@@ -87,7 +87,7 @@ public class RankCollectionTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetByRequiredKills_WhenKillsIsNegative_ShouldReturnFailureResult()
     {
         // Arrange
@@ -103,7 +103,7 @@ public class RankCollectionTests
     }
 
     [TestCaseSource(typeof(GetRankByRequiredKillsTestCases))]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void GetByRequiredKills_WhenRankIsObtainedByKills_ShouldReturnSuccessResult((RankId ExpectedRankId, int Kills) rank)
     {
         // Arrange

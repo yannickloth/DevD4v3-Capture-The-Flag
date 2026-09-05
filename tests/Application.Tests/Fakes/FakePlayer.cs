@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Fakes;
 
 /// <summary>Test double for the platform Player surface.</summary>
-/// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+[ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
 public class FakePlayer : Player
 {
     private float _health = 100;
@@ -25,13 +25,13 @@ public class FakePlayer : Player
         [Obsolete("Use SetName(string) instead")]
         set => SetName(value);
     }
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override int Team { get; set; }
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override int Id => _id;
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override bool RemoveAttachedObject(int index) => true;
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override bool SetAttachedObject(
         int index,
         int modelId,
@@ -42,7 +42,7 @@ public class FakePlayer : Player
         Color materialColor1,
         Color materialColor2) => true;
 
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override void SetName(string name)
     {
         _name = name;

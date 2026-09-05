@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Teams;
 
 /// <summary>Tests for TeamMembers.</summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class TeamMembersTests
 {
     [Test]
@@ -18,7 +18,7 @@ public class TeamMembersTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void IsEmpty_WhenThereAreTeamMembers_ShouldReturnFalse()
     {
         // Arrange
@@ -35,7 +35,7 @@ public class TeamMembersTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Add_WhenMemberAlreadyExists_ShouldThrowArgumentException()
     {
         // Arrange
@@ -55,7 +55,7 @@ public class TeamMembersTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Add_WhenMemberDoesNotExist_ShouldNotThrowArgumentException()
     {
         // Arrange
@@ -75,7 +75,7 @@ public class TeamMembersTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Remove_WhenPlayerIsNotFound_ShouldThrowArgumentException()
     {
         // Arrange
@@ -93,7 +93,7 @@ public class TeamMembersTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: TeamMembers); CD-26 (NUnit test-framework contract) → CD-02; CD-27 (FluentAssertions contract) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Remove_WhenPlayerIsFound_ShouldNotThrowArgumentException()
     {
         // Arrange

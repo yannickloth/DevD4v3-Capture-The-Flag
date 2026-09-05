@@ -3,7 +3,7 @@
 namespace CTF.Application.Tests.MapRotation;
 
 /// <summary>Tests for LoadTime.</summary>
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class LoadTimeTests
 {
     static readonly int[] ExpectedIntervalCases = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
@@ -16,7 +16,7 @@ public class LoadTimeTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenOnLoadingMapIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -36,7 +36,7 @@ public class LoadTimeTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenOnLoadedMapIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -56,7 +56,7 @@ public class LoadTimeTests
     }
 
     [TestCaseSource(nameof(ExpectedIntervalCases))]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Decrease_WhenLoadTimeIsNotCompleted_ShouldContinueToDecrease(int expectedInterval)
     {
         // Arrange
@@ -72,7 +72,7 @@ public class LoadTimeTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Decrease_WhenIntervalIsEqualsToZero_ShouldInvokeOnLoadedMap()
     {
         // Arrange
@@ -103,7 +103,7 @@ public class LoadTimeTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: LoadTime); CD-26 (NUnit test-framework contract) → CD-12; CD-27 (FluentAssertions contract) → CD-12</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Decrease_WhenIntervalIsEqualsToMaxLoadTime_ShouldInvokeOnLoadingMap()
     {
         // Arrange

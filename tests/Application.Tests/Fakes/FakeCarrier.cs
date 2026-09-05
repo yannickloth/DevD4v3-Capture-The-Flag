@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Fakes;
 
 /// <summary>Test double for the platform Player surface.</summary>
-/// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+[ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
 public class FakeCarrier : Player
 {
     public FakeCarrier() : base(Substitute.For<IOmpEntityProvider>(), default)
@@ -19,6 +19,6 @@ public class FakeCarrier : Player
         Color materialColor1,
         Color materialColor2) => true;
 
-    /// <remarks>Change drivers: CD-31 (root; player entity surface); CD-28 (NSubstitute mock contract) → CD-31</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
     public override bool RemoveAttachedObject(int index) => true;
 }

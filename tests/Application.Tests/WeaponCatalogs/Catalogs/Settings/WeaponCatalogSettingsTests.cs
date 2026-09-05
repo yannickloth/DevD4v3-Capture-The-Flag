@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.WeaponCatalogs.Catalogs.Settings;
 
 /// <summary>Tests for WeaponCatalogSettings.</summary>
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalogSettings); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04; CD-17 (game configuration/.env schema) → CD-04</remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
 public class WeaponCatalogSettingsTests
 {
     [Test]
@@ -20,7 +20,7 @@ public class WeaponCatalogSettingsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalogSettings); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04; CD-17 (game configuration/.env schema) → CD-04</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
     public void Constructor_WhenCatalogTypeIsValid_ShouldCreateInstance()
     {
         // Arrange
@@ -34,7 +34,7 @@ public class WeaponCatalogSettingsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalogSettings); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04; CD-17 (game configuration/.env schema) → CD-04</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
     public void Change_WhenCatalogTypeIsInvalid_ShouldThrowArgumentOutOfRangeException()
     {
         // Arrange
@@ -51,7 +51,7 @@ public class WeaponCatalogSettingsTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration: WeaponCatalogSettings); CD-26 (NUnit test-framework contract) → CD-04; CD-27 (FluentAssertions contract) → CD-04; CD-17 (game configuration/.env schema) → CD-04</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]
     public void Change_WhenCatalogTypeIsValid_ShouldUpdateCatalog()
     {
         // Arrange

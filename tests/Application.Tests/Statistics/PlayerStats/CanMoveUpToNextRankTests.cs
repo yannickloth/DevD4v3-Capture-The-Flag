@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.Statistics.PlayerStats;
 
 /// <summary>Tests for RankCollection.CanMoveUpToNextRank.</summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class CanMoveUpToNextRankTests
 {
     [Test]
@@ -48,7 +48,7 @@ public class CanMoveUpToNextRankTests
     [TestCase(RankId.Professional, 651)]
     [TestCase(RankId.SuperPro,     700)]
     [TestCase(RankId.SuperPro,     701)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void CanMoveUpToNextRank_WhenPlayerDoesHaveRequiredKills_ShouldReturnTrue(RankId currentRank, int kills)
     {
         // Arrange
@@ -91,7 +91,7 @@ public class CanMoveUpToNextRankTests
     [TestCase(RankId.Professional, 601)]
     [TestCase(RankId.SuperPro,     650)]
     [TestCase(RankId.SuperPro,     651)]
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: RankCollection.CanMoveUpToNextRank); CD-26 (NUnit test-framework contract) → CD-10; CD-27 (FluentAssertions contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void CanMoveUpToNextRank_WhenPlayerDoesNotHaveRequiredKills_ShouldReturnFalse(RankId currentRank, int kills)
     {
         // Arrange

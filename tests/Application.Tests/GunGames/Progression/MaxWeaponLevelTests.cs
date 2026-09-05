@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Tests.GunGames.Progression;
 
 /// <summary>Tests for MaxWeaponLevel.</summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules: MaxWeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 public class MaxWeaponLevelTests
 {
     [Test]
@@ -18,7 +18,7 @@ public class MaxWeaponLevelTests
     }
 
     [Test]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: MaxWeaponLevel); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
     public void Constructor_WhenValueIsLessThanOne_ShouldThrowArgumentOutOfRangeException()
     {
         // Arrange
