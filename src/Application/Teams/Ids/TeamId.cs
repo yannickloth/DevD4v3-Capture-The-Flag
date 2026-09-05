@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams;
+﻿namespace CTF.Application.Teams.Ids;
 
 /// <summary>
 /// Represents the identifiers of the teams in the CTF gamemode.
