@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.Gamma_CD03_CD04_CD07_CD09_CD15_CD32_CD33_CD36_CD43;
+﻿namespace CTF.Application.Players.Weapons.System;
 
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-03 (combat/weapon-rules specification) → CD-04; CD-07 (GunGame mode rules) → CD-04; CD-15 (command set) → CD-04; CD-09 (authorization policy) → CD-04; CD-32 (ECS runtime); CD-33 (dialog API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-04</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; dialogService -> CD-33; gunGameMode -> CD-07; weaponCatalog -> CD-04; weaponCatalogSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

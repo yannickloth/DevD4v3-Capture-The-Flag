@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.Gamma_CD04_CD17;
+﻿namespace CTF.Application.Players.Weapons.ActiveCatalog;
 
 /// <summary>
 /// Represents the active weapon catalog used by the server.
