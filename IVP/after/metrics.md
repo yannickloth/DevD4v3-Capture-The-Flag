@@ -2,9 +2,9 @@
 
 > Canonical measurement of the post-IVP tree with the pinned tool `IVP/tools/IvpMeasure.java`
 > (display labels for CD-31..CD-44 added; set semantics unchanged). 315 annotated types
-> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 91 namespaces, 42 active
+> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 178 namespaces, 42 active
 > drivers (CD-01 decomposed into CD-31..CD-44, CD-29 retired), 181 distinct Γ-sets,
-> 20 scattered sets.
+> 21 scattered sets.
 >
 > **Comparability caveat:** the driver space was *refined*, not merely moved — former CD-01
 > umbrella sets split into finer sub-driver sets. Raw set-count deltas vs the before baseline
@@ -64,11 +64,11 @@
 | Statistic | Value | Before |
 |---|---|---|
 | Types with a change-driver annotation | 315 | 293 |
-| Namespaces | 91 | 57 |
+| Namespaces | 178 | 57 |
 | Mean change drivers per class | 2.94 | 3.03 |
 | Median change drivers per class | 3 | 3 |
-| Mean change drivers per namespace | 4.76 | 6.51 |
-| Median change drivers per namespace | 4.0 | 6 |
+| Mean change drivers per namespace | 3.62 | 6.51 |
+| Median change drivers per namespace | 3.0 | 6 |
 
 Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5, 10=3}
 
@@ -78,7 +78,7 @@ Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5,
 |---|---|---|
 | **classes (elements `E`)** | 315 | the code elements supplied to the partition |
 | **distinct change-driver sets (`E/Γ`)** | 181 | the Γ-equivalence classes = the IVP normative partition |
-| **namespaces (actual modules)** | 91 | the partition the code actually has |
+| **namespaces (actual modules)** | 178 | the partition the code actually has |
 
 After the refinement the set space is finer by construction (the former CD-01 umbrella
 sets split), so `181 vs 137` before is not a regression signal. The structural defect
@@ -89,64 +89,144 @@ metrics are the ones below: scattered sets and composite namespaces.
 | namespace | classes | distinct tokens | distinct sets | single-set? |
 |---|---|---|---|---|
 | CTF.Application | 1 | 1 | 1 | yes |
-| CTF.Application.Accounts.Authentication | 7 | 9 | 6 | no |
-| CTF.Application.Accounts.Credentials | 3 | 6 | 3 | no |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD15_CD20_CD31_CD36_CD43 | 1 | 6 | 1 | yes |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD15_CD20_CD33_CD36_CD43 | 1 | 6 | 1 | yes |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD20_CD25_CD31_CD32_CD36 | 2 | 6 | 2 | no |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD20_CD31_CD32 | 1 | 4 | 1 | yes |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD32 | 1 | 2 | 1 | yes |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD33 | 1 | 2 | 1 | yes |
+| CTF.Application.Accounts.Credentials.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Accounts.Credentials.Gamma_CD08_CD09_CD10_CD44 | 1 | 4 | 1 | yes |
+| CTF.Application.Accounts.Credentials.Gamma_CD08_CD18_CD20 | 1 | 3 | 1 | yes |
 | CTF.Application.Accounts.Extensions | 1 | 1 | 1 | yes |
-| CTF.Application.AntiCheat | 4 | 9 | 4 | no |
+| CTF.Application.AntiCheat.Gamma_CD09_CD14_CD15_CD17_CD31_CD36_CD43 | 1 | 7 | 1 | yes |
+| CTF.Application.AntiCheat.Gamma_CD14_CD17 | 1 | 2 | 1 | yes |
+| CTF.Application.AntiCheat.Gamma_CD14_CD17_CD31_CD32_CD35 | 1 | 5 | 1 | yes |
+| CTF.Application.AntiCheat.Gamma_CD14_CD32 | 1 | 2 | 1 | yes |
 | CTF.Application.Audio | 1 | 1 | 1 | yes |
 | CTF.Application.Audio.Configuration | 1 | 1 | 1 | yes |
-| CTF.Application.Authorization.Admin | 3 | 7 | 2 | no |
-| CTF.Application.Authorization.Roles | 8 | 10 | 5 | no |
+| CTF.Application.Authorization.Admin.Gamma_CD09_CD15_CD17_CD32_CD33_CD36_CD43 | 1 | 7 | 1 | yes |
+| CTF.Application.Authorization.Admin.Gamma_CD09_CD17 | 2 | 2 | 1 | yes |
+| CTF.Application.Authorization.Roles.Core | 3 | 1 | 1 | yes |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD15_CD17_CD20_CD31_CD32_CD33_CD35_CD36_CD43 | 2 | 10 | 2 | no |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD20 | 1 | 2 | 1 | yes |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD43 | 2 | 2 | 1 | yes |
 | CTF.Application.Authorization.Vip | 1 | 6 | 1 | yes |
-| CTF.Application.Chat | 9 | 7 | 6 | no |
+| CTF.Application.Chat.Core | 2 | 1 | 1 | yes |
+| CTF.Application.Chat.Gamma_CD09_CD13_CD15_CD31_CD32_CD36_CD43 | 2 | 7 | 2 | no |
+| CTF.Application.Chat.Gamma_CD09_CD13_CD32_CD36 | 3 | 4 | 1 | yes |
+| CTF.Application.Chat.Gamma_CD13_CD31_CD32_CD36 | 1 | 4 | 1 | yes |
+| CTF.Application.Chat.Gamma_CD13_CD36 | 1 | 2 | 1 | yes |
 | CTF.Application.CoinEconomy | 2 | 9 | 2 | no |
 | CTF.Application.Combat | 1 | 1 | 1 | yes |
-| CTF.Application.Combat.Headshot | 2 | 8 | 2 | no |
-| CTF.Application.Combat.Health | 6 | 8 | 4 | no |
-| CTF.Application.Combat.WeaponSelection | 2 | 9 | 2 | no |
+| CTF.Application.Combat.Headshot.Gamma_CD03_CD10_CD17_CD20_CD31_CD32_CD36_CD40 | 1 | 8 | 1 | yes |
+| CTF.Application.Combat.Headshot.Gamma_CD03_CD17 | 1 | 2 | 1 | yes |
+| CTF.Application.Combat.Health.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Combat.Health.Gamma_CD03_CD09_CD15_CD17_CD31_CD32_CD36_CD43 | 4 | 8 | 2 | no |
+| CTF.Application.Combat.Health.Gamma_CD03_CD31 | 1 | 2 | 1 | yes |
+| CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD04_CD07_CD15_CD31_CD32_CD33_CD36_CD43 | 1 | 9 | 1 | yes |
+| CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD32 | 1 | 2 | 1 | yes |
 | CTF.Application.Combos | 1 | 1 | 1 | yes |
-| CTF.Application.Combos.Systems | 3 | 12 | 3 | no |
-| CTF.Application.Combos.Vitalities | 7 | 3 | 3 | no |
-| CTF.Application.CommandInfrastructure | 2 | 6 | 2 | no |
+| CTF.Application.Combos.Systems.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Combos.Systems.Gamma_CD05_CD06_CD07_CD10_CD15_CD31_CD33_CD34_CD35_CD36 | 1 | 10 | 1 | yes |
+| CTF.Application.Combos.Systems.Gamma_CD05_CD09_CD12_CD15_CD36 | 1 | 5 | 1 | yes |
+| CTF.Application.Combos.Vitalities.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Combos.Vitalities.Gamma_CD03_CD05_CD06 | 5 | 3 | 1 | yes |
+| CTF.Application.Combos.Vitalities.Gamma_CD05_CD06 | 1 | 2 | 1 | yes |
+| CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD43 | 1 | 5 | 1 | yes |
+| CTF.Application.CommandInfrastructure.Gamma_CD31_CD43 | 1 | 2 | 1 | yes |
 | CTF.Application.Commands | 1 | 1 | 1 | yes |
 | CTF.Application.Commands.Admin | 2 | 7 | 2 | no |
 | CTF.Application.Commands.Basic | 1 | 5 | 1 | yes |
 | CTF.Application.Commands.Moderator | 2 | 6 | 2 | no |
-| CTF.Application.Commands.Vip | 2 | 4 | 2 | no |
+| CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD31 | 1 | 3 | 1 | yes |
+| CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD33 | 1 | 3 | 1 | yes |
 | CTF.Application.Discord | 1 | 3 | 1 | yes |
 | CTF.Application.GameRules | 1 | 1 | 1 | yes |
-| CTF.Application.GameRules.ClassSelection | 7 | 10 | 6 | no |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD08_CD12_CD32 | 1 | 4 | 1 | yes |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD11_CD12_CD31 | 1 | 4 | 1 | yes |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD17_CD31 | 1 | 4 | 1 | yes |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD31_CD33_CD43 | 1 | 5 | 1 | yes |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD31 | 1 | 2 | 1 | yes |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD32 | 2 | 2 | 1 | yes |
 | CTF.Application.GameRules.Configuration | 1 | 2 | 1 | yes |
-| CTF.Application.GameRules.Flag | 19 | 18 | 18 | no |
-| CTF.Application.GameRules.Match | 6 | 4 | 3 | no |
-| CTF.Application.GameRules.Players | 5 | 5 | 4 | no |
+| CTF.Application.GameRules.Flag.Core | 1 | 1 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD03_CD09_CD10_CD15_CD31_CD37 | 1 | 7 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD17_CD20_CD35_CD37_CD38_CD40 | 1 | 9 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD34_CD35_CD37_CD40 | 1 | 8 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD35_CD37_CD40 | 1 | 7 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD09_CD15_CD17_CD38 | 1 | 5 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD10_CD20_CD35_CD37_CD38_CD40 | 1 | 7 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17 | 2 | 2 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD31_CD37_CD40_CD41 | 2 | 6 | 2 | no |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD35_CD37_CD38_CD40 | 1 | 6 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD37_CD40_CD41 | 1 | 5 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD21 | 1 | 2 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD31 | 1 | 2 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD35 | 1 | 2 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD37_CD38_CD41 | 1 | 4 | 1 | yes |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD38_CD44 | 2 | 4 | 2 | no |
+| CTF.Application.GameRules.Match.Core | 1 | 1 | 1 | yes |
+| CTF.Application.GameRules.Match.Gamma_CD02_CD31 | 4 | 2 | 1 | yes |
+| CTF.Application.GameRules.Match.Gamma_CD02_CD35_CD36 | 1 | 3 | 1 | yes |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31 | 1 | 2 | 1 | yes |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD32 | 2 | 3 | 1 | yes |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD32_CD41 | 1 | 4 | 1 | yes |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD36 | 1 | 3 | 1 | yes |
 | CTF.Application.GunGames | 2 | 2 | 2 | no |
-| CTF.Application.GunGames.Progression | 15 | 2 | 2 | no |
-| CTF.Application.GunGames.Results | 4 | 7 | 2 | no |
+| CTF.Application.GunGames.Progression.Core | 14 | 1 | 1 | yes |
+| CTF.Application.GunGames.Progression.Gamma_CD07_CD32 | 1 | 2 | 1 | yes |
+| CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36 | 3 | 5 | 1 | yes |
+| CTF.Application.GunGames.Results.Gamma_CD07_CD10_CD20_CD31_CD32_CD36 | 1 | 6 | 1 | yes |
 | CTF.Application.GunGames.Rewards | 2 | 3 | 2 | no |
-| CTF.Application.GunGames.Systems | 8 | 10 | 3 | no |
-| CTF.Application.MapIcons | 2 | 3 | 2 | no |
-| CTF.Application.Maps | 9 | 8 | 3 | no |
-| CTF.Application.Maps.Rotation | 6 | 12 | 3 | no |
+| CTF.Application.GunGames.Systems.Core | 6 | 1 | 1 | yes |
+| CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD09_CD15_CD31_CD32_CD33_CD35_CD36_CD43 | 1 | 10 | 1 | yes |
+| CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD31_CD32 | 1 | 4 | 1 | yes |
+| CTF.Application.MapIcons.Core | 1 | 1 | 1 | yes |
+| CTF.Application.MapIcons.Gamma_CD11_CD37_CD38 | 1 | 3 | 1 | yes |
+| CTF.Application.Maps.Core | 6 | 1 | 1 | yes |
+| CTF.Application.Maps.Gamma_CD11_CD12 | 2 | 2 | 2 | no |
+| CTF.Application.Maps.Gamma_CD11_CD17_CD32_CD34_CD37_CD38_CD42 | 1 | 7 | 1 | yes |
+| CTF.Application.Maps.Rotation.Core | 4 | 1 | 1 | yes |
+| CTF.Application.Maps.Rotation.Gamma_CD02_CD11_CD12_CD31_CD34_CD36_CD41_CD42 | 1 | 8 | 1 | yes |
+| CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43 | 1 | 9 | 1 | yes |
 | CTF.Application.Pickups | 1 | 4 | 1 | yes |
-| CTF.Application.PlayerResources | 6 | 4 | 3 | no |
+| CTF.Application.PlayerResources.Core | 4 | 1 | 1 | yes |
+| CTF.Application.PlayerResources.Gamma_CD15_CD20_CD31_CD44 | 1 | 4 | 1 | yes |
+| CTF.Application.PlayerResources.Gamma_CD20_CD44 | 1 | 2 | 1 | yes |
 | CTF.Application.Players | 2 | 2 | 2 | no |
 | CTF.Application.Players.Accounts | 1 | 2 | 1 | yes |
 | CTF.Application.Players.Chats | 1 | 2 | 1 | yes |
 | CTF.Application.Players.TopPlayers | 2 | 3 | 2 | no |
-| CTF.Application.Players.Weapons | 3 | 10 | 3 | no |
-| CTF.Application.Players.Weapons.Catalogs | 2 | 2 | 2 | no |
+| CTF.Application.Players.Weapons.Catalogs.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Players.Weapons.Catalogs.Gamma_CD04_CD17 | 1 | 2 | 1 | yes |
+| CTF.Application.Players.Weapons.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Players.Weapons.Gamma_CD03_CD04_CD07_CD09_CD15_CD32_CD33_CD36_CD43 | 1 | 9 | 1 | yes |
+| CTF.Application.Players.Weapons.Gamma_CD04_CD17 | 1 | 2 | 1 | yes |
 | CTF.Application.RconSecurity | 1 | 3 | 1 | yes |
-| CTF.Application.Statistics.Ranks | 6 | 7 | 3 | no |
-| CTF.Application.Statistics.Score | 8 | 14 | 8 | no |
-| CTF.Application.Statistics.TeamStats | 3 | 7 | 3 | no |
-| CTF.Application.Statistics.TopPlayers | 4 | 7 | 3 | no |
+| CTF.Application.Statistics.Ranks.Core | 4 | 1 | 1 | yes |
+| CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20 | 1 | 4 | 1 | yes |
+| CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43 | 1 | 4 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD06 | 1 | 2 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD06_CD07_CD20_CD31_CD32_CD35_CD36 | 1 | 8 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD08_CD15_CD20_CD31_CD33_CD34_CD43 | 1 | 8 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD20 | 1 | 4 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD31_CD32_CD36_CD43 | 1 | 7 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD20 | 1 | 2 | 1 | yes |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD31_CD32_CD34 | 2 | 4 | 2 | no |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02 | 1 | 2 | 1 | yes |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD09_CD15_CD31_CD33_CD34 | 1 | 7 | 1 | yes |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33 | 1 | 5 | 1 | yes |
+| CTF.Application.Statistics.TopPlayers.Core | 2 | 1 | 1 | yes |
+| CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43 | 1 | 7 | 1 | yes |
+| CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17 | 1 | 2 | 1 | yes |
 | CTF.Application.Teams | 4 | 9 | 4 | no |
 | CTF.Application.Tests | 1 | 4 | 1 | yes |
 | CTF.Application.Tests.Authorization | 1 | 3 | 1 | yes |
 | CTF.Application.Tests.Fakes | 5 | 3 | 2 | no |
 | CTF.Application.Tests.GameRules | 3 | 3 | 1 | yes |
-| CTF.Application.Tests.GunGames | 8 | 3 | 2 | no |
+| CTF.Application.Tests.GunGames.Core | 2 | 1 | 1 | yes |
+| CTF.Application.Tests.GunGames.Gamma_CD07_CD26_CD27 | 6 | 3 | 1 | yes |
 | CTF.Application.Tests.Maps | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.Maps.Rotation | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.PlayerResources | 1 | 3 | 1 | yes |
@@ -156,15 +236,22 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.Tests.Players.TopPlayers | 1 | 4 | 1 | yes |
 | CTF.Application.Tests.Players.Vitalities | 2 | 3 | 1 | yes |
 | CTF.Application.Tests.Players.Weapons | 1 | 3 | 1 | yes |
-| CTF.Application.Tests.Players.Weapons.Catalogs | 4 | 4 | 3 | no |
-| CTF.Application.Tests.Statistics | 5 | 4 | 2 | no |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Core | 1 | 1 | 1 | yes |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Gamma_CD04_CD17_CD26_CD27 | 1 | 4 | 1 | yes |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Gamma_CD04_CD26_CD27 | 2 | 3 | 1 | yes |
+| CTF.Application.Tests.Statistics.Gamma_CD02_CD10_CD26_CD27 | 1 | 4 | 1 | yes |
+| CTF.Application.Tests.Statistics.Gamma_CD10_CD26_CD27 | 4 | 3 | 1 | yes |
 | CTF.Application.Tests.Teams | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.TextDraws | 1 | 3 | 1 | yes |
-| CTF.Application.TextDraws | 3 | 6 | 3 | no |
+| CTF.Application.TextDraws.Core | 1 | 1 | 1 | yes |
+| CTF.Application.TextDraws.Gamma_CD02_CD10_CD34_CD36 | 1 | 4 | 1 | yes |
+| CTF.Application.TextDraws.Gamma_CD11_CD12_CD34 | 1 | 3 | 1 | yes |
 | CTF.Application.WeaponCatalogs | 9 | 1 | 1 | yes |
 | CTF.Host.Bcrypt | 1 | 1 | 1 | yes |
 | CTF.Host.CommandInfrastructure | 1 | 1 | 1 | yes |
-| CTF.Host.Composition | 3 | 4 | 3 | no |
+| CTF.Host.Composition.Gamma_CD17_CD21_CD22 | 1 | 3 | 1 | yes |
+| CTF.Host.Composition.Gamma_CD21_CD22 | 1 | 2 | 1 | yes |
+| CTF.Host.Composition.Gamma_CD21_CD32 | 1 | 2 | 1 | yes |
 | CTF.Host.Config | 1 | 2 | 1 | yes |
 | CTF.Host.Deployment | 1 | 1 | 1 | yes |
 | CTF.Host.Discord | 2 | 2 | 2 | no |
@@ -180,11 +267,11 @@ metrics are the ones below: scattered sets and composite namespaces.
 | Persistence.Tests.Players | 5 | 4 | 1 | yes |
 | SampSharp | 1 | 2 | 1 | yes |
 
-51 single=40 namespaces.
+24 single=154 namespaces.
 
 ### 3.1 Root-causal namespace purity
 
-When subordinate platform/config/test-tooling drivers (anything explicitly fed via `→`, or unmarked when another driver in the same line is marked `(root`) are ignored, the namespace partition becomes much cleaner: **81 of 91 namespaces are single-root-set**, and the remaining **10** composites are documented essential deviations (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots).
+When subordinate platform/config/test-tooling drivers (anything explicitly fed via `→`, or unmarked when another driver in the same line is marked `(root`) are ignored, the namespace partition becomes much cleaner: **168 of 178 namespaces are single-root-set**, and the remaining **10** composites are documented essential deviations (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots).
 
 ## 4. Causal cohesion per namespace
 
@@ -193,64 +280,144 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | namespace | classes | tokens | sets | purity | completeness |
 |---|---|---|---|---|---|
 | CTF.Application | 1 | 1 | 1 | 1.000 | 0.167 |
-| CTF.Application.Accounts.Authentication | 7 | 9 | 6 | 0.167 | 1.000 |
-| CTF.Application.Accounts.Credentials | 3 | 6 | 3 | 0.333 | 0.500 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD15_CD20_CD31_CD36_CD43 | 1 | 6 | 1 | 1.000 | 1.000 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD15_CD20_CD33_CD36_CD43 | 1 | 6 | 1 | 1.000 | 1.000 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD20_CD25_CD31_CD32_CD36 | 2 | 6 | 2 | 0.500 | 0.500 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD20_CD31_CD32 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD32 | 1 | 2 | 1 | 1.000 | 0.500 |
+| CTF.Application.Accounts.Authentication.Gamma_CD08_CD33 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Accounts.Credentials.Core | 1 | 1 | 1 | 1.000 | 0.500 |
+| CTF.Application.Accounts.Credentials.Gamma_CD08_CD09_CD10_CD44 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Accounts.Credentials.Gamma_CD08_CD18_CD20 | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.Accounts.Extensions | 1 | 1 | 1 | 1.000 | 0.500 |
-| CTF.Application.AntiCheat | 4 | 9 | 4 | 0.250 | 1.000 |
+| CTF.Application.AntiCheat.Gamma_CD09_CD14_CD15_CD17_CD31_CD36_CD43 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.AntiCheat.Gamma_CD14_CD17 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.AntiCheat.Gamma_CD14_CD17_CD31_CD32_CD35 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.AntiCheat.Gamma_CD14_CD32 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Audio | 1 | 1 | 1 | 1.000 | 1.000 |
 | CTF.Application.Audio.Configuration | 1 | 1 | 1 | 1.000 | 0.167 |
-| CTF.Application.Authorization.Admin | 3 | 7 | 2 | 0.500 | 1.000 |
-| CTF.Application.Authorization.Roles | 8 | 10 | 5 | 0.200 | 1.000 |
+| CTF.Application.Authorization.Admin.Gamma_CD09_CD15_CD17_CD32_CD33_CD36_CD43 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.Authorization.Admin.Gamma_CD09_CD17 | 2 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Authorization.Roles.Core | 3 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD15_CD17_CD20_CD31_CD32_CD33_CD35_CD36_CD43 | 2 | 10 | 2 | 0.500 | 1.000 |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD20 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Authorization.Roles.Gamma_CD09_CD43 | 2 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Authorization.Vip | 1 | 6 | 1 | 1.000 | 1.000 |
-| CTF.Application.Chat | 9 | 7 | 6 | 0.167 | 1.000 |
+| CTF.Application.Chat.Core | 2 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.Chat.Gamma_CD09_CD13_CD15_CD31_CD32_CD36_CD43 | 2 | 7 | 2 | 0.500 | 1.000 |
+| CTF.Application.Chat.Gamma_CD09_CD13_CD32_CD36 | 3 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Chat.Gamma_CD13_CD31_CD32_CD36 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Chat.Gamma_CD13_CD36 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.CoinEconomy | 2 | 9 | 2 | 0.500 | 1.000 |
 | CTF.Application.Combat | 1 | 1 | 1 | 1.000 | 0.500 |
-| CTF.Application.Combat.Headshot | 2 | 8 | 2 | 0.500 | 1.000 |
-| CTF.Application.Combat.Health | 6 | 8 | 4 | 0.250 | 0.500 |
-| CTF.Application.Combat.WeaponSelection | 2 | 9 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combat.Headshot.Gamma_CD03_CD10_CD17_CD20_CD31_CD32_CD36_CD40 | 1 | 8 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combat.Headshot.Gamma_CD03_CD17 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combat.Health.Core | 1 | 1 | 1 | 1.000 | 0.500 |
+| CTF.Application.Combat.Health.Gamma_CD03_CD09_CD15_CD17_CD31_CD32_CD36_CD43 | 4 | 8 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combat.Health.Gamma_CD03_CD31 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD04_CD07_CD15_CD31_CD32_CD33_CD36_CD43 | 1 | 9 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combat.WeaponSelection.Gamma_CD03_CD32 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Combos | 1 | 1 | 1 | 1.000 | 0.333 |
-| CTF.Application.Combos.Systems | 3 | 12 | 3 | 0.333 | 0.333 |
-| CTF.Application.Combos.Vitalities | 7 | 3 | 3 | 0.333 | 0.333 |
-| CTF.Application.CommandInfrastructure | 2 | 6 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combos.Systems.Core | 1 | 1 | 1 | 1.000 | 0.333 |
+| CTF.Application.Combos.Systems.Gamma_CD05_CD06_CD07_CD10_CD15_CD31_CD33_CD34_CD35_CD36 | 1 | 10 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combos.Systems.Gamma_CD05_CD09_CD12_CD15_CD36 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combos.Vitalities.Core | 1 | 1 | 1 | 1.000 | 0.333 |
+| CTF.Application.Combos.Vitalities.Gamma_CD03_CD05_CD06 | 5 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Combos.Vitalities.Gamma_CD05_CD06 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD43 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.CommandInfrastructure.Gamma_CD31_CD43 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Commands | 1 | 1 | 1 | 1.000 | 0.500 |
 | CTF.Application.Commands.Admin | 2 | 7 | 2 | 0.500 | 0.500 |
 | CTF.Application.Commands.Basic | 1 | 5 | 1 | 1.000 | 1.000 |
 | CTF.Application.Commands.Moderator | 2 | 6 | 2 | 0.500 | 1.000 |
-| CTF.Application.Commands.Vip | 2 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD31 | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Commands.Vip.Gamma_CD09_CD15_CD33 | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.Discord | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.GameRules | 1 | 1 | 1 | 1.000 | 0.250 |
-| CTF.Application.GameRules.ClassSelection | 7 | 10 | 6 | 0.167 | 0.125 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD08_CD12_CD32 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD11_CD12_CD31 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD17_CD31 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD15_CD31_CD33_CD43 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD31 | 1 | 2 | 1 | 1.000 | 0.125 |
+| CTF.Application.GameRules.ClassSelection.Gamma_CD02_CD32 | 2 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.GameRules.Configuration | 1 | 2 | 1 | 1.000 | 1.000 |
-| CTF.Application.GameRules.Flag | 19 | 18 | 18 | 0.056 | 0.125 |
-| CTF.Application.GameRules.Match | 6 | 4 | 3 | 0.333 | 0.250 |
-| CTF.Application.GameRules.Players | 5 | 5 | 4 | 0.250 | 0.125 |
+| CTF.Application.GameRules.Flag.Core | 1 | 1 | 1 | 1.000 | 0.250 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD03_CD09_CD10_CD15_CD31_CD37 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD17_CD20_CD35_CD37_CD38_CD40 | 1 | 9 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD34_CD35_CD37_CD40 | 1 | 8 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD06_CD10_CD20_CD35_CD37_CD40 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD09_CD15_CD17_CD38 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD10_CD20_CD35_CD37_CD38_CD40 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17 | 2 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD31_CD37_CD40_CD41 | 2 | 6 | 2 | 0.500 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD35_CD37_CD38_CD40 | 1 | 6 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD17_CD37_CD40_CD41 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD21 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD31 | 1 | 2 | 1 | 1.000 | 0.125 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD35 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD37_CD38_CD41 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Flag.Gamma_CD02_CD38_CD44 | 2 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.GameRules.Match.Core | 1 | 1 | 1 | 1.000 | 0.250 |
+| CTF.Application.GameRules.Match.Gamma_CD02_CD31 | 4 | 2 | 1 | 1.000 | 0.500 |
+| CTF.Application.GameRules.Match.Gamma_CD02_CD35_CD36 | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31 | 1 | 2 | 1 | 1.000 | 0.125 |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD32 | 2 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD32_CD41 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD36 | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.GunGames | 2 | 2 | 2 | 0.500 | 0.042 |
-| CTF.Application.GunGames.Progression | 15 | 2 | 2 | 0.500 | 0.583 |
-| CTF.Application.GunGames.Results | 4 | 7 | 2 | 0.500 | 1.000 |
+| CTF.Application.GunGames.Progression.Core | 14 | 1 | 1 | 1.000 | 0.583 |
+| CTF.Application.GunGames.Progression.Gamma_CD07_CD32 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36 | 3 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.GunGames.Results.Gamma_CD07_CD10_CD20_CD31_CD32_CD36 | 1 | 6 | 1 | 1.000 | 1.000 |
 | CTF.Application.GunGames.Rewards | 2 | 3 | 2 | 0.500 | 0.042 |
-| CTF.Application.GunGames.Systems | 8 | 10 | 3 | 0.333 | 0.250 |
-| CTF.Application.MapIcons | 2 | 3 | 2 | 0.500 | 1.000 |
-| CTF.Application.Maps | 9 | 8 | 3 | 0.333 | 0.875 |
-| CTF.Application.Maps.Rotation | 6 | 12 | 3 | 0.333 | 1.000 |
+| CTF.Application.GunGames.Systems.Core | 6 | 1 | 1 | 1.000 | 0.250 |
+| CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD09_CD15_CD31_CD32_CD33_CD35_CD36_CD43 | 1 | 10 | 1 | 1.000 | 1.000 |
+| CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD31_CD32 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.MapIcons.Core | 1 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.MapIcons.Gamma_CD11_CD37_CD38 | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Maps.Core | 6 | 1 | 1 | 1.000 | 0.750 |
+| CTF.Application.Maps.Gamma_CD11_CD12 | 2 | 2 | 2 | 0.500 | 0.125 |
+| CTF.Application.Maps.Gamma_CD11_CD17_CD32_CD34_CD37_CD38_CD42 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.Maps.Rotation.Core | 4 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.Maps.Rotation.Gamma_CD02_CD11_CD12_CD31_CD34_CD36_CD41_CD42 | 1 | 8 | 1 | 1.000 | 1.000 |
+| CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43 | 1 | 9 | 1 | 1.000 | 1.000 |
 | CTF.Application.Pickups | 1 | 4 | 1 | 1.000 | 1.000 |
-| CTF.Application.PlayerResources | 6 | 4 | 3 | 0.333 | 1.000 |
+| CTF.Application.PlayerResources.Core | 4 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.PlayerResources.Gamma_CD15_CD20_CD31_CD44 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.PlayerResources.Gamma_CD20_CD44 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Players | 2 | 2 | 2 | 0.500 | 0.167 |
 | CTF.Application.Players.Accounts | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Players.Chats | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Application.Players.TopPlayers | 2 | 3 | 2 | 0.500 | 0.500 |
-| CTF.Application.Players.Weapons | 3 | 10 | 3 | 0.333 | 0.083 |
-| CTF.Application.Players.Weapons.Catalogs | 2 | 2 | 2 | 0.500 | 0.083 |
+| CTF.Application.Players.Weapons.Catalogs.Core | 1 | 1 | 1 | 1.000 | 0.083 |
+| CTF.Application.Players.Weapons.Catalogs.Gamma_CD04_CD17 | 1 | 2 | 1 | 1.000 | 0.500 |
+| CTF.Application.Players.Weapons.Core | 1 | 1 | 1 | 1.000 | 0.083 |
+| CTF.Application.Players.Weapons.Gamma_CD03_CD04_CD07_CD09_CD15_CD32_CD33_CD36_CD43 | 1 | 9 | 1 | 1.000 | 1.000 |
+| CTF.Application.Players.Weapons.Gamma_CD04_CD17 | 1 | 2 | 1 | 1.000 | 0.500 |
 | CTF.Application.RconSecurity | 1 | 3 | 1 | 1.000 | 1.000 |
-| CTF.Application.Statistics.Ranks | 6 | 7 | 3 | 0.333 | 0.667 |
-| CTF.Application.Statistics.Score | 8 | 14 | 8 | 0.125 | 0.500 |
-| CTF.Application.Statistics.TeamStats | 3 | 7 | 3 | 0.333 | 1.000 |
-| CTF.Application.Statistics.TopPlayers | 4 | 7 | 3 | 0.333 | 0.333 |
+| CTF.Application.Statistics.Ranks.Core | 4 | 1 | 1 | 1.000 | 0.667 |
+| CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD06 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD06_CD07_CD20_CD31_CD32_CD35_CD36 | 1 | 8 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD08_CD15_CD20_CD31_CD33_CD34_CD43 | 1 | 8 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD20 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD31_CD32_CD36_CD43 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD20 | 1 | 2 | 1 | 1.000 | 0.500 |
+| CTF.Application.Statistics.Score.Gamma_CD10_CD31_CD32_CD34 | 2 | 4 | 2 | 0.500 | 1.000 |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD09_CD15_CD31_CD33_CD34 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33 | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.TopPlayers.Core | 2 | 1 | 1 | 1.000 | 0.333 |
+| CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43 | 1 | 7 | 1 | 1.000 | 1.000 |
+| CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17 | 1 | 2 | 1 | 1.000 | 0.500 |
 | CTF.Application.Teams | 4 | 9 | 4 | 0.250 | 0.125 |
 | CTF.Application.Tests | 1 | 4 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Authorization | 1 | 3 | 1 | 1.000 | 0.500 |
 | CTF.Application.Tests.Fakes | 5 | 3 | 2 | 0.500 | 0.125 |
 | CTF.Application.Tests.GameRules | 3 | 3 | 1 | 1.000 | 0.429 |
-| CTF.Application.Tests.GunGames | 8 | 3 | 2 | 0.500 | 0.083 |
+| CTF.Application.Tests.GunGames.Core | 2 | 1 | 1 | 1.000 | 0.083 |
+| CTF.Application.Tests.GunGames.Gamma_CD07_CD26_CD27 | 6 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Maps | 3 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Maps.Rotation | 3 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.PlayerResources | 1 | 3 | 1 | 1.000 | 1.000 |
@@ -260,15 +427,22 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | CTF.Application.Tests.Players.TopPlayers | 1 | 4 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Players.Vitalities | 2 | 3 | 1 | 1.000 | 0.667 |
 | CTF.Application.Tests.Players.Weapons | 1 | 3 | 1 | 1.000 | 0.333 |
-| CTF.Application.Tests.Players.Weapons.Catalogs | 4 | 4 | 3 | 0.333 | 0.083 |
-| CTF.Application.Tests.Statistics | 5 | 4 | 2 | 0.500 | 0.444 |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Core | 1 | 1 | 1 | 1.000 | 0.083 |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Gamma_CD04_CD17_CD26_CD27 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Players.Weapons.Catalogs.Gamma_CD04_CD26_CD27 | 2 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Statistics.Gamma_CD02_CD10_CD26_CD27 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.Tests.Statistics.Gamma_CD10_CD26_CD27 | 4 | 3 | 1 | 1.000 | 0.444 |
 | CTF.Application.Tests.Teams | 3 | 3 | 1 | 1.000 | 0.429 |
 | CTF.Application.Tests.TextDraws | 1 | 3 | 1 | 1.000 | 0.111 |
-| CTF.Application.TextDraws | 3 | 6 | 3 | 0.333 | 1.000 |
+| CTF.Application.TextDraws.Core | 1 | 1 | 1 | 1.000 | 1.000 |
+| CTF.Application.TextDraws.Gamma_CD02_CD10_CD34_CD36 | 1 | 4 | 1 | 1.000 | 1.000 |
+| CTF.Application.TextDraws.Gamma_CD11_CD12_CD34 | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.WeaponCatalogs | 9 | 1 | 1 | 1.000 | 0.750 |
 | CTF.Host.Bcrypt | 1 | 1 | 1 | 1.000 | 0.500 |
 | CTF.Host.CommandInfrastructure | 1 | 1 | 1 | 1.000 | 1.000 |
-| CTF.Host.Composition | 3 | 4 | 3 | 0.333 | 1.000 |
+| CTF.Host.Composition.Gamma_CD17_CD21_CD22 | 1 | 3 | 1 | 1.000 | 1.000 |
+| CTF.Host.Composition.Gamma_CD21_CD22 | 1 | 2 | 1 | 1.000 | 1.000 |
+| CTF.Host.Composition.Gamma_CD21_CD32 | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Host.Config | 1 | 2 | 1 | 1.000 | 1.000 |
 | CTF.Host.Deployment | 1 | 1 | 1 | 1.000 | 1.000 |
 | CTF.Host.Discord | 2 | 2 | 2 | 0.500 | 1.000 |
@@ -322,43 +496,38 @@ are *not* topic-fusion. `Startup` is the only external-contract blocker (composi
 
 ### 7.1 Purity improvements at the leaves
 
-The per-driver modules created by the regroup measure as **pure single-set namespaces**
-(purity 1.000): `Pickups`, `RconSecurity`, `WeaponCatalogs`, `Players.Accounts`,
-`Players.Chats`, the single-type Host modules (`Ecs`, `ServerService`,
-`CommandInfrastructure`, `Config`, `Deployment`, `Logging`, `Bcrypt`), `SampSharp`,
-and most test namespaces. The recent namespace splits added the `Audio.Configuration`,
-`GameRules.*`, `Maps.Rotation`, `Statistics.*`, `Accounts.*`, `Authorization.*`,
-`Combat.*`, `Combos.*`, `Commands.*`, `GunGames.*`, and `Tests.Players.Weapons.Catalogs`
-submodules as additional single-root-set modules. In the before state only 12 of 57
+The namespace layer is now partitioned into **exact-set submodules**: within each
+namespace, types with the same full `Change drivers:` set are co-located, and types with
+different sets are in separate `Core` (root-only) or `Gamma_<drivers>` sub-namespaces.
+After the regroup, **154 of 178 namespaces are single-set by raw driver-set equality**,
+and **168 of 178 are single-root-set**. The 10 root-causal composites are the documented
+essential deviations from `IVP/constraints.md`. In the before state only 12 of 57
 namespaces were single-set.
 
 ### 7.2 Composite namespaces are now subordinate-driven, not topic-fused
 
-The former monolithic `GameRules` namespace (27 raw sets/38 classes), `Statistics`
-(16 raw sets/21 classes), `Accounts` (13/11), `Authorization` (10/12), `Combat` (14/11),
-`Combos` (13/11), `Commands` (7/8), and `GunGames` (13/27) have been split into feature
-submodules while keeping the parent namespaces as DI/generated-resource roots where
-needed. The remaining large raw-composite namespaces that were not split are the
-essential composites from `IVP/constraints.md` (persistence providers, generated resource
-classes, test fakes, aggregate facets, composition roots). Under the refined drivers the
-subordinate IDs exist precisely so platform usages are enumerable, not co-located as
-roots. After all namespace splits, only **10** namespaces remain root-set-composite; all
-are documented essential deviations.
+The original topic-based namespaces (`GameRules`, `Statistics`, `Accounts`,
+`Authorization`, `Combat`, `Combos`, `Commands`, etc.) have been recursively split into
+exact-set submodules. Each leaf namespace now contains only types whose `Change drivers:`
+line is identical; the parent namespaces hold only DI roots and generated-resource
+deviations. The remaining 10 root-set-composite namespaces are the documented essential
+composites from `IVP/constraints.md` (persistence providers, generated resource classes,
+test fakes, aggregate facets, composition roots).
 
 ### 7.3 Scatter
 
-Scattered driver sets fell from 23 to 20. Remaining scatter is concentrated in the
+Scattered driver sets fell from 23 to 21. Remaining scatter is concentrated in the
 horizontal drivers (CD-17 .env schema, CD-20 ports, CD-26/27/28 test tooling) — decreed
 cross-cutting axes per `IVP/constraints.md`. Change-coupling drivers (CD-02, CD-07,
 CD-10) are concentrated in their domain modules.
 
 ### 7.4 Bottom line
 
-The after state is a **root-aligned modularisation**: 81 of 91 namespaces are
-single-root-set, every module's elements answer to one domain root (plus documented
-settings/wiring co-locations), platform touchpoints are enumerable subordinates, and the
-former umbrella driver has zero activation. The remaining raw-code impurity is measured
-in subordinate tokens, which is annotation richness, not contamination.
+The after state is a **driver-set-aligned modularisation**: 154 of 178 namespaces are
+single-set by raw driver-set equality, 168 of 178 are single-root-set, every leaf
+module's elements share exactly one change-driver set, and the former umbrella driver has
+zero activation. The remaining impurity is confined to the 10 documented essential
+composites.
 
 ### 7.5 Module-purity reading
 
