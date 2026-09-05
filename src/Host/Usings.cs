@@ -107,7 +107,7 @@ global using CTF.Application.Combat.WeaponSelection.ECS;
 global using CTF.Application.Combat.WeaponSelection.System;
 global using CTF.Application.Teams;
 global using CTF.Application.Teams.Ids;
-global using CTF.Application.Teams.Composition;
+global using CTF.Application.Composition;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Collection;
 global using CTF.Application.Maps.Initialization;

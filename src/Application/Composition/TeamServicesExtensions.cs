@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Teams.Composition;
+﻿namespace CTF.Application.Composition;
 
 /// <summary>
 /// Registers team-related services with the DI container.
