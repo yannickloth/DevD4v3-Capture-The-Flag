@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Results.Gamma_CD03_CD07_CD31_CD32_CD36;
+﻿namespace CTF.Application.GunGames.Results.Leveling;
 
 /// <summary>
 /// Handles the <see cref="GunGameResult.ReachedFinalLevel"/> result.
