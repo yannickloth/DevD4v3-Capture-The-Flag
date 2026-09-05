@@ -17,18 +17,33 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 
 | Module | Root driver(s) | Contents |
 |--------|----------------|----------|
-| `Accounts` | CD-08 | AccountAuthenticator, AccountComponent, AccountSystem, AuthenticationDialog, PlayerInfo (aggregate), PlayerAccount, PlayerName/PasswordSystem, PlayerExtensions |
+| `Accounts` | CD-08 | (empty parent; sub-namespaces below) |
+| `Accounts.Authentication` | CD-08 | `AccountAuthenticator`, `AccountComponent`, `AccountSystem`, `AuthenticationDialog`, `PlayerNameSystem`, `PlayerPasswordSystem` |
+| `Accounts.Credentials` | CD-08 | `PlayerInfo` (aggregate), `PlayerAccount`, `PlayerNamePolicy` |
+| `Accounts.Extensions` | CD-08 | `PlayerExtensions` |
 | `AntiCheat` | CD-14 | AntiCBugSystem/Commands/Settings, LastFiredTimeComponent |
 | `Audio` | CD-40 | TeamSounds |
 | `Audio.Configuration` | CD-17 | TeamSoundCatalog |
-| `Authorization` | CD-09 | PlayerRole, RoleId/Collection, PlayerRoleSystem/Checker/Extensions, Admin/VIPListSystem, ServerOwner*, RequiresMinimumRoleAttribute |
+| `Authorization` | CD-09 | (empty parent; sub-namespaces below) |
+| `Authorization.Roles` | CD-09 | `PlayerRole`, `RoleId`/`Collection`, `PlayerRoleSystem`/`Checker`/`Extensions`, `RequiresMinimumRoleAttribute` |
+| `Authorization.Admin` | CD-09 | `AdminListSystem`, `ServerOwnerPlayerExtensions`, `ServerOwnerSettings` |
+| `Authorization.Vip` | CD-09 | `VIPListSystem` |
 | `Bcrypt` (Host) | CD-25 | PasswordHasherBcrypt |
 | `Chat` | CD-13 | ChatSystem, ChatText, IChatMessage, Private*Chat, PrivateMessageSystem |
 | `CoinEconomy` | CD-06 | PlayerCoinsSystem |
-| `Combat` | CD-03 | Health/Armour/Headshot/WeaponSelection systems, WeaponPack, Vitality |
-| `Combos` | CD-05 | ComboSystem, ICombo, *Vitality, RocketLauncherSystem, ComboSettings |
+| `Combat` | CD-03 | `WeaponPack` (kept in parent to avoid type/namespace shadowing) |
+| `Combat.Health` | CD-03 | `HealthSystem`, `ArmourSystem`, `HealthArmourExtensions`, `Vitality` |
+| `Combat.Headshot` | CD-03 | `HeadshotSystem`, `HeadshotSettings` |
+| `Combat.WeaponSelection` | CD-03 | `WeaponSelectionComponent`, `WeaponSelectionSystem` |
+| `Combos` | CD-05 | `ServiceCollectionExtensions` (DI registration root) |
+| `Combos.Systems` | CD-05 | `ComboSystem`, `ComboSettings`, `RocketLauncherSystem` |
+| `Combos.Vitalities` | CD-05 | `ICombo`, vitality implementations (Flamethrower/Grenades/Molotov/RocketLauncher/SatchelCharges/TearGas) |
 | `CommandInfrastructure` | CD-43 | PlayerCommandTextSystem, PlayerCommandLockMiddleware, CommandUsageFormatter (Host) |
-| `Commands` | CD-15 | Admin/Moderator/Vip/BasicCommands; `VipCommands` refines `VipHelpCommands` |
+| `Commands` | CD-15 | `DetailedCommandInfo.Designer.cs` (generated resource); `ServiceCollectionExtensions` if present |
+| `Commands.Admin` | CD-15 | `AdminCommands` |
+| `Commands.Basic` | CD-15 | `BasicCommands` |
+| `Commands.Moderator` | CD-15 | `ModeratorCommands` |
+| `Commands.Vip` | CD-15 | `VipCommands`, `VipHelpCommands` |
 | `Composition` (Host) | CD-21 | Application/Database/HostEcs service extensions |
 | `Config` (Host) | CD-17 | AppSettingsExtensions |
 | `Deployment` (Host) | CD-22 | GameModePaths |
@@ -39,17 +54,25 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | `GameRules.ClassSelection` | CD-02 | `ClassSelectionComponent`/`System`/`Extensions`/`RedirectExtensions`, `TeamSelectionSystem`, `PlayerSpawnSystem`, `PlayerSpawnLockMiddleware` |
 | `GameRules.Players` | CD-02 | `PlayerDataComponent`, `PlayerDeathSystem`, `PlayerPauseSystem`/`Extensions`, `PlayerWelcomeSystem` |
 | `GameRules.Match` | CD-02 | `MatchPlayers`, `MatchResult`, `MatchResultAnnouncer`, `TeamBalancer`, `TeamMembers`, `TeamPlayerExtensions` |
-| `GameRules.Configuration` | CD-17 | `ClassSelectionSettings` (`.env`-schema settings for the GameRules module) |
 | `GameRules.Configuration` | CD-17 | `ClassSelectionSettings` |
-| `GunGames(/Results)` | CD-07 | GunGameSystem, progression types, GunGameReward, result handlers |
+| `GunGames` | CD-07 (+generated CD-17) | `GunGameSystem`, `ServiceCollectionExtensions`; `GunGameMessages.Designer.cs` is the documented generated-code deviation |
+| `GunGames.Progression` | CD-07 | weapon progressions (`Classic`, `Hardcore`, `ReverseClassic`, `Pistols`, `Rifles`, `Shotguns`, `Smgs`, `Powerful`, `Active`), `PlayerProgression`, `WeaponLevel`/`Progression`/`ProgressionType` |
+| `GunGames.Results` | CD-07 | result handlers (`PlayerLeveledDown`/`Up`, `PlayerReachedFinalLevel`, `PlayerScoredFinalKill`) |
+| `GunGames.Rewards` | CD-07 | `GunGameReward` |
+| `GunGames.Systems` | CD-07 | `GunGame`, `GunGameSession`, `GunGameResult`, `GunGameWeaponEnforcer`, `IGunGameMode`, `IGunGameResultHandler` |
 | `MapIcons` | CD-38 | TeamIconService, FlagIcon |
-| `Maps(/Rotation)` | CD-11, CD-12 | MapCollection, MapInfoService, rotation service/system, LoadTime/TimeLeft |
+| `Maps` | CD-11 | `MapCollection`, `MapInfoService`, `LoadTime`/`TimeLeft` |
+| `Maps.Rotation` | CD-12 | rotation service/system |
 | `Pickups` | CD-37 | TeamPickupService |
 | `PlayerResources` | CD-44 | FlagModel, SkinTeamId, ExteriorMarker, PlayerSkinSystem/Extensions, PlayerAppearance |
 | `Players(/Weapons,/TopPlayers,/Chats,/Accounts)` | CD-17 settings, CD-20 ports, CD-04, CD-21 wiring, CD-08 port | CommandCooldowns, IPlayerRepository, ITopPlayersRepository, WeaponCatalogSystem; `Players.Weapons.Catalogs` refines `WeaponCatalogSettings` + `WeaponCatalogTypeValidator`; service extensions |
 | `RconSecurity` | CD-16 | RconSecuritySystem |
 | `ServerService` (Host) | CD-42 | GameModeInit |
-| `Statistics` | CD-10 | PlayerStatistics (entity), PlayerStatsPerRound, rank types, stat systems/updaters, TopPlayers* types, TeamStats* |
+| `Statistics` | CD-10 | (empty parent; sub-namespaces below) |
+| `Statistics.Ranks` | CD-10 | `Rank`, `RankId`/`Collection`, `RankSystem`, `PlayerRankUpdater`, `PlayerRankExtensions` |
+| `Statistics.Score` | CD-10 | `PlayerStatistics`, `PlayerScoreSystem`, `PlayerKillsSystem`, `PlayerKillingSpreeUpdater`, `PlayerStatsPerRound`, `PlayerStatsSystem`, `PlayerStatsRenderer` |
+| `Statistics.TeamStats` | CD-10 | `TeamStatsSystem`, `TeamStatsPerRound`, `TeamScoreboardSystem` |
+| `Statistics.TopPlayers` | CD-10 | `TopPlayersSystem`, `MaxTopPlayers`, `TopPlayersByMaxKillingSpree`, `TopPlayersByTotalKills` |
 | `Teams` | CD-02 (+wiring CD-21, TeamId CD-31‖CD-02) | Team aggregate (composite), TeamId |
 | `TextDraws` | CD-34 | TeamTextDrawRenderer, ClassSelectionTextDrawRenderer, MapTextDrawRenderer |
 | `WeaponCatalogs` | CD-04 | the seven catalogs + `WeaponCatalog` base + `WeaponCatalogType` |
@@ -91,7 +114,7 @@ Each module groups one coherent driver set. Sub-modules refine a parent domain
 | Driver IDs ∈ catalogue | ✅ 0 invalid |
 | CD-01 / CD-29 citations | ✅ 0 |
 | Class gamma = union of direct elements | ✅ 33 gaps completed; remaining class-only drivers audited as base-class / signature-type / injected-contract transmission |
-| Module root sets | ✅ 60/71 namespaces single-root-set; the 11 root-set composites are the documented essential deviations in `IVP/constraints.md` (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots) |
+| Module root sets | ✅ 81/91 namespaces single-root-set; the 10 root-set composites are the documented essential deviations in `IVP/constraints.md` (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots) |
 | Single-set module audit (`ModulePurity`) | ⚠️ modules with transmissions evaluated=185, single-set=175, violating=10, skipped=82 — the 10 are class-level and internal: `PlayerStatsPerRound`, `GunGameReward`, `ComboSystem`, `TeamStatsPerRound`, `PlayerAppearance`, `Startup`, `TeamScoreboardSystem`, `PrivateAdminChat`, `PrivateModeratorChat`, `PrivateVipChat` |
 
 ### 4.1 Remaining module-purity violations

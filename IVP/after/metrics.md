@@ -2,9 +2,9 @@
 
 > Canonical measurement of the post-IVP tree with the pinned tool `IVP/tools/IvpMeasure.java`
 > (display labels for CD-31..CD-44 added; set semantics unchanged). 315 annotated types
-> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 71 namespaces, 42 active
+> (284 class, 12 enum, 9 interface, 4 record, 6 struct) across 91 namespaces, 42 active
 > drivers (CD-01 decomposed into CD-31..CD-44, CD-29 retired), 181 distinct Γ-sets,
-> 15 scattered sets.
+> 20 scattered sets.
 >
 > **Comparability caveat:** the driver space was *refined*, not merely moved — former CD-01
 > umbrella sets split into finer sub-driver sets. Raw set-count deltas vs the before baseline
@@ -64,10 +64,10 @@
 | Statistic | Value | Before |
 |---|---|---|
 | Types with a change-driver annotation | 315 | 293 |
-| Namespaces | 71 | 57 |
+| Namespaces | 91 | 57 |
 | Mean change drivers per class | 2.94 | 3.03 |
 | Median change drivers per class | 3 | 3 |
-| Mean change drivers per namespace | 5.08 | 6.51 |
+| Mean change drivers per namespace | 4.76 | 6.51 |
 | Median change drivers per namespace | 4.0 | 6 |
 
 Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5, 10=3}
@@ -78,7 +78,7 @@ Drivers per class histogram: {1=95, 2=61, 3=68, 4=40, 5=16, 6=8, 7=11, 8=8, 9=5,
 |---|---|---|
 | **classes (elements `E`)** | 315 | the code elements supplied to the partition |
 | **distinct change-driver sets (`E/Γ`)** | 181 | the Γ-equivalence classes = the IVP normative partition |
-| **namespaces (actual modules)** | 71 | the partition the code actually has |
+| **namespaces (actual modules)** | 91 | the partition the code actually has |
 
 After the refinement the set space is finer by construction (the former CD-01 umbrella
 sets split), so `181 vs 137` before is not a regression signal. The structural defect
@@ -89,17 +89,30 @@ metrics are the ones below: scattered sets and composite namespaces.
 | namespace | classes | distinct tokens | distinct sets | single-set? |
 |---|---|---|---|---|
 | CTF.Application | 1 | 1 | 1 | yes |
-| CTF.Application.Accounts | 11 | 13 | 9 | no |
+| CTF.Application.Accounts.Authentication | 7 | 9 | 6 | no |
+| CTF.Application.Accounts.Credentials | 3 | 6 | 3 | no |
+| CTF.Application.Accounts.Extensions | 1 | 1 | 1 | yes |
 | CTF.Application.AntiCheat | 4 | 9 | 4 | no |
 | CTF.Application.Audio | 1 | 1 | 1 | yes |
 | CTF.Application.Audio.Configuration | 1 | 1 | 1 | yes |
-| CTF.Application.Authorization | 12 | 10 | 8 | no |
+| CTF.Application.Authorization.Admin | 3 | 7 | 2 | no |
+| CTF.Application.Authorization.Roles | 8 | 10 | 5 | no |
+| CTF.Application.Authorization.Vip | 1 | 6 | 1 | yes |
 | CTF.Application.Chat | 9 | 7 | 6 | no |
 | CTF.Application.CoinEconomy | 2 | 9 | 2 | no |
-| CTF.Application.Combat | 11 | 14 | 8 | no |
-| CTF.Application.Combos | 11 | 13 | 5 | no |
+| CTF.Application.Combat | 1 | 1 | 1 | yes |
+| CTF.Application.Combat.Headshot | 2 | 8 | 2 | no |
+| CTF.Application.Combat.Health | 6 | 8 | 4 | no |
+| CTF.Application.Combat.WeaponSelection | 2 | 9 | 2 | no |
+| CTF.Application.Combos | 1 | 1 | 1 | yes |
+| CTF.Application.Combos.Systems | 3 | 12 | 3 | no |
+| CTF.Application.Combos.Vitalities | 7 | 3 | 3 | no |
 | CTF.Application.CommandInfrastructure | 2 | 6 | 2 | no |
-| CTF.Application.Commands | 8 | 7 | 7 | no |
+| CTF.Application.Commands | 1 | 1 | 1 | yes |
+| CTF.Application.Commands.Admin | 2 | 7 | 2 | no |
+| CTF.Application.Commands.Basic | 1 | 5 | 1 | yes |
+| CTF.Application.Commands.Moderator | 2 | 6 | 2 | no |
+| CTF.Application.Commands.Vip | 2 | 4 | 2 | no |
 | CTF.Application.Discord | 1 | 3 | 1 | yes |
 | CTF.Application.GameRules | 1 | 1 | 1 | yes |
 | CTF.Application.GameRules.ClassSelection | 7 | 10 | 6 | no |
@@ -107,8 +120,11 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.GameRules.Flag | 19 | 18 | 18 | no |
 | CTF.Application.GameRules.Match | 6 | 4 | 3 | no |
 | CTF.Application.GameRules.Players | 5 | 5 | 4 | no |
-| CTF.Application.GunGames | 27 | 13 | 6 | no |
+| CTF.Application.GunGames | 2 | 2 | 2 | no |
+| CTF.Application.GunGames.Progression | 15 | 2 | 2 | no |
 | CTF.Application.GunGames.Results | 4 | 7 | 2 | no |
+| CTF.Application.GunGames.Rewards | 2 | 3 | 2 | no |
+| CTF.Application.GunGames.Systems | 8 | 10 | 3 | no |
 | CTF.Application.MapIcons | 2 | 3 | 2 | no |
 | CTF.Application.Maps | 9 | 8 | 3 | no |
 | CTF.Application.Maps.Rotation | 6 | 12 | 3 | no |
@@ -121,7 +137,10 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.Players.Weapons | 3 | 10 | 3 | no |
 | CTF.Application.Players.Weapons.Catalogs | 2 | 2 | 2 | no |
 | CTF.Application.RconSecurity | 1 | 3 | 1 | yes |
-| CTF.Application.Statistics | 21 | 16 | 16 | no |
+| CTF.Application.Statistics.Ranks | 6 | 7 | 3 | no |
+| CTF.Application.Statistics.Score | 8 | 14 | 8 | no |
+| CTF.Application.Statistics.TeamStats | 3 | 7 | 3 | no |
+| CTF.Application.Statistics.TopPlayers | 4 | 7 | 3 | no |
 | CTF.Application.Teams | 4 | 9 | 4 | no |
 | CTF.Application.Tests | 1 | 4 | 1 | yes |
 | CTF.Application.Tests.Authorization | 1 | 3 | 1 | yes |
@@ -136,7 +155,8 @@ metrics are the ones below: scattered sets and composite namespaces.
 | CTF.Application.Tests.Players.Ranks | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.Players.TopPlayers | 1 | 4 | 1 | yes |
 | CTF.Application.Tests.Players.Vitalities | 2 | 3 | 1 | yes |
-| CTF.Application.Tests.Players.Weapons | 5 | 5 | 4 | no |
+| CTF.Application.Tests.Players.Weapons | 1 | 3 | 1 | yes |
+| CTF.Application.Tests.Players.Weapons.Catalogs | 4 | 4 | 3 | no |
 | CTF.Application.Tests.Statistics | 5 | 4 | 2 | no |
 | CTF.Application.Tests.Teams | 3 | 3 | 1 | yes |
 | CTF.Application.Tests.TextDraws | 1 | 3 | 1 | yes |
@@ -160,11 +180,11 @@ metrics are the ones below: scattered sets and composite namespaces.
 | Persistence.Tests.Players | 5 | 4 | 1 | yes |
 | SampSharp | 1 | 2 | 1 | yes |
 
-38 single=33 namespaces.
+51 single=40 namespaces.
 
 ### 3.1 Root-causal namespace purity
 
-When subordinate platform/config/test-tooling drivers (anything explicitly fed via `→`, or unmarked when another driver in the same line is marked `(root`) are ignored, the namespace partition becomes much cleaner: **60 of 71 namespaces are single-root-set**, and the remaining **11** composites are documented essential deviations (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots).
+When subordinate platform/config/test-tooling drivers (anything explicitly fed via `→`, or unmarked when another driver in the same line is marked `(root`) are ignored, the namespace partition becomes much cleaner: **81 of 91 namespaces are single-root-set**, and the remaining **10** composites are documented essential deviations (persistence providers, generated resource classes, test fakes, aggregate facets, composition roots).
 
 ## 4. Causal cohesion per namespace
 
@@ -173,17 +193,30 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | namespace | classes | tokens | sets | purity | completeness |
 |---|---|---|---|---|---|
 | CTF.Application | 1 | 1 | 1 | 1.000 | 0.167 |
-| CTF.Application.Accounts | 11 | 13 | 9 | 0.111 | 1.000 |
+| CTF.Application.Accounts.Authentication | 7 | 9 | 6 | 0.167 | 1.000 |
+| CTF.Application.Accounts.Credentials | 3 | 6 | 3 | 0.333 | 0.500 |
+| CTF.Application.Accounts.Extensions | 1 | 1 | 1 | 1.000 | 0.500 |
 | CTF.Application.AntiCheat | 4 | 9 | 4 | 0.250 | 1.000 |
 | CTF.Application.Audio | 1 | 1 | 1 | 1.000 | 1.000 |
 | CTF.Application.Audio.Configuration | 1 | 1 | 1 | 1.000 | 0.167 |
-| CTF.Application.Authorization | 12 | 10 | 8 | 0.125 | 1.000 |
+| CTF.Application.Authorization.Admin | 3 | 7 | 2 | 0.500 | 1.000 |
+| CTF.Application.Authorization.Roles | 8 | 10 | 5 | 0.200 | 1.000 |
+| CTF.Application.Authorization.Vip | 1 | 6 | 1 | 1.000 | 1.000 |
 | CTF.Application.Chat | 9 | 7 | 6 | 0.167 | 1.000 |
 | CTF.Application.CoinEconomy | 2 | 9 | 2 | 0.500 | 1.000 |
-| CTF.Application.Combat | 11 | 14 | 8 | 0.125 | 1.000 |
-| CTF.Application.Combos | 11 | 13 | 5 | 0.200 | 1.000 |
+| CTF.Application.Combat | 1 | 1 | 1 | 1.000 | 0.500 |
+| CTF.Application.Combat.Headshot | 2 | 8 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combat.Health | 6 | 8 | 4 | 0.250 | 0.500 |
+| CTF.Application.Combat.WeaponSelection | 2 | 9 | 2 | 0.500 | 1.000 |
+| CTF.Application.Combos | 1 | 1 | 1 | 1.000 | 0.333 |
+| CTF.Application.Combos.Systems | 3 | 12 | 3 | 0.333 | 0.333 |
+| CTF.Application.Combos.Vitalities | 7 | 3 | 3 | 0.333 | 0.333 |
 | CTF.Application.CommandInfrastructure | 2 | 6 | 2 | 0.500 | 1.000 |
-| CTF.Application.Commands | 8 | 7 | 7 | 0.143 | 1.000 |
+| CTF.Application.Commands | 1 | 1 | 1 | 1.000 | 0.500 |
+| CTF.Application.Commands.Admin | 2 | 7 | 2 | 0.500 | 0.500 |
+| CTF.Application.Commands.Basic | 1 | 5 | 1 | 1.000 | 1.000 |
+| CTF.Application.Commands.Moderator | 2 | 6 | 2 | 0.500 | 1.000 |
+| CTF.Application.Commands.Vip | 2 | 4 | 2 | 0.500 | 1.000 |
 | CTF.Application.Discord | 1 | 3 | 1 | 1.000 | 1.000 |
 | CTF.Application.GameRules | 1 | 1 | 1 | 1.000 | 0.250 |
 | CTF.Application.GameRules.ClassSelection | 7 | 10 | 6 | 0.167 | 0.125 |
@@ -191,8 +224,11 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | CTF.Application.GameRules.Flag | 19 | 18 | 18 | 0.056 | 0.125 |
 | CTF.Application.GameRules.Match | 6 | 4 | 3 | 0.333 | 0.250 |
 | CTF.Application.GameRules.Players | 5 | 5 | 4 | 0.250 | 0.125 |
-| CTF.Application.GunGames | 27 | 13 | 6 | 0.167 | 0.167 |
+| CTF.Application.GunGames | 2 | 2 | 2 | 0.500 | 0.042 |
+| CTF.Application.GunGames.Progression | 15 | 2 | 2 | 0.500 | 0.583 |
 | CTF.Application.GunGames.Results | 4 | 7 | 2 | 0.500 | 1.000 |
+| CTF.Application.GunGames.Rewards | 2 | 3 | 2 | 0.500 | 0.042 |
+| CTF.Application.GunGames.Systems | 8 | 10 | 3 | 0.333 | 0.250 |
 | CTF.Application.MapIcons | 2 | 3 | 2 | 0.500 | 1.000 |
 | CTF.Application.Maps | 9 | 8 | 3 | 0.333 | 0.875 |
 | CTF.Application.Maps.Rotation | 6 | 12 | 3 | 0.333 | 1.000 |
@@ -205,7 +241,10 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | CTF.Application.Players.Weapons | 3 | 10 | 3 | 0.333 | 0.083 |
 | CTF.Application.Players.Weapons.Catalogs | 2 | 2 | 2 | 0.500 | 0.083 |
 | CTF.Application.RconSecurity | 1 | 3 | 1 | 1.000 | 1.000 |
-| CTF.Application.Statistics | 21 | 16 | 16 | 0.063 | 0.500 |
+| CTF.Application.Statistics.Ranks | 6 | 7 | 3 | 0.333 | 0.667 |
+| CTF.Application.Statistics.Score | 8 | 14 | 8 | 0.125 | 0.500 |
+| CTF.Application.Statistics.TeamStats | 3 | 7 | 3 | 0.333 | 1.000 |
+| CTF.Application.Statistics.TopPlayers | 4 | 7 | 3 | 0.333 | 0.333 |
 | CTF.Application.Teams | 4 | 9 | 4 | 0.250 | 0.125 |
 | CTF.Application.Tests | 1 | 4 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Authorization | 1 | 3 | 1 | 1.000 | 0.500 |
@@ -220,7 +259,8 @@ Module M = namespace. purity(M) = 1 / (#distinct driver sets in M). completeness
 | CTF.Application.Tests.Players.Ranks | 3 | 3 | 1 | 1.000 | 0.333 |
 | CTF.Application.Tests.Players.TopPlayers | 1 | 4 | 1 | 1.000 | 1.000 |
 | CTF.Application.Tests.Players.Vitalities | 2 | 3 | 1 | 1.000 | 0.667 |
-| CTF.Application.Tests.Players.Weapons | 5 | 5 | 4 | 0.250 | 0.083 |
+| CTF.Application.Tests.Players.Weapons | 1 | 3 | 1 | 1.000 | 0.333 |
+| CTF.Application.Tests.Players.Weapons.Catalogs | 4 | 4 | 3 | 0.333 | 0.083 |
 | CTF.Application.Tests.Statistics | 5 | 4 | 2 | 0.500 | 0.444 |
 | CTF.Application.Tests.Teams | 3 | 3 | 1 | 1.000 | 0.429 |
 | CTF.Application.Tests.TextDraws | 1 | 3 | 1 | 1.000 | 0.111 |
@@ -286,35 +326,35 @@ The per-driver modules created by the regroup measure as **pure single-set names
 (purity 1.000): `Pickups`, `RconSecurity`, `WeaponCatalogs`, `Players.Accounts`,
 `Players.Chats`, the single-type Host modules (`Ecs`, `ServerService`,
 `CommandInfrastructure`, `Config`, `Deployment`, `Logging`, `Bcrypt`), `SampSharp`,
-and most test namespaces. The recent namespace splits added `Audio.Configuration`,
-`GameRules.Configuration`, `GameRules.Flag`, `GameRules.ClassSelection`,
-`GameRules.Players`, `GameRules.Match`, and `Tests.Maps.Rotation` as additional
-single-root-set modules. In the before state only 12 of 57 namespaces were single-set.
+and most test namespaces. The recent namespace splits added the `Audio.Configuration`,
+`GameRules.*`, `Maps.Rotation`, `Statistics.*`, `Accounts.*`, `Authorization.*`,
+`Combat.*`, `Combos.*`, `Commands.*`, `GunGames.*`, and `Tests.Players.Weapons.Catalogs`
+submodules as additional single-root-set modules. In the before state only 12 of 57
+namespaces were single-set.
 
 ### 7.2 Composite namespaces are now subordinate-driven, not topic-fused
 
-The former monolithic `GameRules` namespace (27 raw sets/38 classes) has been split
-into feature submodules (`Flag`, `ClassSelection`, `Players`, `Match`, `Configuration`)
-while keeping the parent `GameRules` as the CD-02 DI registration root. The remaining
-large raw-composite namespaces (`Statistics` 16/21, `Accounts` 13/11) are domain modules
-whose elements carry domain-rooted gammas with *platform subordinates*
-(CD-31/32/36 → CD-02 etc.). Under the refined drivers that is the expected shape: the
-subordinate IDs exist precisely so those usages are enumerable, not co-located as roots.
-The before-state offenders with distinct *root* drivers fused by topic (`Players` 9 sets,
-`Teams` 8, `Teams.Flags` 7) no longer exist as such. After the namespace splits and
-applying the root-causal rule, only 11 namespaces remain root-set-composite; all are
-documented essential deviations in `IVP/constraints.md`.
+The former monolithic `GameRules` namespace (27 raw sets/38 classes), `Statistics`
+(16 raw sets/21 classes), `Accounts` (13/11), `Authorization` (10/12), `Combat` (14/11),
+`Combos` (13/11), `Commands` (7/8), and `GunGames` (13/27) have been split into feature
+submodules while keeping the parent namespaces as DI/generated-resource roots where
+needed. The remaining large raw-composite namespaces that were not split are the
+essential composites from `IVP/constraints.md` (persistence providers, generated resource
+classes, test fakes, aggregate facets, composition roots). Under the refined drivers the
+subordinate IDs exist precisely so platform usages are enumerable, not co-located as
+roots. After all namespace splits, only **10** namespaces remain root-set-composite; all
+are documented essential deviations.
 
 ### 7.3 Scatter
 
-Scattered driver sets fell from 23 to 15. Remaining scatter is concentrated in the
+Scattered driver sets fell from 23 to 20. Remaining scatter is concentrated in the
 horizontal drivers (CD-17 .env schema, CD-20 ports, CD-26/27/28 test tooling) — decreed
 cross-cutting axes per `IVP/constraints.md`. Change-coupling drivers (CD-02, CD-07,
 CD-10) are concentrated in their domain modules.
 
 ### 7.4 Bottom line
 
-The after state is a **root-aligned modularisation**: 60 of 71 namespaces are
+The after state is a **root-aligned modularisation**: 81 of 91 namespaces are
 single-root-set, every module's elements answer to one domain root (plus documented
 settings/wiring co-locations), platform touchpoints are enumerable subordinates, and the
 former umbrella driver has zero activation. The remaining raw-code impurity is measured
