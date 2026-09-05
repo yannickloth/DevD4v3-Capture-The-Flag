@@ -11,7 +11,11 @@ void main(String[] args) throws IOException {
     record T(String ns, String name, String set, String file) {}
     List<T> types = new ArrayList<>();
     Pattern cdP = Pattern.compile("CD-\\d{2}");
-    Pattern typeP = Pattern.compile("\\b(public|internal|private|protected)\\s+(static\\s+|sealed\\s+|abstract\\s+|partial\\s+|readonly\\s+|ref\\s+)*(class|interface|enum|struct|record)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b");
+    // Handle: class/interface/enum/struct/record, and 'record struct'/'record class'.
+    // Capture group 2 = type name (last identifier before '(' or '{' or ':' or space).
+    Pattern typeP = Pattern.compile(
+        "\\b(public|internal|private|protected)\\s+(static\\s+|sealed\\s+|abstract\\s+|partial\\s+|readonly\\s+|ref\\s+|new\\s+)*" +
+        "(class|interface|enum|struct|record)(\\s+(struct|class))?\\s+([A-Za-z_][A-Za-z0-9_]*)\\b");
 
     List<Path> files = new ArrayList<>();
     for (String r : new String[]{"src","tests"}) try (var s = Files.walk(Paths.get(root, r))) {
@@ -53,13 +57,13 @@ void main(String[] args) throws IOException {
             // and for block-scoped depth==1 means directly in namespace, since nested types are at depth>=2).
             Matcher tm = typeP.matcher(line);
             if (tm.find() && depth == nsDepthBase) {
-                String name = tm.group(4);
+                String name = tm.group(6);
                 // ensure not matched inside a doc comment string like '/// public class' - XML comments start with //
                 String trimmed = line.trim();
                 if (trimmed.startsWith("///")) { /* skip */ }
                 else {
                     String set = "";
-                    for (int j=i-1;j>=0 && j>=i-6;j--){
+                    for (int j=i-1;j>=0 && j>=i-12;j--){
                         if (lines.get(j).contains("Change drivers:")){ set=drivers(lines.get(j),cdP); break; }
                     }
                     types.add(new T(ns, name, set.isEmpty()?name:set, f.toString()));

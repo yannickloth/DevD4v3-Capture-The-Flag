@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common;
+﻿namespace Persistence.Tests.Common.Contracts;
 
 /// <summary>Abstracts a configured persistence stack so repository tests run provider-agnostically.</summary>
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract: exposes the repository seams under test); CD-19 (MariaDB SQL dialect) → CD-20; CD-30 (SQLite SQL dialect) → CD-20</remarks>

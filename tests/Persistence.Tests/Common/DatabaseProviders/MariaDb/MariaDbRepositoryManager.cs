@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.DatabaseProviders;
+﻿namespace Persistence.Tests.Common.DatabaseProviders.MariaDb;
 
 /// <summary>Wires the MariaDB persistence stack for the repository tests.</summary>
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the MariaDB repository seam); CD-19 (MariaDB SQL dialect) → CD-20; CD-18 (database schema/player data model) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract) → CD-20</remarks>

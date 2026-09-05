@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common;
+﻿namespace Persistence.Tests.Common.PasswordHasher;
 
 /// <summary>A no-op password hasher that stores plaintext, used to exercise repositories without a real BCrypt cost.</summary>
 /// <remarks>Change drivers: CD-25 (root; BCrypt password-hashing contract: mimics the <c>IPasswordHasher</c> seam)</remarks>

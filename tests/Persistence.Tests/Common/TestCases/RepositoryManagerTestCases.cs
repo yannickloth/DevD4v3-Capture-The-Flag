@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common;
+﻿namespace Persistence.Tests.Common.TestCases;
 
 /// <summary>Provides the three provider cases for the repository test suite.</summary>
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-26 (NUnit test-case-source convention: <c>IEnumerable&lt;DatabaseProvider&gt;</c>) → CD-20; CD-19 (MariaDB SQL dialect) → CD-20; CD-30 (SQLite SQL dialect) → CD-20</remarks>

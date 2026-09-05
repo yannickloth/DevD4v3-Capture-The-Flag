@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.DatabaseProviders;
+﻿namespace Persistence.Tests.Common.DatabaseProviders.InMemory;
 
 /// <summary>Wires the in-memory persistence stack for the repository tests.</summary>
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract: the in-memory repository seam); CD-18 (database schema/player data model: the <c>Dictionary&lt;int,FakePlayer&gt;</c> store) → CD-20; CD-21 (DI container/composition) → CD-20; CD-25 (BCrypt password-hashing contract via the fake hasher) → CD-20</remarks>

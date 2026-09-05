@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common;
+﻿namespace Persistence.Tests.Common.Contracts;
 
 /// <summary>Enumerates the database providers the repository tests run against.</summary>
 /// <remarks>Change drivers: CD-20 (root; outbound repository contract: what is exercised per provider); CD-19 (MariaDB SQL dialect) → CD-20; CD-30 (SQLite SQL dialect) → CD-20</remarks>
