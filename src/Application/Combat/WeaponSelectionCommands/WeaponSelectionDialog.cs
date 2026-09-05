@@ -1,43 +1,15 @@
 namespace CTF.Application.Combat.WeaponSelectionCommands;
 
+/// <summary>
+/// Provides the weapon-selection dialog commands.
+/// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; gunGameMode -> CD-07; weaponCatalog -> CD-04. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.WeaponCatalog, ChangeDriver.GunGame, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
-public class WeaponSelectionCommandSystem(
+public class WeaponSelectionDialog(
     IDialogService dialogService,
     IGunGameMode gunGameMode,
     ActiveWeaponCatalog weaponCatalog) : ISystem
 {
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.ClientMessage)]
-    public async Task OnPlayerRequestSpawn(Player player)
-    {
-        if (gunGameMode.IsEnabled)
-        {
-            player.SendClientMessage(Color.Orange, GunGameMessages.GunGameModeStarted);
-            player.SendClientMessage(Color.Orange, GunGameMessages.GunGameModeObjective);
-            return;
-        }
-
-        await ShowWeapons(player);
-        player.SendClientMessage(Color.Orange, Messages.WeaponListUsage);
-        player.SendClientMessage(Color.Orange, Messages.WeaponPackUsage);
-    }
-
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Dialog)]
-    public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
-    {
-        bool parachuteCombo = KeyUtils.HasPressed(newKeys, oldKeys, Keys.Walk | Keys.CtrlBack);
-        if (!parachuteCombo && KeyUtils.HasPressed(newKeys, oldKeys, Keys.Yes))
-        {
-            await ShowWeapons(player);
-        }
-        else if (!parachuteCombo && KeyUtils.HasPressed(newKeys, oldKeys, Keys.CtrlBack))
-        {
-            await ShowWeaponPackage(player);
-        }
-    }
-
     [PlayerCommand("weapons")]
     [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.WeaponCatalog, ChangeDriver.GunGame, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.Ecs, ChangeDriver.Player, ChangeDriver.CommandSet)]
     public async Task ShowWeapons(Player player)
