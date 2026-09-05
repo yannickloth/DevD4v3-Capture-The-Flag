@@ -102,6 +102,7 @@ global using CTF.Application.Combat.Headshot.HeadshotSystem;
 global using CTF.Application.Combat.WeaponSelection.ECS;
 global using CTF.Application.Combat.WeaponSelection.System;
 global using CTF.Application.Players.TopPlayers;
+global using CTF.Application.Players.TopPlayers.Settings;
 global using CTF.Application.Teams;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Collection;

@@ -79,6 +79,7 @@ global using CTF.Application.Accounts.Credentials.Repository;
 global using CTF.Application.Accounts.Credentials.Profile;
 global using CTF.Application.Accounts.Extensions;
 global using CTF.Application.Players.TopPlayers;
+global using CTF.Application.Players.TopPlayers.Settings;
 global using CTF.Application.Authorization;
 global using CTF.Application.Authorization.Roles;
 global using CTF.Application.Authorization.Roles.Repository;

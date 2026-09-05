@@ -66,6 +66,7 @@ global using CTF.Application.AntiCheat.Settings;
 global using CTF.Application.AntiCheat.System;
 global using CTF.Application.AntiCheat.ECS;
 global using CTF.Application.Players.TopPlayers;
+global using CTF.Application.Players.TopPlayers.Settings;
 global using CTF.Application.TextDraws;
 global using CTF.Application.TextDraws.Teams;
 global using CTF.Application.TextDraws.Map;
