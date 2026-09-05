@@ -119,7 +119,6 @@ global using CTF.Application.Combos.Systems.RocketLauncher;
 global using CTF.Application.Combos.Vitalities;
 global using CTF.Application.Combos.Vitalities.Weapons;
 global using CTF.Application.Combos.Vitalities.RocketLauncher;
-global using CTF.Application.Players.Chats;
 global using CTF.Application.Chat;
 global using CTF.Application.Chat.ChatSystem;
 global using CTF.Application.Chat.TeamChat;

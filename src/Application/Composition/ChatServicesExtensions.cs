@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Chats;
+﻿namespace CTF.Application.Composition;
 
 /// <summary>
 /// Provides dependency-injection extension methods for the chat subsystem.

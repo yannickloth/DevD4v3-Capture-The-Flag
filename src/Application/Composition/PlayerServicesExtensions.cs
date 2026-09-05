@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players;
+﻿namespace CTF.Application.Composition;
 
 /// <summary>
 /// Provides dependency-injection extension methods for the players subsystem.
