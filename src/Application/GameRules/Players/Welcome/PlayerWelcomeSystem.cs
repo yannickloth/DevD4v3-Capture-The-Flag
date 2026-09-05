@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD36;
+﻿namespace CTF.Application.GameRules.Players.Welcome;
 
 /// <summary>
 /// Sends the welcome messages to a player upon connection.

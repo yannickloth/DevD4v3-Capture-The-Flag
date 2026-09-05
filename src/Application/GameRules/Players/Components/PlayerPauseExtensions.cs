@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Players.Gamma_CD02_CD31_CD32;
+﻿namespace CTF.Application.GameRules.Players.Components;
 
 /// <summary>
 /// Provides extension methods for working with the player's paused state.

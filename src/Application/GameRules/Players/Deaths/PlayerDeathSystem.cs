@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Players.Gamma_CD02_CD31;
+﻿namespace CTF.Application.GameRules.Players.Deaths;
 
 /// <summary>
 /// Sends death messages to reflect player connect, disconnect, and death events.
