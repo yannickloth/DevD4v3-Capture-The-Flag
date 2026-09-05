@@ -1,4 +1,4 @@
-namespace CTF.Application.Accounts.Credentials.Gamma_CD08_CD18_CD20;
+namespace CTF.Application.Accounts.Credentials.Repository;
 
 /// <summary>
 /// Represents the persisted account of a player: identity and credentials.
