@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.ActiveCatalog;
+﻿namespace CTF.Application.WeaponCatalogs.ActiveCatalog;
 
 /// <summary>
 /// Represents the active weapon catalog used by the server.

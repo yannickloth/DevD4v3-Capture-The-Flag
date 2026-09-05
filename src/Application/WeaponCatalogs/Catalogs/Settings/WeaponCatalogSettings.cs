@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons.Catalogs.Settings;
+﻿namespace CTF.Application.WeaponCatalogs.Catalogs.Settings;
 
 /// <summary>
 /// Represents the weapon catalog configuration currently used by the server.

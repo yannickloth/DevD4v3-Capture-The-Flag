@@ -1,4 +1,4 @@
-namespace CTF.Application.Players.Weapons.Catalogs;
+namespace CTF.Application.WeaponCatalogs.Catalogs;
 
 /// \u003csummary\u003e
 /// Validates a weapon catalog type value independently of runtime configuration.
