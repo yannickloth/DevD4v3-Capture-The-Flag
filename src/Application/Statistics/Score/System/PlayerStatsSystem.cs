@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Score.Gamma_CD10_CD08_CD15_CD20_CD31_CD33_CD34_CD43;
+﻿namespace CTF.Application.Statistics.Score.System;
 
 /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-31 (player events); CD-33 (dialog API); CD-34 (Textdraw API); CD-43 (command infrastructure) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-08 (account & authentication policy) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; dialogService -> CD-33; playerRepository -> CD-20; playerRankUpdater -> CD-10; killingSpreeUpdater -> CD-10; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

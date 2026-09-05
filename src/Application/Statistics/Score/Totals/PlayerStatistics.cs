@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.Gamma_CD10_CD20;
+namespace CTF.Application.Statistics.Score.Totals;
 
 /// <summary>
 /// Represents the persisted career statistics of a player.
