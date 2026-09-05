@@ -37,6 +37,23 @@ global using CTF.Application.Audio;
 global using CTF.Application.PlayerResources;
 global using CTF.Application.CommandInfrastructure;
 
+global using CTF.Application.Statistics.Ranks.Core;
+global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20;
+global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD06;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD06_CD07_CD20_CD31_CD32_CD35_CD36;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD08_CD15_CD20_CD31_CD33_CD34_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD20;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD31_CD32_CD36_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD20;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD31_CD32_CD34;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD09_CD15_CD31_CD33_CD34;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33;
+global using CTF.Application.Statistics.TopPlayers.Core;
+global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43;
+global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
+
 global using CTF.Application.Combat;
 global using CTF.Application.Combat.Health;
 global using CTF.Application.Combat.Headshot;

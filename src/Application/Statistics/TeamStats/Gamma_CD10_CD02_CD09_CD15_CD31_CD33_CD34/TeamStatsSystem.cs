@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TeamStats;
+﻿namespace CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD09_CD15_CD31_CD33_CD34;
 
 /// <summary>
 /// Tracks team statistics and provides stat-related commands.

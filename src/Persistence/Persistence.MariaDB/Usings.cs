@@ -1,4 +1,4 @@
-﻿// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
+// <remarks>Change drivers: CD-20 (root; outbound repository contract); CD-18 (database schema/player data model) → CD-20; CD-19 (MariaDB SQL dialect) → CD-18</remarks>
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using MySqlConnector;
@@ -14,8 +14,20 @@ global using CTF.Application.Authorization.Roles;
 global using CTF.Application.Authorization.Admin;
 global using CTF.Application.Authorization.Vip;
 global using CTF.Application.Statistics;
-global using CTF.Application.Statistics.Ranks;
-global using CTF.Application.Statistics.Score;
-global using CTF.Application.Statistics.TeamStats;
-global using CTF.Application.Statistics.TopPlayers;
+global using CTF.Application.Statistics.Ranks.Core;
+global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20;
+global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD06;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD06_CD07_CD20_CD31_CD32_CD35_CD36;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD08_CD15_CD20_CD31_CD33_CD34_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD20;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD09_CD15_CD31_CD32_CD36_CD43;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD20;
+global using CTF.Application.Statistics.Score.Gamma_CD10_CD31_CD32_CD34;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD09_CD15_CD31_CD33_CD34;
+global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33;
+global using CTF.Application.Statistics.TopPlayers.Core;
+global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43;
+global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
 global using CTF.Application.Players.TopPlayers;

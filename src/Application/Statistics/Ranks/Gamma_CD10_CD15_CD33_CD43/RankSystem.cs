@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Ranks;
+﻿namespace CTF.Application.Statistics.Ranks.Gamma_CD10_CD15_CD33_CD43;
 
 /// <summary>
 /// Provides the ranks command that displays the rank tiers.

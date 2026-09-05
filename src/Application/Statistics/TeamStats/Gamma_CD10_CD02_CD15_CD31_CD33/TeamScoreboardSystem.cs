@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TeamStats;
+﻿namespace CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33;
 
 /// <summary>
 /// Shows the team scoreboard dialog to players.
