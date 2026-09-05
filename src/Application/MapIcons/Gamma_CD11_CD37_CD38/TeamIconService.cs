@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.MapIcons;
+﻿namespace CTF.Application.MapIcons.Gamma_CD11_CD37_CD38;
 
 /// <summary>
 /// Creates and destroys dynamic map icons for team flags.
