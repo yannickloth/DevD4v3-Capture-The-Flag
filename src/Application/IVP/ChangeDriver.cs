@@ -216,25 +216,35 @@ public static class ChangeDriverCatalog
 }
 
 /// <summary>
-/// An element's change drivers as an <b>ordered, root-first causal chain</b>.
-/// <c>Order[0]</c> is the causal root; each later driver is caused by the one before it
-/// ("X implies Y" / "Y is causal for X and precedes X"). E.g. <c>[Account, Repository, DatabaseSchema]</c>
-/// means account → repository → schema. Sibling (unordered) drivers are never co-listed on a single
-/// element; siblings only appear across elements at the same causal depth.
+/// An element's change drivers as an <b>existence-ordered chain</b>.
+/// There is no "root" concept: <c>Order</c> lists drivers by existence-causality, so that each
+/// driver <c>Order[i]</c> exists <i>only because</i> the earlier drivers <c>Order[0..i-1]</c> exist.
+/// E.g. <c>[Account, Repository, DatabaseSchema]</c> means the repository exists because the account
+/// domain exists, and the schema exists because the repository exists. This ordering is exactly what
+/// justifies namespace nesting: a type whose chain is a strict suffix of another's nests under it.
 /// </summary>
 public readonly record struct CausalChain(ChangeDriver[] Order)
 {
-    /// <summary>The causal root: the first (most-causal) driver.</summary>
-    public ChangeDriver Root => Order[0];
+    /// <summary>The first (existence-basis) driver of the chain.</summary>
+    public ChangeDriver First => Order[0];
 
     /// <summary>Depth of the chain (number of causal steps).</summary>
     public int Depth => Order.Length;
+
+    /// <summary>True when this chain is a strict extension (suffix) of <paramref name="prefix"/>.</summary>
+    public bool IsExtensionOf(CausalChain prefix)
+    {
+        if (Order.Length <= prefix.Order.Length) return false;
+        for (int i = 0; i < prefix.Order.Length; i++)
+            if (Order[i] != prefix.Order[i]) return false;
+        return true;
+    }
 
     public override string ToString() => string.Join(" → ", Order.Select(d => d.GetInfo().Code));
 }
 
 /// <summary>
-/// Declares the ordered, root-first causal change-driver chain of an annotated element
+/// Declares the existence-ordered change-driver chain of an annotated element
 /// (class, method, property, or a namespace <c>ChangeDrivers</c> marker type).
 /// Referenced as <c>[ChangeDrivers(...)]</c>; use the full <c>ChangeDriversAttribute</c> spelling
 /// inside a namespace that also declares a <c>ChangeDrivers</c> marker type to avoid ambiguity.
@@ -245,11 +255,11 @@ public readonly record struct CausalChain(ChangeDriver[] Order)
     AllowMultiple = false)]
 public sealed class ChangeDriversAttribute : Attribute
 {
-    /// <summary>The root-first causal chain declared by this annotation.</summary>
+    /// <summary>The existence-ordered causal chain declared by this annotation.</summary>
     public CausalChain Chain { get; }
 
-    /// <summary>Root (first element) of the chain.</summary>
-    public ChangeDriver Root => Chain.Root;
+    /// <summary>The first (existence-basis) driver of the chain.</summary>
+    public ChangeDriver First => Chain.First;
 
     public ChangeDriversAttribute(params ChangeDriver[] order)
         => Chain = new CausalChain(order ?? Array.Empty<ChangeDriver>());
