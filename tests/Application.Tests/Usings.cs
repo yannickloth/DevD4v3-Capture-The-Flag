@@ -72,7 +72,6 @@ global using CTF.Application.WeaponCatalogs.ActiveCatalog;
 global using CTF.Application.WeaponCatalogs.System;
 global using CTF.Application.WeaponCatalogs.Catalogs;
 global using CTF.Application.WeaponCatalogs.Catalogs.Settings;
-global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
 global using CTF.Application.Accounts.Authentication.RepositoryBCrypt;
 global using CTF.Application.Accounts.Authentication.ECS;

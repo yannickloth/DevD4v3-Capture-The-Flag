@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Accounts;
+﻿namespace CTF.Application.Accounts;
 
 /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
 public interface IPlayerRepository

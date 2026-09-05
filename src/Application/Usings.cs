@@ -66,7 +66,6 @@ global using CTF.Application.AntiCheat.Commands;
 global using CTF.Application.AntiCheat.Settings;
 global using CTF.Application.AntiCheat.System;
 global using CTF.Application.AntiCheat.ECS;
-global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
 global using CTF.Application.Accounts.Authentication.RepositoryBCrypt;
 global using CTF.Application.Accounts.Authentication.ECS;

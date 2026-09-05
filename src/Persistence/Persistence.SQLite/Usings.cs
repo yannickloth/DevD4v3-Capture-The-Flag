@@ -7,7 +7,6 @@ global using Microsoft.Data.Sqlite;
 global using YeSql.Net;
 global using Persistence.SQLite.Extensions;
 global using GameMode.Common;
-global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;
 global using CTF.Application.Accounts.Authentication.RepositoryBCrypt;
 global using CTF.Application.Accounts.Authentication.ECS;
