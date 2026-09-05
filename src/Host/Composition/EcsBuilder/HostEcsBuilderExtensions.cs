@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Composition.Gamma_CD21_CD32;
+﻿namespace CTF.Host.Composition.EcsBuilder;
 
 /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-32 (IEcsBuilder, event/middleware wiring) → CD-21</remarks>
 public static class HostEcsBuilderExtensions
