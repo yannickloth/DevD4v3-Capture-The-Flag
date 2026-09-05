@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat;
+﻿namespace CTF.Application.Combat.Headshot;
 
 /// <summary>
 /// Handles headshot detection, reward, and persistence.

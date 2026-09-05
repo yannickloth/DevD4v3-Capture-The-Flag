@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat;
+﻿namespace CTF.Application.Combat.Health;
 
 /// <summary>
 /// Represents a bounded health/armour amount.

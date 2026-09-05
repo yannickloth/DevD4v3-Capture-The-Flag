@@ -35,6 +35,9 @@ global using CTF.Application.PlayerResources;
 global using CTF.Application.CommandInfrastructure;
 
 global using CTF.Application.Combat;
+global using CTF.Application.Combat.Health;
+global using CTF.Application.Combat.Headshot;
+global using CTF.Application.Combat.WeaponSelection;
 global using CTF.Application.Teams;
 global using CTF.Application.Maps;
 global using CTF.Application.Maps.Rotation;

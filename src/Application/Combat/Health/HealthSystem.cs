@@ -1,21 +1,21 @@
-﻿namespace CTF.Application.Combat;
+﻿namespace CTF.Application.Combat.Health;
 
 /// <summary>
-/// Provides the armour-related commands.
+/// Provides the health-related commands.
 /// </summary>
 /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-09 (authorization policy) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-31 (player events & state); CD-32 (ECS runtime); CD-36 (client messages); CD-43 (command infrastructure) → CD-03</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; entityManager -> CD-32; unixTimeSeconds -> CD-41; commandCooldowns -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-public class ArmourSystem(
+public class HealthSystem(
     IWorldService worldService,
     IEntityManager entityManager,
     UnixTimeSeconds unixTimeSeconds,
     CommandCooldowns commandCooldowns) : ISystem
 {
-    /// <summary>Adds armour to a target player.</summary>
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-36 (client messages); CD-31 (AddArmour) → CD-03</remarks>
-    [PlayerCommand("addarmour")]
+    /// <summary>Adds health to a target player.</summary>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-36 (client messages); CD-31 (AddHealth) → CD-03</remarks>
+    [PlayerCommand("addhealth")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    public void AddArmourToPlayer(
+    public void AddHealthToPlayer(
         Player currentPlayer,
         [CommandParameter(Name = "playerId")]Player targetPlayer,
         float amount)
@@ -28,30 +28,30 @@ public class ArmourSystem(
         }
 
         {
-            var message = Smart.Format(Messages.AddArmourToPlayer, new
+            var message = Smart.Format(Messages.AddHealthToPlayer, new
             {
                 PlayerName = targetPlayer.Name,
-                Armour = amount
+                Health = amount
             });
             currentPlayer.SendClientMessage(Color.Yellow, message);
         }
 
         {
-            var message = Smart.Format(Messages.ReceiveArmourFromPlayer, new
+            var message = Smart.Format(Messages.ReceiveHealthFromPlayer, new
             {
                 PlayerName = currentPlayer.Name,
-                Armour = amount
+                Health = amount
             });
             targetPlayer.SendClientMessage(Color.Yellow, message);
-            targetPlayer.AddArmour(amount);
+            targetPlayer.AddHealth(amount);
         }
     }
 
-    /// <summary>Adds armour to all connected players.</summary>
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-32 (ECS runtime); CD-36 (client messages); CD-31 (AddArmour) → CD-03</remarks>
-    [PlayerCommand("addallarmour")]
+    /// <summary>Adds health to all connected players.</summary>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-32 (ECS runtime); CD-36 (client messages); CD-31 (AddHealth) → CD-03</remarks>
+    [PlayerCommand("addallhealth")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    public void AddArmourToAllPlayers(Player currentPlayer, float amount)
+    public void AddHealthToAllPlayers(Player currentPlayer, float amount)
     {
         Result<Vitality> result = Vitality.Create(amount);
         if (result.IsFailed)
@@ -61,40 +61,40 @@ public class ArmourSystem(
         }
 
         IEnumerable<Player> players = entityManager.GetComponents<Player>();
-        foreach (Player targetPlayer in players)
-        {
-            targetPlayer.AddArmour(amount);
+        foreach (Player targetPlayer in players) 
+        { 
+            targetPlayer.AddHealth(amount);
         }
 
-        var message = Smart.Format(Messages.AddArmourToAllPlayers, new
+        var message = Smart.Format(Messages.AddHealthToAllPlayers, new
         {
             PlayerName = currentPlayer.Name,
-            Armour = amount
+            Health = amount
         });
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
-    /// <summary>Restores a player's armour, subject to a cooldown.</summary>
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-36 (client messages); CD-32 (ECS runtime); CD-31 (armour state) → CD-03</remarks>
-    [PlayerCommand("armour")]
+    /// <summary>Restores a player's health, subject to a cooldown.</summary>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-09 (authorization policy) → CD-03; CD-43 (command infrastructure); CD-36 (client messages); CD-32 (ECS runtime); CD-31 (health state) → CD-03</remarks>
+    [PlayerCommand("health")]
     [RequiresMinimumRole(RoleId.VIP)]
-    public void RestoreArmour(Player currentPlayer)
+    public void RestoreHealth(Player currentPlayer)
     {
         var waitTimeComponent = currentPlayer.GetComponent<WaitTimeComponent>();
         if (waitTimeComponent.Value > unixTimeSeconds.Value)
         {
             var message = Smart.Format(Messages.TimeRequiredToReuseCommand, new 
             { 
-                Minutes = commandCooldowns.Armour
+                Minutes = commandCooldowns.Health
             });
             currentPlayer.SendClientMessage(Color.Red, message);
             return;
         }
 
         static int ConvertMinutesToSeconds(int value) => value * 60;
-        int seconds = ConvertMinutesToSeconds(commandCooldowns.Armour);
+        int seconds = ConvertMinutesToSeconds(commandCooldowns.Health);
         waitTimeComponent.Value = unixTimeSeconds.Value + seconds;
-        currentPlayer.Armour = 100;
+        currentPlayer.Health = 100;
     }
 
     /// <summary>Adds the wait-time component when a player connects.</summary>
@@ -103,10 +103,10 @@ public class ArmourSystem(
     public void OnPlayerConnect(Player player)
         => player.AddComponent<WaitTimeComponent>();
 
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: armour-restore cooldown); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-32 (component storage) → CD-03</remarks>
+    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health-restore cooldown); CD-15 (command set) → CD-03; CD-17 (game configuration/.env schema) → CD-03; CD-32 (component storage) → CD-03</remarks>
     private class WaitTimeComponent : Component
     {
-        /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: armour-restore cooldown); CD-32 (component/tick time) → CD-03</remarks>
+        /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: health-restore cooldown); CD-32 (component/tick time) → CD-03</remarks>
         public long Value { get; set; }
     }
 }
