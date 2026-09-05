@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Systems.Gamma_CD05_CD09_CD12_CD15_CD36;
+﻿namespace CTF.Application.Combos.Systems.RocketLauncher;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-09 (authorization policy) → CD-05; CD-12 (map-rotation rules) → CD-05; CD-36 (SendClientMessage) → CD-05</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; comboSettings -> CD-05. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>

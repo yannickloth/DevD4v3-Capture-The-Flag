@@ -112,8 +112,8 @@ global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD3
 global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
 global using CTF.Application.Combos;
 global using CTF.Application.Combos.Systems.Core;
-global using CTF.Application.Combos.Systems.Gamma_CD05_CD06_CD07_CD10_CD15_CD31_CD33_CD34_CD35_CD36;
-global using CTF.Application.Combos.Systems.Gamma_CD05_CD09_CD12_CD15_CD36;
+global using CTF.Application.Combos.Systems.Purchase;
+global using CTF.Application.Combos.Systems.RocketLauncher;
 global using CTF.Application.Combos.Vitalities.Core;
 global using CTF.Application.Combos.Vitalities.Gamma_CD03_CD05_CD06;
 global using CTF.Application.Combos.Vitalities.Gamma_CD05_CD06;
