@@ -67,8 +67,11 @@ global using CTF.Application.Statistics.TeamStats.Gamma_CD10_CD02_CD15_CD31_CD33
 global using CTF.Application.Statistics.TopPlayers.Core;
 global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD15_CD17_CD20_CD33_CD36_CD43;
 global using CTF.Application.Statistics.TopPlayers.Gamma_CD10_CD17;
-global using CTF.Application.Players.Weapons;
-global using CTF.Application.Players.Weapons.Catalogs;
+global using CTF.Application.Players.Weapons.Core;
+global using CTF.Application.Players.Weapons.Gamma_CD04_CD17;
+global using CTF.Application.Players.Weapons.Gamma_CD03_CD04_CD07_CD09_CD15_CD32_CD33_CD36_CD43;
+global using CTF.Application.Players.Weapons.Catalogs.Core;
+global using CTF.Application.Players.Weapons.Catalogs.Gamma_CD04_CD17;
 global using CTF.Application.WeaponCatalogs;
 global using CTF.Application.Players.Accounts;
 global using CTF.Application.Accounts;

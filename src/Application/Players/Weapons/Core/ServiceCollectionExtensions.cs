@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Players.Weapons;
+﻿namespace CTF.Application.Players.Weapons.Core;
 
 /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
 public static class WeaponServicesExtensions
