@@ -12,6 +12,7 @@ global using CTF.Application.GameRules;
 global using CTF.Application.GameRules.Flag;
 global using CTF.Application.GameRules.ClassSelection;
 global using CTF.Application.GameRules.Players;
+global using CTF.Application.GameRules.Match;
 global using CTF.Application.TextDraws;
 global using CTF.Application.Pickups;
 global using CTF.Application.MapIcons;

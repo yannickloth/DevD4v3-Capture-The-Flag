@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules;
+﻿namespace CTF.Application.GameRules.Match;
 
 /// <summary>
 /// Provides access to all players participating in the current match.

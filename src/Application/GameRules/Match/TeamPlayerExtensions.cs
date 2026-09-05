@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules;
+namespace CTF.Application.GameRules.Match;
 
 /// <summary>
 /// Provides team-membership extension methods over the player entity.
