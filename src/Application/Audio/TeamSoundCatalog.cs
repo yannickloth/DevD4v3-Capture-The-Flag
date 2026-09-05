@@ -1,4 +1,4 @@
-namespace CTF.Application.Audio;
+namespace CTF.Application.Audio.Configuration;
 
 /// <summary>
 /// Holds the configured audio URLs for team flag events.
