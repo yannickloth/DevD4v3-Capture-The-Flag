@@ -5,13 +5,6 @@ namespace CTF.Application.Combat.WeaponSelectionSpawn;
 public class WeaponSelectionSpawnSystem(IGunGameMode gunGameMode) : ISystem
 {
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player)]
-    public void OnPlayerConnect(Player player)
-    {
-        player.AddComponent<WeaponSelectionComponent>();
-    }
-
-    [Event]
     [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.GunGame, ChangeDriver.Player)]
     public void OnPlayerSpawn(Player player)
     {
