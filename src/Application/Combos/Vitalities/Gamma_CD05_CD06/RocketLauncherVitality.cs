@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Vitalities;
+﻿namespace CTF.Application.Combos.Vitalities.Gamma_CD05_CD06;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
 /// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
