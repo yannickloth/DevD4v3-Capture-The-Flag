@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.GunGames.Gamma_CD07_CD26_CD27;
+﻿namespace CTF.Application.Tests.GunGames.Progression;
 
 using CTF.Application.Tests.GunGames.Core;
 
