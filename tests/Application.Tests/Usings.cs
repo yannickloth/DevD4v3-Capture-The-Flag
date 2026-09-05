@@ -110,6 +110,7 @@ global using CTF.Application.Maps;
 global using CTF.Application.Maps.Collection;
 global using CTF.Application.Maps.Initialization;
 global using CTF.Application.GunGames;
+global using CTF.Application.GunGames.Composition;
 global using CTF.Application.GunGames.Progression;
 global using CTF.Application.GunGames.Progression.ECS;
 global using CTF.Application.GunGames.Rewards;

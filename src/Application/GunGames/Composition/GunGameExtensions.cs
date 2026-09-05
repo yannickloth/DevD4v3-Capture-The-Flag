@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames;
+﻿namespace CTF.Application.GunGames.Composition;
 
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
 public static class GunGameExtensions

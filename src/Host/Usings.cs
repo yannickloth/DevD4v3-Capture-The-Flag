@@ -115,6 +115,7 @@ global using CTF.Application.Maps.Rotation;
 global using CTF.Application.Maps.Rotation.Scheduler;
 global using CTF.Application.Maps.Rotation.Commands;
 global using CTF.Application.GunGames;
+global using CTF.Application.GunGames.Composition;
 global using CTF.Application.GunGames.Systems;
 global using CTF.Application.GunGames.Systems.Mode;
 global using CTF.Application.GunGames.Systems.Enforcement;

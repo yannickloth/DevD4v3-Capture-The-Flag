@@ -142,6 +142,7 @@ global using CTF.Application.Maps.Rotation;
 global using CTF.Application.Maps.Rotation.Scheduler;
 global using CTF.Application.Maps.Rotation.Commands;
 global using CTF.Application.GunGames;
+global using CTF.Application.GunGames.Composition;
 global using CTF.Application.GunGames.Progression;
 global using CTF.Application.GunGames.Progression.ECS;
 global using CTF.Application.GunGames.Rewards;
