@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD43;
+﻿namespace CTF.Application.CommandInfrastructure.Middleware;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerCommandText</c> to prevent command execution

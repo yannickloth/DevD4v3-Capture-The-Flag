@@ -75,8 +75,8 @@ global using CTF.Application.Audio;
 global using CTF.Application.PlayerResources.Core;
 global using CTF.Application.PlayerResources.Gamma_CD20_CD44;
 global using CTF.Application.PlayerResources.Gamma_CD15_CD20_CD31_CD44;
-global using CTF.Application.CommandInfrastructure.Gamma_CD02_CD08_CD12_CD32_CD43;
-global using CTF.Application.CommandInfrastructure.Gamma_CD31_CD43;
+global using CTF.Application.CommandInfrastructure.Middleware;
+global using CTF.Application.CommandInfrastructure.Text;
 
 global using CTF.Application.Statistics.Ranks.Core;
 global using CTF.Application.Statistics.Ranks.Gamma_CD10_CD07_CD09_CD20;
