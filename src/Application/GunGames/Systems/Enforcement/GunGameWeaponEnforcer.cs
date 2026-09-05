@@ -1,6 +1,6 @@
 ﻿using SampSharp.OpenMp.Core.Std.Chrono;
 
-namespace CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD31_CD32;
+namespace CTF.Application.GunGames.Systems.Enforcement;
 
 /// <summary>
 /// Ensures that players can only use the weapon assigned to their current

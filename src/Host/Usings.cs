@@ -112,8 +112,8 @@ global using CTF.Application.Maps.Rotation.Gamma_CD02_CD11_CD12_CD31_CD34_CD36_C
 global using CTF.Application.Maps.Rotation.Gamma_CD09_CD11_CD12_CD15_CD31_CD33_CD34_CD36_CD43;
 global using CTF.Application.GunGames;
 global using CTF.Application.GunGames.Systems.Core;
-global using CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD09_CD15_CD31_CD32_CD33_CD35_CD36_CD43;
-global using CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD31_CD32;
+global using CTF.Application.GunGames.Systems.Mode;
+global using CTF.Application.GunGames.Systems.Enforcement;
 global using CTF.Host.Composition.ApplicationServices;
 global using CTF.Host.Composition.DatabaseProviders;
 global using CTF.Host.Composition.EcsBuilder;

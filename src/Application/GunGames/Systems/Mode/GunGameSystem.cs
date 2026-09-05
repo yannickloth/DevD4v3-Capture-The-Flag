@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Systems.Gamma_CD03_CD07_CD09_CD15_CD31_CD32_CD33_CD35_CD36_CD43;
+﻿namespace CTF.Application.GunGames.Systems.Mode;
 
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules); CD-03 (combat/weapon-rules specification) → CD-07; CD-15 (command set) → CD-07; CD-09 (authorization policy) → CD-07; CD-31 (player events); CD-32 (ECS runtime); CD-33 (dialog API); CD-35 (GameText API); CD-36 (client messages); CD-43 (command infrastructure) → CD-07</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; worldService -> CD-36; dialogService -> CD-33; handlers (FrozenDictionary&lt;GunGameResult, IGunGameResultHandler&gt;) -> CD-07; weaponProgression -> CD-07; gunGameSession -> CD-07; gunGameReward -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
