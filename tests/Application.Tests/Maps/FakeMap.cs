@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Fakes.Maps;
+﻿namespace CTF.Application.Tests.Maps;
 
 /// <summary>Test double for the IMap interface.</summary>
 /// <remarks>Change drivers: CD-11 (root; map configuration: the IMap interface)</remarks>
