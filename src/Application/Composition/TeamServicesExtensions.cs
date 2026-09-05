@@ -3,11 +3,11 @@
 /// <summary>
 /// Registers team-related services with the DI container.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition)]
 public static class TeamServicesExtensions
 {
     /// <summary>Registers the team services.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition)]
     public static IServiceCollection AddTeamServices(this IServiceCollection services)
     {
         services

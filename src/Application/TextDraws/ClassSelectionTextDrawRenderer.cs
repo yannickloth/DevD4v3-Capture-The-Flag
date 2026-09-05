@@ -3,22 +3,22 @@
 /// <summary>
 /// Renders the class-selection screen textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+[ChangeDriversAttribute(ChangeDriver.TextDraw)]
 public class ClassSelectionTextDrawRenderer
 {
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation via IWorldService)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _gameModeTitle;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _gameModeDescription;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _commandList;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _blueCommandListBox;
 
     /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
@@ -29,7 +29,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Shows the class-selection textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Show(Player player)
     {
         _gameModeDescription.Show(player);
@@ -39,7 +39,7 @@ public class ClassSelectionTextDrawRenderer
     }
 
     /// <summary>Hides the class-selection textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Hide(Player player)
     {
         _gameModeDescription.Hide(player);
@@ -47,7 +47,7 @@ public class ClassSelectionTextDrawRenderer
         _blueCommandListBox.Hide(player);
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private void Initialize()
     {
         _gameModeTitle = _worldService.CreateTextDraw(new Vector2(483.000000f, 4.000000f), string.Empty);

@@ -1,10 +1,10 @@
 ﻿namespace CTF.Application.Statistics.Score.Hud;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-36. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
 public class PlayerStatsRenderer(IWorldService worldService)
 {
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void CreateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -32,7 +32,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -43,7 +43,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
     }
 
     /// <summary>Formats the player's statistics as a textdraw-compatible string.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static string GetStatsAsText(PlayerInfo playerInfo)
     {
         Result<Rank> rankResult = RankCollection.GetById(playerInfo.Stats.RankId);
@@ -63,7 +63,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         return Smart.Format(message, stats);
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void ShowTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -71,7 +71,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Show();
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void HideTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -79,17 +79,17 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Hide();
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private PlayerStatsTextDraw GetTextDrawOrThrow(Player player)
     {
         return player.GetComponent<PlayerStatsTextDraw>()
              ?? throw new InvalidOperationException($"The '{nameof(PlayerStatsTextDraw)}' component is not attached to the player");
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-32 (ECS runtime); CD-34 (Textdraw API) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     private class PlayerStatsTextDraw : Component
     {
-        /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-34 (Textdraw API) → CD-10</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.TextDraw)]
         public PlayerTextDraw Value { get; }
 
         /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-34 (Textdraw API) → CD-10</remarks>

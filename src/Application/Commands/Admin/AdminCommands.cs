@@ -3,8 +3,8 @@
 /// <summary>
 /// Provides the admin-role command set.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player state/action); CD-32 (entity manager); CD-33 (dialog); CD-36 (client messages); CD-42 (server service) → CD-15</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; serverService -> CD-42; worldService -> CD-36; dialogService -> CD-33. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.ServerService)]
 public class AdminCommands(
     IEntityManager entityManager,
     IServerService serverService,
@@ -12,7 +12,7 @@ public class AdminCommands(
     IDialogService dialogService) : ISystem
 {
     /// <summary>Shows the admin commands dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Dialog)]
     [PlayerCommand("cmdsadmin")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowAdminCommands(Player player)
@@ -33,7 +33,7 @@ public class AdminCommands(
     }
 
     /// <summary>Gives a jetpack to all connected players.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player special action); CD-32 (entity manager); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     [PlayerCommand("jetall")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GiveJetpackToPlayers(Player currentPlayer)
@@ -54,7 +54,7 @@ public class AdminCommands(
     }
 
     /// <summary>Teleports the admin to a target player's position.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player position); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("goto")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void GoToPlayerPosition(
@@ -71,7 +71,7 @@ public class AdminCommands(
     }
 
     /// <summary>Brings a target player to the admin's position.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player position); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("get")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BringPlayerToMyPosition(
@@ -88,7 +88,7 @@ public class AdminCommands(
     }
 
     /// <summary>Bans a target player.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player ban); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("ban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void BanPlayer(
@@ -131,7 +131,7 @@ public class AdminCommands(
     }
 
     /// <summary>Unbans a player IP address.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-42 (server service: SendRconCommand); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.ServerService, ChangeDriver.ClientMessage)]
     [PlayerCommand("unban")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void UnbanPlayer(Player currentPlayer, string ip)
@@ -142,7 +142,7 @@ public class AdminCommands(
     }
 
     /// <summary>Shows the list of banned IP addresses.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-33 (dialog); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Dialog, ChangeDriver.ClientMessage)]
     [PlayerCommand("bannedips")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void ShowBannedIPs(Player currentPlayer)
@@ -176,18 +176,18 @@ public class AdminCommands(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
-    /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet)]
     private class BannedPlayer
     {
-        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public string Address { get; set; } = string.Empty;
-        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public string Player { get; set; } = string.Empty;
-        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public string Reason { get; set; } = string.Empty;
-        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public string Time { get; set; } = "2023-12-07T16:05:21-0500";
-        /// <remarks>Change drivers: CD-15 (root; command set: admin ban-list entry, display format)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public override string ToString()
         {
             var dt = DateTimeOffset.Parse(Time).DateTime;

@@ -3,38 +3,38 @@
 /// <summary>
 /// Identifies the available weapon progression types.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public enum WeaponProgressionType
 {
     [DisplayName("Classic")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Classic,
 
     [DisplayName("Reverse Classic")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     ReverseClassic,
 
     [DisplayName("Pistols Only")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Pistols,
 
     [DisplayName("SMGs Only")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     SMGs,
 
     [DisplayName("Shotguns Only")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Shotguns,
 
     [DisplayName("Rifles Only")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Rifles,
 
     [DisplayName("Hardcore")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Hardcore,
 
     [DisplayName("Powerful Weapons")]
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     Powerful
 }

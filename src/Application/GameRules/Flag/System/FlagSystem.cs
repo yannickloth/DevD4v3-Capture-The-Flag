@@ -3,8 +3,8 @@
 /// <summary>
 /// Handles flag-related events such as disconnect, death, team change, pickup, and the return command.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/drop/return rules); CD-37; CD-31 (player events, pickups) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02; CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; flagEvents (FrozenDictionary&lt;FlagStatus, IFlagEvent&gt;) -> CD-02; teamPickupService -> CD-37; flagAutoReturnTimer -> CD-02; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Player, ChangeDriver.Combat, ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
 public class FlagSystem(
     IWorldService worldService,
     FrozenDictionary<FlagStatus, IFlagEvent> flagEvents,
@@ -12,17 +12,17 @@ public class FlagSystem(
     FlagAutoReturnTimer flagAutoReturnTimer,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-06 (coin economy) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin)]
     private const int CarrierKillEarnedCoins  = 4;
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Combat)]
     private const int CarrierKillEarnedHealth = 10;
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-kill rewards); CD-10 (player-statistics/rank model) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Statistics)]
     private const int CarrierKillEarnedScore  = 2;
 
     /// <summary>Handles flag drop when a carrying player disconnects.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-disconnect drop rule); CD-31 (OnPlayerDisconnect) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -36,7 +36,7 @@ public class FlagSystem(
     }
 
     /// <summary>Handles flag drop and rewards when a carrying player dies.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-death drop rule); CD-31 (OnPlayerDeath) → CD-02; CD-03 (combat/weapon-rules specification: carrier-kill rewards) → CD-02; CD-06 (coin economy: coins-on-kill) → CD-02; CD-10 (player-statistics/rank model: stats textdraw refresh) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Combat, ChangeDriver.Coin, ChangeDriver.Statistics)]
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -58,7 +58,7 @@ public class FlagSystem(
     }
 
     /// <summary>Drops the flag when a carrying player changes teams.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier team-change drop rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     [Event]
     public void OnTeamChange(Player player, Team selectedTeam)
     {
@@ -72,7 +72,7 @@ public class FlagSystem(
     }
 
     /// <summary>Handles flag pickup interactions.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/return rules); CD-37; CD-31 (OnPlayerPickUpPickup) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Player)]
     [Event]
     public void OnPlayerPickUpPickup(Player player, Pickup pickup)
     {
@@ -101,7 +101,7 @@ public class FlagSystem(
     }
 
     /// <summary>Returns a flag to its base position via the returnflag command.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag return rule); CD-15 (command set: returnflag command) → CD-02; CD-09 (authorization policy: moderator gating) → CD-02; CD-37; CD-40; CD-41 (pickups, audio, timers) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer)]
     [PlayerCommand("returnflag")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ReturnToBasePosition(

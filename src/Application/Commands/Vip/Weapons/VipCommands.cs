@@ -3,11 +3,11 @@
 /// <summary>
 /// Provides the VIP-role weapon command set.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (GiveWeapon) → CD-15</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player)]
 public class VipCommands : ISystem
 {
     /// <summary>Gives the player a chainsaw.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (GiveWeapon) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player)]
     [PlayerCommand("saw")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Saw(Player player)
@@ -16,7 +16,7 @@ public class VipCommands : ISystem
     }
 
     /// <summary>Gives the player a spray can.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (GiveWeapon) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player)]
     [PlayerCommand("spray")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Spray(Player player) 
@@ -25,7 +25,7 @@ public class VipCommands : ISystem
     }
 
     /// <summary>Gives the player tear gas.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (GiveWeapon) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player)]
     [PlayerCommand("teargas")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void Teargas(Player player)

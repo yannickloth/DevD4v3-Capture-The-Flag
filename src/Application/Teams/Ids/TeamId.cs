@@ -3,16 +3,16 @@
 /// <summary>
 /// Represents the identifiers of the teams in the CTF gamemode.
 /// </summary>
-/// <remarks>Change drivers: CD-31 (root; player team id) ‖ CD-02 (root; CTF game-rules specification: team identity)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.GameRules)]
 public enum TeamId
 {
     /// <summary>The Alpha team.</summary>
-    /// <remarks>Change drivers: CD-31 (root; player team id)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player)]
     Alpha,
     /// <summary>The Beta team.</summary>
-    /// <remarks>Change drivers: CD-31 (root; player team id)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player)]
     Beta,
     /// <summary>The NoTeam state.</summary>
-    /// <remarks>Change drivers: CD-31 (root; player team id) ‖ CD-02 (root; CTF game-rules specification: no-team state)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.GameRules)]
     NoTeam = 0xFF
 }

@@ -3,11 +3,11 @@
 /// <summary>
 /// Provides dependency-injection extension methods for the chat subsystem.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-13 (chat rules) → CD-21</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Chat)]
 public static class ChatServicesExtensions
 {
     /// <summary>Registers the chat subsystem services.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-13 (chat rules) → CD-21</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Chat)]
     public static IServiceCollection AddChatServices(this IServiceCollection services)
     {
         services
@@ -24,7 +24,7 @@ public static class ChatServicesExtensions
         return services;
     }
 
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition); CD-13 (chat rules) → CD-21</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Chat)]
     private static IServiceCollection AddChatMessage<T>(this IServiceCollection services)
         where T : class, IChatMessage
     {

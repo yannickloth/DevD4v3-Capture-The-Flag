@@ -1,10 +1,10 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map)]
 public interface IMap
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     int Id { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     string Name { get; }
 }

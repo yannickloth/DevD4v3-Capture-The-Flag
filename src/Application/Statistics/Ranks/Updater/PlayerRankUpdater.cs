@@ -1,21 +1,21 @@
 ﻿namespace CTF.Application.Statistics.Ranks.Updater;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository)]
 public class PlayerRankUpdater(
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: rank-up rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
     private const int EarnedHealth = 100;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: rank-up rewards); CD-03 (combat/weapon-rules specification: armour rewards) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
     private const int EarnedArmour = 100;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: rank-up rewards); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     private const int EarnedCoins  = 100;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-09 (authorization policy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository)]
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

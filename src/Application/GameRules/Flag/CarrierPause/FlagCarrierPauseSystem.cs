@@ -6,8 +6,8 @@
 /// <remarks>
 /// It checks if the carrier is paused and updates the timer. If the timer runs out, the flag is returned to the base.
 /// </remarks>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-37; CD-40; CD-41; CD-31 (OnPlayerPauseStateChange, timers, pickups, audio) → CD-02; CD-17 (game configuration/.env schema: FlagCarrier__PauseTime) → CD-02</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; timerService -> CD-41; teamPickupService -> CD-37; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
 public class FlagCarrierPauseSystem(
     IWorldService worldService,
     ITimerService timerService,
@@ -15,7 +15,7 @@ public class FlagCarrierPauseSystem(
     FlagCarrierSettings flagCarrierSettings) : ISystem
 {
     /// <summary>Stops the pause timer when a carrier disconnects.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-41; CD-31 (OnPlayerDisconnect, timers) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer, ChangeDriver.Player)]
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -27,7 +27,7 @@ public class FlagCarrierPauseSystem(
     }
 
     /// <summary>Handles the pause state change for flag carriers.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-41; CD-31 (OnPlayerPauseStateChange, timers) → CD-02; CD-17 (game configuration/.env schema: FlagCarrier__PauseTime) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
     [Event]
     public void OnPlayerPauseStateChange(Player player, bool pauseState)
     {
@@ -77,10 +77,10 @@ public class FlagCarrierPauseSystem(
         }
     }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-17 (game configuration/.env schema: FlagCarrier__PauseTime) → CD-02; CD-41 (timer) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Configuration, ChangeDriver.Timer)]
     private class PauseTimerReference(TimerReference value) : Component
     {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier-pause flag return rule); CD-41 (timer) → CD-02</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
         public TimerReference Value { get; } = value;
     }
 }

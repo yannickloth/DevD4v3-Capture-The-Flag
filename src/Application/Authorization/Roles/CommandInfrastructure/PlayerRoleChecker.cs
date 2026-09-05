@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.Authorization.Roles.CommandInfrastructure;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (IPermissionChecker/command plumbing) → CD-09</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandInfrastructure)]
 public class PlayerRoleChecker : IPermissionChecker
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-43 (command plumbing) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandInfrastructure)]
     public bool HasPermission(Player player, CommandDefinition command)
     {
         string minimumRequiredRoleValue = command.GetTag("role");

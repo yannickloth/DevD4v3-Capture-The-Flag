@@ -2,22 +2,22 @@
 
 namespace CTF.Application.Combos.Vitalities.RocketLauncher;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
 /// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin)]
 public class RocketLauncherVitality(ComboSettings comboSettings) : ICombo
 {
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private const int Health = 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: rocket launcher ammo)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private const int RocketLauncherAmmo = 2;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public string Name => $"{Health} Health and Rocket launcher(RPG)";
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: coin cost)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public int RequiredCoins => 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public Result Give(Player player)
     {
         if (comboSettings.IsRocketLauncherDisabled)

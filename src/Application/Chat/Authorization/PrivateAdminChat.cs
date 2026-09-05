@@ -3,16 +3,16 @@
 /// <summary>
 /// Represents the admin private chat tier, routed by the '#' prefix.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
 /// <remarks>Injected dependencies: entityManager -> CD-32. Driven by the IEntityManager (platform) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
 public class PrivateAdminChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Chat)]
     public char Id => '#';
 
     /// <summary>Sends the message to all players of the required admin role.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-32 (ECS runtime); CD-36 (client messages) → CD-13</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public bool SendToAllPlayers(PlayerInfo sender, string message)
     {
         if (sender.HasLowerRoleThan(RoleId.Admin))

@@ -3,11 +3,11 @@ namespace CTF.Application.Commands.Vip.Help;
 /// <summary>
 /// Shows the VIP-role help dialog.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-33 (dialog) → CD-15</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Dialog)]
 public class VipHelpCommands : ISystem
 {
     /// <summary>Shows the VIP commands dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Dialog)]
     [PlayerCommand("cmdsvip")]
     [RequiresMinimumRole(RoleId.VIP)]
     public void ShowVipCommands(Player player, IDialogService dialogService)

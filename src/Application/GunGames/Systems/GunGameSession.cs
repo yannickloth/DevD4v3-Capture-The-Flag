@@ -3,18 +3,18 @@
 /// <summary>
 /// Represents the current GunGame session.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public class GunGameSession
 {
     /// <summary>
     /// Gets or sets the weapon progression used by the current GunGame session.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public WeaponProgressionType WeaponProgressionType { get; set; } = WeaponProgressionType.Classic;
 
     /// <summary>
     /// Gets or sets the number of kills required to advance to the next weapon level.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public KillsRequiredPerLevel KillsRequiredPerLevel { get; set; } = new(1);
 }

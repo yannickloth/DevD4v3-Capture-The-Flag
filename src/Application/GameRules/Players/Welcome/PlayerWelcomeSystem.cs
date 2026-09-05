@@ -3,11 +3,11 @@
 /// <summary>
 /// Sends the welcome messages to a player upon connection.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (OnPlayerConnect); CD-36 (SendClientMessage) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
 public class PlayerWelcomeSystem : ISystem
 {
     /// <summary>Sends the welcome messages when a player connects.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (OnPlayerConnect); CD-36 (SendClientMessage) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [Event]
     public void OnPlayerConnect(Player player)
     {

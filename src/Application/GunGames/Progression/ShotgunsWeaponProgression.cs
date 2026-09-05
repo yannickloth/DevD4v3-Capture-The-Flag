@@ -3,13 +3,13 @@
 /// <summary>
 /// Defines a GunGame weapon progression using only shotguns.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public class ShotgunsWeaponProgression : WeaponProgression
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public override WeaponProgressionType Type => WeaponProgressionType.Shotguns;
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

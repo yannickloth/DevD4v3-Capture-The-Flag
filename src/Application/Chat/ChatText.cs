@@ -3,11 +3,11 @@ namespace CTF.Application.Chat;
 /// <summary>
 /// Helper for chat-message text manipulation that carries only chat-rule drivers.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (root; chat rules: prefix replacement)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Chat)]
 internal static class ChatText
 {
     /// <summary>Replaces the first character of a chat message in place.</summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules: prefix replacement)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Chat)]
     internal static unsafe void ReplaceFirstCharacter(string originalText, char newCharacter)
     {
         fixed (char* text = originalText)

@@ -3,13 +3,13 @@
 /// <summary>
 /// Provides access to all players participating in the current match.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match participants); CD-31 (player entity) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
 public static class MatchPlayers
 {
     /// <summary>
     /// Gets all players participating in the current match.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match participants)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public static IEnumerable<Player> GetAll()
     {
         foreach (Player player in Team.Alpha.Members) 

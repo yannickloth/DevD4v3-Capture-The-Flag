@@ -3,94 +3,94 @@ namespace CTF.Application.Statistics.Score.Totals;
 /// <summary>
 /// Represents the persisted career statistics of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
 public class PlayerStatistics
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public PlayerStatsPerRound PerRound { get; } = new();
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int TotalKills { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int TotalDeaths { get; private set; }
 
     /// <summary>
     /// Indicates the maximum killing spree.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int MaxKillingSpree { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has captured the opposing team's flag and brought it back to their own base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int BroughtFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has captured the opposing team's flag from their base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int CapturedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has dropped the opposing team's flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int DroppedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of times a player has returned the flag to their team's base.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int ReturnedFlags { get; private set; }
 
     /// <summary>
     /// Indicates the number of shots that the player has made at the heads of other players.
     /// </summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int HeadShots { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public int GunGameWins { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public RankId RankId { get; private set; } = RankId.Noob;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public DateTime LastConnection { get; private set; } = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void SetLastConnection() => LastConnection = DateTime.UtcNow;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void SetMaxKillingSpree(int value) => MaxKillingSpree = value;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddTotalKills() => TotalKills++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddTotalDeaths() => TotalDeaths++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddBroughtFlags() => BroughtFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddCapturedFlags() => CapturedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddDroppedFlags() => DroppedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddReturnedFlags() => ReturnedFlags++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddHeadShots() => HeadShots++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void AddGunGameWins() => GunGameWins++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public Result SetTotalKills(int value)
     {
         if (value < 0)
@@ -100,7 +100,7 @@ public class PlayerStatistics
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public Result SetTotalDeaths(int value)
     {
         if (value < 0)
@@ -110,7 +110,7 @@ public class PlayerStatistics
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     public Result SetRank(RankId id)
     {
         if (id < 0 || (int)id >= RankCollection.Count)

@@ -5,17 +5,17 @@ using CTF.Application.Configuration;
 /// <summary>
 /// Represents a team in the CTF gamemode, holding its identity, members, stats, and flag.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity and balance) ‖ CD-31 (root; player team/color state) ‖ CD-44 (root; skin id resources); CD-10 (player-statistics/rank model) → CD-02; CD-17 (game configuration/.env schema) → CD-02; CD-34 (textdraw API) → CD-02; CD-35 (GameText API) → CD-02; CD-40 (audio API) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balance)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public static readonly Team Alpha;
     /// <summary>Gets the Beta team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balance)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public static readonly Team Beta;
     /// <summary>Gets the NoTeam placeholder team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: no-team state)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public static readonly Team None;
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team instantiation)</remarks>
     private Team() { }
@@ -82,16 +82,16 @@ public class Team
     }
 
     /// <summary>Gets the team identifier.</summary>
-    /// <remarks>Change drivers: CD-31 (root; player team id) ‖ CD-02 (root; CTF game-rules specification: team identity)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.GameRules)]
     public TeamId Id { get; private set; }
     /// <summary>Gets the team skin identifier.</summary>
-    /// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public SkinTeamId SkinId { get; private set; }
     /// <summary>Gets the team name.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public string Name { get; private set; }
     /// <summary>Gets the team color name.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color identity)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public string ColorName { get; private set; }
 
     /// <summary>
@@ -102,39 +102,39 @@ public class Team
     /// open.mp GameText text colors documentation
     /// </see>.
     /// </remarks>
-    /// <remarks>Change drivers: CD-35 (root; GameText API: text-color codes) ‖ CD-02 (root; CTF game-rules specification: team color identity)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameText, ChangeDriver.GameRules)]
     public string GameTextColor { get; private set; }
 
     /// <summary>Gets the team color in hexadecimal.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color identity)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public Color ColorHex { get; private set; }
     /// <summary>Gets the sounds associated with the team.</summary>
-    /// <remarks>Change drivers: CD-40 (root; audio API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Audio)]
     public TeamSounds Sounds { get; private set; }
     /// <summary>Gets the team's flag.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag ownership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public Flag Flag { get; private set; }
     /// <summary>Gets the rival team.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team pairing)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public Team RivalTeam { get; private set; }
     /// <summary>Gets the team members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public TeamMembers Members { get; } = [];
     /// <summary>Gets the per-round statistics for the team.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team stats)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public TeamStatsPerRound StatsPerRound { get; } = new();
 
     /// <summary>Gets the team member count as text.</summary>
-    /// <remarks>Change drivers: CD-34 (textdraw) → CD-02; CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.TextDraw)]
     public virtual string GetMembersAsText() => $"{Members.Count}";
     /// <summary>Checks whether the team has more members than its rival.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public virtual bool IsFull() => Members.Count > RivalTeam.Members.Count;
     /// <summary>Checks whether the team has a higher score than its rival.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: match end conditions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public virtual bool IsWinner() => StatsPerRound.Score > RivalTeam.StatsPerRound.Score;
     /// <summary>Resets the team's round state.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: round/flag reset rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public virtual void Reset()
     {
         StatsPerRound.Reset();
@@ -143,7 +143,7 @@ public class Team
     }
 
     /// <summary>Gets the team availability message.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing availability)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public virtual string GetAvailabilityMessage()
         => IsFull() ? 
         $"~y~{Name}~n~~r~ not available" : 
@@ -158,7 +158,7 @@ public class Team
     /// <returns>
     /// The status resulting from the interaction.
     /// </returns>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag steal/capture/return rules); CD-31 (player team/entity) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public virtual FlagStatus HandleFlagInteraction(Player flagPicker)
     {
         ArgumentNullException.ThrowIfNull(flagPicker);
@@ -190,22 +190,22 @@ public class Team
         return FlagStatus.Taken;
     }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team identity, the None team)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     private class NoTeam : Team
     {
         /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team)</remarks>
         public NoTeam() { }
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team, no availability message)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules)]
         public override string GetAvailabilityMessage() => string.Empty;
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team takes no flag interaction); CD-31 (player entity) → CD-02</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override FlagStatus HandleFlagInteraction(Player flagPicker) => FlagStatus.BasePosition;
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team has no member text)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules)]
         public override string GetMembersAsText() => string.Empty;
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team is never full)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules)]
         public override bool IsFull() => false;
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team never wins)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules)]
         public override bool IsWinner() => false;
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team round/flag reset rule)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules)]
         public override void Reset()
         {
             StatsPerRound.Reset();

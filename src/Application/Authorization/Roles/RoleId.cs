@@ -1,17 +1,17 @@
 ﻿namespace CTF.Application.Authorization.Roles;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization)]
 public enum RoleId
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization)]
     Basic,
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization)]
     VIP,
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization)]
     Moderator,
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization)]
     Admin
 }

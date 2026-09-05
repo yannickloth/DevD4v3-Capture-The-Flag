@@ -3,31 +3,31 @@
 /// <summary>
 /// Represents the total wait time for the new map to load.
 /// </summary>
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapRotation)]
 public class LoadTime
 {
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loading-map callback)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private readonly Action _onLoadingMap;
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: loaded-map callback)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private readonly Action _onLoadedMap;
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules: remaining load time)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private int _interval = MaxLoadTime;
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public const int MaxLoadTime = 10;
 
     /// <summary>
     /// Displays the load time in the game.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public string GameText { get; private set; } = string.Empty;
 
     /// <summary>
     /// Represents the interval in seconds.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public int Interval => _interval;
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
@@ -42,7 +42,7 @@ public class LoadTime
     /// <summary>
     /// Reduces the load time until it reaches zero.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public void Decrease()
     {
         if (_interval == 0)
@@ -61,9 +61,9 @@ public class LoadTime
         UpdateGameText();
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private void UpdateGameText() => GameText = $"Loading map... ({_interval})";
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private void Reset()
     {
         _interval = MaxLoadTime;

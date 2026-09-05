@@ -2,10 +2,10 @@
 
 namespace CTF.Application.Combos;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combo)]
 public static class ComboServicesExtensions
 {
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public static IServiceCollection AddComboServices(this IServiceCollection services)
     {
         services
@@ -20,7 +20,7 @@ public static class ComboServicesExtensions
         return services;
     }
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private static IServiceCollection AddCombo<T>(this IServiceCollection services)
         where T : class, ICombo
     {

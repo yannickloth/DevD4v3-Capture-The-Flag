@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides account extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account)]
 public static class PlayerExtensions
 {
     /// <summary>
@@ -19,7 +19,7 @@ public static class PlayerExtensions
     /// Thrown when the player does not have an attached
     /// <see cref="AccountComponent"/>.
     /// </exception>
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public static PlayerInfo GetRequiredInfo(this Player player)
     {
         AccountComponent accountComponent = player.GetComponent<AccountComponent>();
@@ -42,7 +42,7 @@ public static class PlayerExtensions
     /// Thrown when the player does not have an attached
     /// <see cref="AccountComponent"/>.
     /// </exception>
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public static bool IsUnauthenticated(this Player player)
     {
         AccountComponent accountComponent = player.GetComponent<AccountComponent>();

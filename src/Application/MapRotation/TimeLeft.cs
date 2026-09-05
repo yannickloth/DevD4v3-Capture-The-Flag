@@ -3,18 +3,18 @@
 /// <summary>
 /// Represents the time left on the current map.
 /// </summary>
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapRotation)]
 public class TimeLeft
 {
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private const int MaxRoundTime = 3600;
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private const int DefaultRoundTime = 900;
 
     /// <summary>
     /// Represents the interval in seconds.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private int _interval = DefaultRoundTime;
 
     // This property can never be mutable.
@@ -22,7 +22,7 @@ public class TimeLeft
     /// <summary>
     /// Represents the time left in a text draw.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public string TextDraw { get; } = "00:00";
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
@@ -31,10 +31,10 @@ public class TimeLeft
     /// <summary>
     /// Checks if the countdown has ended.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public bool IsCompleted() => _interval == 0;
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public Result SetInterval(Minutes minutes)
     {
         if (minutes.Value < 0 || minutes.Value > (MaxRoundTime / 60))
@@ -48,7 +48,7 @@ public class TimeLeft
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public Result SetInterval(Seconds seconds)
     {
         if (seconds.Value < 0 || seconds.Value > MaxRoundTime)
@@ -65,7 +65,7 @@ public class TimeLeft
     /// <summary>
     /// Reduces the time remaining until it reaches zero.
     /// </summary>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public void Decrease()
     {
         if (_interval == 0)
@@ -75,7 +75,7 @@ public class TimeLeft
         UpdateTextDraw();
     }
 
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public void Reset()
     {
         _interval = DefaultRoundTime;
@@ -89,7 +89,7 @@ public class TimeLeft
     /// <remarks>
     /// This decision was made because the text will be updated every 1s by a timer.
     /// </remarks>
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     private unsafe void UpdateTextDraw()
     {
         int minutes = _interval / 60;
@@ -111,19 +111,19 @@ public class TimeLeft
     }
 }
 
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapRotation)]
 public readonly ref struct Minutes
 {
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public int Value { get; }
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Minutes(int value) => Value = value;
 }
 
-/// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapRotation)]
 public readonly ref struct Seconds
 {
-    /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public int Value { get; }
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public Seconds(int value) => Value = value;

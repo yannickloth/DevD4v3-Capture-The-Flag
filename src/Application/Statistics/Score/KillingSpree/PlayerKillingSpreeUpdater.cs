@@ -1,30 +1,30 @@
 ﻿namespace CTF.Application.Statistics.Score.KillingSpree;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-31 (player events); CD-32 (ECS runtime); CD-35 (GameText API); CD-36 (client messages) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
 public class PlayerKillingSpreeUpdater(
     IWorldService worldService,
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree threshold)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     private const int MinimumKillingSpree = 2;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-06 (coin economy: coin rewards for spree) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     private const int EarnedCoins = 20;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: killing-spree rewards); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
     private const int EarnedHealth = 10;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: consecutive-kills bonus); CD-03 (combat/weapon-rules specification: health rewards) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
     private const int ConsecutiveKillsBonusHealth = 40;
 
     /// <summary>Determines whether the player has surpassed their previously recorded maximum killing spree.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static bool HasSurpassedMaxKillingSpree(PlayerInfo playerInfo)
         => playerInfo.Stats.PerRound.KillingSpree > playerInfo.Stats.MaxKillingSpree;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10; CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-31 (player events); CD-32 (ECS runtime); CD-35 (GameText API); CD-36 (client messages) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

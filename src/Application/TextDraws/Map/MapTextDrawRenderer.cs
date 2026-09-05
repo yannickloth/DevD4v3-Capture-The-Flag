@@ -1,21 +1,21 @@
 ﻿namespace CTF.Application.TextDraws.Map;
 
-/// <remarks>Change drivers: CD-34 (root; Textdraw API); CD-12 (map-rotation rules) → CD-34; CD-11 (map configuration) → CD-34</remarks>
+[ChangeDriversAttribute(ChangeDriver.TextDraw, ChangeDriver.MapRotation, ChangeDriver.Map)]
 public class MapTextDrawRenderer
 {
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation via IWorldService)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: map name textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _mapName;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: sprite/preview model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _timer;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: time-left textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _timeLeft;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: load-time textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _loadTime;
 
     /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
@@ -25,7 +25,7 @@ public class MapTextDrawRenderer
         Initialize();
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Show(Player player)
     {
         _mapName.Show(player);
@@ -34,7 +34,7 @@ public class MapTextDrawRenderer
         _loadTime.Show();
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Hide(Player player) 
     {
         _mapName.Hide(player);
@@ -43,25 +43,25 @@ public class MapTextDrawRenderer
         _loadTime.Hide(player);
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: map-name textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void UpdateMapName(CurrentMap currentMap)
     {
         _mapName.Text = currentMap.GetMapNameAsText();
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: time-left textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void UpdateTimeLeft(TimeLeft timeLeft)
     {
         _timeLeft.Text = timeLeft.TextDraw;
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: load-time textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void UpdateLoadTime(LoadTime loadTime)
     {
         _loadTime.Text = loadTime.GameText;
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private void Initialize()
     {
         _mapName = _worldService.CreateTextDraw(new Vector2(140.000000f, 399.000000f), string.Empty);

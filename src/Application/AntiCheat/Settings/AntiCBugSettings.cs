@@ -3,15 +3,15 @@
 /// <summary>
 /// Represents the configuration for the GTA: San Andreas crouch bug (C-Bug) protection.
 /// </summary>
-/// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-17 (game configuration/.env schema) → CD-14</remarks>
 /// <remarks>
 /// C-Bug is a bug in GTA: San Andreas that allows players to manipulate the
 /// reload animation of certain weapons, particularly the Desert Eagle, to fire
 /// much faster than the game's normal mechanics would allow.
 /// </remarks>
+[ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Configuration)]
 public class AntiCBugSettings
 {
     /// <summary>Gets or sets a value indicating whether the C-Bug protection is disabled.</summary>
-    /// <remarks>Change drivers: CD-14 (root; anti-cheat policy); CD-17 (game configuration/.env schema) → CD-14</remarks>
+    [ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Configuration)]
     public bool Disabled { get; set; } = false;
 }

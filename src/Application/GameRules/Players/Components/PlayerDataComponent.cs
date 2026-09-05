@@ -3,29 +3,29 @@
 /// <summary>
 /// Stores the runtime state required for player pause detection.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (player entity & state); CD-32 (Component) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs)]
 public class PlayerDataComponent : Component
 {
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause-state component); CD-31 (player entity) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     private readonly Player _player;
 
     /// <summary>
     /// Gets the player's current state.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause-state component); CD-31 (player entity & state) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public PlayerState State => _player.State;
 
     /// <summary>
     /// Gets or sets whether the player is currently paused.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause-state component); CD-31 (player entity) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public bool IsPaused { get; set; }
 
     /// <summary>
     /// Gets or sets the timestamp of the last received
     /// <c>OnPlayerUpdate</c> callback.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: pause-state component); CD-31 (player entity & state) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public long LastUpdateTick { get; set; }
 
     /// <summary>Creates the component for the given player.</summary>

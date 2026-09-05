@@ -1,13 +1,13 @@
 ﻿namespace CTF.Application.Maps;
 
-/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map)]
 public class SpawnLocation
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public static readonly SpawnLocation Empty = new(0, 0, 0, 0);
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public Vector3 Position { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public float Angle { get; }
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
     public SpawnLocation(float x, float y, float z, float angle)

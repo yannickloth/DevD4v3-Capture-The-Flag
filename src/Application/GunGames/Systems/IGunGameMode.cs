@@ -3,12 +3,12 @@
 /// <summary>
 /// Represents the current availability of GunGame mode.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public interface IGunGameMode
 {
     /// <summary>
     /// Gets a value indicating whether GunGame mode is currently active.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     bool IsEnabled { get; }
 }

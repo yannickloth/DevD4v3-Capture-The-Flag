@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.WeaponCatalogs;
 
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
 public class WarWeaponCatalog : WeaponCatalog
 {
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     public override WeaponCatalogType Type => WeaponCatalogType.War;
 
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

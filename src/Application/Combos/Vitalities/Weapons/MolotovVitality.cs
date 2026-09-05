@@ -1,23 +1,23 @@
 ﻿namespace CTF.Application.Combos.Vitalities.Weapons;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-03 (combat/weapon-rules specification) → CD-05</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.Combat)]
 public class MolotovVitality : ICombo
 {
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward health)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private const int Health = 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: reward armour)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private const int Armour = 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: molotov ammo)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private const int MolotovAmmo = 6;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public string Name => $"{Health} Health, {Armour} Armour and Molotov cocktail";
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: coin cost)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public int RequiredCoins => 100;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     public Result Give(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

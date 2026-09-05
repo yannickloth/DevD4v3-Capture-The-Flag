@@ -1,59 +1,59 @@
 ﻿namespace CTF.Application.Accounts;
 
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository)]
 public interface IPlayerRepository
 {
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository)]
     PlayerInfo GetOrDefault(string name);
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository)]
     bool Exists(string name);
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository)]
     void Create(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository)]
     void UpdateName(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08; CD-25 (BCrypt password-hashing contract) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt)]
     void UpdatePassword(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateTotalKills(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateTotalDeaths(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateMaxKillingSpree(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateBroughtFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateCapturedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateDroppedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateReturnedFlags(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateHeadShots(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-07 (GunGame mode rules) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.GunGame, ChangeDriver.Repository)]
     void UpdateGunGameWins(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Repository)]
     void UpdateRole(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-20 (root; outbound repository contract)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Repository)]
     void UpdateSkin(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateRank(PlayerInfo player);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Repository)]
     void UpdateLastConnection(PlayerInfo player);
 }

@@ -4,13 +4,13 @@
 /// Represents the weapon catalog configuration currently used by the server.
 /// The active catalog can be changed at runtime.
 /// </summary>
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
 public class WeaponCatalogSettings
 {
     /// <summary>
     /// Gets or sets the catalog currently used by the server.
     /// </summary>
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public WeaponCatalogType Type { get; private set; }
 
     /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
@@ -26,7 +26,7 @@ public class WeaponCatalogSettings
     /// <param name="type">
     /// The weapon catalog to activate.
     /// </param>
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration); CD-17 (game configuration/.env schema) → CD-04</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public void Change(WeaponCatalogType type)
     {
         WeaponCatalogTypeValidator.EnsureValidCatalog(type);

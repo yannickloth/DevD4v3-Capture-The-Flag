@@ -3,18 +3,18 @@
 /// <summary>
 /// Represents a top player entry ranked by total kills.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics)]
 public class TopPlayersByTotalKills
 {
     /// <summary>Gets the player name.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public string PlayerName { get; init; }
 
     /// <summary>Gets the total kills.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public int TotalKills { get; init; }
 
     /// <summary>Gets the player's rank.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public RankId Rank { get; init; }
 }

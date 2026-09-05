@@ -3,12 +3,12 @@
 /// <summary>
 /// Provides the moderator-role command set.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player kick/spawn/state); CD-32 (components); CD-33 (dialog); CD-36 (client messages) → CD-15</remarks>
 /// <remarks>Injected dependencies: worldService -> CD-36. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage)]
 public class ModeratorCommands(IWorldService worldService) : ISystem
 {
     /// <summary>Shows the moderator commands dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Dialog)]
     [PlayerCommand("cmdsmoderator")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ShowModeratorCommands(Player player, IDialogService dialogService)
@@ -29,7 +29,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Kicks a target player.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player kick); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("kick")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void Kick(
@@ -61,7 +61,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Respawns a target player at their spawn point.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player spawn/state); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("setspawn")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void SetSpawn(
@@ -92,7 +92,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Clears the chat for all players.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-36 (SendClientMessageToAll) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.ClientMessage)]
     [PlayerCommand("clearallchat")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void ClearAllChat(Player currentPlayer)
@@ -104,7 +104,7 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Issues a warning to a target player, kicking after the third warning.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-09 (authorization policy) → CD-15; CD-31 (player kick); CD-32 (components); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     [PlayerCommand("warn")]
     [RequiresMinimumRole(RoleId.Moderator)]
     public void Warn(
@@ -144,17 +144,17 @@ public class ModeratorCommands(IWorldService worldService) : ISystem
     }
 
     /// <summary>Adds the warnings component when a player connects.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-31 (OnPlayerConnect) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Player)]
     [Event]
     public void OnPlayerConnect(Player player)
     {
         player.AddComponent<WarningsComponent>();
     }
 
-    /// <remarks>Change drivers: CD-15 (root; command set: warn count); CD-32 (Component) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Ecs)]
     private class WarningsComponent : Component
     {
-        /// <remarks>Change drivers: CD-15 (root; command set: warn count)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.CommandSet)]
         public int Value { get; set; }
     }
 }

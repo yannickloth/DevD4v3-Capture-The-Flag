@@ -3,8 +3,8 @@
 /// <summary>
 /// Balances players between two teams based on their score.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing); CD-31 (player team/score) → CD-02</remarks>
 /// <remarks>Injected dependencies: teamTextDrawRenderer -> CD-34. Driven by the TeamTextDrawRenderer (rendering) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
 public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
 {
     /// <summary>
@@ -24,7 +24,7 @@ public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
     /// Players are sorted by score in descending order and then
     /// alternately assigned to the specified teams.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Balance(
         Team firstTeam,
         Team secondTeam, 

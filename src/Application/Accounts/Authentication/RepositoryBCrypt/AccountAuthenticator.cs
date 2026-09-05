@@ -1,12 +1,12 @@
 ﻿namespace CTF.Application.Accounts.Authentication.RepositoryBCrypt;
 
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08; CD-25 (BCrypt password-hashing contract) → CD-08; CD-31 (player entity); CD-32 (ECS runtime); CD-36 (client-message API) → CD-08</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; playerRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
 public class AccountAuthenticator(
     IPasswordHasher passwordHasher,
     IPlayerRepository playerRepository)
 {
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-20 (outbound repository contract) → CD-08; CD-31 (player entity); CD-32 (ECS runtime); CD-36 (client-message API) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public Result Signup(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -25,7 +25,7 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-25 (BCrypt password-hashing contract) → CD-08; CD-31 (player entity); CD-32 (ECS runtime); CD-36 (client-message API) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public Result Login(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -53,10 +53,10 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-32 (ECS runtime) → CD-08</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Ecs)]
     private class FailedAttemptCountComponent : Component
     {
-        /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Account)]
         public int Value { get; set; } = 0;
     }
 }

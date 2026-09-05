@@ -1,13 +1,13 @@
 ﻿namespace CTF.Application.Authorization.Admin.Commands;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema: server-owner name) → CD-09; CD-32 (ECS runtime); CD-33 (dialog API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; entityManager -> CD-32; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandSet, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
 public class AdminListSystem(
     IDialogService dialogService,
     IEntityManager entityManager,
     ServerOwnerSettings serverOwnerSettings) : ISystem
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09; CD-32 (ECS runtime); CD-33 (dialog API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09; CD-15 (command set) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
     [PlayerCommand("admins")]
     public void Show(Player player)
     {
@@ -55,7 +55,7 @@ public class AdminListSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration)]
     private bool IsServerOwner(PlayerInfo playerInfo)
         => playerInfo.Account.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
 }

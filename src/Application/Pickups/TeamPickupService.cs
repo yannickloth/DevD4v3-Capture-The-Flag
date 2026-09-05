@@ -3,25 +3,25 @@
 /// <summary>
 /// Creates and destroys pickups for team flags and exterior markers.
 /// </summary>
-/// <remarks>Change drivers: CD-37 (root; pickup API); CD-44 (model id resources); CD-11 (map configuration: flag locations) → CD-37; CD-36 (client-message API) → CD-37</remarks>
+[ChangeDriversAttribute(ChangeDriver.Pickup, ChangeDriver.Model, ChangeDriver.Map, ChangeDriver.ClientMessage)]
 public class TeamPickupService
 {
-    /// <remarks>Change drivers: CD-37 (root; pickup API: map-config flag locations provider)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private readonly MapInfoService _mapInfoService;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API: creation via IWorldService)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private Pickup _redFlagPickup;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private Pickup _blueFlagPickup;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker pickup)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private Pickup _redExteriorMarker;
 
-    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker pickup)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     private Pickup _blueExteriorMarker;
 
     /// <remarks>Change drivers: CD-37 (root; pickup API)</remarks>
@@ -34,7 +34,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the flag pickup at the team's base position.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup from base position)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void CreateFlagFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -50,7 +50,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the flag pickup at the specified position.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup creation)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void CreateFlagFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -74,7 +74,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys the flag pickup for the specified team.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void DestroyFlag(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -91,7 +91,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys all flag pickups.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API: flag pickup destruction)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void DestroyFlags()
     {
         DestroyFlag(Team.Alpha);
@@ -99,7 +99,7 @@ public class TeamPickupService
     }
 
     /// <summary>Creates the exterior marker for the specified team.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API: exterior marker creation)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void CreateExteriorMarker(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -124,7 +124,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys the exterior marker for the specified team.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void DestroyExteriorMarker(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -141,7 +141,7 @@ public class TeamPickupService
     }
 
     /// <summary>Destroys all pickups for flags and exterior markers.</summary>
-    /// <remarks>Change drivers: CD-37 (root; pickup API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Pickup)]
     public void DestroyAllPickups()
     {
         DestroyExteriorMarker(Team.Alpha);

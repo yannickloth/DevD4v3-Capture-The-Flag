@@ -3,8 +3,8 @@
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag from their base.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag capture rule); CD-35; CD-37; CD-38; CD-40 (pickups, radar, audio, GameText) → CD-02; CD-06 (coin economy: coins-on-flag-event) → CD-02; CD-10 (player-statistics/rank model: captured flags) → CD-02; CD-20 (outbound repository contract: UpdateCapturedFlags) → CD-02; CD-17 (game configuration/.env schema: FlagCarrier__ShowOnRadarMap) → CD-02</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36; teamPickupService -> CD-37; playerStatsRenderer -> CD-10; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Configuration)]
 public class OnFlagCaptured(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -12,18 +12,18 @@ public class OnFlagCaptured(
     PlayerStatsRenderer playerStatsRenderer,
     FlagCarrierSettings flagCarrierSettings) : IFlagEvent
 {
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag capture rewards); CD-06 (coin economy) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin)]
     private const int EarnedCoins = 5;
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag capture rewards); CD-10 (player-statistics/rank model) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Statistics)]
     private const int EarnedScore = 2;
 
     /// <summary>Gets the flag status handled by this event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public FlagStatus FlagStatus => FlagStatus.Captured;
 
     /// <summary>Handles the flag-captured event.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag capture rule); CD-06 (coin economy: coins-on-flag-event) → CD-02; CD-10 (player-statistics/rank model: captured flags) → CD-02; CD-20 (outbound repository contract: UpdateCapturedFlags) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void Handle(Team team, Player player)
     {
         teamPickupService.CreateExteriorMarker(team);

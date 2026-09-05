@@ -3,14 +3,14 @@
 /// <summary>
 /// Provides the top-players leaderboard commands.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-17 (game configuration/.env schema) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-15 (command set) → CD-10; CD-33 (dialog API); CD-36 (client messages); CD-43 (command infrastructure) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): dialogService -> CD-33; topPlayersRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.Repository, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
 public class TopPlayersSystem(
     IDialogService dialogService,
     ITopPlayersRepository topPlayersRepository) : ISystem
 {
     /// <summary>Shows the top players ranked by total kills.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-17 (game configuration/.env schema) → CD-10; CD-43 (command infrastructure); CD-33 (dialog API); CD-36 (client messages) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Repository, ChangeDriver.Configuration, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage)]
     [PlayerCommand("topkills")]
     public void ShowByTotalKills(Player currentPlayer, int maxPlayers = 10)
     {
@@ -49,7 +49,7 @@ public class TopPlayersSystem(
     }
 
     /// <summary>Shows the top players ranked by maximum killing spree.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-17 (game configuration/.env schema) → CD-10; CD-43 (command infrastructure); CD-33 (dialog API); CD-36 (client messages) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Repository, ChangeDriver.Configuration, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage)]
     [PlayerCommand("topspree")]
     public void ShowByMaxKillingSpree(Player currentPlayer, int maxPlayers = 10)
     {

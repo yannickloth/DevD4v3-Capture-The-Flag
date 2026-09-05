@@ -3,34 +3,34 @@
 /// <summary>
 /// Represents the available weapon catalogs.
 /// </summary>
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
 public enum WeaponCatalogType
 {
     [DisplayName("Walking Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     Walking,
 
     [DisplayName("Run Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     Run,
 
     [DisplayName("Run & Walk Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     Mixed,
 
     [DisplayName("Rifles Only")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     RifleOnly,
 
     [DisplayName("War Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     War,
 
     [DisplayName("Heavy Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     Heavy,
 
     [DisplayName("Melee Weapons")]
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     Melee
 }

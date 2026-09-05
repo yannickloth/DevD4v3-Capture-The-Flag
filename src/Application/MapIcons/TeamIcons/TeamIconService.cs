@@ -3,19 +3,19 @@
 /// <summary>
 /// Creates and destroys dynamic map icons for team flags.
 /// </summary>
-/// <remarks>Change drivers: CD-38 (root; map-icon API); CD-11 (map configuration: flag locations/interior) → CD-38; CD-37 (pickup API) → CD-38</remarks>
+[ChangeDriversAttribute(ChangeDriver.MapIcon, ChangeDriver.Map, ChangeDriver.Pickup)]
 public class TeamIconService
 {
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: flag-location/interior provider)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     private readonly MapInfoService _mapInfoService;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation via streamer service)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     private readonly IStreamerService _streamerService;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: team flag map icon)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     private DynamicMapIcon _redMapIcon;
 
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: team flag map icon)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     private DynamicMapIcon _blueMapIcon;
 
     /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
@@ -28,7 +28,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon from the team's base position.</summary>
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation from base position)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     public void CreateFromBasePosition(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -44,7 +44,7 @@ public class TeamIconService
     }
 
     /// <summary>Creates the map icon at the specified position.</summary>
-    /// <remarks>Change drivers: CD-38 (root; map-icon API: creation at position)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     public void CreateFromVector3(Team team, Vector3 position)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -73,7 +73,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys the map icon for the specified team.</summary>
-    /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     public void Destroy(Team team)
     {
         ArgumentNullException.ThrowIfNull(team);
@@ -90,7 +90,7 @@ public class TeamIconService
     }
 
     /// <summary>Destroys all team map icons.</summary>
-    /// <remarks>Change drivers: CD-38 (root; map-icon API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.MapIcon)]
     public void DestroyAll()
     {
         Destroy(Team.Alpha);

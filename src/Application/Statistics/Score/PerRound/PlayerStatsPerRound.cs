@@ -1,36 +1,36 @@
 ﻿namespace CTF.Application.Statistics.Score.PerRound;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
 public class PlayerStatsPerRound
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public int Kills { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public int Deaths { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public int KillingSpree { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public int Coins { get; private set; }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void AddKills() => Kills++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void AddDeaths() => Deaths++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void AddKillingSpree() => KillingSpree++;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public bool HasSufficientCoins(int amount) => Coins >= amount;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public bool HasInsufficientCoins(int amount) => !HasSufficientCoins(amount);
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public Result AddCoins(int value)
     {
         if (value < 1 || value > 100)
@@ -43,7 +43,7 @@ public class PlayerStatsPerRound
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public Result SubtractCoins(int value)
     {
         if (value < -100 || value > -1)
@@ -56,19 +56,19 @@ public class PlayerStatsPerRound
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public void ResetCoins() => Coins = 0;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void ResetKills()  => Kills = 0;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void ResetDeaths() => Deaths = 0;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void ResetKillingSpree() => KillingSpree = 0;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-06 (coin economy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
     public void ResetStats()
     {
         Kills = 0;

@@ -1,18 +1,18 @@
 ﻿namespace CTF.Application.Accounts.Authentication.ECS;
 
-/// <remarks>Change drivers: CD-08 (root; account & authentication policy); CD-32 (ECS runtime) → CD-08</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Ecs)]
 public class AccountComponent : Component
 {
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public PlayerInfo PlayerInfo { get; }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public bool IsAuthenticated { get; private set; }
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public bool IsUnauthenticated => !IsAuthenticated;
 
-    /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public void Authenticate() => IsAuthenticated = true;
 
     /// <remarks>Change drivers: CD-08 (root; account & authentication policy)</remarks>

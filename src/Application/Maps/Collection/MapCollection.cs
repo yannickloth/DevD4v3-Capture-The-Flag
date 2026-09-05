@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.Maps.Collection;
 
-/// <remarks>Change drivers: CD-11 (root; map configuration); CD-12 (map-rotation rules) → CD-11</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.MapRotation)]
 public class MapCollection
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: loaded maps)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private Map[] _maps;
 
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
@@ -12,11 +12,11 @@ public class MapCollection
         LoadFromDirectory(mapsPath);
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public int Count => _maps.Length;
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public IReadOnlyList<IMap> GetAll() => _maps;
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public IEnumerable<IMap> GetAll(string findBy)
     {
         foreach (Map map in _maps)
@@ -26,7 +26,7 @@ public class MapCollection
         }
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public Result<IMap> GetById(int id)
     {
         if (id < 0 || id >= Count)
@@ -36,7 +36,7 @@ public class MapCollection
         return Result<IMap>.Success(map);
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public Result<IMap> GetByName(string mapName)
     {
         Map map = _maps
@@ -46,23 +46,23 @@ public class MapCollection
             Result<IMap>.Success(map);
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration); CD-12 (map-rotation rules) → CD-11</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.MapRotation)]
     public IMap GetNext(IMap current)
     {
         int nextMapId = (current.Id + 1) % Count;
         return GetById(nextMapId).Value;
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private class Map : IMap
     {
-        /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Map)]
         public int Id { get; init; }
-        /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Map)]
         public string Name { get; init; }
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private void LoadFromDirectory(string mapsPath)
     {
         var random = new Random();

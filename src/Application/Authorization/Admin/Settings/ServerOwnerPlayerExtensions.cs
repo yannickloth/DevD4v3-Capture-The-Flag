@@ -3,7 +3,7 @@ namespace CTF.Application.Authorization.Admin.Settings;
 /// <summary>
 /// Provides server-owner authorization extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration)]
 public static class ServerOwnerPlayerExtensions
 {
     /// <summary>
@@ -16,7 +16,7 @@ public static class ServerOwnerPlayerExtensions
     /// <see langword="true"/> if the player is the server owner;
     /// otherwise, <see langword="false"/>.
     /// </returns>
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema: server-owner name) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration)]
     public static bool IsServerOwner(this Player player)
     {
         var envReader = new EnvReader();

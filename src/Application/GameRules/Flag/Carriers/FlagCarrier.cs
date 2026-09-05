@@ -3,10 +3,10 @@ namespace CTF.Application.GameRules.Flag.Carriers;
 /// <summary>
 /// Represents the player currently carrying a flag.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state); CD-31 (player entity) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
 public class FlagCarrier
 {
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule); CD-31 (player entity) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public Player Player { get; internal set; }
 
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state); CD-31 (player entity) → CD-02</remarks>
@@ -19,7 +19,7 @@ public class FlagCarrier
     /// <summary>
     /// Determines whether the specified player is the carrier, matched by player name.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state, carrier matching by nickname); CD-31 (player entity/name) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public bool Is(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -31,6 +31,6 @@ public class FlagCarrier
     /// <summary>
     /// Gets the display name of the carrier.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier display); CD-31 (player entity/name) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     public string DisplayName => Player.Name;
 }

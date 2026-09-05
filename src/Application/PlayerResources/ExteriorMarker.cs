@@ -3,13 +3,13 @@
 /// <summary>
 /// See <see href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=EnExMarker">exterior markers</see>.
 /// </summary>
-/// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Model)]
 public enum ExteriorMarker
 {
     /// <summary>The Red exterior marker.</summary>
-    /// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Red = 19605,
     /// <summary>The Blue exterior marker.</summary>
-    /// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Blue = 19607
 }

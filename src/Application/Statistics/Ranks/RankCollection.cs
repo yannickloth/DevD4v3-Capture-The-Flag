@@ -3,10 +3,10 @@
 /// <summary>
 /// Provides access to the collection of rank tiers and their required kills.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics)]
 public class RankCollection
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: rank tiers)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     private static readonly Rank[] s_ranks = 
     [
         new(RankId.Noob,         0),
@@ -30,15 +30,15 @@ public class RankCollection
     private RankCollection() { }
 
     /// <summary>Gets the number of rank tiers.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static int Count => s_ranks.Length;
 
     /// <summary>Gets all rank tiers.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static IReadOnlyList<Rank> GetAll() => s_ranks;
 
     /// <summary>Gets the rank tier by its identifier.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static Result<Rank> GetById(RankId id)
     {
         if ((int)id < 0 || (int)id >= Count)
@@ -49,7 +49,7 @@ public class RankCollection
     }
 
     /// <summary>Gets the rank tier corresponding to the given total kills.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static Result<Rank> GetByRequiredKills(int value)
     {
         if (value < 0)
@@ -70,7 +70,7 @@ public class RankCollection
     }
 
     /// <summary>Determines whether the specified player can advance to the next rank tier.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static bool CanMoveUpToNextRank(PlayerInfo playerInfo)
     {
         Rank currentRank = GetById(playerInfo.Stats.RankId).Value;
@@ -82,7 +82,7 @@ public class RankCollection
     }
 
     /// <summary>Gets the next rank tier after the given rank.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public static Result<Rank> GetNextRank(RankId previous)
     {
         if ((int)previous < 0 || (int)previous >= Count)

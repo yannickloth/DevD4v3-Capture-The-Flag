@@ -3,13 +3,13 @@ namespace CTF.Application.Authorization.Roles.Repository;
 /// <summary>
 /// Represents the persisted authorization state of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Repository)]
 public class PlayerRole
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Repository)]
     public RoleId Id { get; private set; } = RoleId.Basic;
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09 — inherited against dependency direction from the Id column this method writes</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Repository)]
     public Result Set(RoleId id)
     {
         if (id < 0 || (int)id >= RoleCollection.Count)

@@ -3,33 +3,33 @@
 /// <summary>
 /// Represents the current information of a map.
 /// </summary>
-/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map)]
 public class CurrentMap : IMap
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: random spawn selection)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private readonly Random _random = new();
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public const int DefaultInterior  = 0;
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public const int DefaultWeather   = 10;
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public const int DefaultWorldTime = 12;
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public int Id { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public string Name { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public IReadOnlyList<SpawnLocation> AlphaTeamLocations { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public IReadOnlyList<SpawnLocation> BetaTeamLocations { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public FlagLocations FlagLocations { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public int Interior { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public int Weather { get; }
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public int WorldTime { get; }
 
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
@@ -63,11 +63,11 @@ public class CurrentMap : IMap
         WorldTime = worldTime;
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public string GetMapNameAsText() 
         => $"Map: ~w~{Name}";
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public SpawnLocation GetRandomSpawnLocation(TeamId team) => team switch
     {
         TeamId.Alpha => AlphaTeamLocations[_random.Next(AlphaTeamLocations.Count)],

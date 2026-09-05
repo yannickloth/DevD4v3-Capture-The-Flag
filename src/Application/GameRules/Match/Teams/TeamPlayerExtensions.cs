@@ -3,7 +3,7 @@ namespace CTF.Application.GameRules.Match.Teams;
 /// <summary>
 /// Provides team-membership extension methods over the player entity.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification); CD-31 (player entity: team/color) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
 public static class TeamPlayerExtensions
 {
     /// <summary>
@@ -15,7 +15,7 @@ public static class TeamPlayerExtensions
     /// <returns>
     /// The team from which the player was removed, or <see cref="Team.None"/> if the player had no team.
     /// </returns>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public static Team RemoveFromCurrentTeam(this Player player)
     {
         if (player.Team == (int)TeamId.NoTeam)

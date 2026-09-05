@@ -3,16 +3,16 @@
 /// <summary>
 /// See <see href="https://dev.prineside.com/en/gtasa_samp_model_id/search/?q=flag">flag models</see>.
 /// </summary>
-/// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Model)]
 public enum FlagModel
 {
     /// <summary>No flag model.</summary>
-    /// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     None = 0,
     /// <summary>The red flag model.</summary>
-    /// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Red = 19306,
     /// <summary>The blue flag model.</summary>
-    /// <remarks>Change drivers: CD-44 (root; object model id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Blue = 19307
 }

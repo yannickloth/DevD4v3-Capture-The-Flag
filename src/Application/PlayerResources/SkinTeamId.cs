@@ -3,16 +3,16 @@
 /// <summary>
 /// Represents the player skin ids assigned to teams.
 /// </summary>
-/// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Model)]
 public enum SkinTeamId
 {
     /// <summary>The NoTeam skin.</summary>
-    /// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     NoTeam = 0,
     /// <summary>The Alpha team skin.</summary>
-    /// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Alpha = 170,
     /// <summary>The Beta team skin.</summary>
-    /// <remarks>Change drivers: CD-44 (root; skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     Beta = 177
 }

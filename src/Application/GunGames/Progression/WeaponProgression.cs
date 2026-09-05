@@ -3,16 +3,16 @@
 /// <summary>
 /// Represents a weapon progression consisting of an ordered sequence of weapons.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public abstract class WeaponProgression
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: weapon progression)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private readonly List<IWeapon> _weapons = [];
 
     /// <summary>
     /// Gets the type of weapon progression.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public abstract WeaponProgressionType Type { get; }
 
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
@@ -32,13 +32,13 @@ public abstract class WeaponProgression
     /// <param name="weapons">
     /// The collection to populate with weapons in progression order.
     /// </param>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     protected abstract void Define(List<IWeapon> weapons);
 
     /// <summary>
     /// Gets the maximum weapon level defined by this progression.
     /// </summary>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public MaxWeaponLevel MaxLevel
         => new(_weapons.Count);
 
@@ -49,7 +49,7 @@ public abstract class WeaponProgression
     /// <param name="level">
     /// The weapon level to evaluate.
     /// </param>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public bool IsFinalLevel(WeaponLevel level)
         => level.Value == MaxLevel.Value;
 
@@ -62,7 +62,7 @@ public abstract class WeaponProgression
     /// <returns>
     /// The weapon assigned to the specified level.
     /// </returns>
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public IWeapon GetWeapon(WeaponLevel level)
     {
         int index = level.Value - 1;

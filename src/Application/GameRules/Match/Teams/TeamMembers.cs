@@ -3,22 +3,22 @@
 /// <summary>
 /// Represents the collection of players that belong to a team.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership); CD-31 (player entity) → CD-02</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
 public class TeamMembers : IEnumerable<Player>
 {
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     private readonly Dictionary<int, Player> _players = [];
 
     /// <summary>Checks whether the team has no members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public bool IsEmpty() => _players.Count == 0;
 
     /// <summary>Gets the number of team members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team balancing)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public int Count => _players.Count;
 
     /// <summary>Clears all team members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: round/team reset rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Clear() => _players.Clear();
 
     /// <summary>
@@ -28,7 +28,7 @@ public class TeamMembers : IEnumerable<Player>
     /// This method throws an <see cref="ArgumentException"/> if the player is not found.
     /// </remarks>
     /// <param name="player">The player to remove.</param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Remove(Player player)
     {
         bool playerIsNotFound = !_players.Remove(player.Id);
@@ -46,7 +46,7 @@ public class TeamMembers : IEnumerable<Player>
     /// This method throws an <see cref="ArgumentException"/> if the member already exists.
     /// </remarks>
     /// <param name="player">The player to add.</param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Add(Player player)
     {
         bool exists = !_players.TryAdd(player.Id, player);
@@ -58,10 +58,10 @@ public class TeamMembers : IEnumerable<Player>
     }
 
     /// <summary>Gets an enumerator over the team members.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public IEnumerator<Player> GetEnumerator() => _players.Values.GetEnumerator();
 
     /// <summary>Gets the non-generic enumerator.</summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team membership)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 }

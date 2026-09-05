@@ -3,25 +3,25 @@ namespace CTF.Application.PlayerResources.Appearance;
 /// <summary>
 /// Represents the persisted visual/platform preferences of a player.
 /// </summary>
-/// <remarks>Change drivers: CD-44 (root; model & skin id resources); CD-20 (outbound repository contract) → CD-44</remarks>
+[ChangeDriversAttribute(ChangeDriver.Model, ChangeDriver.Repository)]
 public class PlayerAppearance
 {
     /// <summary>
     /// It is a sentinel value that indicates the player has no skin selected.
     /// </summary>
-    /// <remarks>Change drivers: CD-44 (root; skin id resources, no-skin sentinel)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     private const int NoSkin = -1;
 
-    /// <remarks>Change drivers: CD-44 (root; model & skin id resources); CD-20 (outbound repository contract) → CD-44</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model, ChangeDriver.Repository)]
     public int SkinId { get; private set; } = NoSkin;
 
-    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public Team Team { get; private set; } = Team.None;
 
-    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public void RemoveSkin() => SkinId = NoSkin;
 
-    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public Result SetSkin(int id)
     {
         if (id < 0 || id > 311)
@@ -31,7 +31,7 @@ public class PlayerAppearance
         return Result.Success();
     }
 
-    /// <remarks>Change drivers: CD-44 (root; model & skin id resources)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public Result SetTeam(TeamId id)
     {
         Result<Team> result = id switch

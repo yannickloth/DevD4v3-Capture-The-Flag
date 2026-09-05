@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.GunGames.Composition;
 
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public static class GunGameExtensions
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public static IServiceCollection AddGunGameServices(this IServiceCollection services)
     {
         services
@@ -41,7 +41,7 @@ public static class GunGameExtensions
         return services;
     }
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private static IServiceCollection AddWeaponProgression<T>(this IServiceCollection services)
         where T : WeaponProgression
     {
@@ -49,7 +49,7 @@ public static class GunGameExtensions
         return services;
     }
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private static IServiceCollection AddGunGameResultHandler<T>(this IServiceCollection services)
         where T : class, IGunGameResultHandler
     {

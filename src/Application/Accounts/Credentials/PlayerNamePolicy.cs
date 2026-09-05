@@ -3,23 +3,23 @@ namespace CTF.Application.Accounts.Credentials;
 /// <summary>
 /// Validates player name and password credentials against the account policy.
 /// </summary>
-/// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: name/password validation rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Account)]
 public static partial class PlayerNamePolicy
 {
     /// <summary>
     /// It is a validation pattern for player names.
     /// </summary>
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player name validation pattern)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     private const string PlayerNamePattern = @"^[0-9a-zA-Z\[\]\(\)\$\@._=]+$";
 
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: player name validation regex)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     [GeneratedRegex(PlayerNamePattern)]
     private static partial Regex PlayerNameRegex();
 
     /// <summary>
     /// Validates the player name against the account policy.
     /// </summary>
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: name length/charset rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public static Result ValidateName(string value)
     {
         ArgumentNullException.ThrowIfNull(value);
@@ -38,7 +38,7 @@ public static partial class PlayerNamePolicy
     /// <summary>
     /// Validates the player password against the account policy.
     /// </summary>
-    /// <remarks>Change drivers: CD-08 (root; account &amp; authentication policy: password length rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Account)]
     public static Result ValidatePassword(string value)
     {
         ArgumentNullException.ThrowIfNull(value);

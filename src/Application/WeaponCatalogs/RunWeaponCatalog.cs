@@ -3,17 +3,17 @@
 /// <summary>
 /// Defines a weapon catalog that allows players to remain mobile while fighting.
 /// </summary>
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
 /// <remarks>
 /// These weapons support the classic Run Weapons (RW) gameplay style,
 /// where players can move quickly while attacking.
 /// </remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
 public class RunWeaponCatalog : WeaponCatalog
 {
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     public override WeaponCatalogType Type => WeaponCatalogType.Run;
 
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

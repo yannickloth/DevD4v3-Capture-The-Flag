@@ -1,8 +1,8 @@
 ﻿namespace CTF.Application.Combat.WeaponSelection.ECS;
 
-/// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: weapon selection); CD-32 (ECS component) → CD-03</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Ecs)]
 public class WeaponSelectionComponent : Component
 {
-    /// <remarks>Change drivers: CD-03 (root; combat/weapon-rules specification: weapon selection); CD-32 (ECS component) → CD-03</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Ecs)]
     public WeaponPack SelectedWeapons { get; } = [];
 }

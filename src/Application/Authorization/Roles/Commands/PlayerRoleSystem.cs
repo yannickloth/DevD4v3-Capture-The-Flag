@@ -1,13 +1,13 @@
 ﻿namespace CTF.Application.Authorization.Roles.Commands;
 
-/// <remarks>Change drivers: CD-09 (root; authorization policy); CD-15 (command set) → CD-09; CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-31 (player entity); CD-32 (ECS runtime); CD-33 (dialog API); CD-35 (GameText API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; dialogService -> CD-33; serverOwnerSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandSet, ChangeDriver.Configuration, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
 public class PlayerRoleSystem(
     IPlayerRepository playerRepository,
     IDialogService dialogService,
     ServerOwnerSettings serverOwnerSettings) : ISystem
 {
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-20 (outbound repository contract) → CD-09; CD-31 (player entity); CD-35 (GameText API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09; CD-15 (command set) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
     [PlayerCommand("setrole")]
     [RequiresMinimumRole(RoleId.Admin)]
     public void SetRole(
@@ -64,7 +64,7 @@ public class PlayerRoleSystem(
         currentPlayer.SendClientMessage(Color.Yellow, message);
     }
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-17 (game configuration/.env schema) → CD-09; CD-20 (outbound repository contract) → CD-09; CD-31 (player entity); CD-32 (ECS runtime); CD-33 (dialog API); CD-35 (GameText API); CD-36 (client-message API); CD-43 (command infrastructure) → CD-09; CD-15 (command set) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
     [PlayerCommand("givemeadmin")]
     public async Task GiveMeAdmin(Player currentPlayer)
     {
@@ -121,10 +121,10 @@ public class PlayerRoleSystem(
         currentPlayer.GetComponent<FailedAttemptCountComponent>()?.Destroy();
     }
 
-    /// <remarks>Change drivers: CD-09 (root; authorization policy); CD-32 (ECS runtime) → CD-09</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Ecs)]
     private class FailedAttemptCountComponent : Component
     {
-        /// <remarks>Change drivers: CD-09 (root; authorization policy)</remarks>
+        [ChangeDriversAttribute(ChangeDriver.Authorization)]
         public int Value { get; set; } = 0;
     }
 }

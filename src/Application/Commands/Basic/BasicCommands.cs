@@ -3,20 +3,20 @@
 /// <summary>
 /// Provides the basic (public) command set.
 /// </summary>
-/// <remarks>Change drivers: CD-15 (root; command set); CD-31 (player state); CD-32 (entity manager); CD-33 (dialog); CD-36 (client messages) → CD-15</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; dialogService -> CD-33. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage)]
 public class BasicCommands(
     IEntityManager entityManager,
     IDialogService dialogService) : ISystem
 {
-    /// <remarks>Change drivers: CD-15 (root; command set: kill command health threshold); CD-02 (CTF game-rules specification) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules)]
     private const float MinimumHealthToUseKillCommand = 15f;
 
-    /// <remarks>Change drivers: CD-15 (root; command set: spec command health threshold); CD-02 (CTF game-rules specification) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules)]
     private const float MinimumHealthToUseSpectatorCommand = 85f;
 
     /// <summary>Shows the first page of public commands.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     [PlayerCommand("cmds")]
     public async Task ShowFirstCommandsPage(Player player)
     {
@@ -39,7 +39,7 @@ public class BasicCommands(
             await ShowSecondCommandsPage(player);
     }
 
-    /// <remarks>Change drivers: CD-15 (root; command set: commands dialog navigation); CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     private async Task ShowSecondCommandsPage(Player player)
     {
         var content = Smart.Format(DetailedCommandInfo.Public2, new
@@ -62,7 +62,7 @@ public class BasicCommands(
     }
 
     /// <summary>Shows the help dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     [PlayerCommand("help")]
     public void ShowHelp(Player player)
     {
@@ -82,7 +82,7 @@ public class BasicCommands(
     }
 
     /// <summary>Shows the credits dialog.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-33 (dialog) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     [PlayerCommand("credits")]
     public void ShowCredits(Player player)
     {
@@ -102,7 +102,7 @@ public class BasicCommands(
     }
 
     /// <summary>Eliminates the player's character for respawn purposes, subject to a minimum-health rule.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-02 (CTF game-rules specification) → CD-15; CD-31 (player health); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("kill")]
     public void Kill(Player player)
     {
@@ -124,7 +124,7 @@ public class BasicCommands(
     }
 
     /// <summary>Reports a target player to the moderators/admins.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-32 (entity manager); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     [PlayerCommand("report")]
     public void ReportPlayer(
         Player currentPlayer,
@@ -164,7 +164,7 @@ public class BasicCommands(
     }
 
     /// <summary>Enables spectator mode on a target player, subject to a minimum-health rule.</summary>
-    /// <remarks>Change drivers: CD-15 (root; command set); CD-02 (CTF game-rules specification) → CD-15; CD-31 (player state/spectate); CD-34 (team textdraw); CD-36 (client messages) → CD-15</remarks>
+    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage)]
     [PlayerCommand("spec")]
     public void EnableSpectatorMode(
         Player currentPlayer,

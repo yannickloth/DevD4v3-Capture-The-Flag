@@ -3,10 +3,10 @@
 /// <summary>
 /// Represents the highest weapon level available in a weapon progression.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public readonly struct MaxWeaponLevel
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public int Value { get; }
 
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>

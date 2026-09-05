@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a service to load information from a map.
 /// </summary>
-/// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Map)]
 public class MapInfoService
 {
-    /// <remarks>Change drivers: CD-11 (root; map configuration: current map state)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private CurrentMap _currentMap;
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration: map files location)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private readonly string _mapsPath;
 
     /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
@@ -22,7 +22,7 @@ public class MapInfoService
     /// <summary>
     /// Gets the current information from a map.
     /// </summary>
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public CurrentMap CurrentMap => _currentMap;
 
     /// <summary>
@@ -30,7 +30,7 @@ public class MapInfoService
     /// </summary>
     /// <param name="map">The map to load.</param>
     /// <exception cref="ArgumentNullException"></exception>
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     public void Load(IMap map)
     {
         ArgumentNullException.ThrowIfNull(map);
@@ -69,7 +69,7 @@ public class MapInfoService
             worldTime);
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private static SpawnLocation[] GetSpawnLocations(ISectionData section)
     {
         var locations = new SpawnLocation[section.Count];
@@ -89,7 +89,7 @@ public class MapInfoService
         return locations;
     }
 
-    /// <remarks>Change drivers: CD-11 (root; map configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Map)]
     private static Vector3 GetFlagLocation(ISectionData section) 
     {
         string data = section[0];

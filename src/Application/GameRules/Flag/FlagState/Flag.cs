@@ -3,31 +3,31 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-/// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state model and capture/score rules); CD-38 (map-icon id resources) → CD-02; CD-44 (object model id resources) → CD-02. Nested modules (FlagCarrier sibling, CarrierAttachment nested) do not transmit their driver sets to this class</remarks>
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model)]
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-44 (object model id resources) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Model)]
     public required FlagModel Model { get; init; }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag visual identity); CD-38 (map-icon id resources) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon)]
     public required FlagIcon Icon { get; init; }
 
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team color)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public required Color ColorHex { get; init; }
 
     /// <summary>
     /// Gets the display name of the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag display name)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public required string Name { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets the current status of the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag state machine)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public FlagStatus Status { get; private set; } = FlagStatus.BasePosition;
 
     /// <summary>
@@ -36,13 +36,13 @@ public class Flag
     /// <remarks>
     /// Returns <c>null</c> when the flag has no carrier.
     /// </remarks>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: one-flag-per-player carrier rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public FlagCarrier? Carrier { get; private set; }
 
     /// <summary>
     /// Checks if the flag has been captured by a player.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public bool HasCarrier => Carrier is not null;
 
     /// <summary>
@@ -53,7 +53,7 @@ public class Flag
     /// <see langword="true"/> if the player is carrying this flag;
     /// otherwise, <see langword="false"/>.
     /// </returns>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier state)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public bool IsCarriedBy(Player player)
     {
         if (!HasCarrier)
@@ -68,7 +68,7 @@ public class Flag
     /// <param name="player">
     /// The player who captured the flag.
     /// </param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: capture-from-base rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Capture(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -83,7 +83,7 @@ public class Flag
     /// <param name="player">
     /// The player who picked up the flag.
     /// </param>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: take-from-non-base rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Take(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -95,7 +95,7 @@ public class Flag
     /// <summary>
     /// Drops the flag and removes its current carrier.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag carrier death/disconnect drop rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Drop()
     {
         RemoveCarrier();
@@ -105,7 +105,7 @@ public class Flag
     /// <summary>
     /// Returns the flag to its base state and removes its current carrier.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: flag auto-return and return rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void ReturnToBase()
     {
         RemoveCarrier();
@@ -115,7 +115,7 @@ public class Flag
     /// <summary>
     /// Resets the flag to its initial state.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: round/flag reset rule)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     public void Reset()
     {
         RemoveCarrier();
@@ -125,7 +125,7 @@ public class Flag
     /// <summary>
     /// Sets the player who holds the flag.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     private void SetCarrier(Player player)
     {
         Carrier = new FlagCarrier(player);
@@ -135,7 +135,7 @@ public class Flag
     /// <summary>
     /// Removes the flag that the player is holding.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules)]
     private void RemoveCarrier()
     {
         if (Carrier is not null)
@@ -149,10 +149,10 @@ public class Flag
     /// Renders the flag on the carrier via an attached object.
     /// It isolates the platform rendering details of the carrier-attachment rule.
     /// </summary>
-    /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
     private static class CarrierAttachment
     {
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object rendering: index/bone/offset/rotation/scale/material color) → CD-02</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
         internal static void Attach(Player player, FlagModel model, Color color)
         {
             player.SetAttachedObject(
@@ -167,7 +167,7 @@ public class Flag
             );
         }
 
-        /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: carrier attachment); CD-39 (attached-object removal: attachment index) → CD-02</remarks>
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
         internal static void Detach(Player player)
         {
             player.RemoveAttachedObject(0);

@@ -3,10 +3,10 @@
 /// <summary>
 /// Represents the number of kills required to advance to the next weapon level.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public readonly struct KillsRequiredPerLevel
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public int Value { get; }
 
     /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>

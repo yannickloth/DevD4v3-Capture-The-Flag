@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a chat message in the messaging system.
 /// </summary>
-/// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Chat)]
 public interface IChatMessage
 {
     /// <summary>
     /// Gets the unique identifier of the chat message.
     /// </summary>
-    /// <remarks>Change drivers: CD-13 (root; chat rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Chat)]
     char Id { get; }
 
     /// <summary>
@@ -20,6 +20,6 @@ public interface IChatMessage
     /// <returns>
     /// <c>true</c> if the message was successfully sent; otherwise, <c>false</c>.
     /// </returns>
-    /// <remarks>Change drivers: CD-13 (root; chat rules); CD-09 (authorization policy) → CD-13; CD-36 (client messages) → CD-13</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.ClientMessage)]
     bool SendToAllPlayers(PlayerInfo sender, string message);
 }

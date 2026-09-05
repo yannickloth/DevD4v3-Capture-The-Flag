@@ -3,11 +3,11 @@
 /// <summary>
 /// Provides dependency-injection extension methods for the players subsystem.
 /// </summary>
-/// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Composition)]
 public static class PlayerServicesExtensions
 {
     /// <summary>Registers the players subsystem services.</summary>
-    /// <remarks>Change drivers: CD-21 (root; DI container/composition)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Composition)]
     public static IServiceCollection AddPlayerServices(this IServiceCollection services)
     {
         services

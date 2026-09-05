@@ -3,34 +3,34 @@
 /// <summary>
 /// Renders team-related information as textdraws.
 /// </summary>
-/// <remarks>Change drivers: CD-34 (root; textdraw API); CD-02 (CTF game-rules specification: team score/members/flag identity) → CD-34; CD-10 (player-statistics/rank model) → CD-34; CD-36 (client-message API) → CD-34</remarks>
+[ChangeDriversAttribute(ChangeDriver.TextDraw, ChangeDriver.GameRules, ChangeDriver.Statistics, ChangeDriver.ClientMessage)]
 public class TeamTextDrawRenderer
 {
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation via IWorldService)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team flag sprite textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _redFlag;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team flag sprite textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _blueFlag;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _alphaScore;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _betaScore;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: sprite/preview model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _redRic;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: sprite/preview model)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _blueRic;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _alphaTeamMembers;
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private TextDraw _betaTeamMembers;
 
     /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
@@ -41,7 +41,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Shows the team textdraws to the player.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Show(Player player)
     {
         _redFlag.Show(player);
@@ -55,7 +55,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Hides the team textdraws from the player.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void Hide(Player player)
     {
         _redFlag.Hide(player);
@@ -69,7 +69,7 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Updates the team score textdraw.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team score textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void UpdateTeamScore(Team team)
     {
         if (team.Id == TeamId.Alpha)
@@ -83,12 +83,12 @@ public class TeamTextDrawRenderer
     }
 
     /// <summary>Formats the team's score for display in a textdraw.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: score text formatting)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public static string GetScoreAsText(Team team)
         => team == Team.None ? string.Empty : $"{team.Name}: {team.StatsPerRound.Score}";
 
     /// <summary>Updates the team members textdraw.</summary>
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: team members textdraw)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     public void UpdateTeamMembers(Team team)
     {
         if (team.Id == TeamId.Alpha)
@@ -101,7 +101,7 @@ public class TeamTextDrawRenderer
         }
     }
 
-    /// <remarks>Change drivers: CD-34 (root; textdraw API: creation)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
     private void Initialize()
     {
         _redFlag = _worldService.CreateTextDraw(new Vector2(-6.000000f, 302.000000f), string.Empty);

@@ -3,12 +3,12 @@
 /// <summary>
 /// Shows the team scoreboard dialog to players.
 /// </summary>
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team/player stats); CD-33; CD-31 (dialog, key state) → CD-10; CD-15 (command set: scoreboard command) → CD-10; CD-02 (CTF game-rules specification: team membership) → CD-10</remarks>
 /// <remarks>Injected dependencies: dialogService -> CD-33. Driven by the IDialogService (platform) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Dialog, ChangeDriver.Player, ChangeDriver.CommandSet, ChangeDriver.GameRules)]
 public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
 {
     /// <summary>Shows the scoreboard when the player presses the No key.</summary>
-    /// <remarks>Change drivers: CD-31 (root; OnPlayerKeyStateChange)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Player)]
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
@@ -19,7 +19,7 @@ public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
     }
 
     /// <summary>Shows the team scoreboard dialog.</summary>
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: team/player stats); CD-15 (command set: scoreboard command) → CD-10; CD-33 (dialog) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     [PlayerCommand("scoreboard")]
     public void ShowPlayers(Player player)
     {

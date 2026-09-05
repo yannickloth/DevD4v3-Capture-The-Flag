@@ -3,31 +3,31 @@ namespace CTF.Application.Configuration;
 /// <summary>
 /// Holds the configured audio URLs for team flag events.
 /// </summary>
-/// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+[ChangeDriversAttribute(ChangeDriver.Configuration)]
 public class TeamSoundCatalog
 {
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string FlagDropped { get; private init; } = string.Empty;
 
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string FlagReturned { get; private init; } = string.Empty;
 
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string FlagTaken { get; private init; } = string.Empty;
 
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public string TeamScores { get; private init; } = string.Empty;
 
     /// <summary>Gets the NoTeam catalog.</summary>
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public static readonly TeamSoundCatalog None = new();
 
     /// <summary>Gets the Alpha team catalog.</summary>
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public static readonly TeamSoundCatalog Alpha;
 
     /// <summary>Gets the Beta team catalog.</summary>
-    /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Configuration)]
     public static readonly TeamSoundCatalog Beta;
 
     /// <remarks>Change drivers: CD-17 (root; game configuration/.env schema: audio URLs)</remarks>

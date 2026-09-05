@@ -1,9 +1,9 @@
 ﻿namespace CTF.Application.WeaponCatalogs;
 
-/// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
 public static class WeaponServicesExtensions
 {
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     public static IServiceCollection AddWeaponServices(this IServiceCollection services)
     {
         services
@@ -24,7 +24,7 @@ public static class WeaponServicesExtensions
         return services;
     }
 
-    /// <remarks>Change drivers: CD-04 (root; weapon-catalog configuration)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
     private static IServiceCollection AddWeaponCatalog<T>(this IServiceCollection services)
         where T : WeaponCatalog
     {

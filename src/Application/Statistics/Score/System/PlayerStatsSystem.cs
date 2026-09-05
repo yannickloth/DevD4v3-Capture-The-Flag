@@ -1,7 +1,7 @@
 ﻿namespace CTF.Application.Statistics.Score.System;
 
-/// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-15 (command set) → CD-10; CD-31 (player events); CD-33 (dialog API); CD-34 (Textdraw API); CD-43 (command infrastructure) → CD-10; CD-20 (outbound repository contract) → CD-10; CD-08 (account & authentication policy) → CD-10</remarks>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; dialogService -> CD-33; playerRepository -> CD-20; playerRankUpdater -> CD-10; killingSpreeUpdater -> CD-10; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository, ChangeDriver.Account)]
 public class PlayerStatsSystem(
     IWorldService worldService,
     IDialogService dialogService,
@@ -10,21 +10,21 @@ public class PlayerStatsSystem(
     PlayerKillingSpreeUpdater killingSpreeUpdater,
     PlayerStatsRenderer playerStatsRenderer) : ISystem
 {
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-34 (Textdraw API) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.TextDraw)]
     [Event]
     public void OnPlayerConnect(Player player)
     {
         playerStatsRenderer.CreateTextDraw(player);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-34 (Textdraw API) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.TextDraw)]
     [Event]
     public void OnPlayerSpawn(Player player)
     {
         playerStatsRenderer.UpdateTextDraw(player);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-08 (account & authentication policy) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account, ChangeDriver.Repository)]
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -36,7 +36,7 @@ public class PlayerStatsSystem(
         playerRepository.UpdateLastConnection(playerInfo);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-34 (Textdraw API) → CD-10; CD-20 (outbound repository contract) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.Repository)]
     [Event]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
@@ -59,7 +59,7 @@ public class PlayerStatsSystem(
         playerStatsRenderer.UpdateTextDraw(killer);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-31 (player events); CD-33 (dialog API) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Dialog)]
     [Event]
     public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
@@ -69,7 +69,7 @@ public class PlayerStatsSystem(
         }
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-43 (command infrastructure); CD-31 (player events); CD-34 (Textdraw API); CD-36 (client messages) → CD-10; CD-15 (command set) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
     [PlayerCommand("re")]
     public void ResetPlayerStats(Player player)
     {
@@ -85,7 +85,7 @@ public class PlayerStatsSystem(
         worldService.SendClientMessage(Color.Yellow, message);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-43 (command infrastructure); CD-33 (dialog API) → CD-10; CD-15 (command set) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
     [PlayerCommand("mystats")]
     public void ShowStats(Player player)
     {
@@ -94,7 +94,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-43 (command infrastructure); CD-33 (dialog API) → CD-10; CD-15 (command set) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
     [PlayerCommand("stats")]
     public void ShowStats(Player currentPlayer, [CommandParameter(Name = "playerId")]Player targetPlayer)
     {
@@ -103,7 +103,7 @@ public class PlayerStatsSystem(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-08 (account & authentication policy) → CD-10</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account)]
     private static string GetPlayerContent(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

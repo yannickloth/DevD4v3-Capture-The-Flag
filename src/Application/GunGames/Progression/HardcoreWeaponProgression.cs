@@ -3,13 +3,13 @@
 /// <summary>
 /// Defines a GunGame weapon progression using only high-skill weapons.
 /// </summary>
-/// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+[ChangeDriversAttribute(ChangeDriver.GunGame)]
 public class HardcoreWeaponProgression : WeaponProgression
 {
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public override WeaponProgressionType Type => WeaponProgressionType.Hardcore;
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     protected override void Define(List<IWeapon> weapons)
     {
         weapons.AddRange(

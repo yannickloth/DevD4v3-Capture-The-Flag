@@ -1,24 +1,24 @@
 ﻿namespace CTF.Application.Combos.Systems.Purchase;
 
-/// <remarks>Change drivers: CD-05 (root; combo definitions); CD-15 (command set) → CD-05; CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-31 (player key-state event); CD-33 (dialog); CD-34 (stats textdraw); CD-35 (GameText); CD-36 (client messages) → CD-05; CD-10 (player-statistics/rank model) → CD-05</remarks>
+[ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
 public class ComboSystem : ISystem
 {
-    /// <remarks>Change drivers: CD-33 (root; dialog API)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Dialog)]
     private readonly IDialogService _dialogService;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: combos dialog); CD-33 (dialog) → CD-05</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Dialog)]
     private readonly TablistDialog _tablistDialog;
 
-    /// <remarks>Change drivers: CD-36 (root; client-message API via IWorldService)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.ClientMessage)]
     private readonly IWorldService _worldService;
 
-    /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model: stats textdraw renderer)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     private readonly PlayerStatsRenderer _playerStatsRenderer;
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions: available combos)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo)]
     private readonly IEnumerable<ICombo> _combos;
 
-    /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: combo availability)</remarks>
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private readonly IGunGameMode _gunGameMode;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-33 (dialog) → CD-05</remarks>
@@ -52,7 +52,7 @@ public class ComboSystem : ISystem
     }
 
     [Event]
-    /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-07 (GunGame mode rules) → CD-05; CD-31 (OnPlayerKeyStateChange) → CD-05</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.GunGame, ChangeDriver.Player)]
     public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
         if (_gunGameMode.IsEnabled)
@@ -63,7 +63,7 @@ public class ComboSystem : ISystem
     }
 
     [PlayerCommand("combos")]
-    /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-07 (GunGame mode rules) → CD-05; CD-33 (dialog); CD-36 (client messages) → CD-05; CD-15 (command set) → CD-05</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
     public async Task ShowCombos(Player player)
     {
         if (_gunGameMode.IsEnabled)
@@ -94,7 +94,7 @@ public class ComboSystem : ISystem
         await GiveComboToPlayer(player, selectedCombo);
     }
 
-    /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-35 (GameText); CD-36 (client messages); CD-34 (stats textdraw) → CD-05</remarks>
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.TextDraw)]
     private async Task GiveComboToPlayer(Player player, ICombo selectedCombo)
     {
         Result result = selectedCombo.Give(player);
