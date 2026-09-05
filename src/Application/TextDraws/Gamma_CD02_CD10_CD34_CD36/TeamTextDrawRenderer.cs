@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.TextDraws;
+﻿namespace CTF.Application.TextDraws.Gamma_CD02_CD10_CD34_CD36;
 
 /// <summary>
 /// Renders team-related information as textdraws.

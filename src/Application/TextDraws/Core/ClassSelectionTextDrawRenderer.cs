@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.TextDraws;
+﻿namespace CTF.Application.TextDraws.Core;
 
 /// <summary>
 /// Renders the class-selection screen textdraws.
