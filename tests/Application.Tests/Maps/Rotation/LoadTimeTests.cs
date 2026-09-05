@@ -1,4 +1,4 @@
-﻿using CTF.Application.Maps.Rotation.Core;
+﻿using CTF.Application.Maps.Rotation;
 
 namespace CTF.Application.Tests.Maps.Rotation;
 

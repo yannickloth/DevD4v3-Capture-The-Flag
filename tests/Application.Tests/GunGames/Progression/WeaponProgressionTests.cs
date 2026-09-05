@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Tests.GunGames.Progression;
 
-using CTF.Application.Tests.GunGames.Core;
+using CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for WeaponProgression.</summary>
 /// <remarks>Change drivers: CD-07 (root; GunGame mode rules: WeaponProgression); CD-26 (NUnit test-framework contract) → CD-07; CD-27 (FluentAssertions contract) → CD-07</remarks>

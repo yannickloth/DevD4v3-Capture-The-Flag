@@ -1,4 +1,6 @@
-﻿namespace CTF.Application.Combos.Vitalities.RocketLauncher;
+﻿using CTF.Application.Combos.Systems;
+
+namespace CTF.Application.Combos.Vitalities.RocketLauncher;
 
 /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05</remarks>
 /// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
