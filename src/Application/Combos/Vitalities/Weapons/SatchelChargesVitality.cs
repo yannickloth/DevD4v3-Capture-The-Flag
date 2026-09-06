@@ -25,7 +25,7 @@ public class SatchelChargesVitality : ICombo
         player.Armour = Armour;
         player.GiveWeapon(Weapon.SatchelCharge, SatchelAmmo);
         player.GiveWeapon(Weapon.Detonator, 1);
-        playerInfo.Stats.PerRound.ResetCoins();
+        playerInfo.Coins.Reset();
         return Result.Success();
     }
 }

@@ -114,6 +114,7 @@ public class MapRotationService(
         static void PreparePlayerForRound(Player player, PlayerInfo playerInfo)
         {
             playerInfo.Stats.PerRound.ResetStats();
+            playerInfo.Coins.Reset();
             player.ToggleControllable(true);
             player.Health = 100;
             player.Color = playerInfo.Appearance.Team.ColorHex;

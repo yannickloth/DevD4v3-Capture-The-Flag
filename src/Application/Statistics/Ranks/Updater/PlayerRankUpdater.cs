@@ -41,7 +41,7 @@ public class PlayerRankUpdater(
 
         player.Armour = EarnedArmour;
         player.Health = EarnedHealth;
-        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
+        playerInfo.Coins.AddCoins(EarnedCoins);
 
         var rankUpAwardSummary = Smart.Format(Messages.RankUpAwardSummary, new
         {

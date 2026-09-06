@@ -41,7 +41,7 @@ public class PlayerStatsDialogCommands(
         Kills for Round: {playerInfo.Stats.PerRound.Kills}
         Deaths for Round: {playerInfo.Stats.PerRound.Deaths}
         Killing Spree for Round: {playerInfo.Stats.PerRound.KillingSpree}
-        Coins: {playerInfo.Stats.PerRound.Coins}/100
+        Coins: {playerInfo.Coins.Balance}/100
         Max Killing Spree: {playerInfo.Stats.MaxKillingSpree}
         Total Kills: {playerInfo.Stats.TotalKills}
         Total Deaths: {playerInfo.Stats.TotalDeaths}

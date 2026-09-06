@@ -31,7 +31,7 @@ public class FlagDeathSystem(
             if (killer is not null)
             {
                 PlayerInfo killerInfo = killer.GetRequiredInfo();
-                killerInfo.Stats.PerRound.AddCoins(CarrierKillEarnedCoins);
+                killerInfo.Coins.AddCoins(CarrierKillEarnedCoins);
                 killer.AddHealth(CarrierKillEarnedHealth);
                 killer.AddScore(CarrierKillEarnedScore);
                 playerStatsRenderer.UpdateTextDraw(killer);

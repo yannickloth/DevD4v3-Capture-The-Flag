@@ -4,7 +4,7 @@
 /// Handles headshot detection, reward, and persistence.
 /// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36; headshotSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage, ChangeDriver.Audio, ChangeDriver.Configuration, ChangeDriver.Statistics, ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.ClientMessage, ChangeDriver.Audio, ChangeDriver.Configuration, ChangeDriver.Statistics, ChangeDriver.Repository)]
 public class HeadshotSystem(
     IPlayerRepository playerRepository,
     IWorldService worldService,
@@ -45,7 +45,7 @@ public class HeadshotSystem(
             PlayerInfo issuerInfo = issuer.GetRequiredInfo();
             PlayerInfo receiverInfo = receiver.GetRequiredInfo();
             issuerInfo.Stats.AddHeadShots();
-            issuerInfo.Stats.PerRound.AddCoins(5);
+            issuerInfo.Coins.AddCoins(5);
             playerRepository.UpdateHeadShots(issuerInfo);
             receiver.Health = 0;
             if (!receiverInfo.Appearance.Team.RivalTeam.Flag.IsCarriedBy(receiver))

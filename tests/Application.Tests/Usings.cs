@@ -101,6 +101,7 @@ global using CTF.Application.Authorization.Roles.CommandInfrastructure;
 global using CTF.Application.Authorization.Admin.Commands;
 global using CTF.Application.Authorization.Admin.Settings;
 global using CTF.Application.Authorization.Vip;
+global using CTF.Application.CoinEconomy;
 global using CTF.Application.Combat;
 global using CTF.Application.Combat.Extensions;
 global using CTF.Application.Combat.Headshot;

@@ -52,7 +52,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
             playerInfo.Stats.PerRound.Kills,
             playerInfo.Stats.PerRound.Deaths,
             playerInfo.Stats.PerRound.KillingSpree,
-            playerInfo.Stats.PerRound.Coins,
+            Coins = playerInfo.Coins.Balance,
             MaxRank = RankCollection.Count,
             Level = (int)playerInfo.Stats.RankId + 1,
             RankName = rankResult.Value.Name

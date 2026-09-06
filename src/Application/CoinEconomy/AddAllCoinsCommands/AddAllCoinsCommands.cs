@@ -19,7 +19,7 @@ public class AddAllCoinsCommands(
         foreach (Player targetPlayer in players)
         {
             PlayerInfo targetPlayerInfo = targetPlayer.GetRequiredInfo();
-        Result result = targetPlayerInfo.Stats.PerRound.AddCoins(coins);
+        Result result = targetPlayerInfo.Coins.AddCoins(coins);
             if (result.IsFailed)
             {
                 currentPlayer.SendClientMessage(Color.Red, result.Message);

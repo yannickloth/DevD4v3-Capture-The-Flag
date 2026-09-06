@@ -14,6 +14,9 @@ public partial class PlayerInfo
     [ChangeDriversAttribute(ChangeDriver.Account)]
     public PlayerStatistics Stats { get; } = new();
 
+    [ChangeDriversAttribute(ChangeDriver.Coin)]
+    public PlayerCoins Coins { get; } = new();
+
     [ChangeDriversAttribute(ChangeDriver.Account)]
     public PlayerRole Role { get; } = new();
 

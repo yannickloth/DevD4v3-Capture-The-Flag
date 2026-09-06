@@ -44,6 +44,7 @@ public class TeamBalancer(TeamTextDrawRenderer teamTextDrawRenderer)
             if (player.IsPaused())
             {
                 playerInfo.Stats.PerRound.ResetStats();
+                playerInfo.Coins.Reset();
                 playerInfo.Appearance.SetTeam(TeamId.NoTeam);
                 player.Team = (int)TeamId.NoTeam;
                 player.Color = Team.None.ColorHex;

@@ -44,7 +44,7 @@ public class PlayerKillingSpreeUpdater(
             return;
 
         player.GameText($"KILL X{currentKillingSpree}", TimeSpan.FromSeconds(3), GameTextStyle.Style3);
-        playerInfo.Stats.PerRound.AddCoins(EarnedCoins);
+        playerInfo.Coins.AddCoins(EarnedCoins);
         player.AddHealth(EarnedHealth);
 
         if (currentKillingSpree % 3 == 0)

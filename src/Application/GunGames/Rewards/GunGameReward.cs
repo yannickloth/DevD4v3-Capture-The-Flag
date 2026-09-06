@@ -58,7 +58,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
         if (weaponReward.Weapon.Id == Weapon.SatchelCharge)
             winner.GiveWeapon(Weapon.Detonator, 1);
 
-        winnerInfo.Stats.PerRound.AddCoins(WinnerEarnedCoins);
+        winnerInfo.Coins.AddCoins(WinnerEarnedCoins);
         playerStatsRenderer.UpdateTextDraw(winner);
 
         winner.SendClientMessage(Color.Yellow, GunGameMessages.WinnerRewardGranted);
@@ -88,7 +88,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
             teammate.AddHealth(TeamEarnedHealth);
             teammate.AddArmour(TeamEarnedArmour);
             teammate.AddScore(TeamEarnedScore);
-            teammateInfo.Stats.PerRound.AddCoins(TeamEarnedCoins);
+            teammateInfo.Coins.AddCoins(TeamEarnedCoins);
             playerStatsRenderer.UpdateTextDraw(teammate);
 
             teammate.SendClientMessage(Color.LightGreen, teamRewardGranted);

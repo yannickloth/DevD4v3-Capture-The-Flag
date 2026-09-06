@@ -32,7 +32,7 @@ public class GiveMeCoinsCommands(
         int seconds = ConvertMinutesToSeconds(commandCooldowns.Coins);
         waitTimeComponent.Value = unixTimeSeconds.Value + seconds;
         PlayerInfo currentPlayerInfo = currentPlayer.GetRequiredInfo();
-        currentPlayerInfo.Stats.PerRound.AddCoins(100);
+        currentPlayerInfo.Coins.AddCoins(100);
         playerStatsRenderer.UpdateTextDraw(currentPlayer);
         currentPlayer.SendClientMessage(Color.Yellow, Messages.GiveMeCoins);
     }
