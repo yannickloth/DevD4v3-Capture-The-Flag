@@ -14,14 +14,6 @@ public class AntiCBugSystem(
     UnixTimeSeconds unixTimeSeconds,
     AntiCBugSettings antiCBugSettings) : ISystem
 {
-    /// <summary>Adds the last-fired-time component when a player connects.</summary>
-    [ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Player)]
-    [Event]
-    public void OnPlayerConnect(Player player)
-    {
-        player.AddComponent<LastFiredTimeComponent>();
-    }
-
     /// <summary>Detects the C-Bug on key state changes.</summary>
     [ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Configuration, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText)]
     [Event]
