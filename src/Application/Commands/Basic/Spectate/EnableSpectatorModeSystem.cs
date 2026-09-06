@@ -6,9 +6,6 @@ namespace CTF.Application.Commands.Basic.Spectate;
 [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage)]
 public class EnableSpectatorModeSystem : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules)]
-    private const float MinimumHealthToUseSpectatorCommand = 85f;
-
     /// <summary>Enables spectator mode on a target player, subject to a minimum-health rule.</summary>
     [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage)]
     [PlayerCommand("spec")]
@@ -17,6 +14,8 @@ public class EnableSpectatorModeSystem : ISystem
         [CommandParameter(Name = "playerId")]Player targetPlayer,
         TeamTextDrawRenderer teamTextDrawRenderer)
     {
+        const float minimumHealthToUseSpectatorCommand = 85f;
+
         if (currentPlayer == targetPlayer)
         {
             currentPlayer.SendClientMessage(Color.Red, Messages.PlayerIsEqualsToTargetPlayer);
@@ -35,7 +34,7 @@ public class EnableSpectatorModeSystem : ISystem
             return;
         }
 
-        if (currentPlayer.Health < MinimumHealthToUseSpectatorCommand)
+        if (currentPlayer.Health < minimumHealthToUseSpectatorCommand)
         {
             currentPlayer.SendClientMessage(Color.Red, Messages.NotEnoughHealth);
             return;

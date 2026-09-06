@@ -7,14 +7,12 @@ namespace CTF.Application.Commands.Basic.Kill;
 [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
 public class KillSystem : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules)]
-    private const float MinimumHealthToUseKillCommand = 15f;
-
     /// <summary>Eliminates the player's character for respawn purposes, subject to a minimum-health rule.</summary>
     [ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     [PlayerCommand("kill")]
     public void Kill(Player player)
     {
+        const float minimumHealthToUseKillCommand = 15f;
         PlayerInfo playerInfo = player.GetRequiredInfo();
 
         if (playerInfo.Appearance.Team == Team.None)
@@ -23,7 +21,7 @@ public class KillSystem : ISystem
             return;
         }
 
-        if (player.Health < MinimumHealthToUseKillCommand)
+        if (player.Health < minimumHealthToUseKillCommand)
         {
             player.SendClientMessage(Color.Red, Messages.NotEnoughHealth);
             return;
