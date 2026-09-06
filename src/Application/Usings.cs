@@ -62,6 +62,7 @@ global using CTF.Application.CommandInfrastructure.Middleware;
 global using CTF.Application.CommandInfrastructure.Text;
 global using CTF.Application.Commands.Vip.Weapons;
 global using CTF.Application.Commands.Vip.Help;
+global using CTF.Application.Commands.Moderator.Warnings;
 global using CTF.Application.AntiCheat.Commands;
 global using CTF.Application.AntiCheat.Settings;
 global using CTF.Application.AntiCheat.System;
