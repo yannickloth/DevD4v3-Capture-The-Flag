@@ -1,23 +1,12 @@
-﻿namespace CTF.Application.Statistics.TeamStats.Scoreboard;
+namespace CTF.Application.Statistics.TeamStats.Scoreboard.ScoreboardCommands;
 
 /// <summary>
 /// Shows the team scoreboard dialog to players.
 /// </summary>
-/// <remarks>Injected dependencies: dialogService -> CD-33. Driven by the IDialogService (platform) contract + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Dialog, ChangeDriver.Player, ChangeDriver.CommandSet, ChangeDriver.GameRules)]
-public class TeamScoreboardSystem(IDialogService dialogService) : ISystem
+/// <remarks>Injected dependency (change driver of this element): dialogService -> CD-33. Driven by the IDialogService (platform) contract + CD-21 (DI wiring).</remarks>
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Dialog)]
+public class TeamScoreboardCommands(IDialogService dialogService) : ISystem
 {
-    /// <summary>Shows the scoreboard when the player presses the No key.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Player)]
-    [Event]
-    public void OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
-    {
-        if (KeyUtils.HasPressed(newKeys, oldKeys, Keys.No))
-        {
-            ShowPlayers(player);
-        }
-    }
-
     /// <summary>Shows the team scoreboard dialog.</summary>
     [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Dialog)]
     [PlayerCommand("scoreboard")]
