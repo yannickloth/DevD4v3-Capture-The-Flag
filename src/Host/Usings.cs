@@ -117,6 +117,7 @@ global using CTF.Application.Combat.WeaponSelection;
 global using CTF.Application.Combat.WeaponSelectionSpawn;
 global using CTF.Application.Combat.WeaponSelectionSpawnTrigger;
 global using CTF.Application.Combat.WeaponSelectionParachute;
+global using CTF.Application.Combat.WeaponSelectionParachuteTrigger;
 global using CTF.Application.Combat.WeaponSelectionKeyTrigger;
 global using CTF.Application.Combat.WeaponSelectionCommands;
 global using CTF.Application.Teams;
