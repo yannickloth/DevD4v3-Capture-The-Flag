@@ -29,8 +29,8 @@ public static class HostEcsBuilderExtensions
     public static IEcsBuilder RegisterTeamEventHandlers(this IEcsBuilder builder)
     {
         var teamSelectionSystem = builder.Services.GetRequiredService<TeamSelectionSystem>();
-        var flagSystem = builder.Services.GetRequiredService<FlagSystem>();
-        teamSelectionSystem.TeamChangeEvent += flagSystem.OnTeamChange;
+        var flagTeamChangeSystem = builder.Services.GetRequiredService<FlagTeamChangeSystem>();
+        teamSelectionSystem.TeamChangeEvent += flagTeamChangeSystem.OnTeamChange;
         return builder;
     }
 
