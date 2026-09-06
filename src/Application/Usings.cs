@@ -120,6 +120,7 @@ global using CTF.Application.Chat.ChatSystem;
 global using CTF.Application.Chat.TeamChat;
 global using CTF.Application.Chat.Authorization;
 global using CTF.Application.Chat.Commands;
+global using CTF.Application.Chat.Commands.PrivateMessage;
 global using CTF.Application.Combat;
 global using CTF.Application.Combat.Extensions;
 global using CTF.Application.Combat.Headshot;
