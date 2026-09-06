@@ -1,6 +1,6 @@
 ﻿namespace CTF.Application.Maps.Collection;
 
-[ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.MapRotation)]
+[ChangeDriversAttribute(ChangeDriver.Map)]
 public class MapCollection
 {
     [ChangeDriversAttribute(ChangeDriver.Map)]
@@ -44,13 +44,6 @@ public class MapCollection
         return map is null ?
             Result<IMap>.Failure(Messages.MapNotFound) :
             Result<IMap>.Success(map);
-    }
-
-    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.MapRotation)]
-    public IMap GetNext(IMap current)
-    {
-        int nextMapId = (current.Id + 1) % Count;
-        return GetById(nextMapId).Value;
     }
 
     [ChangeDriversAttribute(ChangeDriver.Map)]

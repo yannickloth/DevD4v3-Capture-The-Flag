@@ -32,7 +32,14 @@ public class MapRotationService(
     [ChangeDriversAttribute(ChangeDriver.MapRotation)]
     public bool IsMapLoading => _isMapLoading;
     [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
-    public IMap NextMap => _forcedNextMap ?? mapCollection.GetNext(mapInfoService.CurrentMap);
+    public IMap NextMap => _forcedNextMap ?? GetNextMap(mapInfoService.CurrentMap);
+
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
+    private IMap GetNextMap(IMap current)
+    {
+        int nextMapId = (current.Id + 1) % mapCollection.Count;
+        return mapCollection.GetById(nextMapId).Value;
+    }
 
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public delegate void LoadingMapEventHandler();

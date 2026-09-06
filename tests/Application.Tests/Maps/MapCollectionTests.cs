@@ -122,41 +122,4 @@ public class MapCollectionTests
         result.IsSuccess.Should().BeTrue();
         result.Value.Name.Should().Be(expectedMapName);
     }
-
-    [TestCase(0, 1)]
-    [TestCase(1, 2)]
-    [TestCase(2, 3)]
-    [TestCase(3, 4)]
-    [TestCase(4, 5)]
-    [TestCase(5, 6)]
-    [TestCase(6, 7)]
-    [TestCase(7, 8)]
-    [TestCase(31, 32)]
-    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
-    public void GetNext_WhenMapExists_ShouldReturnNextMap(int currentId, int expectedId)
-    {
-        // Arrange
-        IMap current = _maps.GetById(currentId).Value;
-
-        // Act
-        IMap next = _maps.GetNext(current);
-
-        // Assert
-        next.Id.Should().Be(expectedId);
-    }
-
-    [Test]
-    [ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
-    public void GetNext_WhenCurrentMapIsLast_ShouldWrapToFirstMap()
-    {
-        // Arrange
-        IMap lastMap = _maps.GetById(_maps.Count - 1).Value;
-        IMap firstMap = _maps.GetById(0).Value;
-
-        // Act
-        IMap next = _maps.GetNext(lastMap);
-
-        // Assert
-        next.Should().Be(firstMap);
-    }
 }
