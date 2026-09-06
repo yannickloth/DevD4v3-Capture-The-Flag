@@ -1,75 +1,17 @@
-﻿namespace CTF.Application.MapRotation.Commands;
+namespace CTF.Application.MapRotation.Commands.MapSelection;
 
+/// <summary>
+/// Provides the moderator command to browse and force-select the next map.
+/// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; dialogService -> CD-33; mapRotationService -> CD-12; mapCollection -> CD-11; mapTextDrawRenderer -> CD-34. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
-public class MapRotationSystem(
+[ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
+public class MapSelectionCommands(
     IWorldService worldService,
     IDialogService dialogService,
     MapRotationService mapRotationService,
     MapCollection mapCollection,
     MapTextDrawRenderer mapTextDrawRenderer) : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
-    private int _connectedPlayers;
-
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Player, ChangeDriver.TextDraw)]
-    public void OnPlayerSpawn(Player player)
-    {
-        mapTextDrawRenderer.Show(player);
-    }
-
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Player)]
-    public void OnPlayerConnect(Player player)
-    {
-        _connectedPlayers++;
-        if (_connectedPlayers == 1)
-            mapRotationService.StartRotationTimer();
-    }
-
-    [Event]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Player)]
-    public void OnPlayerDisconnect(Player player, DisconnectReason reason)
-    {
-        _connectedPlayers--;
-        if (_connectedPlayers == 0)
-            mapRotationService.StopRotationTimer();
-    }
-
-    [PlayerCommand("startrt")]
-    [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
-    public void StartRotationTimer(Player player)
-    {
-        mapRotationService.StartRotationTimer();
-    }
-
-    [PlayerCommand("stoprt")]
-    [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
-    public void StopRotationTimer(Player player)
-    {
-        mapRotationService.StopRotationTimer();
-    }
-
-    [PlayerCommand("settimeleft")]
-    [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.CommandInfrastructure, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
-    public void SetTimeLeft(Player player, int minutes)
-    {
-        var interval = new Minutes(minutes);
-        TimeLeft timeLeft = mapRotationService.TimeLeft;
-        Result result = timeLeft.SetInterval(interval);
-        if (result.IsFailed)
-        {
-            player.SendClientMessage(Color.Red, result.Message);
-            return;
-        }
-
-        mapTextDrawRenderer.UpdateTimeLeft(timeLeft);
-    }
-
     [PlayerCommand("maps")]
     [RequiresMinimumRole(RoleId.Moderator)]
     [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
