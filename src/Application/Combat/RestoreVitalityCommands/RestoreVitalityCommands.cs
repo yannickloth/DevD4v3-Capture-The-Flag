@@ -54,13 +54,4 @@ public class RestoreVitalityCommands(
         armourCooldownComponent.Value = unixTimeSeconds.Value + seconds;
         currentPlayer.Armour = 100;
     }
-
-    /// <summary>Adds the health and armour cooldown components when a player connects.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player)]
-    [Event]
-    public void OnPlayerConnect(Player player)
-    {
-        player.AddComponent<HealthCooldownComponent>();
-        player.AddComponent<ArmourCooldownComponent>();
-    }
 }
