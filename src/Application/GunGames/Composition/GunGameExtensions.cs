@@ -7,7 +7,7 @@ public static class GunGameExtensions
     public static IServiceCollection AddGunGameServices(this IServiceCollection services)
     {
         services
-            .AddSingleton<GunGameReward>()
+            .AddSingleton<GunGameRewardGrant>()
             .AddSingleton<GunGameSession>()
             .AddSingleton<ActiveWeaponProgression>()
             .AddSingleton<IGunGameMode>(sp => sp.GetRequiredService<GunGameSystem>());

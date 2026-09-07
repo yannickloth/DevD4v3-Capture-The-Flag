@@ -9,7 +9,7 @@ public class GunGameSystem(
     FrozenDictionary<GunGameResult, IGunGameResultHandler> handlers,
     ActiveWeaponProgression weaponProgression,
     GunGameSession gunGameSession,
-    GunGameReward gunGameReward) : ISystem, IGunGameMode
+    GunGameRewardGrant gunGameReward) : ISystem, IGunGameMode
 {
     [ChangeDriversAttribute(ChangeDriver.GunGame)]
     public bool IsEnabled { get; private set; }
