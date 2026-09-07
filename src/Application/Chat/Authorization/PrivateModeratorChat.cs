@@ -8,7 +8,7 @@
 public class PrivateModeratorChat(IEntityManager entityManager) : IChatMessage
 {
     /// <summary>Gets the chat prefix identifier.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Chat)]
+    [ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public char Id => '&';
 
     /// <summary>Sends the message to all players of the required moderator role.</summary>

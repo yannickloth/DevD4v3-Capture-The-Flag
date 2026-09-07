@@ -9,7 +9,7 @@ public class PlayerLeveledDown(
     IWorldService worldService,
     ActiveWeaponProgression weaponProgression) : IGunGameResultHandler
 {
-    [ChangeDriversAttribute(ChangeDriver.GunGame)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public GunGameResult Result => GunGameResult.LeveledDown;
 
     [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]

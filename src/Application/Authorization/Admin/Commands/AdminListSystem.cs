@@ -7,7 +7,7 @@ public class AdminListSystem(
     IEntityManager entityManager,
     ServerOwnerSettings serverOwnerSettings) : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandSet, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     [PlayerCommand("admins")]
     public void Show(Player player)
     {
@@ -55,7 +55,7 @@ public class AdminListSystem(
         dialogService.ShowAsync(player, dialog);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration)]
+    [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandSet, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     private bool IsServerOwner(PlayerInfo playerInfo)
         => playerInfo.Account.Name.Equals(serverOwnerSettings.Name, StringComparison.OrdinalIgnoreCase);
 }

@@ -3,31 +3,31 @@
 /// <summary>
 /// Represents a team flag with its state, carrier, and identity, following the CTF flag rules.
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
 public class Flag
 {
     /// <summary>
     /// Gets the 3D model associated with the flag.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Model)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public required FlagModel Model { get; init; }
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public required FlagIcon Icon { get; init; }
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public required Color ColorHex { get; init; }
 
     /// <summary>
     /// Gets the display name of the flag.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public required string Name { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets the current status of the flag.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public FlagStatus Status { get; private set; } = FlagStatus.BasePosition;
 
     /// <summary>
@@ -36,13 +36,13 @@ public class Flag
     /// <remarks>
     /// Returns <c>null</c> when the flag has no carrier.
     /// </remarks>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public FlagCarrier? Carrier { get; private set; }
 
     /// <summary>
     /// Checks if the flag has been captured by a player.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public bool HasCarrier => Carrier is not null;
 
     /// <summary>
@@ -53,7 +53,7 @@ public class Flag
     /// <see langword="true"/> if the player is carrying this flag;
     /// otherwise, <see langword="false"/>.
     /// </returns>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public bool IsCarriedBy(Player player)
     {
         if (!HasCarrier)
@@ -68,7 +68,7 @@ public class Flag
     /// <param name="player">
     /// The player who captured the flag.
     /// </param>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public void Capture(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -83,7 +83,7 @@ public class Flag
     /// <param name="player">
     /// The player who picked up the flag.
     /// </param>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public void Take(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -95,7 +95,7 @@ public class Flag
     /// <summary>
     /// Drops the flag and removes its current carrier.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public void Drop()
     {
         RemoveCarrier();
@@ -105,7 +105,7 @@ public class Flag
     /// <summary>
     /// Returns the flag to its base state and removes its current carrier.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public void ReturnToBase()
     {
         RemoveCarrier();
@@ -115,7 +115,7 @@ public class Flag
     /// <summary>
     /// Resets the flag to its initial state.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     public void Reset()
     {
         RemoveCarrier();
@@ -125,7 +125,7 @@ public class Flag
     /// <summary>
     /// Sets the player who holds the flag.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     private void SetCarrier(Player player)
     {
         Carrier = new FlagCarrier(player);
@@ -135,7 +135,7 @@ public class Flag
     /// <summary>
     /// Removes the flag that the player is holding.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     private void RemoveCarrier()
     {
         if (Carrier is not null)
@@ -149,10 +149,10 @@ public class Flag
     /// Renders the flag on the carrier via an attached object.
     /// It isolates the platform rendering details of the carrier-attachment rule.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
     private static class CarrierAttachment
     {
-        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
         internal static void Attach(Player player, FlagModel model, Color color)
         {
             player.SetAttachedObject(
@@ -167,7 +167,7 @@ public class Flag
             );
         }
 
-        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.AttachedObject)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
         internal static void Detach(Player player)
         {
             player.RemoveAttachedObject(0);

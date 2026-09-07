@@ -7,7 +7,7 @@
         [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         private static readonly global::CTF.Host.Ecs.Startup _startup = new();
 
-        [ChangeDriversAttribute(ChangeDriver.Ecs)]
+        [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         private static SampSharp.OpenMp.Core.StartupContext _context;
         [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         [global::System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute]

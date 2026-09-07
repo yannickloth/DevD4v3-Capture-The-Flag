@@ -47,7 +47,7 @@ public class MapSelectionCommands(
         }
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet, ChangeDriver.Authorization)]
     private async Task ShowConfirmationDialog(Player player, IMap selectedMap)
     {
         var confirmationDialog = new MessageDialog(

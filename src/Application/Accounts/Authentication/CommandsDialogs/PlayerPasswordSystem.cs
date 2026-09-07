@@ -6,7 +6,7 @@ public class PlayerPasswordSystem(
     IPlayerRepository playerRepository,
     IDialogService dialogService) : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Dialog)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository)]
     private readonly InputDialog _passwordDialog = new()
     {
         IsPassword = true,
@@ -16,7 +16,7 @@ public class PlayerPasswordSystem(
         Button2 = "Close"
     };
 
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Dialog, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository)]
     [PlayerCommand("changepass")]
     public async Task ShowPasswordDialog(Player player)
     {
@@ -28,7 +28,7 @@ public class PlayerPasswordSystem(
         await ChangePassword(player, enteredPassword);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository)]
     private async Task ChangePassword(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

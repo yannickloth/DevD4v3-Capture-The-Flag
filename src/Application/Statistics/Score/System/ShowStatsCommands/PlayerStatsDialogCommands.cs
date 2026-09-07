@@ -4,11 +4,11 @@ namespace CTF.Application.Statistics.Score.System.ShowStatsCommands;
 /// Shows a player's statistics in a dialog.
 /// </summary>
 /// <remarks>Injected dependency (change driver of this element): dialogService -> CD-33. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
 public class PlayerStatsDialogCommands(
     IDialogService dialogService) : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
     [PlayerCommand("mystats")]
     public void ShowStats(Player player)
     {
@@ -17,7 +17,7 @@ public class PlayerStatsDialogCommands(
         dialogService.ShowAsync(player, dialog);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
     [PlayerCommand("stats")]
     public void ShowStats(Player currentPlayer, [CommandParameter(Name = "playerId")]Player targetPlayer)
     {
@@ -26,7 +26,7 @@ public class PlayerStatsDialogCommands(
         dialogService.ShowAsync(currentPlayer, dialog);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Account, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.CommandSet)]
     private static string GetPlayerContent(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();

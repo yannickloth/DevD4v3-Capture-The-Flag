@@ -9,13 +9,13 @@ using CTF.Application.Configuration;
 public class Team 
 {
     /// <summary>Gets the Alpha team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public static readonly Team Alpha;
     /// <summary>Gets the Beta team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public static readonly Team Beta;
     /// <summary>Gets the NoTeam placeholder team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public static readonly Team None;
     /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: team instantiation)</remarks>
     private Team() { }
@@ -82,16 +82,16 @@ public class Team
     }
 
     /// <summary>Gets the team identifier.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public TeamId Id { get; private set; }
     /// <summary>Gets the team skin identifier.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Model)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public SkinTeamId SkinId { get; private set; }
     /// <summary>Gets the team name.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public string Name { get; private set; }
     /// <summary>Gets the team color name.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public string ColorName { get; private set; }
 
     /// <summary>
@@ -102,39 +102,39 @@ public class Team
     /// open.mp GameText text colors documentation
     /// </see>.
     /// </remarks>
-    [ChangeDriversAttribute(ChangeDriver.GameText, ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public string GameTextColor { get; private set; }
 
     /// <summary>Gets the team color in hexadecimal.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public Color ColorHex { get; private set; }
     /// <summary>Gets the sounds associated with the team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Audio)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public TeamSounds Sounds { get; private set; }
     /// <summary>Gets the team's flag.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public Flag Flag { get; private set; }
     /// <summary>Gets the rival team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public Team RivalTeam { get; private set; }
     /// <summary>Gets the team members.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public TeamMembers Members { get; } = [];
     /// <summary>Gets the per-round statistics for the team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Statistics)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public TeamStatsPerRound StatsPerRound { get; } = new();
 
     /// <summary>Gets the team member count as text.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual string GetMembersAsText() => $"{Members.Count}";
     /// <summary>Checks whether the team has more members than its rival.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual bool IsFull() => Members.Count > RivalTeam.Members.Count;
     /// <summary>Checks whether the team has a higher score than its rival.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual bool IsWinner() => StatsPerRound.Score > RivalTeam.StatsPerRound.Score;
     /// <summary>Resets the team's round state.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual void Reset()
     {
         StatsPerRound.Reset();
@@ -143,7 +143,7 @@ public class Team
     }
 
     /// <summary>Gets the team availability message.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual string GetAvailabilityMessage()
         => IsFull() ? 
         $"~y~{Name}~n~~r~ not available" : 
@@ -158,7 +158,7 @@ public class Team
     /// <returns>
     /// The status resulting from the interaction.
     /// </returns>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Model, ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.Audio)]
     public virtual FlagStatus HandleFlagInteraction(Player flagPicker)
     {
         ArgumentNullException.ThrowIfNull(flagPicker);
@@ -190,22 +190,22 @@ public class Team
         return FlagStatus.Taken;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
     private class NoTeam : Team
     {
         /// <remarks>Change drivers: CD-02 (root; CTF game-rules specification: the None team)</remarks>
         public NoTeam() { }
-        [ChangeDriversAttribute(ChangeDriver.GameRules)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override string GetAvailabilityMessage() => string.Empty;
         [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override FlagStatus HandleFlagInteraction(Player flagPicker) => FlagStatus.BasePosition;
-        [ChangeDriversAttribute(ChangeDriver.GameRules)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override string GetMembersAsText() => string.Empty;
-        [ChangeDriversAttribute(ChangeDriver.GameRules)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override bool IsFull() => false;
-        [ChangeDriversAttribute(ChangeDriver.GameRules)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override bool IsWinner() => false;
-        [ChangeDriversAttribute(ChangeDriver.GameRules)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
         public override void Reset()
         {
             StatsPerRound.Reset();

@@ -8,7 +8,7 @@ namespace CTF.Application.MapRotation.Commands.Connection;
 public class MapRotationConnectionSystem(
     MapRotationService mapRotationService) : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Player)]
     private int _connectedPlayers;
 
     [Event]

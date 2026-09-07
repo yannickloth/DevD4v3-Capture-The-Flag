@@ -19,7 +19,7 @@ public class TeamSelectionSystem(
     public event TeamChangeEventHandler TeamChangeEvent;
 
     /// <summary>Shows the team selection dialog.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.CommandSet, ChangeDriver.Dialog)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Dialog, ChangeDriver.Player, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
     [PlayerCommand("team")]
     public async Task ShowTeams(Player player)
     {
@@ -64,7 +64,7 @@ public class TeamSelectionSystem(
         ChangeTeam(player, selectedTeam);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.TextDraw, ChangeDriver.Player, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Dialog, ChangeDriver.Player, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
     private void ChangeTeam(Player player, Team selectedTeam)
     {
         Team alphaTeam = Team.Alpha;

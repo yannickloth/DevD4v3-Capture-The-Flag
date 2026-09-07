@@ -3,13 +3,13 @@
 /// <summary>
 /// Represents a chat message in the messaging system.
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Chat)]
+[ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.ClientMessage)]
 public interface IChatMessage
 {
     /// <summary>
     /// Gets the unique identifier of the chat message.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.Chat)]
+    [ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.ClientMessage)]
     char Id { get; }
 
     /// <summary>

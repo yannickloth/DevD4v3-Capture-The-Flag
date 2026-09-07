@@ -3,7 +3,7 @@
 [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
 public class Startup : IEcsStartup
 {
-    [ChangeDriversAttribute(ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
     public void Initialize(IStartupContext context)
     {
         context.UseEntities()
@@ -15,7 +15,7 @@ public class Startup : IEcsStartup
             });
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Logging, ChangeDriver.Discord)]
+    [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
     public void ConfigureServices(IServiceCollection services, IConfiguration _)
     {
         new EnvLoader()
@@ -57,7 +57,7 @@ public class Startup : IEcsStartup
             .AddSystemsInAssembly(typeof(Startup).Assembly);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
     public void Configure(IEcsBuilder builder)
     {
         // TODO: Enable desired ECS system features

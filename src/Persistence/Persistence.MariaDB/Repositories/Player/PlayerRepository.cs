@@ -7,7 +7,7 @@ internal class PlayerRepository(
     ISqlCollection sqlCollection,
     MariaDbSettings settings) : IPlayerRepository
 {
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void Create(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Account.Password);
@@ -38,7 +38,7 @@ internal class PlayerRepository(
         player.Account.SetValue(value: id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public bool Exists(string name)
     {
         using var connection = new MySqlConnection(settings.ConnectionString);
@@ -50,7 +50,7 @@ internal class PlayerRepository(
         return reader.HasRows;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public PlayerInfo GetOrDefault(string name)
     {
         using var connection = new MySqlConnection(settings.ConnectionString);
@@ -93,70 +93,70 @@ internal class PlayerRepository(
         return playerInfo;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateBroughtFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "brought_flags", player.Stats.BroughtFlags);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateCapturedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "captured_flags", player.Stats.CapturedFlags);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateDroppedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "dropped_flags", player.Stats.DroppedFlags);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateReturnedFlags(PlayerInfo player)
         => Update(player.Account.AccountId, "returned_flags", player.Stats.ReturnedFlags);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateHeadShots(PlayerInfo player)
         => Update(player.Account.AccountId, "head_shots", player.Stats.HeadShots);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateGunGameWins(PlayerInfo player)
         => Update(player.Account.AccountId, "gungame_wins", player.Stats.GunGameWins);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateLastConnection(PlayerInfo player)
         => Update(player.Account.AccountId, "last_connection", player.Stats.LastConnection);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => Update(player.Account.AccountId, "max_killing_spree", player.Stats.MaxKillingSpree);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateName(PlayerInfo player)
         => Update(player.Account.AccountId, "name", player.Account.Name);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdatePassword(PlayerInfo player)
     {
         var passwordHash = passwordHasher.HashPassword(player.Account.Password);
         Update(player.Account.AccountId, "password", passwordHash);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateRank(PlayerInfo player)
         => Update(player.Account.AccountId, "rank_id", player.Stats.RankId);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateRole(PlayerInfo player)
         => Update(player.Account.AccountId, "role_id", player.Role.Id.ToString());
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateSkin(PlayerInfo player)
         => Update(player.Account.AccountId, "skin_id", player.Appearance.SkinId);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateTotalDeaths(PlayerInfo player)
         => Update(player.Account.AccountId, "total_deaths", player.Stats.TotalDeaths);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     public void UpdateTotalKills(PlayerInfo player)
         => Update(player.Account.AccountId, "total_kills", player.Stats.TotalKills);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
     private void Update(int id, string columnName, object value)
     {
         using var connection = new MySqlConnection(settings.ConnectionString);

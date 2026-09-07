@@ -24,7 +24,7 @@ public class AccountSystem(
         await authenticationDialog.ShowLogin(player);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Account)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs)]
     private static PlayerInfo CreatePlayerInfo(string name)
     {
         var playerInfo = new PlayerInfo();

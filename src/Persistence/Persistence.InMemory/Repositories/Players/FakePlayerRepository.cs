@@ -32,11 +32,11 @@ internal class FakePlayerRepository(
         player.Account.SetValue(value: fakePlayer.Id, propertyName: nameof(PlayerAccount.AccountId));
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public bool Exists(string name)
         => players.Any(player => player.Value.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public PlayerInfo GetOrDefault(string name)
     {
         FakePlayer fakePlayer = players
@@ -74,39 +74,39 @@ internal class FakePlayerRepository(
         return playerInfo;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateBroughtFlags(PlayerInfo player) 
         => players[player.Account.AccountId].BroughtFlags = player.Stats.BroughtFlags;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateCapturedFlags(PlayerInfo player)
         => players[player.Account.AccountId].CapturedFlags = player.Stats.CapturedFlags;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateDroppedFlags(PlayerInfo player)
         => players[player.Account.AccountId].DroppedFlags = player.Stats.DroppedFlags;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateReturnedFlags(PlayerInfo player)
         => players[player.Account.AccountId].ReturnedFlags = player.Stats.ReturnedFlags;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateHeadShots(PlayerInfo player)
         => players[player.Account.AccountId].HeadShots = player.Stats.HeadShots;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateGunGameWins(PlayerInfo player)
         => players[player.Account.AccountId].GunGameWins = player.Stats.GunGameWins;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateLastConnection(PlayerInfo player)
         => players[player.Account.AccountId].LastConnection = player.Stats.LastConnection;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateMaxKillingSpree(PlayerInfo player)
         => players[player.Account.AccountId].MaxKillingSpree = player.Stats.MaxKillingSpree;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateName(PlayerInfo player)
         => players[player.Account.AccountId].Name = player.Account.Name;
 
@@ -114,23 +114,23 @@ internal class FakePlayerRepository(
     public void UpdatePassword(PlayerInfo player)
        => players[player.Account.AccountId].PasswordHash = passwordHasher.HashPassword(player.Account.Password);
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateRank(PlayerInfo player)
         => players[player.Account.AccountId].RankId = player.Stats.RankId;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateRole(PlayerInfo player)
         => players[player.Account.AccountId].RoleId = player.Role.Id;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateSkin(PlayerInfo player)
         => players[player.Account.AccountId].SkinId = player.Appearance.SkinId;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateTotalDeaths(PlayerInfo player)
         => players[player.Account.AccountId].TotalDeaths = player.Stats.TotalDeaths;
 
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
     public void UpdateTotalKills(PlayerInfo player)
         => players[player.Account.AccountId].TotalKills = player.Stats.TotalKills;
 }

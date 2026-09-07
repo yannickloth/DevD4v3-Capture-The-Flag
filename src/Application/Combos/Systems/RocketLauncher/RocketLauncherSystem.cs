@@ -7,7 +7,7 @@ public class RocketLauncherSystem(
     ComboSettings comboSettings) : ISystem
 {
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.MapRotation, ChangeDriver.ClientMessage)]
     public void OnLoadingMap()
     {
         comboSettings.IsRocketLauncherDisabled = true;
@@ -15,7 +15,7 @@ public class RocketLauncherSystem(
 
     [PlayerCommand("rpgon")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.MapRotation, ChangeDriver.ClientMessage)]
     public void EnableRocketLauncher(Player player)
     {
         var message = Smart.Format(Messages.EnableRocketLauncher, new
@@ -28,7 +28,7 @@ public class RocketLauncherSystem(
 
     [PlayerCommand("rpgoff")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.MapRotation, ChangeDriver.ClientMessage)]
     public void DisableRocketLauncher(Player player)
     {
         var message = Smart.Format(Messages.DisableRocketLauncher, new

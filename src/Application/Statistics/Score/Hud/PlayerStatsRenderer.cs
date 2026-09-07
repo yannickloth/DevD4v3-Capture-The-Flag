@@ -4,7 +4,7 @@
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
 public class PlayerStatsRenderer(IWorldService worldService)
 {
-    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public void CreateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -32,7 +32,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         player.AddComponent<PlayerStatsTextDraw>(playerTextDraw);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public void UpdateTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -43,7 +43,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
     }
 
     /// <summary>Formats the player's statistics as a textdraw-compatible string.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Statistics)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public static string GetStatsAsText(PlayerInfo playerInfo)
     {
         Result<Rank> rankResult = RankCollection.GetById(playerInfo.Stats.RankId);
@@ -63,7 +63,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         return Smart.Format(message, stats);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public void ShowTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -71,7 +71,7 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Show();
     }
 
-    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     public void HideTextDraw(Player player)
     {
         ArgumentNullException.ThrowIfNull(player);
@@ -79,17 +79,17 @@ public class PlayerStatsRenderer(IWorldService worldService)
         playerStatsTextDraw.Value.Hide();
     }
 
-    [ChangeDriversAttribute(ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     private PlayerStatsTextDraw GetTextDrawOrThrow(Player player)
     {
         return player.GetComponent<PlayerStatsTextDraw>()
              ?? throw new InvalidOperationException($"The '{nameof(PlayerStatsTextDraw)}' component is not attached to the player");
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
     private class PlayerStatsTextDraw : Component
     {
-        [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.TextDraw)]
+        [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
         public PlayerTextDraw Value { get; }
 
         /// <remarks>Change drivers: CD-10 (root; player-statistics/rank model); CD-34 (Textdraw API) → CD-10</remarks>

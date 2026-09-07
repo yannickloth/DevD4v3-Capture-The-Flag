@@ -18,27 +18,27 @@ public class ActiveWeaponCatalog(
         => catalogs[settings.Type];
 
     /// <inheritdoc cref="WeaponCatalog.Count"/>
-    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public int Count 
         => Current.Count;
 
     /// <inheritdoc cref="WeaponCatalog.GetAll"/>
-    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public IReadOnlyList<IWeapon> GetAll()
         => Current.GetAll();
 
     /// <inheritdoc cref="WeaponCatalog.Contains"/>
-    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public bool Contains(IWeapon weapon)
         => Current.Contains(weapon);
 
     /// <inheritdoc cref="WeaponCatalog.GetById"/>
-    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public Result<IWeapon> GetById(Weapon id)
         => Current.GetById(id);
 
     /// <inheritdoc cref="WeaponCatalog.GetByName"/>
-    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+    [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Configuration)]
     public Result<IWeapon> GetByName(string weaponName)
         => Current.GetByName(weaponName);
 }

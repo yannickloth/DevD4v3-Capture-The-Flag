@@ -11,18 +11,18 @@ public class GunGameSystem(
     GunGameSession gunGameSession,
     GunGameRewardGrant gunGameReward) : ISystem, IGunGameMode
 {
-    [ChangeDriversAttribute(ChangeDriver.GunGame)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public bool IsEnabled { get; private set; }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public void OnPlayerConnect(Player player)
     {
         player.AddComponent<PlayerProgression>();
     }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public void OnPlayerSpawn(Player player)
     {
         if (!IsEnabled)
@@ -36,7 +36,7 @@ public class GunGameSystem(
     }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public void OnPlayerDeath(Player victim, Player killer, Weapon reason)
     {
         if (!IsEnabled || killer is null)
@@ -70,7 +70,7 @@ public class GunGameSystem(
     }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public void OnLoadingMap()
     {
         if (!IsEnabled)
@@ -83,7 +83,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameon")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandInfrastructure, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public async Task GunGameOn(Player player, int killsRequiredPerLevel)
     {
         if (IsEnabled)
@@ -122,7 +122,7 @@ public class GunGameSystem(
 
     [PlayerCommand("gungameoff")]
     [RequiresMinimumRole(RoleId.Moderator)]
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.CommandInfrastructure, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     public void GunGameOff(Player player)
     {
         if (!IsEnabled)
@@ -135,7 +135,7 @@ public class GunGameSystem(
         worldService.SendClientMessage(Color.Orange, GunGameMessages.GunGameModeDisabled);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     private void StartGunGame()
     {
         IsEnabled = true;
@@ -159,7 +159,7 @@ public class GunGameSystem(
         );
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Ecs, ChangeDriver.GameText)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     private void FinishGunGame()
     {
         IsEnabled = false;
@@ -175,7 +175,7 @@ public class GunGameSystem(
         );
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
     private static void RestorePlayerWeapons(Player player)
     {
         player.GetComponent<PlayerProgression>().Reset();

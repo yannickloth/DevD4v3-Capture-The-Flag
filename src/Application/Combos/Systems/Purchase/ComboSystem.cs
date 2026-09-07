@@ -3,22 +3,22 @@
 [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
 public class ComboSystem : ISystem
 {
-    [ChangeDriversAttribute(ChangeDriver.Dialog)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly IDialogService _dialogService;
 
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Dialog)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly TablistDialog _tablistDialog;
 
-    [ChangeDriversAttribute(ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly IWorldService _worldService;
 
-    [ChangeDriversAttribute(ChangeDriver.Statistics)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly PlayerStatsRenderer _playerStatsRenderer;
 
-    [ChangeDriversAttribute(ChangeDriver.Combo)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly IEnumerable<ICombo> _combos;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private readonly IGunGameMode _gunGameMode;
 
     /// <remarks>Change drivers: CD-05 (root; combo definitions); CD-06 (coin economy) → CD-05; CD-33 (dialog) → CD-05</remarks>
@@ -52,7 +52,7 @@ public class ComboSystem : ISystem
     }
 
     [Event]
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.GunGame, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     public async Task OnPlayerKeyStateChange(Player player, Keys newKeys, Keys oldKeys)
     {
         if (_gunGameMode.IsEnabled)
@@ -63,7 +63,7 @@ public class ComboSystem : ISystem
     }
 
     [PlayerCommand("combos")]
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandSet)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     public async Task ShowCombos(Player player)
     {
         if (_gunGameMode.IsEnabled)
@@ -94,7 +94,7 @@ public class ComboSystem : ISystem
         await GiveComboToPlayer(player, selectedCombo);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
     private async Task GiveComboToPlayer(Player player, ICombo selectedCombo)
     {
         Result result = selectedCombo.Give(player);

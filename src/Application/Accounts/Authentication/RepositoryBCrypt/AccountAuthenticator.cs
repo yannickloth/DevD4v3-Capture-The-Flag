@@ -6,7 +6,7 @@ public class AccountAuthenticator(
     IPasswordHasher passwordHasher,
     IPlayerRepository playerRepository)
 {
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public Result Signup(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -25,7 +25,7 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public Result Login(Player player, string enteredPassword)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -53,10 +53,10 @@ public class AccountAuthenticator(
         return Result.Success();
     }
 
-    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     private class FailedAttemptCountComponent : Component
     {
-        [ChangeDriversAttribute(ChangeDriver.Account)]
+        [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
         public int Value { get; set; } = 0;
     }
 }

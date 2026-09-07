@@ -13,28 +13,28 @@ public class MapRotationService(
     FlagStateResetter flagStateResetter,
     TeamBalancer teamBalancer)
 {
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private LoadTime _loadTime;
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Timer)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private TimerReference _timerReference;
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private bool _isMapLoading;
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private IMap _forcedNextMap;
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private readonly TimeLeft _timeLeft = new();
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public TimeLeft TimeLeft => _timeLeft;
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public bool IsMapLoading => _isMapLoading;
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public IMap NextMap => _forcedNextMap ?? GetNextMap(mapInfoService.CurrentMap);
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private IMap GetNextMap(IMap current)
     {
         int nextMapId = (current.Id + 1) % mapCollection.Count;
@@ -50,21 +50,21 @@ public class MapRotationService(
     /// <remarks>Change drivers: CD-12 (root; map-rotation rules)</remarks>
     public event LoadedMapEventHandler LoadedMapEvent;
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public void ForceNextMap(IMap map)
     {
         ArgumentNullException.ThrowIfNull(map);
         _forcedNextMap = map;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public void StartRotationTimer()
     {
         _loadTime ??= new LoadTime(OnLoadingMap, OnLoadedMap);
         _timerReference ??= timerService.Start(action: OnTimer, interval: TimeSpan.FromMilliseconds(1000));
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     public void StopRotationTimer()
     {
         if (_timerReference is null)
@@ -74,7 +74,7 @@ public class MapRotationService(
         _timerReference = default;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.TextDraw)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private void OnTimer(IServiceProvider serviceProvider)
     {
         if (_timeLeft.IsCompleted())
@@ -88,7 +88,7 @@ public class MapRotationService(
         mapTextDrawRenderer.UpdateTimeLeft(_timeLeft);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage, ChangeDriver.ServerService)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private void OnLoadingMap()
     {
         _isMapLoading = true;
@@ -108,7 +108,7 @@ public class MapRotationService(
         serverService.SetMapName(nextMap.Name);
     }
 
-    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.ServerService)]
+    [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
     private void OnLoadedMap()
     {
         _isMapLoading = false;

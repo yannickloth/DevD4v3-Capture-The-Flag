@@ -9,7 +9,7 @@ public class PlayerScoredFinalKill(
     IWorldService worldService,
     IPlayerRepository playerRepository) : IGunGameResultHandler
 {
-    [ChangeDriversAttribute(ChangeDriver.GunGame)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
     public GunGameResult Result => GunGameResult.ScoredFinalKill;
 
     [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]

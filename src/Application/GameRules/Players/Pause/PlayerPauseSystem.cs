@@ -20,13 +20,13 @@ public class PlayerPauseSystem(
     /// <summary>
     /// Represents the minimum amount of time (in ticks) required for the player to be considered paused.
     /// </summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     private readonly long _minPauseTimeTicks = TimeSpan.FromMilliseconds(4000).Ticks;
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     private TimerReference _timerReference;
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Ecs)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     private readonly List<PlayerDataComponent> _playerDataComponents = new(capacity: 32);
 
     /// <summary>Handles the player pause state change.</summary>
@@ -38,7 +38,7 @@ public class PlayerPauseSystem(
     public event PauseEventHandler PauseEvent;
 
     /// <summary>Registers the player for pause detection on connect.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     [Event]
     public void OnPlayerConnect(Player player)
     {
@@ -52,7 +52,7 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Unregisters the player from pause detection on disconnect.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     [Event]
     public void OnPlayerDisconnect(PlayerDataComponent playerDataComponent, DisconnectReason _) 
     {
@@ -67,14 +67,14 @@ public class PlayerPauseSystem(
     }
 
     /// <summary>Updates the last-update timestamp for the player.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     [Event]
     public void OnPlayerUpdate(PlayerDataComponent playerDataComponent, TimePoint _) 
     {
         playerDataComponent.LastUpdateTick = timeProvider.GetUtcNow().Ticks;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Ecs, ChangeDriver.Timer)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Timer)]
     private void CheckPauseStatus(IServiceProvider serviceProvider)
     {
         int count = _playerDataComponents.Count;
