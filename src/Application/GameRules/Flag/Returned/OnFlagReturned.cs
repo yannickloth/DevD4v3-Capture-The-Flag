@@ -2,6 +2,9 @@
 
 /// <summary>
 /// This event occurs when a player has returned the flag to their team's base.
+/// Uniform flow: the CTF flag rules (CD-02) plus the engaged contracts of the return
+/// handling (coin CD-06, statistics CD-10, repository CD-20, pickup CD-37, audio CD-40,
+/// GameText CD-35, client-message CD-36).
 /// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36; teamPickupService -> CD-37; playerStatsRenderer -> CD-10; flagAutoReturnTimer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
@@ -12,18 +15,12 @@ public class OnFlagReturned(
     PlayerStatsRenderer playerStatsRenderer,
     FlagAutoReturnTimer flagAutoReturnTimer) : IFlagEvent
 {
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin)]
-    private const int EarnedCoins = 5;
-
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Statistics)]
-    private const int EarnedScore = 2;
-
     /// <summary>Gets the flag status handled by this event.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
     public FlagStatus FlagStatus => FlagStatus.Returned;
 
     /// <summary>Handles the flag-returned event.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
     public void Handle(Team team, Player player)
     {
         teamPickupService.CreateFlagFromBasePosition(team);
@@ -40,9 +37,9 @@ public class OnFlagReturned(
         worldService.GameText($"~n~~n~~n~{team.GameTextColor}{team.ColorName} flag returned!", TimeSpan.FromSeconds(5), GameTextStyle.Style3);
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.Coins.AddCoins(EarnedCoins);
+        playerInfo.Coins.AddCoins(FlagReturnedRewards.EarnedCoins);
         playerInfo.Stats.AddReturnedFlags();
-        player.AddScore(EarnedScore);
+        player.AddScore(FlagReturnedRewards.EarnedScore);
         playerRepository.UpdateReturnedFlags(playerInfo);
         playerStatsRenderer.UpdateTextDraw(player);
     }

@@ -1,21 +1,18 @@
 ﻿namespace CTF.Application.Statistics.Ranks.Updater;
 
+/// <summary>
+/// Promotes the player to the next rank and grants the rank-up award.
+/// Uniform flow: the statistics/rank model (CD-10) orchestration plus its engaged
+/// authorization (CD-09), GunGame gate (CD-07), repository (CD-20), coin (CD-06),
+/// player (CD-31), GameText (CD-35) and client-message (CD-36) contracts.
+/// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
-[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Coin, ChangeDriver.Player, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
 public class PlayerRankUpdater(
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
 {
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
-    private const int EarnedHealth = 100;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
-    private const int EarnedArmour = 100;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
-    private const int EarnedCoins  = 100;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Authorization, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Coin, ChangeDriver.Player, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
     public void Update(Player player)
     {
         PlayerInfo playerInfo = player.GetRequiredInfo();
@@ -39,15 +36,15 @@ public class PlayerRankUpdater(
         if (gunGameMode.IsEnabled)
             return;
 
-        player.Armour = EarnedArmour;
-        player.Health = EarnedHealth;
-        playerInfo.Coins.AddCoins(EarnedCoins);
+        player.Armour = PlayerRankUpRewards.EarnedArmour;
+        player.Health = PlayerRankUpRewards.EarnedHealth;
+        playerInfo.Coins.AddCoins(PlayerRankUpRewards.EarnedCoins);
 
         var rankUpAwardSummary = Smart.Format(Messages.RankUpAwardSummary, new
         {
-            Health = EarnedHealth,
-            Armour = EarnedArmour,
-            Coins  = EarnedCoins
+            Health = PlayerRankUpRewards.EarnedHealth,
+            Armour = PlayerRankUpRewards.EarnedArmour,
+            Coins  = PlayerRankUpRewards.EarnedCoins
         });
 
         player.SendClientMessage(Color.Orange, Messages.RankUpAwardGranted);

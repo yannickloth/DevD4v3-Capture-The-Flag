@@ -1,8 +1,8 @@
 namespace CTF.Application.Tests.Statistics.PlayerStats;
 
-/// <summary>Tests for PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree.</summary>
+/// <summary>Tests for PlayerKillingSpreeRewards.HasSurpassedMaxKillingSpree.</summary>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
-public class PlayerKillingSpreeUpdaterTests
+public class PlayerKillingSpreeRewardsTests
 {
     [Test]
     public void HasSurpassedMaxKillingSpree_WhenNewRecordIsAchieved_ShouldReturnTrue()
@@ -15,7 +15,7 @@ public class PlayerKillingSpreeUpdaterTests
         player.Stats.SetMaxKillingSpree(2);
 
         // Act
-        bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);
+        bool actual = PlayerKillingSpreeRewards.HasSurpassedMaxKillingSpree(player);
 
         // Assert
         actual.Should().BeTrue();
@@ -32,7 +32,7 @@ public class PlayerKillingSpreeUpdaterTests
         player.Stats.SetMaxKillingSpree(3);
 
         // Act
-        bool actual = PlayerKillingSpreeUpdater.HasSurpassedMaxKillingSpree(player);
+        bool actual = PlayerKillingSpreeRewards.HasSurpassedMaxKillingSpree(player);
 
         // Assert
         actual.Should().BeFalse();

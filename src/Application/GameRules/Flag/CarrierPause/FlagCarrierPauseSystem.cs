@@ -15,7 +15,7 @@ public class FlagCarrierPauseSystem(
     FlagCarrierSettings flagCarrierSettings) : ISystem
 {
     /// <summary>Stops the pause timer when a carrier disconnects.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer, ChangeDriver.Player)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
     [Event]
     public void OnPlayerDisconnect(Player player, DisconnectReason reason)
     {
@@ -27,7 +27,7 @@ public class FlagCarrierPauseSystem(
     }
 
     /// <summary>Handles the pause state change for flag carriers.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
     [Event]
     public void OnPlayerPauseStateChange(Player player, bool pauseState)
     {
@@ -80,7 +80,7 @@ public class FlagCarrierPauseSystem(
     [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Configuration, ChangeDriver.Timer)]
     private class PauseTimerReference(TimerReference value) : Component
     {
-        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
+        [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Configuration, ChangeDriver.Timer)]
         public TimerReference Value { get; } = value;
     }
 }

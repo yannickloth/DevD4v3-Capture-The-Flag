@@ -2,6 +2,8 @@
 
 /// <summary>
 /// A timer service that automatically returns the flag to its base if it is not picked up by a player within a certain time limit.
+/// Uniform flow: the CTF flag rules (CD-02) auto-return orchestration plus its engaged
+/// timer (CD-41), configuration (CD-17), pickup (CD-37), audio (CD-40) contracts.
 /// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): timerService -> CD-41; worldService -> CD-36; teamPickupService -> CD-37; flagAutoReturnSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Configuration)]
@@ -11,14 +13,14 @@ public class FlagAutoReturnTimer(
     TeamPickupService teamPickupService,
     FlagAutoReturnSettings flagAutoReturnSettings)
 {
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Configuration)]
     private TimerReference _alphaTeamTimer;
 
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Configuration)]
     private TimerReference _betaTeamTimer;
 
     /// <summary>Starts the auto-return timer for the specified team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer, ChangeDriver.Configuration)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Configuration)]
     public void Start(Team team)
     {
         void OnComplete(IServiceProvider serviceProvider)
@@ -50,8 +52,8 @@ public class FlagAutoReturnTimer(
     }
 
     /// <summary>Stops the auto-return timer for the specified team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Timer)]
-    public void Stop(Team team) 
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Configuration)]
+    public void Stop(Team team)
     { 
         if (team.Id == TeamId.Alpha && _alphaTeamTimer is not null) 
         {

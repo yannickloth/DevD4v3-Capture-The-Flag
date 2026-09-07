@@ -2,6 +2,9 @@
 
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag from their base.
+/// Uniform flow: the CTF flag rules (CD-02) plus the engaged contracts of the capture
+/// handling (coin CD-06, statistics CD-10, repository CD-20, pickup CD-37, map icon CD-38,
+/// audio CD-40, GameText CD-35, client-message CD-36, configuration CD-17).
 /// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36; teamPickupService -> CD-37; playerStatsRenderer -> CD-10; flagCarrierSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Configuration)]
@@ -12,18 +15,12 @@ public class OnFlagCaptured(
     PlayerStatsRenderer playerStatsRenderer,
     FlagCarrierSettings flagCarrierSettings) : IFlagEvent
 {
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin)]
-    private const int EarnedCoins = 5;
-
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Statistics)]
-    private const int EarnedScore = 2;
-
     /// <summary>Gets the flag status handled by this event.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Configuration)]
     public FlagStatus FlagStatus => FlagStatus.Captured;
 
     /// <summary>Handles the flag-captured event.</summary>
-    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.Audio, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Configuration)]
     public void Handle(Team team, Player player)
     {
         teamPickupService.CreateExteriorMarker(team);
@@ -39,9 +36,9 @@ public class OnFlagCaptured(
         worldService.GameText($"~n~~n~~n~{team.GameTextColor}{team.ColorName} flag captured!", TimeSpan.FromSeconds(5), GameTextStyle.Style3);
 
         PlayerInfo playerInfo = player.GetRequiredInfo();
-        playerInfo.Coins.AddCoins(EarnedCoins);
+        playerInfo.Coins.AddCoins(FlagCapturedRewards.EarnedCoins);
         playerInfo.Stats.AddCapturedFlags();
-        player.AddScore(EarnedScore);
+        player.AddScore(FlagCapturedRewards.EarnedScore);
         if (flagCarrierSettings.ShowOnRadarMap)
         {
             player.ShowOnRadarMap();

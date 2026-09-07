@@ -1,5 +1,11 @@
 ﻿namespace CTF.Application.Statistics.Score.KillingSpree;
 
+/// <summary>
+/// Updates the player's per-round killing spree and grants the spree rewards.
+/// Uniform flow: the statistics/rank model (CD-10) orchestration plus its engaged
+/// coin (CD-06), GunGame gate (CD-07), repository (CD-20), player (CD-31), ECS (CD-32),
+/// GameText (CD-35) and client-message (CD-36) contracts.
+/// </summary>
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; playerRepository -> CD-20; gunGameMode -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
 public class PlayerKillingSpreeUpdater(
@@ -7,23 +13,6 @@ public class PlayerKillingSpreeUpdater(
     IPlayerRepository playerRepository,
     IGunGameMode gunGameMode)
 {
-    [ChangeDriversAttribute(ChangeDriver.Statistics)]
-    private const int MinimumKillingSpree = 2;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin)]
-    private const int EarnedCoins = 20;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
-    private const int EarnedHealth = 10;
-
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Combat)]
-    private const int ConsecutiveKillsBonusHealth = 40;
-
-    /// <summary>Determines whether the player has surpassed their previously recorded maximum killing spree.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Statistics)]
-    public static bool HasSurpassedMaxKillingSpree(PlayerInfo playerInfo)
-        => playerInfo.Stats.PerRound.KillingSpree > playerInfo.Stats.MaxKillingSpree;
-
     [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
     public void Update(Player player)
     {
@@ -31,10 +20,10 @@ public class PlayerKillingSpreeUpdater(
         playerInfo.Stats.PerRound.AddKillingSpree();
         int currentKillingSpree = playerInfo.Stats.PerRound.KillingSpree;
 
-        if (currentKillingSpree < MinimumKillingSpree)
+        if (currentKillingSpree < PlayerKillingSpreeRewards.MinimumKillingSpree)
             return;
 
-        if (HasSurpassedMaxKillingSpree(playerInfo))
+        if (PlayerKillingSpreeRewards.HasSurpassedMaxKillingSpree(playerInfo))
         {
             playerInfo.Stats.SetMaxKillingSpree(currentKillingSpree);
             playerRepository.UpdateMaxKillingSpree(playerInfo);
@@ -44,8 +33,8 @@ public class PlayerKillingSpreeUpdater(
             return;
 
         player.GameText($"KILL X{currentKillingSpree}", TimeSpan.FromSeconds(3), GameTextStyle.Style3);
-        playerInfo.Coins.AddCoins(EarnedCoins);
-        player.AddHealth(EarnedHealth);
+        playerInfo.Coins.AddCoins(PlayerKillingSpreeRewards.EarnedCoins);
+        player.AddHealth(PlayerKillingSpreeRewards.EarnedHealth);
 
         if (currentKillingSpree % 3 == 0)
         {
@@ -58,7 +47,7 @@ public class PlayerKillingSpreeUpdater(
             // Sample Message:
             // Dave has had 3 consecutive kills without dying.
             worldService.SendClientMessage(Color.Orange, message);
-            player.AddHealth(ConsecutiveKillsBonusHealth);
+            player.AddHealth(PlayerKillingSpreeRewards.ConsecutiveKillsBonusHealth);
         }
     }
 }
