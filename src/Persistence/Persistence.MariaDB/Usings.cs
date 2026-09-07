@@ -28,6 +28,7 @@ global using CTF.Application.Statistics;
 global using CTF.Application.Statistics.Ranks;
 global using CTF.Application.Statistics.Ranks.Updater;
 global using CTF.Application.Statistics.Ranks.Commands;
+global using CTF.Application.Statistics.Core;
 global using CTF.Application.Statistics.Score.PerRound;
 global using CTF.Application.Statistics.Score.KillingSpree;
 global using CTF.Application.Statistics.Score.System;

@@ -1,4 +1,4 @@
-using CTF.Application.Statistics.TeamStats.Scoreboard.ScoreboardCommands;
+
 
 namespace CTF.Application.Statistics.TeamStats.Scoreboard.ScoreboardKeyTrigger;
 
