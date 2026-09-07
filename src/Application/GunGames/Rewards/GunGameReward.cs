@@ -4,31 +4,31 @@
 [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Coin, ChangeDriver.Statistics)]
 public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
 {
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int WinnerEarnedHealth = 100;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int WinnerEarnedArmour = 100;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Coin)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int WinnerEarnedCoins  = 100;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int TeamEarnedHealth   = 50;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int TeamEarnedArmour   = 50;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Coin)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int TeamEarnedCoins    = 15;
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Statistics)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private const int TeamEarnedScore    = 3;
 
     [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private readonly record struct WeaponReward(IWeapon Weapon, int Ammo);
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame)]
     private readonly WeaponReward[] _weaponRewards = 
     [
         new(WeaponDefinitions.Grenade,       Ammo: 5),
@@ -37,7 +37,7 @@ public class GunGameReward(PlayerStatsRenderer playerStatsRenderer)
         new(WeaponDefinitions.Flamethrower,  Ammo: 1000)
     ];
 
-    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Coin)]
+    [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Coin, ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.ClientMessage)]
     public void Give(Player winner)
     {
         var weaponReward = _weaponRewards[Random.Shared.Next(_weaponRewards.Length)];
