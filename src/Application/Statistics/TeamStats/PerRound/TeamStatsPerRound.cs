@@ -3,11 +3,11 @@
 /// <summary>
 /// Represents the per-round statistics for a team.
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.Statistics)]
 public class TeamStatsPerRound
 {
     /// <summary>Gets the team's score.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public int Score { get; private set; }
 
     /// <summary>Gets the team's kills.</summary>
@@ -19,7 +19,7 @@ public class TeamStatsPerRound
     public int Deaths { get; private set; }
 
     /// <summary>Adds a score to the team.</summary>
-    [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.GameRules)]
+    [ChangeDriversAttribute(ChangeDriver.Statistics)]
     public void AddScore()  => Score++;
 
     /// <summary>Adds a kill to the team.</summary>
