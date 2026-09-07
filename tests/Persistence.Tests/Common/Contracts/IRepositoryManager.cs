@@ -4,12 +4,12 @@
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
 public interface IRepositoryManager : IDisposable
 {
-    [ChangeDriversAttribute(ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     IPlayerRepository PlayerRepository { get; }
-    [ChangeDriversAttribute(ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     ITopPlayersRepository TopPlayersRepository { get; }
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     void InitializeSeedData();
-    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     void RemoveSeedData();
 }

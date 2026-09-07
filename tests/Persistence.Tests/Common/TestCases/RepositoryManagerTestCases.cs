@@ -4,7 +4,7 @@
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
 public class RepositoryManagerTestCases : IEnumerable<DatabaseProvider>
 {
-    [ChangeDriversAttribute(ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     public IEnumerator<DatabaseProvider> GetEnumerator()
     {
         yield return DatabaseProvider.InMemory;
@@ -12,7 +12,7 @@ public class RepositoryManagerTestCases : IEnumerable<DatabaseProvider>
         yield return DatabaseProvider.MariaDb;
     }
 
-    [ChangeDriversAttribute(ChangeDriver.NUnit)]
+    [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
     IEnumerator IEnumerable.GetEnumerator()
         => this.GetEnumerator();
 }
