@@ -3,8 +3,8 @@ namespace CTF.Application.PlayerResources.Appearance;
 /// <summary>
 /// Represents the persisted visual/platform preferences of a player.
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Model, ChangeDriver.Repository)]
-public class PlayerAppearance
+    [ChangeDriversAttribute(ChangeDriver.Model)]
+    public class PlayerAppearance
 {
     /// <summary>
     /// It is a sentinel value that indicates the player has no skin selected.
@@ -12,7 +12,7 @@ public class PlayerAppearance
     [ChangeDriversAttribute(ChangeDriver.Model)]
     private const int NoSkin = -1;
 
-    [ChangeDriversAttribute(ChangeDriver.Model, ChangeDriver.Repository)]
+    [ChangeDriversAttribute(ChangeDriver.Model)]
     public int SkinId { get; private set; } = NoSkin;
 
     [ChangeDriversAttribute(ChangeDriver.Model)]
