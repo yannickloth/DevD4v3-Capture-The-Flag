@@ -6,5 +6,5 @@ namespace CTF.Application.GameRules.Flag.System.Death;
 /// Namespace marker declaring the causal change-driver chain of
 /// <c>CTF.Application.GameRules.Flag.System.Death</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.Combat, ChangeDriver.Coin, ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.GameRules)]
 internal static class ChangeDrivers { }
