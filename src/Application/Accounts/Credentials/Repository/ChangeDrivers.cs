@@ -6,5 +6,5 @@ namespace CTF.Application.Accounts.Credentials.Repository;
 /// Namespace marker declaring the causal change-driver chain of
 /// <c>CTF.Application.Accounts.Credentials.Repository</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Account)]
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.DatabaseSchema, ChangeDriver.Repository)]
 internal static class ChangeDrivers { }

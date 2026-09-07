@@ -1,4 +1,4 @@
-namespace CTF.Application.GunGames.Rewards;
+namespace CTF.Application.GunGames;
 
 /// <summary>
 /// The GunGame victory reward table: the reward amounts and the weapon reward options,

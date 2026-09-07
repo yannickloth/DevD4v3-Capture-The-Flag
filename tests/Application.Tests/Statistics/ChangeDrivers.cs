@@ -6,5 +6,5 @@ namespace CTF.Application.Tests.Statistics;
 /// Namespace marker declaring the causal change-driver chain of
 /// <c>CTF.Application.Tests.Statistics</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 internal static class ChangeDrivers { }

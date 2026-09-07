@@ -6,5 +6,5 @@ namespace CTF.Application.Tests.CoinEconomy;
 /// Namespace marker declaring the causal change-driver chain of
 /// <c>CTF.Application.Tests.CoinEconomy</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Coin)]
+[ChangeDriversAttribute(ChangeDriver.Coin, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 internal static class ChangeDrivers { }
