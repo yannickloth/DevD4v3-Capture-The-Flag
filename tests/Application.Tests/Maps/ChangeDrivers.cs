@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.Maps;
+namespace CTF.Application.Maps;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

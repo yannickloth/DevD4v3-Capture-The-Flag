@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace Persistence.Tests.Common.DatabaseProviders.Sqlite;
+namespace CTF.Application.Tests.Repositories.SqliteDialect.DatabaseSchema.Composition.BCrypt;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.Tests.Common.DatabaseProviders.Sqlite</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Repositories.SqliteDialect.DatabaseSchema.Composition.BCrypt</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]
 internal static class ChangeDrivers { }

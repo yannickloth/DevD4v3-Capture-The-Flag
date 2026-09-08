@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.MapRotation.Scheduler;
+namespace CTF.Application.MapRotation.ServerServiceDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.MapRotation.Scheduler</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.MapRotation)]
+[ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]
 internal static class ChangeDrivers { }

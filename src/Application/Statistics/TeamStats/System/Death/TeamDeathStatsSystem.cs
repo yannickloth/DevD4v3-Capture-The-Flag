@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.TeamStats.System.Death;
+namespace CTF.Application.Statistics.PlayerDomain;
 
 /// <summary>
 /// Updates team kills and deaths on player death.

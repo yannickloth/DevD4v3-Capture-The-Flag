@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.WeaponSelection;
+namespace CTF.Application.Combat.EcsDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Ecs)]
 public class WeaponSelectionComponent : Component

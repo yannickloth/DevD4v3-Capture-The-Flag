@@ -1,6 +1,5 @@
-using CTF.Application.Statistics.Score.System.ShowStatsCommands;
 
-namespace CTF.Application.Statistics.Score.System.StatsKeyTrigger;
+namespace CTF.Application.Statistics.DialogNsNs2;
 
 /// <summary>
 /// Dispatches the my-stats dialog command when the player presses the analog-right key.

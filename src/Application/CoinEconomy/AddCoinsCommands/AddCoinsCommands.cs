@@ -1,4 +1,4 @@
-namespace CTF.Application.CoinEconomy.AddCoinsCommands;
+namespace CTF.Application.CoinEconomy.CommandSetNsNs2;
 
 /// <summary>
 /// Adds coins to a single target player.

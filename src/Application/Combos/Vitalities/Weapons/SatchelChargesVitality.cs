@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Vitalities.Weapons;
+namespace CTF.Application.Combos.CombatDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin, ChangeDriver.Combat)]
 public class SatchelChargesVitality : ICombo

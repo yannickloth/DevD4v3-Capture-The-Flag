@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat.ECS;
+namespace CTF.Application.AntiCheat.EcsDomain;
 
 /// <summary>
 /// Represents a component that stores the last shot time and 

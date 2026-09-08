@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory;
+namespace CTF.Composition.DatabaseSchemaDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.DatabaseSchema)]
 public static class PersistenceInMemoryServicesExtensions

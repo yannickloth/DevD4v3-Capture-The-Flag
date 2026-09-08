@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Results.Leveling;
+namespace CTF.Application.GunGames.ClientMessageNsNs2;
 
 /// <summary>
 /// Handles the <see cref="GunGameResult.LeveledDown"/> result.

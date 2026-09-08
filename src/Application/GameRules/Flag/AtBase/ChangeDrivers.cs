@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.AtBase;
+namespace CTF.Application.GameRules.GameTextDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.AtBase</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.AtBase</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.GameText)]
 internal static class ChangeDrivers { }

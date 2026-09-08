@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combos.Systems.Purchase;
+namespace CTF.Application.Combos.StatisticsDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Combos.Systems.Purchase</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Combos.Purchase</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Combo)]
+[ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
 internal static class ChangeDrivers { }

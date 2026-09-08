@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.ServerService;
+namespace CTF.Host.ServerService.ServerServiceDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-42; serverSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.ServerService, ChangeDriver.Configuration)]

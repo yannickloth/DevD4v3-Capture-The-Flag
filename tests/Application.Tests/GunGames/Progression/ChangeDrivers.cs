@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.GunGames.Progression;
+namespace CTF.Application.Tests.GunGames;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Tests.GunGames.Progression</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.GunGames</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GunGame)]
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 internal static class ChangeDrivers { }

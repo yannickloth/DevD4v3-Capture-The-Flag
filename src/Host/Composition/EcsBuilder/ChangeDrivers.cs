@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Composition.EcsBuilder;
+namespace CTF.Composition.EcsDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Host.Composition.EcsBuilder</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Composition.EcsBuilder</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Composition)]
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

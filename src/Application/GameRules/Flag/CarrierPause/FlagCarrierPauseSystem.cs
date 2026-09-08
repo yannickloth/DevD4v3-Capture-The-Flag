@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.CarrierPause;
+namespace CTF.Application.GameRules.ConfigurationNsNs4;
 
 /// <summary>
 /// A system that handles the pause logic for flag carriers.

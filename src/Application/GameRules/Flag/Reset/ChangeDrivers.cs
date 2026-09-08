@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.Reset;
+namespace CTF.Application.GameRules.TimerNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.Reset</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Reset</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.Timer)]
 internal static class ChangeDrivers { }

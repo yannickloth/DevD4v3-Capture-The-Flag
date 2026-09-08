@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Authorization.Roles.Commands.GiveMeAdminCommands;
+namespace CTF.Application.Authorization.CommandSetNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

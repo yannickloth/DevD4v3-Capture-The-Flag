@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Composition.DatabaseProviders;
+namespace CTF.Composition.HostingNsNs2;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.Hosting)]
 public static class DatabaseProviderExtensions

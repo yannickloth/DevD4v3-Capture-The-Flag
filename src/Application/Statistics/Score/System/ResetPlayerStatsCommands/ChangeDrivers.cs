@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.System.ResetPlayerStatsCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs5;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

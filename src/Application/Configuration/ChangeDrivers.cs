@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Configuration;
+namespace CTF.Application.Configuration.AudioDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Configuration</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Configuration.AudioDomain</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Configuration)]
+[ChangeDriversAttribute(ChangeDriver.Configuration, ChangeDriver.Audio)]
 internal static class ChangeDrivers { }

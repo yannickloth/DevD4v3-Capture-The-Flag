@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Composition.EcsBuilder;
+namespace CTF.Composition.EcsDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Ecs)]
 public static class HostEcsBuilderExtensions

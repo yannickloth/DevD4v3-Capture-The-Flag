@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.AntiCheat.SystemConnect;
+namespace CTF.Application.AntiCheat.PlayerNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

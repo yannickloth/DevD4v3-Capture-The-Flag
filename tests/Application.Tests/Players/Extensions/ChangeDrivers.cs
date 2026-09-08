@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.Players.Extensions;
+namespace CTF.Application.Tests.Accounts.Ecs;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Tests.Players.Extensions</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Accounts.Ecs</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Account)]
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

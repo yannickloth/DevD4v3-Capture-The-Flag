@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match.Teams;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Represents the collection of players that belong to a team.

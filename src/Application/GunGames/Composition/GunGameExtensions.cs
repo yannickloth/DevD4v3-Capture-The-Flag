@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Composition;
+namespace CTF.Application.GunGames;
 
 [ChangeDriversAttribute(ChangeDriver.GunGame)]
 public static class GunGameExtensions

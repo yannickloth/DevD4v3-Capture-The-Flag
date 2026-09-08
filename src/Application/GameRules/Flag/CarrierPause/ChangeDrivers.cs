@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.CarrierPause;
+namespace CTF.Application.GameRules.ConfigurationNsNs4;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.CarrierPause</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.CarrierPause</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Pickup, ChangeDriver.Audio, ChangeDriver.Timer, ChangeDriver.Player, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

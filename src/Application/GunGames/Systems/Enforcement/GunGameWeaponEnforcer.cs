@@ -1,6 +1,6 @@
-﻿using SampSharp.OpenMp.Core.Std.Chrono;
+using SampSharp.OpenMp.Core.Std.Chrono;
 
-namespace CTF.Application.GunGames.Systems.Enforcement;
+namespace CTF.Application.GunGames.EcsNsNs3;
 
 /// <summary>
 /// Ensures that players can only use the weapon assigned to their current

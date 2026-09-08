@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GunGames.Results.Leveling;
+namespace CTF.Application.GunGames.ClientMessageNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GunGames.Results.Leveling</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.GunGames.Leveling</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GunGame)]
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

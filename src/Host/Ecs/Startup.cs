@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Ecs;
+namespace CTF.Host.Ecs.EcsDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
 public class Startup : IEcsStartup

@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelectionCommands;
+namespace CTF.Application.Combat.CommandInfrastructureNsNs3;
 
 /// <summary>
 /// Provides the weapon-selection dialog commands.

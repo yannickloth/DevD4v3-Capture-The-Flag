@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Players;
+namespace CTF.Application.Tests.Repositories.DatabaseSchema;
 
 /// <summary>Verifies the top-players repository queries (by total kills and by max killing spree).</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.DatabaseSchema)]

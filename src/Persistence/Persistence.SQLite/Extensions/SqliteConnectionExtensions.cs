@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite.Extensions;
+namespace Persistence.SQLite.Extensions;
 
 [ChangeDriversAttribute(ChangeDriver.SqliteDialect)]
 public static class SqliteConnectionExtensions

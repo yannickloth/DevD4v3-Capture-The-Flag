@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match.Teams;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Balances players between two teams based on their score.

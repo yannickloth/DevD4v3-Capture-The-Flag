@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Basic.ReportPlayer;
+namespace CTF.Application.Commands.ClientMessageNsNs5;
 
 /// <summary>
 /// Reports a target player to the moderators/admins.

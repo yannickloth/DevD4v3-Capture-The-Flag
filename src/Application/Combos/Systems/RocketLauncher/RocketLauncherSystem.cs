@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Systems.RocketLauncher;
+namespace CTF.Application.Combos.ClientMessageDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): worldService -> CD-36; comboSettings -> CD-05. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.MapRotation, ChangeDriver.ClientMessage)]

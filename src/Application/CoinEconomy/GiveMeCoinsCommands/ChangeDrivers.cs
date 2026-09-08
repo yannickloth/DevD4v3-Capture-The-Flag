@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.CoinEconomy.GiveMeCoinsCommands;
+namespace CTF.Application.CoinEconomy.CommandSetNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

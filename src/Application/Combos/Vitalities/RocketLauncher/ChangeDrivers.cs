@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combos.Vitalities.RocketLauncher;
+namespace CTF.Application.Combos.CoinDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

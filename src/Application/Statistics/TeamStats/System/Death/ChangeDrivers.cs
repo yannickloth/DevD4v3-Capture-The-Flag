@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TeamStats.System.Death;
+namespace CTF.Application.Statistics.PlayerDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

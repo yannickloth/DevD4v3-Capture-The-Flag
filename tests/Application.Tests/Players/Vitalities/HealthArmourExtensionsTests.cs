@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Vitalities;
+namespace CTF.Application.Tests.Combat;
 
 /// <summary>Tests for health/armour extensions.</summary>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

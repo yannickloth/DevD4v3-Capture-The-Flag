@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.TargetPlayer;
+namespace CTF.Application.Commands.ClientMessageNsNs8;
 
 /// <summary>
 /// Admin commands that act on a target player: teleport to them (goto), bring them to the admin (get), and ban them.

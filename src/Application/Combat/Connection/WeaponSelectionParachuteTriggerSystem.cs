@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.Connection;
+namespace CTF.Application.Combat.PlayerNsNs2;
 
 /// <summary>
 /// Gives a parachute to the player when the walk+secondary-fire key combo is pressed.

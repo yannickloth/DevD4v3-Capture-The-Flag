@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Spawning;
+namespace CTF.Application.GameRules.PlayerNsNs5;
 
 /// <summary>
 /// Positions and configures the player at spawn using the current map's spawn locations.

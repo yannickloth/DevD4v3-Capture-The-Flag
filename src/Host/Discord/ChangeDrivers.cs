@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Discord;
+namespace CTF.Application.Discord.LoggingDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

@@ -1,4 +1,4 @@
-namespace CTF.Application.AntiCheat.SystemConnect;
+namespace CTF.Application.AntiCheat.PlayerNsNs3;
 
 /// <summary>Adds the last-fired-time component when a player connects.</summary>
 [ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Player)]

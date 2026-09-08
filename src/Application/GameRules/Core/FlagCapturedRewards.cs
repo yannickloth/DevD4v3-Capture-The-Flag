@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Core;
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// The flag-capture reward amounts, governed solely by the CTF flag rules (CD-02).

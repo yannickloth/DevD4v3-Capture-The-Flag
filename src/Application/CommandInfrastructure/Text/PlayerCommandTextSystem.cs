@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.CommandInfrastructure.Text;
+namespace CTF.Application.CommandInfrastructure.PlayerDomain;
 
 /// <summary>
 /// Handles the command-text callback, invoking the registered command handlers.

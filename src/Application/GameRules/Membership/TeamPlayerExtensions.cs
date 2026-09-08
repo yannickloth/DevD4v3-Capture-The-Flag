@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Membership;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Provides team-membership extension methods over the player entity.

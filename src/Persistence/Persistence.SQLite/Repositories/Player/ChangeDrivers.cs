@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace Persistence.SQLite.Repositories.Player;
+namespace Persistence.Repositories.ConfigurationNsNs5;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.SQLite.Repositories.Player</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Player</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

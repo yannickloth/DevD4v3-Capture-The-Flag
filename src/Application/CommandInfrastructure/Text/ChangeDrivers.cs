@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.CommandInfrastructure.Text;
+namespace CTF.Application.CommandInfrastructure.PlayerDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.CommandInfrastructure.Text</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Text</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.CommandInfrastructure)]
+[ChangeDriversAttribute(ChangeDriver.CommandInfrastructure, ChangeDriver.Player)]
 internal static class ChangeDrivers { }

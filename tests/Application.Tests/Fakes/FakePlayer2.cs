@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Fakes;
+namespace CTF.Application.Tests.Players;
 
 /// <summary>Test double for the platform Player surface.</summary>
 [ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]

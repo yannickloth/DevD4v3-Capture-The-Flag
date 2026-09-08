@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Players;
+namespace CTF.Application.Tests.Repositories.DatabaseSchema;
 
 /// <summary>Verifies the repository Create operation sets the account id and persists all fields.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.DatabaseSchema)]

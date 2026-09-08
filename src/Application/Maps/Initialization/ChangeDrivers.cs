@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Maps.Initialization;
+namespace CTF.Application.Maps.ServerServiceDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Maps.Initialization</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Maps.Initialization</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Map)]
+[ChangeDriversAttribute(ChangeDriver.Map, ChangeDriver.Configuration, ChangeDriver.Ecs, ChangeDriver.TextDraw, ChangeDriver.Pickup, ChangeDriver.MapIcon, ChangeDriver.ServerService)]
 internal static class ChangeDrivers { }

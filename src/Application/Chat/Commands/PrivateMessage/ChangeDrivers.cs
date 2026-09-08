@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Chat.Commands.PrivateMessage;
+namespace CTF.Application.Chat.EcsNsNs2;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

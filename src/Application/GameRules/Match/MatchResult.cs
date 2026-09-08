@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match;
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Represents the result of a match between two teams.

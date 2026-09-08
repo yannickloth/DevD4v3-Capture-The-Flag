@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host;
+namespace CTF.Composition;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of the

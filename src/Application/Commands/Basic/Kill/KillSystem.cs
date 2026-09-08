@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Basic.Kill;
+namespace CTF.Application.Commands.ClientMessageNsNs6;
 
 /// <summary>
 /// Eliminates the player's character for respawn purposes, subject to a minimum-health rule.

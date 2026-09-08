@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Admin.UnbanCommands;
+namespace CTF.Application.Commands.ClientMessageNsNs2;
 
 /// <summary>
 /// Unbans a player IP address.

@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.WeaponCatalogs;
+namespace CTF.Application.WeaponCatalogs;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.PasswordHasher;
+namespace CTF.BCrypt;
 
 /// <summary>A no-op password hasher that stores plaintext, used to exercise repositories without a real BCrypt cost.</summary>
 [ChangeDriversAttribute(ChangeDriver.BCrypt)]

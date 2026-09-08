@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.MapRotation.Commands.Connection;
+namespace CTF.Application.MapRotation.PlayerDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

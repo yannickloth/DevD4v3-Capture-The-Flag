@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Captured;
+namespace CTF.Application.GameRules.ConfigurationNsNs7;
 
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag from their base.

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Settings;
+namespace CTF.Application.GameRules.ConfigurationNsNs2;
 
 /// <summary>
 /// Represents settings for automatic flag return.

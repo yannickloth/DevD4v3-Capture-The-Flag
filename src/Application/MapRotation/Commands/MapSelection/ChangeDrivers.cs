@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.MapRotation.Commands.MapSelection;
+namespace CTF.Application.MapRotation.AuthorizationNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Headshot;
+namespace CTF.Application.Combat.ConfigurationDomain;
 
 /// <summary>
 /// Represents settings for headshot events.

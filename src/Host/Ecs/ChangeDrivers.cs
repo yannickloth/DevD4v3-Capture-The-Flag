@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Ecs;
+namespace CTF.Host.Ecs.EcsDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Host.Ecs</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Ecs</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Ecs)]
+[ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Configuration, ChangeDriver.Composition, ChangeDriver.Logging, ChangeDriver.Discord)]
 internal static class ChangeDrivers { }

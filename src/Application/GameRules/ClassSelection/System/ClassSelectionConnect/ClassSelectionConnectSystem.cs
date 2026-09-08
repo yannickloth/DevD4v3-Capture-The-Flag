@@ -1,6 +1,5 @@
-using CTF.Application.GameRules.ClassSelection.Components;
 
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionConnect;
+namespace CTF.Application.GameRules.PlayerNsNs4;
 
 /// <summary>
 /// Handles player connect for the class-selection flow.

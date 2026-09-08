@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace Persistence.SQLite;
+namespace CTF.Composition.SqliteDialectDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.SQLite</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Composition.SqliteDialectDomain</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Composition)]
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
 internal static class ChangeDrivers { }

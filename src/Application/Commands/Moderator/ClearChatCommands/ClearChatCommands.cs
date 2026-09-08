@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Moderator.ClearChatCommands;
+namespace CTF.Application.Commands.ClientMessageNsNs4;
 
 /// <summary>
 /// Clears the chat for all players.

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag;
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Represents the states a flag can be in during the match.

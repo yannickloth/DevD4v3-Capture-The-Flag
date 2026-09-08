@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Vip;
+namespace CTF.Application.Authorization.CommandInfrastructureNsNs4;
 
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; dialogService -> CD-33. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandSet, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]

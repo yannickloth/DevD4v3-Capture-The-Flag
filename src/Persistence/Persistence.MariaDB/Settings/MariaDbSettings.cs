@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB.Settings;
+namespace CTF.Application.Configuration;
 
 [ChangeDriversAttribute(ChangeDriver.Configuration)]
 public class MariaDbSettings

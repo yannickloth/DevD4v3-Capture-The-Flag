@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.RconSecurity;
+namespace CTF.Application.RconSecurity.RconSecurityDomain;
 
 /// <summary>
 /// Kicks connected players who attempt an in-game RCON login.

@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Core;
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Drops the flag when a carrying player changes teams.

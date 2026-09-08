@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Vip.Weapons;
+namespace CTF.Application.Commands.PlayerNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Commands.Vip.Weapons</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Weapons</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.CommandSet)]
+[ChangeDriversAttribute(ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player)]
 internal static class ChangeDrivers { }

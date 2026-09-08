@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionInit;
+namespace CTF.Application.GameRules.ModelDomain;
 
 /// <summary>
 /// Adds player classes for team skins on game mode init.

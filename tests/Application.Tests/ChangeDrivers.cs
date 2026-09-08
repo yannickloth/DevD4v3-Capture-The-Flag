@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Tests;
+namespace CTF.Application.Tests.Hosting.Map;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Tests</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Hosting.Map</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Hosting)]
+[ChangeDriversAttribute(ChangeDriver.Hosting, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Map)]
 internal static class ChangeDrivers { }

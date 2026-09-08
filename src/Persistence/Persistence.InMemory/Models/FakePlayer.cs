@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory.Models;
+namespace CTF.Application.SchemaNs3;
 
 [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
 public class FakePlayer

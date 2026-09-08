@@ -1,6 +1,5 @@
-﻿using CTF.Application.Combos.Systems;
 
-namespace CTF.Application.Combos.Vitalities.RocketLauncher;
+namespace CTF.Application.Combos.CoinDomain;
 
 /// <remarks>Injected dependencies: comboSettings -> CD-05. Driven by the ComboSettings contract + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.Coin)]

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.ServerService;
+namespace CTF.Host.ServerService.ServerServiceDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Host.ServerService</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.ServerService</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.ServerService)]
+[ChangeDriversAttribute(ChangeDriver.ServerService, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

@@ -1,4 +1,4 @@
-namespace CTF.Application.Accounts.Credentials.Repository;
+namespace CTF.Application.Accounts.RepositoryNsNs3;
 
 /// <summary>
 /// Represents the persisted account of a player: identity and credentials.

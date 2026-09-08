@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat;
+namespace CTF.Application.Chat.ClientMessageNsNs2;
 
 /// <summary>
 /// Represents a chat message in the messaging system.

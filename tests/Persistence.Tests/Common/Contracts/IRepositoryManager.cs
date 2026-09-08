@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.Contracts;
+namespace CTF.Application.Tests.Repositories.MariaDbDialect.SqliteDialectNs2;
 
 /// <summary>Abstracts a configured persistence stack so repository tests run provider-agnostically.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]

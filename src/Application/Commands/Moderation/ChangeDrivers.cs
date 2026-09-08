@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Moderation;
+namespace CTF.Application.Commands.ClientMessageNsNs9;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

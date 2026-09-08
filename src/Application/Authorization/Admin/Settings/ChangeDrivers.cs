@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Authorization.Admin.Settings;
+namespace CTF.Application.Authorization.ConfigurationDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

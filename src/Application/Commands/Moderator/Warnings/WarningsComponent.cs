@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Moderator.Warnings;
+namespace CTF.Application.Commands.EcsDomain;
 
 /// <summary>
 /// Records how many times a player has been warned; kicks after the third warning.

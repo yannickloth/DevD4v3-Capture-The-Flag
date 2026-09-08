@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts;
+namespace CTF.Application.Accounts.RepositoryNsNs2;
 
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Authorization, ChangeDriver.Statistics, ChangeDriver.GunGame, ChangeDriver.BCrypt, ChangeDriver.Repository)]
 public interface IPlayerRepository

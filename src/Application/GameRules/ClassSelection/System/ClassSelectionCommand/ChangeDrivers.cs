@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionCommand;
+namespace CTF.Application.GameRules.CombatDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

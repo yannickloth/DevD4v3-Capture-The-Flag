@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Membership;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Handles the class-selection request and spawn-request flow for players.

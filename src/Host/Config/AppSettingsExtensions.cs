@@ -1,6 +1,5 @@
-﻿using CTF.Application.Configuration;
 
-namespace CTF.Host.Config;
+namespace CTF.Application.Configuration.CompositionDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Configuration, ChangeDriver.Composition)]
 public static class AppSettingsExtensions

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.MapRotation.Scheduler;
+namespace CTF.Application.MapRotation.ServerServiceDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): serverService -> CD-42; mapObjects -> CD-37; worldService -> CD-36; timerService -> CD-41; mapInfoService -> CD-11; mapCollection -> CD-11; mapTextDrawRenderer -> CD-34; flagStateResetter -> CD-02; teamBalancer -> CD-02. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.MapRotation, ChangeDriver.Map, ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.TextDraw, ChangeDriver.ClientMessage, ChangeDriver.Timer, ChangeDriver.ServerService)]

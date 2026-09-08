@@ -1,9 +1,5 @@
-﻿namespace Persistence.MariaDB;
+namespace CTF.Composition.MariaDbDialectDomain;
 
-using Persistence.MariaDB.Repositories.Player;
-using Persistence.MariaDB.Repositories.TopPlayers;
-using Persistence.MariaDB.Schema;
-using Persistence.MariaDB.Settings;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect)]
 public static class PersistenceMariaDBServicesExtensions

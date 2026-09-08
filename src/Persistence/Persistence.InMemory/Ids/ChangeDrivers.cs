@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace Persistence.InMemory.Ids;
+namespace CTF.Application.SchemaNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.InMemory.Ids</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.SchemaNs2</c> (root-first).
 /// </summary>
 [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
 internal static class ChangeDrivers { }

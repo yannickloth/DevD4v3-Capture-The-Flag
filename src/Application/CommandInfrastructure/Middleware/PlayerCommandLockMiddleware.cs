@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.CommandInfrastructure.Middleware;
+namespace CTF.Application.CommandInfrastructure.MapRotationDomain;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerCommandText</c> to prevent command execution

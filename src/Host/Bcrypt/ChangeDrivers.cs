@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Bcrypt;
+namespace CTF.BCrypt;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

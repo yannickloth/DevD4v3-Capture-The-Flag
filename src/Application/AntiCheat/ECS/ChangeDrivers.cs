@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.AntiCheat.ECS;
+namespace CTF.Application.AntiCheat.EcsDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.AntiCheat.ECS</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.ECS</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.AntiCheat)]
+[ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

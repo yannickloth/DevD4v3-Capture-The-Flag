@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Authorization.Roles.FailedAttempts;
+namespace CTF.Application.Authorization.EcsDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

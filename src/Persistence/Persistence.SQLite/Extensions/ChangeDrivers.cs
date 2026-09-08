@@ -1,4 +1,3 @@
-using CTF.Application.IVP;
 
 namespace Persistence.SQLite.Extensions;
 

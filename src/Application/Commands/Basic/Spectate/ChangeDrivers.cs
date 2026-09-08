@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Basic.Spectate;
+namespace CTF.Application.Commands.ClientMessageNsNs7;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

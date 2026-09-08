@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace Persistence.Tests.Common.Paths;
+namespace CTF.Application.Tests.Schema.MariaDbDialect.SqliteDialect;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.Tests.Common.Paths</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Schema.MariaDbDialect.SqliteDialect</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]
 internal static class ChangeDrivers { }

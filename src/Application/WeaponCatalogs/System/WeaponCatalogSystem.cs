@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.WeaponCatalogs.System;
+namespace CTF.Application.WeaponCatalogs.CommandInfrastructureDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; dialogService -> CD-33; gunGameMode -> CD-07; weaponCatalog -> CD-04; weaponCatalogSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.Combat, ChangeDriver.GunGame, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]

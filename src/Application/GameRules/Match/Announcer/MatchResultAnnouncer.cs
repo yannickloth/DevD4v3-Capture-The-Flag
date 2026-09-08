@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Match.Announcer;
+namespace CTF.Application.GameRules.ClientMessageNsNs3;
 
 /// <summary>
 /// Announces the result of a match to all players.

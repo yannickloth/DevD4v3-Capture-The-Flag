@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Systems;
+namespace CTF.Application.Combos;
 
 [ChangeDriversAttribute(ChangeDriver.Combo)]
 public class ComboSettings

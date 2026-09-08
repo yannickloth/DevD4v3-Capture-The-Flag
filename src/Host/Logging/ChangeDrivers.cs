@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Logging;
+namespace CTF.Host.Logging.LoggingDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Host.Logging</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Logging</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Logging)]
+[ChangeDriversAttribute(ChangeDriver.Logging, ChangeDriver.Composition, ChangeDriver.Discord)]
 internal static class ChangeDrivers { }

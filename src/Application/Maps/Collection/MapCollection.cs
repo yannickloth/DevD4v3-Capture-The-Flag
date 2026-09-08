@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps.Collection;
+namespace CTF.Application.Maps;
 
 [ChangeDriversAttribute(ChangeDriver.Map)]
 public class MapCollection

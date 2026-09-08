@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.Connection;
+namespace CTF.Application.Combat.PlayerNsNs2;
 
 /// <remarks>No injected services. Adds the health and armour cooldown components when a player connects.</remarks>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.Player)]

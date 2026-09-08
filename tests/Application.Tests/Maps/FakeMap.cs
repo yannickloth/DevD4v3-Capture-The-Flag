@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Maps;
+namespace CTF.Application.Maps;
 
 /// <summary>Test double for the IMap interface.</summary>
 [ChangeDriversAttribute(ChangeDriver.Map)]

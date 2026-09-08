@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Flag.System.ReturnCommand;
+namespace CTF.Application.GameRules.TimerNsNs3;
 
 /// <summary>
 /// Returns a flag to its base position via the returnflag command.

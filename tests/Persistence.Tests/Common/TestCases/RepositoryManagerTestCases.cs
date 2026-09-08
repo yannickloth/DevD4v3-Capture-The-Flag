@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.TestCases;
+namespace CTF.Application.Tests.Repositories.MariaDbDialect.SqliteDialectNs3;
 
 /// <summary>Provides the three provider cases for the repository test suite.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect)]

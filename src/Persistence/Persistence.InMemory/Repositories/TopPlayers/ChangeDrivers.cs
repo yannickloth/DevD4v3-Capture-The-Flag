@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace Persistence.InMemory.Repositories.TopPlayers;
+namespace Persistence.Repositories.ConfigurationNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.InMemory.Repositories.TopPlayers</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.TopPlayers</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

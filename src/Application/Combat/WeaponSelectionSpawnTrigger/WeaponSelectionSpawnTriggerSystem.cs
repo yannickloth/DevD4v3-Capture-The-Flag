@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelectionSpawnTrigger;
+namespace CTF.Application.Combat.ClientMessageDomain;
 
 /// <summary>
 /// Shows the weapon-selection usage messages when a player requests a spawn.

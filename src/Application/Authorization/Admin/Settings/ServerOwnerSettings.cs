@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Admin.Settings;
+namespace CTF.Application.Authorization.ConfigurationDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.Configuration)]
 public class ServerOwnerSettings

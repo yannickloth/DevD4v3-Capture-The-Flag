@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelectionParachute;
+namespace CTF.Application.Combat.CommandInfrastructureNsNs2;
 
 /// <summary>
 /// Gives a parachute to the player via the <c>/p</c> command.

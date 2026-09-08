@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Authentication.ECS;
+namespace CTF.Application.Accounts.EcsNsNs3;
 
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Ecs)]
 public class AccountComponent : Component

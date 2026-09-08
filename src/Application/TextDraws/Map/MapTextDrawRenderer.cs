@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.TextDraws.Map;
+namespace CTF.Application.TextDraws.MapDomain;
 
 [ChangeDriversAttribute(ChangeDriver.TextDraw, ChangeDriver.MapRotation, ChangeDriver.Map)]
 public class MapTextDrawRenderer

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.WeaponCatalogs;
+namespace CTF.Application.WeaponCatalogs;
 
 /// <summary>
 /// Defines a weapon catalog that restricts player mobility while fighting.

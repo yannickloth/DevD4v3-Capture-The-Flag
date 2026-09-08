@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.WeaponCatalogs.Catalogs.Definitions;
+namespace CTF.Application.Tests.WeaponCatalog;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Tests.WeaponCatalogs.Catalogs.Definitions</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.WeaponCatalog</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
+[ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]
 internal static class ChangeDrivers { }

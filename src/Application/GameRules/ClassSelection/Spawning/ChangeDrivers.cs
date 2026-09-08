@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.ClassSelection.Spawning;
+namespace CTF.Application.GameRules.PlayerNsNs5;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.ClassSelection.Spawning</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Spawning</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Map, ChangeDriver.MapRotation, ChangeDriver.Player)]
 internal static class ChangeDrivers { }

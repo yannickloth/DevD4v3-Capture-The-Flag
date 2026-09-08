@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Moderator.WarnConnect;
+namespace CTF.Application.Commands.PlayerNsNs2;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

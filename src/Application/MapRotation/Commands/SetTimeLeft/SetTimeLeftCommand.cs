@@ -1,4 +1,4 @@
-namespace CTF.Application.MapRotation.Commands.SetTimeLeft;
+namespace CTF.Application.MapRotation.AuthorizationNsNs3;
 
 /// <summary>
 /// Provides the moderator command to set the remaining round time.

@@ -1,4 +1,3 @@
-﻿using CTF.Application.MapRotation;
 
 namespace CTF.Application.Tests.MapRotation;
 

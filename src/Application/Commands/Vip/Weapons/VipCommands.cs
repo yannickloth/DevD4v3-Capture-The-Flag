@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Commands.Vip.Weapons;
+namespace CTF.Application.Commands.PlayerNsNs3;
 
 /// <summary>
 /// Provides the VIP-role weapon command set.

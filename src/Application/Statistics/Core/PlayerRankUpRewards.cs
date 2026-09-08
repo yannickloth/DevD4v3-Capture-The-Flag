@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Core;
+namespace CTF.Application.Statistics;
 
 /// <summary>
 /// The rank-up award amounts, governed solely by the player-statistics/rank model (CD-10).

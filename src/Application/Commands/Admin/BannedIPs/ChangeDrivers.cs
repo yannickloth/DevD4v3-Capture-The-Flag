@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Admin.BannedIPs;
+namespace CTF.Application.Commands.ClientMessageNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

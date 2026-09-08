@@ -1,9 +1,5 @@
-﻿namespace Persistence.SQLite;
+namespace CTF.Composition.SqliteDialectDomain;
 
-using Persistence.SQLite.Repositories.Player;
-using Persistence.SQLite.Repositories.TopPlayers;
-using Persistence.SQLite.Schema;
-using Persistence.SQLite.Settings;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Configuration, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect)]
 public static class PersistenceSQLiteServicesExtensions

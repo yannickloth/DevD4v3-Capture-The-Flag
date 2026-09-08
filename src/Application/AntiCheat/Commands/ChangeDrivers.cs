@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.AntiCheat.Commands;
+namespace CTF.Application.AntiCheat.PlayerNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.AntiCheat.Commands</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Commands</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.AntiCheat)]
+[ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Configuration, ChangeDriver.CommandInfrastructure, ChangeDriver.ClientMessage, ChangeDriver.Player)]
 internal static class ChangeDrivers { }

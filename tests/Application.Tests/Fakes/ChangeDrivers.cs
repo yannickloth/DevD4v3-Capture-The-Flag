@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.Fakes;
+namespace CTF.Application.Tests.Players;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Tests.Fakes</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.Players</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Player)]
+[ChangeDriversAttribute(ChangeDriver.Player, ChangeDriver.NSubstitute)]
 internal static class ChangeDrivers { }

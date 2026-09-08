@@ -1,4 +1,4 @@
-namespace CTF.Application.MapRotation.Commands.RotationTimer;
+namespace CTF.Application.MapRotation.AuthorizationNsNs2;
 
 /// <summary>
 /// Provides the moderator commands to start and stop the map-rotation timer.

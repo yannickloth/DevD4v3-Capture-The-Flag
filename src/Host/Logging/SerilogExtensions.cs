@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Logging;
+namespace CTF.Host.Logging.LoggingDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Logging, ChangeDriver.Composition, ChangeDriver.Discord)]
 public static class SerilogExtensions

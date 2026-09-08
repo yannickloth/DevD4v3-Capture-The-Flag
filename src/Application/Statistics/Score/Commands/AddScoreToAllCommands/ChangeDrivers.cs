@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.Commands.AddScoreToAllCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

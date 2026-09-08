@@ -5,7 +5,7 @@
     public static class Entrypoint
     {
         [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
-        private static readonly global::CTF.Host.Ecs.Startup _startup = new();
+        private static readonly global::CTF.Host.Ecs.EcsDomain.Startup _startup = new();
 
         [ChangeDriversAttribute(ChangeDriver.Ecs, ChangeDriver.Hosting)]
         private static SampSharp.OpenMp.Core.StartupContext _context;

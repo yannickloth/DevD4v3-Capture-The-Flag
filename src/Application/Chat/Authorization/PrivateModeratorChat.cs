@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat.Authorization;
+namespace CTF.Application.Chat.ClientMessageNsNs3;
 
 /// <summary>
 /// Represents the moderator private chat tier, routed by the '&' prefix.

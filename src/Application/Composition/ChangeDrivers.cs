@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Composition;
+namespace CTF.Composition.ChatDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Composition</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Composition.ChatDomain</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Composition)]
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Chat)]
 internal static class ChangeDrivers { }

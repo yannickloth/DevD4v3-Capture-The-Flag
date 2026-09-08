@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.GunGames;
+namespace CTF.Application.GunGames;
 
 /// <summary>Test double for WeaponProgression (fixture).</summary>
 [ChangeDriversAttribute(ChangeDriver.GunGame)]

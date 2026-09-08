@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Core;
+namespace CTF.Application.GameRules;
 
 /// <summary>
 /// Registers game-rules services with the DI container.

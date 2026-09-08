@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Reset;
+namespace CTF.Application.GameRules.TimerNsNs2;
 
 /// <summary>
 /// Resets the state of both teams' flags and associated pickups, icons, and timers.

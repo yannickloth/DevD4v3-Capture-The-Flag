@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite.Repositories.TopPlayers;
+namespace Persistence.Repositories.ConfigurationNsNs6;
 
 /// <remarks>Injected dependencies (change drivers of these elements): sqlCollection -> CD-18; sqliteSettings -> CD-17; topPlayersSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.Configuration)]

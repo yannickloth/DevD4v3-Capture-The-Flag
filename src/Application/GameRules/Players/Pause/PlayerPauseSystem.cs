@@ -1,6 +1,6 @@
-﻿using SampSharp.OpenMp.Core.Std.Chrono;
+using SampSharp.OpenMp.Core.Std.Chrono;
 
-namespace CTF.Application.GameRules.Players.Pause;
+namespace CTF.Application.GameRules.TimerNsNs4;
 
 /// <summary>
 /// Detects when players enter or leave the paused state.

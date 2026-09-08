@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Score.KillingSpree;
+namespace CTF.Application.Statistics.ClientMessageNsNs2;
 
 /// <summary>
 /// Updates the player's per-round killing spree and grants the spree rewards.

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Discord;
+namespace CTF.Application.Discord.EcsDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.Discord</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Discord)]
+[ChangeDriversAttribute(ChangeDriver.Discord, ChangeDriver.Player, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

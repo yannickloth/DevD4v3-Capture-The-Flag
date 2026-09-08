@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Players;
+namespace CTF.Application.Tests.Repositories.DatabaseSchema;
 
 /// <summary>Verifies each repository update operation persists the changed field.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.DatabaseSchema)]

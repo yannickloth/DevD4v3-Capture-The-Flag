@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Weapons;
+namespace CTF.Application.Tests.Combat;
 
 /// <summary>Tests for WeaponPack.</summary>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

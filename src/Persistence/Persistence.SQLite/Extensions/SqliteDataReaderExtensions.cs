@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite.Extensions;
+namespace Persistence.SQLite.Extensions;
 
 [ChangeDriversAttribute(ChangeDriver.SqliteDialect)]
 internal static class SqliteDataReaderExtensions

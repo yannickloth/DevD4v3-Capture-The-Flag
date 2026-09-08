@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Authentication.RepositoryPlayerEvents;
+namespace CTF.Application.Accounts.EcsNsNs2;
 
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; authenticationDialog -> CD-08. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs)]

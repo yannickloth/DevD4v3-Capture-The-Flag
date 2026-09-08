@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.System.Disconnect;
+namespace CTF.Application.Statistics.RepositoryNsNs4;
 
 /// <summary>
 /// Persists the last-connection time when an authenticated player disconnects.

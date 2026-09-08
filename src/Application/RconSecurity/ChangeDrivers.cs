@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.RconSecurity;
+namespace CTF.Application.RconSecurity.RconSecurityDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.RconSecurity</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.RconSecurity)]
+[ChangeDriversAttribute(ChangeDriver.RconSecurity, ChangeDriver.Player, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

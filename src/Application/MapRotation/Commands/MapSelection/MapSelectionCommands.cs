@@ -1,4 +1,4 @@
-namespace CTF.Application.MapRotation.Commands.MapSelection;
+namespace CTF.Application.MapRotation.AuthorizationNsNs4;
 
 /// <summary>
 /// Provides the moderator command to browse and force-select the next map.

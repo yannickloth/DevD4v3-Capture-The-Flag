@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.KillingSpree;
+namespace CTF.Application.Statistics.ClientMessageNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Statistics.Score.KillingSpree</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Core.KillingSpree</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.GameText, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

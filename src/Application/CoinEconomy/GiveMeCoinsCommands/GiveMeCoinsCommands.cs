@@ -1,6 +1,5 @@
-using CTF.Application.CoinEconomy.WaitTimes;
 
-namespace CTF.Application.CoinEconomy.GiveMeCoinsCommands;
+namespace CTF.Application.CoinEconomy.CommandSetNsNs4;
 
 /// <summary>
 /// Gives the current player coins, subject to a cooldown.

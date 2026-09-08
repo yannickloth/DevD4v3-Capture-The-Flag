@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Results.FinalKill;
+namespace CTF.Application.GunGames.ClientMessageNsNs3;
 
 /// <summary>
 /// Handles the <see cref="GunGameResult.ScoredFinalKill"/> result.

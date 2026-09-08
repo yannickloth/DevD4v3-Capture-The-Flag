@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.Combos.Systems.RocketLauncher;
+namespace CTF.Application.Combos.ClientMessageDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Combos.Systems.RocketLauncher</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Combos.ClientMessageDomain</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Combo)]
+[ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.MapRotation, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

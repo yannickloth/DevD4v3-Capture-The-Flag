@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.MapRotation.Commands.Spawn;
+namespace CTF.Application.MapRotation.TextDrawDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Accounts.Authentication.CommandsDialogs;
+namespace CTF.Application.Accounts.RepositoryNsNs5;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Accounts.Authentication.CommandsDialogs</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Credentials.CommandsDialogs</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Account)]
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository)]
 internal static class ChangeDrivers { }

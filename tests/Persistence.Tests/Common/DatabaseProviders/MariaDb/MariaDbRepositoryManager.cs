@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.DatabaseProviders.MariaDb;
+namespace CTF.Application.Tests.Repositories.MariaDbDialect.DatabaseSchema.Composition.BCrypt;
 
 /// <summary>Wires the MariaDB persistence stack for the repository tests.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]

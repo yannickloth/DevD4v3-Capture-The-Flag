@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Score.Hud;
+namespace CTF.Application.Statistics.TextDrawNsNs2;
 
 /// <remarks>Injected dependencies: worldService -> CD-36. Driven by the IWorldService (platform) contract + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]

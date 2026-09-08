@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Moderation;
+namespace CTF.Application.Commands.ClientMessageNsNs9;
 
 /// <summary>
 /// Issues a warning to a target player, kicking after the third warning.

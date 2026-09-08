@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Deployment;
+namespace CTF.Hosting;
 
 [ChangeDriversAttribute(ChangeDriver.Hosting)]
 public static class GameModePaths

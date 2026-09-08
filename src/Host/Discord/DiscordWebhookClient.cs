@@ -1,6 +1,6 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
-namespace CTF.Host.Discord;
+namespace CTF.Application.Discord.LoggingDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Discord, ChangeDriver.Logging)]
 public class DiscordWebhookClient : IDiscordWebhookClient

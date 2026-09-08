@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+namespace CTF.Application.GunGames;
 
 /// <summary>
 /// Represents the number of kills required to advance to the next weapon level.

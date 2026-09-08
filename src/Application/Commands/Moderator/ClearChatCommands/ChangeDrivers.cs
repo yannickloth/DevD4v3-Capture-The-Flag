@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Moderator.ClearChatCommands;
+namespace CTF.Application.Commands.ClientMessageNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

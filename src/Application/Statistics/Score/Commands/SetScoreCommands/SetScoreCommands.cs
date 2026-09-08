@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.Commands.SetScoreCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs2;
 
 /// <summary>
 /// Sets or adds score to a single target player.

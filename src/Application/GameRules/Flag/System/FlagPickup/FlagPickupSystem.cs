@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Flag.System.FlagPickup;
+namespace CTF.Application.GameRules.PlayerNsNs3;
 
 /// <summary>
 /// Handles flag pickup interactions.

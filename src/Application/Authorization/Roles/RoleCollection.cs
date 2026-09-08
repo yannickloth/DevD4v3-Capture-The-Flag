@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Roles;
+namespace CTF.Application.Authorization;
 
 [ChangeDriversAttribute(ChangeDriver.Authorization)]
 public class RoleCollection

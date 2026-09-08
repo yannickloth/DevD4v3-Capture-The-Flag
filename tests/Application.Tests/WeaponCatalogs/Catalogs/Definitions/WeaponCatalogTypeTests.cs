@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.WeaponCatalogs.Catalogs.Definitions;
+namespace CTF.Application.Tests.WeaponCatalog;
 
 /// <summary>Tests for WeaponCatalogType.</summary>
 [ChangeDriversAttribute(ChangeDriver.WeaponCatalog, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

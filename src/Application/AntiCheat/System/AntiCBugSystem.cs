@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat.System;
+namespace CTF.Application.AntiCheat.GameTextDomain;
 
 /// <summary>
 /// Prevents players from abusing the GTA: San Andreas crouch bug (C-Bug).

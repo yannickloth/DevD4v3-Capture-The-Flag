@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Authorization.Roles.CommandInfrastructure;
+namespace CTF.Application.Authorization.CommandInfrastructureNsNs2;
 
 [ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandInfrastructure)]
 public class PlayerRoleChecker : IPermissionChecker

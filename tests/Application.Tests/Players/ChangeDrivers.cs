@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Tests.Players;
+namespace CTF.Application.Statistics;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

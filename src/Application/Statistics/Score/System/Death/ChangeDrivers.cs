@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.System.Death;
+namespace CTF.Application.Statistics.RepositoryNsNs5;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

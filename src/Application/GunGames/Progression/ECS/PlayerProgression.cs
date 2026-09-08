@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression.ECS;
+namespace CTF.Application.GunGames.EcsNsNs2;
 
 /// <summary>
 /// Represents a player's progression in the GunGame mode.

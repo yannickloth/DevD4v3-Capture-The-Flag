@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.WeaponCatalogs.Catalogs;
+namespace CTF.Application.WeaponCatalogs;
 
 /// <summary>Test double for WeaponCatalog (fixture).</summary>
 [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]

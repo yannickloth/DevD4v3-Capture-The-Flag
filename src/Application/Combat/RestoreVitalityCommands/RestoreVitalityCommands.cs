@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.RestoreVitalityCommands;
+namespace CTF.Application.Combat.PlayerNsNs6;
 
 /// <summary>
 /// Restores a player's health or armour to full, subject to a cooldown.

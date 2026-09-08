@@ -1,4 +1,4 @@
-namespace CTF.Application.GunGames.Rewards;
+namespace CTF.Application.GunGames.ClientMessageNsNs4;
 
 /// <summary>
 /// Grants the GunGame victory rewards to the winner and their teammates.

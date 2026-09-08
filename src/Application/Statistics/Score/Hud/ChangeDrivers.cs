@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.Hud;
+namespace CTF.Application.Statistics.TextDrawNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Statistics.Score.Hud</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Core.Hud</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.TextDraw)]
 internal static class ChangeDrivers { }

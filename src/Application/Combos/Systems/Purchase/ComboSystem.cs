@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Systems.Purchase;
+namespace CTF.Application.Combos.StatisticsDomain;
 
 [ChangeDriversAttribute(ChangeDriver.Combo, ChangeDriver.CommandSet, ChangeDriver.Coin, ChangeDriver.GunGame, ChangeDriver.Player, ChangeDriver.Dialog, ChangeDriver.TextDraw, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.Statistics)]
 public class ComboSystem : ISystem

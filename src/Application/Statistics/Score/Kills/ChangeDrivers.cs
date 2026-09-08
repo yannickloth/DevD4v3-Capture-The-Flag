@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.Score.Kills;
+namespace CTF.Application.Statistics.RepositoryNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Statistics.Score.Kills</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Core.Kills</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Repository)]
 internal static class ChangeDrivers { }

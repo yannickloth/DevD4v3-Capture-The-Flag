@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WeaponSelectionKeyTrigger;
+namespace CTF.Application.Combat.DialogDomain;
 
 /// <summary>
 /// Dispatches the weapon-selection dialog commands from key presses.

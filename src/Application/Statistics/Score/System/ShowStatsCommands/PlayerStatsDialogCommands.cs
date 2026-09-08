@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.System.ShowStatsCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs4;
 
 /// <summary>
 /// Shows a player's statistics in a dialog.

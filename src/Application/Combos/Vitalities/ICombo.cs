@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combos.Vitalities;
+namespace CTF.Application.Combos;
 
 /// <summary>
 /// Represents a combination of different advantages, such as health, armour, and weapons, 

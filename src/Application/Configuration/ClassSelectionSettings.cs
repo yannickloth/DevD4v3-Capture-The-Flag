@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Configuration;
+namespace CTF.Application.Configuration.AudioDomain;
 
 /// <summary>
 /// Represents settings for class selection.

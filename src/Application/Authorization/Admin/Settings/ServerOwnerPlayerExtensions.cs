@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Admin.Settings;
+namespace CTF.Application.Authorization.ConfigurationDomain;
 
 /// <summary>
 /// Provides server-owner authorization extension methods over the player entity.

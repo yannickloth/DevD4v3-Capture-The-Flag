@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.WaitTimes;
+namespace CTF.Application.Combat.EcsDomain;
 
 /// <summary>
 /// Records the unix-time instant after which the health-restore

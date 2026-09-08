@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Membership;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Handles flag drop when a carrying player disconnects.

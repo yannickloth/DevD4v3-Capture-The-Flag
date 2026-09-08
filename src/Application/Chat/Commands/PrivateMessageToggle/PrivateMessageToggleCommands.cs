@@ -1,4 +1,4 @@
-namespace CTF.Application.Chat.Commands.PrivateMessageToggle;
+namespace CTF.Application.Chat.EcsNsNs4;
 
 /// <summary>
 /// Blocks or unblocks private messages for the player.

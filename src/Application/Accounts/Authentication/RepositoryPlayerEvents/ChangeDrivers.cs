@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Accounts.Authentication.RepositoryPlayerEvents;
+namespace CTF.Application.Accounts.EcsNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Accounts.Authentication.RepositoryPlayerEvents</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Credentials.RepositoryPlayerEvents</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Account)]
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TeamStats.System.Spawn;
+namespace CTF.Application.Players.TextDrawDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

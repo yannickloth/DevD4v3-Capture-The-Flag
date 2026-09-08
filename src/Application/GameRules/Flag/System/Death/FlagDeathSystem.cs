@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.Flag.System.Death;
+namespace CTF.Application.GameRules.StatisticsDomain;
 
 /// <summary>
 /// Handles flag drop and rewards when a carrying player dies.

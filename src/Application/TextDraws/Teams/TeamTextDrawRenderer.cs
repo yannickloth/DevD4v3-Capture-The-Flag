@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.TextDraws.Teams;
+namespace CTF.Application.TextDraws.ClientMessageDomain;
 
 /// <summary>
 /// Renders team-related information as textdraws.

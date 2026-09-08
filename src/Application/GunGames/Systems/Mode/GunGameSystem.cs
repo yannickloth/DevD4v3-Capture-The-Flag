@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Systems.Mode;
+namespace CTF.Application.GunGames.CommandInfrastructureDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): entityManager -> CD-32; worldService -> CD-36; dialogService -> CD-33; handlers (FrozenDictionary&lt;GunGameResult, IGunGameResultHandler&gt;) -> CD-07; weaponProgression -> CD-07; gunGameSession -> CD-07; gunGameReward -> CD-07. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Combat, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.Dialog, ChangeDriver.GameText, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]

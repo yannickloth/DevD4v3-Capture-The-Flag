@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.GunGames.Progression;
+namespace CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for PlayerProgression.</summary>
 [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

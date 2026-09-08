@@ -1,4 +1,4 @@
-namespace CTF.Application.MapRotation.Commands.Connection;
+namespace CTF.Application.MapRotation.PlayerDomain;
 
 /// <summary>
 /// Starts and stops the map-rotation timer as players connect and disconnect.

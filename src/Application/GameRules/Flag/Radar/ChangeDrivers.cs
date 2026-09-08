@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.Radar;
+namespace CTF.Application.GameRules.ConfigurationNsNs5;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.Radar</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Radar</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

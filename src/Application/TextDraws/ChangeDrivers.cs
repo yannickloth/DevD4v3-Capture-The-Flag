@@ -1,4 +1,3 @@
-using CTF.Application.IVP;
 
 namespace CTF.Application.TextDraws;
 

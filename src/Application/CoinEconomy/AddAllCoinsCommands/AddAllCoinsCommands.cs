@@ -1,4 +1,4 @@
-namespace CTF.Application.CoinEconomy.AddAllCoinsCommands;
+namespace CTF.Application.CoinEconomy.CommandSetNsNs3;
 
 /// <summary>
 /// Adds coins to all connected players.

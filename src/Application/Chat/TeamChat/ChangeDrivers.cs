@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Chat.TeamChat;
+namespace CTF.Application.Chat.ClientMessageNsNs5;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.Chat.TeamChat</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Chat)]
+[ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

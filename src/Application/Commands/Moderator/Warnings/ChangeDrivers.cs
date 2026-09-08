@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Moderator.Warnings;
+namespace CTF.Application.Commands.EcsDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

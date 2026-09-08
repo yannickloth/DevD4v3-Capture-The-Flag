@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Roles.FailedAttempts;
+namespace CTF.Application.Authorization.EcsDomain;
 
 /// <summary>
 /// Tracks the number of consecutive wrong secret-key attempts made by

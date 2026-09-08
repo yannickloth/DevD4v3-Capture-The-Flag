@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Basic.PublicCommandDialog;
+namespace CTF.Application.Commands.DialogNsNs2;
 
 /// <summary>
 /// Provides the public command dialogs (help, credits, and the two command pages).

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TopPlayers.Limits;
+namespace CTF.Application.Statistics.ConfigurationDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Statistics.TopPlayers.Limits</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Core.Limits</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

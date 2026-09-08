@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TeamStats.Scoreboard.ScoreboardKeyTrigger;
+namespace CTF.Application.Players;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

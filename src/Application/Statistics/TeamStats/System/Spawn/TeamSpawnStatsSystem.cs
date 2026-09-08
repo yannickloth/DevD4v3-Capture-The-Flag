@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.TeamStats.System.Spawn;
+namespace CTF.Application.Players.TextDrawDomain;
 
 /// <summary>
 /// Shows the team textdraws when a player spawns.

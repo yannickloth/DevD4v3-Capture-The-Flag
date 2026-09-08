@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Authentication.RepositoryBCrypt;
+namespace CTF.Application.Accounts.ClientMessageDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; playerRepository -> CD-20. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Repository, ChangeDriver.BCrypt, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]

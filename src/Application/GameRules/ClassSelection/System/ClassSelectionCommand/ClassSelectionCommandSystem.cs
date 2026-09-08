@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionCommand;
+namespace CTF.Application.GameRules.CombatDomain;
 
 /// <summary>
 /// Redirects the player to class selection via the class command.

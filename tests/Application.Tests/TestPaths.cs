@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests;
+namespace CTF.Application.Tests.Hosting.Map;
 
 /// <summary>Tests for map test-data paths.</summary>
 [ChangeDriversAttribute(ChangeDriver.Hosting, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Map)]

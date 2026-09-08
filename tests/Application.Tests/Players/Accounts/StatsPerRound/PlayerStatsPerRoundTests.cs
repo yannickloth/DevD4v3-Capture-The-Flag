@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts.StatsPerRound;
+namespace CTF.Application.Tests.Statistics;
 
 /// <summary>Tests for PlayerStatsPerRound.</summary>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

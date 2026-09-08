@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.System.Death;
+namespace CTF.Application.GameRules.StatisticsDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

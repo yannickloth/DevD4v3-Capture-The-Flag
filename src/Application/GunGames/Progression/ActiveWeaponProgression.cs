@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+namespace CTF.Application.GunGames;
 
 /// <summary>
 /// Represents the active weapon progression for the current GunGame session.

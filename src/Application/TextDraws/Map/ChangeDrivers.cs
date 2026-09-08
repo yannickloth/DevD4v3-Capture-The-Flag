@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.TextDraws.Map;
+namespace CTF.Application.TextDraws.MapDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.TextDraws.Map</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.TextDraw)]
+[ChangeDriversAttribute(ChangeDriver.TextDraw, ChangeDriver.MapRotation, ChangeDriver.Map)]
 internal static class ChangeDrivers { }

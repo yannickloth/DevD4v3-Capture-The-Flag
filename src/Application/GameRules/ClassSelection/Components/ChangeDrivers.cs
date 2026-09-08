@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.ClassSelection.Components;
+namespace CTF.Application.GameRules.EcsNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.ClassSelection.Components</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Components</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

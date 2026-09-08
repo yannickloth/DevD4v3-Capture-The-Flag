@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace Persistence.MariaDB.Repositories.TopPlayers;
+namespace Persistence.Repositories.ConfigurationNsNs4;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.MariaDB.Repositories.TopPlayers</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.TopPlayers</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

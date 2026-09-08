@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts.FlagCounter;
+namespace CTF.Application.Tests.Statistics;
 
 /// <summary>Tests for PlayerInfo flag counters.</summary>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

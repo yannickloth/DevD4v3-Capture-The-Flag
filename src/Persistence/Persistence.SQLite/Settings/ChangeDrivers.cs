@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace Persistence.SQLite.Settings;
+namespace CTF.Application.Configuration;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

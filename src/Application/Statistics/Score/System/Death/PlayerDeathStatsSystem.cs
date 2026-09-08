@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.System.Death;
+namespace CTF.Application.Statistics.RepositoryNsNs5;
 
 /// <summary>
 /// Updates and persists player kill/death statistics on a player death.

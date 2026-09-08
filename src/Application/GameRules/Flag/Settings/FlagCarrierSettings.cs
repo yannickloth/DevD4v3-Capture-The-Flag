@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Settings;
+namespace CTF.Application.GameRules.ConfigurationNsNs2;
 
 /// <summary>
 /// Represents the settings for the flag carrier.

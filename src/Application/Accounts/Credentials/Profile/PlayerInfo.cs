@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Credentials.Profile;
+namespace CTF.Application.Accounts.CoinDomain;
 
 /// <summary>
 /// Represents the account of a player as persisted in the database.

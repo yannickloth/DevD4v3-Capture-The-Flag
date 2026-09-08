@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionConnect;
+namespace CTF.Application.GameRules.PlayerNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

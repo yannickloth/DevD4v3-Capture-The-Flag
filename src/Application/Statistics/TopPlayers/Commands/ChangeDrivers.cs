@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TopPlayers.Commands;
+namespace CTF.Application.Statistics.CommandInfrastructureNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Statistics.TopPlayers.Commands</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Core.Limits.Commands</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Statistics)]
+[ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.Configuration, ChangeDriver.Repository, ChangeDriver.CommandSet, ChangeDriver.Dialog, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure)]
 internal static class ChangeDrivers { }

@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.System.StatsTextDraw;
+namespace CTF.Application.Statistics.TextDrawNsNs3;
 
 /// <summary>
 /// Creates and updates the per-player statistics textdraw.

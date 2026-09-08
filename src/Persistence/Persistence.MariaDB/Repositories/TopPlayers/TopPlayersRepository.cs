@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB.Repositories.TopPlayers;
+namespace Persistence.Repositories.ConfigurationNsNs4;
 
 /// <remarks>Injected dependencies (change drivers of these elements): sqlCollection -> CD-18; mariaDbSettings -> CD-17; topPlayersSettings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]

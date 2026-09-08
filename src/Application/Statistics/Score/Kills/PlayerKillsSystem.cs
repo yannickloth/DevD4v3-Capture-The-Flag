@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Score.Kills;
+namespace CTF.Application.Statistics.RepositoryNsNs3;
 
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; playerStatsRenderer -> CD-10. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.CommandSet, ChangeDriver.Authorization, ChangeDriver.Repository)]

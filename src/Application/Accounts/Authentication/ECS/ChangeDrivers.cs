@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Accounts.Authentication.ECS;
+namespace CTF.Application.Accounts.EcsNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Accounts.Authentication.ECS</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Credentials.ECS</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Account)]
+[ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.CommandInfrastructure;
+namespace CTF.Application.CommandInfrastructure;
 
 [ChangeDriversAttribute(ChangeDriver.CommandInfrastructure)]
 public class CommandUsageFormatter : ICommandTextFormatter

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Chat.Authorization;
+namespace CTF.Application.Chat.ClientMessageNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
+/// Namespace declaring the causal change-driver chain of
 /// <c>CTF.Application.Chat.Authorization</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Chat)]
+[ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Authorization, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

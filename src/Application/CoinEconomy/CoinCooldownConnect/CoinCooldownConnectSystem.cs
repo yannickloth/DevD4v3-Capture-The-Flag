@@ -1,6 +1,5 @@
-using CTF.Application.CoinEconomy.WaitTimes;
 
-namespace CTF.Application.CoinEconomy.CoinCooldownConnect;
+namespace CTF.Application.CoinEconomy.PlayerDomain;
 
 /// <remarks>No injected services. Adds the give-me-coins WaitTimeComponent when a player connects.</remarks>
 [ChangeDriversAttribute(ChangeDriver.Coin, ChangeDriver.Player)]

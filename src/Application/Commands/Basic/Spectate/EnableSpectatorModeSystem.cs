@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Basic.Spectate;
+namespace CTF.Application.Commands.ClientMessageNsNs7;
 
 /// <summary>
 /// Enables spectator mode on a target player, subject to a minimum-health rule.

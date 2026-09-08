@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.Commands.AddScoreToAllCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs3;
 
 /// <summary>
 /// Adds score to all connected players.

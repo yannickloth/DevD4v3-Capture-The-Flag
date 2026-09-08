@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Statistics.TeamStats.Show;
+namespace CTF.Application.Statistics.DialogNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

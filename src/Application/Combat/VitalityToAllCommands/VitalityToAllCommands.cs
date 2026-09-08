@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.VitalityToAllCommands;
+namespace CTF.Application.Combat.PlayerNsNs5;
 
 /// <summary>
 /// Adds health or armour to all connected players.

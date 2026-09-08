@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Score.PerRound;
+namespace CTF.Application.Statistics;
 
 [ChangeDriversAttribute(ChangeDriver.Statistics)]
 public class PlayerStatsPerRound

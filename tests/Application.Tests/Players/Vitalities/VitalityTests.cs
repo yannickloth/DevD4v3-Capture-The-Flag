@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Vitalities;
+namespace CTF.Application.Tests.Combat;
 
 /// <summary>Tests for Vitality.</summary>
 [ChangeDriversAttribute(ChangeDriver.Combat, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

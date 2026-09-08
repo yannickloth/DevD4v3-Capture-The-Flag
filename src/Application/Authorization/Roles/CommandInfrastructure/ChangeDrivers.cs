@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Authorization.Roles.CommandInfrastructure;
+namespace CTF.Application.Authorization.CommandInfrastructureNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.Authorization.Roles.CommandInfrastructure</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Roles.CommandInfrastructure</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Authorization)]
+[ChangeDriversAttribute(ChangeDriver.Authorization, ChangeDriver.CommandInfrastructure)]
 internal static class ChangeDrivers { }

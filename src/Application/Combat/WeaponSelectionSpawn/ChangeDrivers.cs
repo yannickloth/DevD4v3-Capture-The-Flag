@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combat.WeaponSelectionSpawn;
+namespace CTF.Application.Combat.PlayerNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

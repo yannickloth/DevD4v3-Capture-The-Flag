@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Basic.PublicCommandDialog;
+namespace CTF.Application.Commands.DialogNsNs2;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

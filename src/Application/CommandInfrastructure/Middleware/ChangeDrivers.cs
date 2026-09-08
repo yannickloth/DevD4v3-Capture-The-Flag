@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.CommandInfrastructure.Middleware;
+namespace CTF.Application.CommandInfrastructure.MapRotationDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.CommandInfrastructure.Middleware</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Middleware</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.CommandInfrastructure)]
+[ChangeDriversAttribute(ChangeDriver.CommandInfrastructure, ChangeDriver.Ecs, ChangeDriver.Account, ChangeDriver.GameRules, ChangeDriver.MapRotation)]
 internal static class ChangeDrivers { }

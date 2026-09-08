@@ -1,4 +1,4 @@
-namespace CTF.Application.Chat.Commands.PrivateMessage;
+namespace CTF.Application.Chat.EcsNsNs2;
 
 /// <summary>
 /// Records whether a player has blocked incoming private messages.

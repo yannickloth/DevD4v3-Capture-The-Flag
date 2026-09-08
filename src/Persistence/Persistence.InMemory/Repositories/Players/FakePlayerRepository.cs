@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory.Repositories.Players;
+namespace Persistence.Repositories.BCryptDomain;
 
 /// <remarks>Injected dependencies (change drivers of these elements): players (Dictionary&lt;int, FakePlayer&gt;) -> CD-18; passwordHasher -> CD-25. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]

@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.DatabaseProviders.InMemory;
+namespace CTF.Application.Tests.Repositories.DatabaseSchema.Composition.BCrypt;
 
 /// <summary>Wires the in-memory persistence stack for the repository tests.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]

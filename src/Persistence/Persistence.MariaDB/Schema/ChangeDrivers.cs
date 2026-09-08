@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace Persistence.MariaDB.Schema;
+namespace CTF.Application.SchemaNs4;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.MariaDB.Schema</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.SchemaNs4</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
+[ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

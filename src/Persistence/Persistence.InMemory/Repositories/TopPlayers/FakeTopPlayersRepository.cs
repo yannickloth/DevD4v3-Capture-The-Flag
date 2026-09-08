@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory.Repositories.TopPlayers;
+namespace Persistence.Repositories.ConfigurationNsNs2;
 
 /// <remarks>Injected dependencies (change drivers of these elements): players (Dictionary&lt;int, FakePlayer&gt;) -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.Configuration)]

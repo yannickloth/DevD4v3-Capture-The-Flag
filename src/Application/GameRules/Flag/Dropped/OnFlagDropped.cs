@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Dropped;
+namespace CTF.Application.GameRules.RepositoryNsNs2;
 
 /// <summary>
 /// This event occurs when a player has dropped the opposing team's flag.

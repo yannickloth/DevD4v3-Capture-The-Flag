@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.WeaponCatalogs;
+namespace CTF.Application.WeaponCatalogs;
 
 [ChangeDriversAttribute(ChangeDriver.WeaponCatalog)]
 public static class WeaponServicesExtensions

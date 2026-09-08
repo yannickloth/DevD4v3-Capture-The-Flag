@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Score;
+namespace CTF.Application.GameRules.RepositoryNsNs4;
 
 /// <summary>
 /// This event occurs when a player has captured the opposing team's flag and brought it back to their own base.

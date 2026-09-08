@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GunGames.Progression.ECS;
+namespace CTF.Application.GunGames.EcsNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GunGames.Progression.ECS</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.GunGames.ECS</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GunGame)]
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Ecs)]
 internal static class ChangeDrivers { }

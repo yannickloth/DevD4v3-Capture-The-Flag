@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.ClassSelection.Teams;
+namespace CTF.Application.GameRules.CommandSetDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.ClassSelection.Teams</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Teams</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Dialog, ChangeDriver.Player, ChangeDriver.CommandInfrastructure, ChangeDriver.CommandSet)]
 internal static class ChangeDrivers { }

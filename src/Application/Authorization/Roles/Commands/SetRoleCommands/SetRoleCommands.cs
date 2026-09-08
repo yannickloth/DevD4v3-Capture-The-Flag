@@ -1,4 +1,4 @@
-namespace CTF.Application.Authorization.Roles.Commands.SetRoleCommands;
+namespace CTF.Application.Authorization.CommandSetNsNs2;
 
 /// <summary>
 /// Sets the role of a target player.

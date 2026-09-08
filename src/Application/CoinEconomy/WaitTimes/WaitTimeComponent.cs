@@ -1,4 +1,4 @@
-namespace CTF.Application.CoinEconomy.WaitTimes;
+namespace CTF.Application.CoinEconomy.EcsDomain;
 
 /// <summary>
 /// Records the unix-time instant after which the give-me-coins

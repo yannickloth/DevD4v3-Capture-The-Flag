@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combat.WeaponSelectionKeyTrigger;
+namespace CTF.Application.Combat.DialogDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

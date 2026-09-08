@@ -1,4 +1,4 @@
-﻿namespace CTF.Host.Composition.ApplicationServices;
+namespace CTF.Composition.HostingNsNs3;
 
 [ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Hosting)]
 public static class ApplicationServicesExtensions

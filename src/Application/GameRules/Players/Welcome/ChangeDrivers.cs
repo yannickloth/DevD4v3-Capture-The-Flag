@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Players.Welcome;
+namespace CTF.Application.GameRules.ClientMessageNsNs2;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Players.Welcome</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Membership.Welcome</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Player, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

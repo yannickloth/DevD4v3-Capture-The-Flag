@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Admin.BannedIPs;
+namespace CTF.Application.Commands.ClientMessageNsNs3;
 
 /// <summary>
 /// Shows the list of banned IP addresses.

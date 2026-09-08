@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.TargetPlayer;
+namespace CTF.Application.Commands.ClientMessageNsNs8;
 
 /// <summary>
 /// Moderator commands that act on a target player: kick them or respawn them at their spawn point.

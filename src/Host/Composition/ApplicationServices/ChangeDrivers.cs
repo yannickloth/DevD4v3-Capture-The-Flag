@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Host.Composition.ApplicationServices;
+namespace CTF.Composition.HostingNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Host.Composition.ApplicationServices</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Composition.ApplicationServices</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Composition)]
+[ChangeDriversAttribute(ChangeDriver.Composition, ChangeDriver.Hosting)]
 internal static class ChangeDrivers { }

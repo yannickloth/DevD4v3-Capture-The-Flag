@@ -1,6 +1,5 @@
-﻿namespace CTF.Application.Tests.GunGames.Progression;
+namespace CTF.Application.Tests.GunGames;
 
-using CTF.Application.Tests.GunGames;
 
 /// <summary>Tests for GunGame.ProcessKill.</summary>
 [ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

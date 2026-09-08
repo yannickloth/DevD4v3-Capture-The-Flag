@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.TeamStats.System.ResetCommands;
+namespace CTF.Application.Statistics.TextDrawNsNs4;
 
 /// <summary>
 /// Resets the team statistics for the current round.

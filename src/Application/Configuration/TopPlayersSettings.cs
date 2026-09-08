@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Configuration;
+namespace CTF.Application.Configuration.StatisticsDomain;
 
 /// <summary>
 /// Represents the configuration thresholds for qualifying top players.

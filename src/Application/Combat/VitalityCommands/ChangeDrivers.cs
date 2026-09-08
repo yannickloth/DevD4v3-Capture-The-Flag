@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combat.VitalityCommands;
+namespace CTF.Application.Combat.PlayerNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

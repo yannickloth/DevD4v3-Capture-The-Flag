@@ -1,4 +1,4 @@
-namespace CTF.Application.Commands.Moderation;
+namespace CTF.Application.Commands.ClientMessageNsNs9;
 
 /// <summary>
 /// Gives a jetpack to all connected players.

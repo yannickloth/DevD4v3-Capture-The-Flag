@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Commands.Admin.UnbanCommands;
+namespace CTF.Application.Commands.ClientMessageNsNs2;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

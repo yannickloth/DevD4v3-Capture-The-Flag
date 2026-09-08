@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Components;
+namespace CTF.Application.GameRules.EcsNsNs2;
 
 /// <summary>
 /// Provides extension methods for the class-selection player state.

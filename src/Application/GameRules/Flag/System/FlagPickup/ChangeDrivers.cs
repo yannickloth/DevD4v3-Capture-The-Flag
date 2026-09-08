@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.System.FlagPickup;
+namespace CTF.Application.GameRules.PlayerNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

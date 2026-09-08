@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Extensions;
+namespace CTF.Application.Tests.Accounts.Ecs;
 
 /// <summary>Tests for PlayerExtensions.</summary>
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Ecs)]

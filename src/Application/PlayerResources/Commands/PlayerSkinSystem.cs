@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.PlayerResources.Commands;
+namespace CTF.Application.PlayerResources.RepositoryDomain;
 
 /// <remarks>Injected dependencies: playerRepository -> CD-20. Driven by the IPlayerRepository contract + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Model, ChangeDriver.Player, ChangeDriver.CommandSet, ChangeDriver.Repository)]

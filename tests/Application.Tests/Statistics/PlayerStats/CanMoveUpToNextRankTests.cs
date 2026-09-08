@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Statistics.PlayerStats;
+namespace CTF.Application.Tests.Statistics;
 
 /// <summary>Tests for RankCollection.CanMoveUpToNextRank.</summary>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

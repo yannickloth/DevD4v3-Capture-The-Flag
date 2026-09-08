@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.Extensions;
+namespace CTF.Application.Combat.PlayerNsNs2;
 
 /// <summary>
 /// Provides extension methods for adding health and armour, bounded to their maximum values.

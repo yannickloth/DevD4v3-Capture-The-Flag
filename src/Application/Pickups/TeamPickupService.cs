@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Pickups;
+namespace CTF.Application.Pickups.PickupDomain;
 
 /// <summary>
 /// Creates and destroys pickups for team flags and exterior markers.

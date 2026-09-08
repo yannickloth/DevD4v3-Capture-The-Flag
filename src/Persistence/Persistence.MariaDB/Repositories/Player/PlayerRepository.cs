@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB.Repositories.Player;
+namespace Persistence.Repositories.ConfigurationNsNs3;
 
 /// <remarks>Injected dependencies (change drivers of these elements): passwordHasher -> CD-25; sqlCollection -> CD-18; settings -> CD-17. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.BCrypt, ChangeDriver.Configuration)]

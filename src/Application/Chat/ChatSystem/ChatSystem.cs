@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat.ChatSystem;
+namespace CTF.Application.Chat.ClientMessageNsNs4;
 
 /// <summary>
 /// Routes player chat messages to the matching private chat tier based on its prefix identifier.

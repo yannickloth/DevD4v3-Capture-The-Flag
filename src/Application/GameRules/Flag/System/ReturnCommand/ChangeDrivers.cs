@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.System.ReturnCommand;
+namespace CTF.Application.GameRules.TimerNsNs3;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

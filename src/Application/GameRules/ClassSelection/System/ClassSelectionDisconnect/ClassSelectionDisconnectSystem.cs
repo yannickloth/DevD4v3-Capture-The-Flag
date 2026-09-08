@@ -1,4 +1,4 @@
-namespace CTF.Application.GameRules.ClassSelection.System.ClassSelectionDisconnect;
+namespace CTF.Application.GameRules.AccountDomain;
 
 /// <summary>
 /// Handles player disconnect by removing them from their team.

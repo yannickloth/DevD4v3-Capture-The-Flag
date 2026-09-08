@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.FlagState;
+namespace CTF.Application.GameRules.AttachedObjectDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.FlagState</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.FlagState</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.MapIcon, ChangeDriver.Model, ChangeDriver.AttachedObject)]
 internal static class ChangeDrivers { }

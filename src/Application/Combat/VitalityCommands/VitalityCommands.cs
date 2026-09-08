@@ -1,4 +1,4 @@
-namespace CTF.Application.Combat.VitalityCommands;
+namespace CTF.Application.Combat.PlayerNsNs4;
 
 /// <summary>
 /// Adds health or armour to a target player.

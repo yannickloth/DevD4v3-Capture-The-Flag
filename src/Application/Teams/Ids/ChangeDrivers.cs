@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Teams.Ids;
+namespace CTF.Application.GameRules.PlayerNsNs2;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

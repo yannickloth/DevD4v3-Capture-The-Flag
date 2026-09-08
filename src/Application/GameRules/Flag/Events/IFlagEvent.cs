@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.Flag.Events;
+namespace CTF.Application.GameRules.CompositionDomain;
 
 /// <summary>
 /// Represents an event related to the flag in the game.

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.TopPlayers;
+namespace CTF.Application.Statistics.RepositoryNsNs2;
 
 /// <summary>
 /// Represents the persistence contract for retrieving top players.

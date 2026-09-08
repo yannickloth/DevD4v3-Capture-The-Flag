@@ -1,6 +1,5 @@
-using CTF.Application.Authorization.Roles.FailedAttempts;
 
-namespace CTF.Application.Authorization.Roles.Commands.GiveMeAdminCommands;
+namespace CTF.Application.Authorization.CommandSetNsNs3;
 
 /// <summary>
 /// Promotes the server owner to admin via a secret key.

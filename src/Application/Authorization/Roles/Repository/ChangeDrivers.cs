@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Authorization.Roles.Repository;
+namespace CTF.Application.Authorization.RepositoryDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

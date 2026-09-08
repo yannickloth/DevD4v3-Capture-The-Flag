@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.TopPlayers;
+namespace CTF.Application.Tests.Statistics.Configuration;
 
 /// <summary>Tests for MaxTopPlayers.</summary>
 [ChangeDriversAttribute(ChangeDriver.Statistics, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.Configuration)]

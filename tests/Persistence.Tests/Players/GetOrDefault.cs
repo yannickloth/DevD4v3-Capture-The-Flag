@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Players;
+namespace CTF.Application.Tests.Repositories.DatabaseSchema;
 
 /// <summary>Verifies the repository GetOrDefault operation returns the persisted player or null.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.NUnit, ChangeDriver.FluentAssertions, ChangeDriver.DatabaseSchema)]

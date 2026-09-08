@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Players.Pause;
+namespace CTF.Application.GameRules.TimerNsNs4;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

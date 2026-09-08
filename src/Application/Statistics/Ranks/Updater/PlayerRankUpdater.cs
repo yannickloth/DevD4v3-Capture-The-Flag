@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Statistics.Ranks.Updater;
+namespace CTF.Application.Statistics.ClientMessageNsNs3;
 
 /// <summary>
 /// Promotes the player to the next rank and grants the rank-up award.

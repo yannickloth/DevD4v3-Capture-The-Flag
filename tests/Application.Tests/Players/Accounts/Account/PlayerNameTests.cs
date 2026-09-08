@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts.Account;
+namespace CTF.Application.Tests.Accounts;
 
 /// <summary>Tests for PlayerInfo.SetName.</summary>
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.Combat.Headshot;
+namespace CTF.Application.Combat.ConfigurationDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

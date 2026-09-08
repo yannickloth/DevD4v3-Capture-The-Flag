@@ -1,4 +1,4 @@
-﻿namespace Persistence.MariaDB.Schema;
+namespace CTF.Application.SchemaNs4;
 
 [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.MariaDbDialect, ChangeDriver.Configuration)]
 internal class MariaDbSchemaExecutor

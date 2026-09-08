@@ -1,4 +1,4 @@
-namespace CTF.Application.Chat.Commands.SendPrivateMessage;
+namespace CTF.Application.Chat.EcsNsNs3;
 
 /// <summary>
 /// Sends a private message to a player and relays it to the staff.

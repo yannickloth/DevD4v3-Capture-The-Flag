@@ -1,10 +1,10 @@
 using CTF.Application.IVP;
 
-namespace CTF.Application.AntiCheat.Settings;
+namespace CTF.Application.AntiCheat.ConfigurationDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.AntiCheat.Settings</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.AntiCheat.ConfigurationDomain</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.AntiCheat)]
+[ChangeDriversAttribute(ChangeDriver.AntiCheat, ChangeDriver.Configuration)]
 internal static class ChangeDrivers { }

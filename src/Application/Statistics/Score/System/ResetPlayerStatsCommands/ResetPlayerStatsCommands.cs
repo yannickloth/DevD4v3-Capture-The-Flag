@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Score.System.ResetPlayerStatsCommands;
+namespace CTF.Application.Statistics.CommandSetNsNs5;
 
 /// <summary>
 /// Resets the current round kills/deaths of a player.

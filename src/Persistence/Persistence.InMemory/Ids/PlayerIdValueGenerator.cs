@@ -1,4 +1,4 @@
-﻿namespace Persistence.InMemory.Ids;
+namespace CTF.Application.SchemaNs2;
 
 [ChangeDriversAttribute(ChangeDriver.DatabaseSchema)]
 internal class PlayerIdValueGenerator

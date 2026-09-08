@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Accounts.Authentication.CommandsPlayerEvents;
+namespace CTF.Application.Accounts.RepositoryNsNs4;
 
 /// <remarks>Injected dependencies (change drivers of these elements): playerRepository -> CD-20; worldService -> CD-36. Each injection parameter is driven by the contract of its injected type + CD-21 (DI wiring).</remarks>
 [ChangeDriversAttribute(ChangeDriver.Account, ChangeDriver.CommandSet, ChangeDriver.Player, ChangeDriver.ClientMessage, ChangeDriver.CommandInfrastructure, ChangeDriver.Repository)]

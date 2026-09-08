@@ -1,4 +1,4 @@
-namespace CTF.Application.Statistics.Core;
+namespace CTF.Application.Statistics;
 
 /// <summary>
 /// The killing-spree rule constants and predicate, governed solely by the

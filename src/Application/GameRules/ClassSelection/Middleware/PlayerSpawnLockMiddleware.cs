@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GameRules.ClassSelection.Middleware;
+namespace CTF.Application.GameRules.MapRotationDomain;
 
 /// <summary>
 /// Middleware executed before <c>OnPlayerRequestSpawn</c> to prevent players

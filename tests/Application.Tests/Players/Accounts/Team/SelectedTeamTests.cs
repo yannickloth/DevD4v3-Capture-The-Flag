@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Tests.Players.Accounts.Team;
+namespace CTF.Application.Tests.GameRules;
 
 /// <summary>Tests for PlayerInfo.SetTeam.</summary>
 [ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.NUnit, ChangeDriver.FluentAssertions)]

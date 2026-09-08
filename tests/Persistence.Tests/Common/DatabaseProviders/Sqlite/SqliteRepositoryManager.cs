@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.DatabaseProviders.Sqlite;
+namespace CTF.Application.Tests.Repositories.SqliteDialect.DatabaseSchema.Composition.BCrypt;
 
 /// <summary>Wires the SQLite persistence stack for the repository tests.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.SqliteDialect, ChangeDriver.DatabaseSchema, ChangeDriver.Composition, ChangeDriver.BCrypt)]

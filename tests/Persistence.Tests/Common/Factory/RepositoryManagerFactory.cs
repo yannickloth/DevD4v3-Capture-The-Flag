@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.Common.Factory;
+namespace CTF.Application.Tests.Repositories.MariaDbDialect.SqliteDialect.Composition;
 
 /// <summary>Dispatches to the correct repository-manager implementation per provider.</summary>
 [ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.MariaDbDialect, ChangeDriver.SqliteDialect, ChangeDriver.Composition)]

@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Combat.HeadshotSystem;
+namespace CTF.Application.Combat.RepositoryDomain;
 
 /// <summary>
 /// Handles headshot detection, reward, and persistence.

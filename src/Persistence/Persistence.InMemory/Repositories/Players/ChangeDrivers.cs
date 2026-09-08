@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace Persistence.InMemory.Repositories.Players;
+namespace Persistence.Repositories.BCryptDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>Persistence.InMemory.Repositories.Players</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Players</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.Repository)]
+[ChangeDriversAttribute(ChangeDriver.Repository, ChangeDriver.DatabaseSchema, ChangeDriver.BCrypt)]
 internal static class ChangeDrivers { }

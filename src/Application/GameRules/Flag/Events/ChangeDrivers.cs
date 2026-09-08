@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GameRules.Flag.Events;
+namespace CTF.Application.GameRules.CompositionDomain;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GameRules.Flag.Events</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Events</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GameRules)]
+[ChangeDriversAttribute(ChangeDriver.GameRules, ChangeDriver.Composition)]
 internal static class ChangeDrivers { }

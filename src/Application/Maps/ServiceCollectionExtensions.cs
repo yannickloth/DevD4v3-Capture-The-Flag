@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Maps;
+namespace CTF.Application.Maps;
 
 [ChangeDriversAttribute(ChangeDriver.Map)]
 public static class MapServicesExtensions

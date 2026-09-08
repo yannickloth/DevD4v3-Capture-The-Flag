@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace Persistence.Tests.Common.PasswordHasher;
+namespace CTF.BCrypt;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

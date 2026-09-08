@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.AntiCheat.Commands;
+namespace CTF.Application.AntiCheat.PlayerNsNs2;
 
 /// <summary>
 /// Provides administrative commands to enable or disable the GTA: San Andreas

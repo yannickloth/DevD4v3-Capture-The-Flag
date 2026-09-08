@@ -1,4 +1,4 @@
-﻿namespace Persistence.SQLite.Schema;
+namespace CTF.Application.SchemaNs5;
 
 [ChangeDriversAttribute(ChangeDriver.DatabaseSchema, ChangeDriver.SqliteDialect, ChangeDriver.Configuration)]
 internal static class SQLiteSchemaExecutor

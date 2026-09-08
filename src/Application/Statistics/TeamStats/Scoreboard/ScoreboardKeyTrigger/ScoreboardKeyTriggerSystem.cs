@@ -1,6 +1,6 @@
 
 
-namespace CTF.Application.Statistics.TeamStats.Scoreboard.ScoreboardKeyTrigger;
+namespace CTF.Application.Players;
 
 /// <summary>
 /// Dispatches the team-scoreboard dialog command from a key press.

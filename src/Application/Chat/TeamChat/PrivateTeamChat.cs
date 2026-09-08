@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Chat.TeamChat;
+namespace CTF.Application.Chat.ClientMessageNsNs5;
 
 /// <summary>
 /// Represents the team private chat tier, routed by the '!' prefix.

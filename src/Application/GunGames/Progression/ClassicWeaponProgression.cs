@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Progression;
+namespace CTF.Application.GunGames;
 
 /// <summary>
 /// Defines the classic GunGame weapon progression,

@@ -1,10 +1,9 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.GunGames.Results.FinalKill;
+namespace CTF.Application.GunGames.ClientMessageNsNs3;
 
 /// <summary>
-/// Namespace marker declaring the causal change-driver chain of
-/// <c>CTF.Application.GunGames.Results.FinalKill</c> (root-first).
+/// Namespace declaring the causal change-driver chain of
+/// <c>CTF.Application.Tests.GunGames.FinalKill</c> (root-first).
 /// </summary>
-[ChangeDriversAttribute(ChangeDriver.GunGame)]
+[ChangeDriversAttribute(ChangeDriver.GunGame, ChangeDriver.Statistics, ChangeDriver.Repository, ChangeDriver.Player, ChangeDriver.Ecs, ChangeDriver.ClientMessage)]
 internal static class ChangeDrivers { }

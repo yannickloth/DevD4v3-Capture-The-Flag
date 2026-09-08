@@ -1,4 +1,4 @@
-namespace CTF.Application.MapRotation.Commands.Spawn;
+namespace CTF.Application.MapRotation.TextDrawDomain;
 
 /// <summary>
 /// Shows the current map textdraw to a player on spawn.

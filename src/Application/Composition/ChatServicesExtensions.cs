@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.Composition;
+namespace CTF.Composition.ChatDomain;
 
 /// <summary>
 /// Provides dependency-injection extension methods for the chat subsystem.

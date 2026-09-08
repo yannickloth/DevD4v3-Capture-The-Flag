@@ -1,4 +1,4 @@
-namespace CTF.Application.Chat.Commands.PrivateMessageConnect;
+namespace CTF.Application.Chat.PlayerDomain;
 
 /// <remarks>No injected services. Adds the private-message component when a player connects.</remarks>
 [ChangeDriversAttribute(ChangeDriver.Chat, ChangeDriver.Player)]

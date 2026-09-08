@@ -1,6 +1,5 @@
-using CTF.Application.IVP;
 
-namespace CTF.Application.CoinEconomy.CoinCooldownConnect;
+namespace CTF.Application.CoinEconomy.PlayerDomain;
 
 /// <summary>
 /// Namespace marker declaring the causal change-driver chain of

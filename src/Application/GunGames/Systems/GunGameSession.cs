@@ -1,4 +1,4 @@
-﻿namespace CTF.Application.GunGames.Systems;
+namespace CTF.Application.GunGames;
 
 /// <summary>
 /// Represents the current GunGame session.
